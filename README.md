@@ -1,0 +1,31 @@
+## 收藏家 - The Cultural Collector -
+
+此為參與 2023 年底六角學院 Vue 直播班的個人專案作品。
+
+純屬開發練習，不做任何商用。
+
+Personal Side Project for Practice, Not For Any Commercial Use.
+
+***
+
+### 網站介紹
+
+所有圖片及文字來源皆已彙整至[文件](https://determined-pram-34a.notion.site/9f522b0de5c2413c8090249c96bd692a?v=5b0f1f1c376f4b468a56aaec87a97c8a&pvs=25)中
+
+***
+
+### 靈感來源
+
+✨ [SINGULART](https://www.singulart.com/cn/)
+
+✨ [四季複製畫 - 世界名畫複製](https://fine-art-print.tw/)
+
+一部分的版型設計、切版技巧及程式撰寫參考自以下幾位直播班前輩及同學的作品，非常謝謝！🙇
+
+✨ Moreene：[嘿毛寵物旅館](https://github.com/Moreene/HayMo-Hotel-JS)
+
+✨ hoongyuu：[齊托洋酒](https://github.com/hoongyuu/Cheeto-s-Wine)
+
+✨ ericacadu & HuskyHsu：[パンヤ](https://github.com/ericacadu/panya)
+
+✨ PayRoom：[原生 HTML 標籤的各種應用](https://codepen.io/water38198/pen/abMMKGX)

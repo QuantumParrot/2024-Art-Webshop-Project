@@ -1,0 +1,146 @@
+/* color palette */
+
+// main
+
+$gray-900: #212121;
+$gray-800: #424242;
+$gray-700: #616161;
+$gray-600: #757575;
+$gray-500: #9e9e9e;
+$gray-400: #bdbdbd;
+$gray-300: #e0e0e0;
+$gray-200: #eeeeee;
+$gray-100: #f5f5f5;
+
+// red
+
+$red-900: #b71c1c;
+$red-800: #c62828;
+$red-700: #d32f2f;
+$red-600: #e53935;
+$red-500: #f44336;
+$red-400: #ef5350;
+$red-300: #e57373;
+$red-200: #ef9a9a;
+$red-100: #ffcdd2;
+
+// blue
+
+$blue-900: #0d47a1;
+$blue-800: #1565c0;
+$blue-700: #1976d2;
+$blue-600: #1e88e5;
+$blue-500: #2196f3;
+$blue-400: #42a5f5;
+$blue-300: #64b5f6;
+$blue-200: #90caf9;
+$blue-100: #bbdefb;
+
+// cyan
+
+$cyan-900: #006064;
+$cyan-800: #00838f;
+$cyan-700: #0097a7;
+$cyan-600: #00acc1;
+$cyan-500: #00bcd4;
+$cyan-400: #26c6da;
+$cyan-300: #4dd0e1;
+$cyan-200: #80deea;
+$cyan-100: #b2ebf2;
+
+// green
+
+$green-900: #1b5e20;
+$green-800: #2e7d32;
+$green-700: #388e3c;
+$green-600: #43a047;
+$green-500: #4caf50;
+$green-400: #66bb6a;
+$green-300: #81c784;
+$green-200: #a5d6a7;
+$green-100: #c8e6c9;
+
+// yellow
+
+$yellow-900: #ff6f00;
+$yellow-800: #ff8f00;
+$yellow-700: #ffa000;
+$yellow-600: #ffb300;
+$yellow-500: #ffc107;
+$yellow-400: #ffca28;
+$yellow-300: #ffd54f;
+$yellow-200: #ffe082;
+$yellow-100: #ffecb3;
+
+// orange
+
+$orange-900: #bf360c;
+$orange-800: #d84315;
+$orange-700: #e64a19;
+$orange-600: #f4511e;
+$orange-500: #ff5722;
+$orange-400: #ff7043;
+$orange-300: #ff8a65;
+$orange-200: #ffab91;
+$orange-100: #ffccbc;
+
+/* color customize - 實際會在專案上用到的顏色 */
+
+$primary:       $gray-800;
+$secondary:     $gray-600;
+$highlight:   $orange-300;
+$light:         $gray-300;
+$dark:          $gray-900;
+$subtle:      $orange-200;
+
+$success:      $green-700;
+$info:          $blue-700;
+$warning:     $yellow-800;
+$danger:         $red-800;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "highlight":  $highlight,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "subtle":     $subtle,
+  "light":      $light,
+  "dark":       $dark
+);
+
+/* typography */
+
+$font-size-base: 1rem;
+
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+  7: .75rem,
+);
+
+$spacer: 1rem;
+
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25, // 4
+  2: $spacer * 0.5,  // 8
+  3: $spacer,
+  4: $spacer * 1.25,
+  5: $spacer * 1.5,
+  6: $spacer * 2,
+  7: $spacer * 3,
+);

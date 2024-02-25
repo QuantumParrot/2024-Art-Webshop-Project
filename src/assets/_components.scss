@@ -1,0 +1,28 @@
+/* modal、dialog */
+
+dialog {
+
+   border: none;
+   max-width: 500px;
+   width: calc(100vw - 48px);
+
+}
+
+.btn-origin { border: none; padding: 0; }
+
+.btn-inline { @extend .btn-origin; position: absolute; }
+
+/* input */
+
+.is-required {
+
+   &::before {
+
+      content: '*';
+      color: $danger;
+      font-weight: bold;
+      margin-right: .25rem;
+
+   }
+
+}

@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+
+html, body, #app { height: 100% }
+
+body {
+
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 500;
+
+}
+
+img { max-width: 100%; }
+
+textarea { resize: none; }
+
+a { color: inherit; }
+
+// *, *::before, *::after { outline: 1px solid tomato };

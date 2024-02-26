@@ -1,1 +1,0 @@
-import{h as o}from"./moment-Cl4UOzQZ.js";const e={methods:{formatDate(t,r="-"){return o(t).format(`YYYY${r}MM${r}DD`)},today(t="-"){return o().format(`YYYY${t}MM${t}DD`)},now(){return parseInt(new Date().getTime()/1e3,10)}}};export{e as c};

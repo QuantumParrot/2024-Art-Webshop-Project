@@ -21,17 +21,60 @@ export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? `/2024-Art-Webshop-Project/` : '/',
 
   plugins: [
+
     vue(),
     ckeditor5({ theme: require.resolve('@ckeditor/ckeditor5-theme-lark') }),
     eslintPlugin({
-      include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue'],
+
+    include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue'],
+
     }),
+
   ],
 
   resolve: {
+
     alias: {
+
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+
     },
+
   },
+
+  build: {
+
+    rollupOptions: {
+
+      output: {
+
+        manualChunks(id) {
+
+          try {
+
+            if (id.includes('node_modules')) {
+
+              // 解決 ckeditor 套件過肥問題 ( pnpm ver. )
+
+              let name = id.split('node_modules/')[1].split('/');
+
+              if (name[0] == '.pnpm') { return name[1] }
+              else { return name[0] }
+
+              // 以下是 npm 的做法
+
+              // return id.toString().split('node_modules/')[1].split('/')[0].toString();
+
+            }
+
+          } catch(error) { console.log(error); }
+
+        }
+
+      }
+
+    }
+
+  }
 
 });

@@ -76,7 +76,6 @@ export default defineStore('adminOrder', {
                 .then((res) => {
 
                     this.orders = res.data.orders;
-                    console.log(res.data.orders);
                     this.switchPage(1);
 
                 })

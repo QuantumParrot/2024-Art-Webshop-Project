@@ -88,7 +88,8 @@
 
 <admin-product-modal ref="productModal" :temp-product="tempProduct" />
 
-<delete-modal ref="deleteModal">
+<delete-modal ref="deleteModal"
+              @delete-target="deleteProduct(tempProduct.id, this.$refs.deleteModal.hideModal)">
     <template #title>確定刪除商品？</template>
     <template #alert>這個操作無法復原喔！你要確定欸！(ﾟдﾟ≡ﾟдﾟ)</template>
     <template #itemDetail>

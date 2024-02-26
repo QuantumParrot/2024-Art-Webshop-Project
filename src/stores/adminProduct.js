@@ -41,11 +41,19 @@ export default defineStore('adminProduct', {
 
             const tags = [];
 
-            products.forEach((item) => item.tags.forEach((tag) => {
+            products.forEach((item) => {
 
-                if (!tags.includes(tag)) { tags.push(tag); }
+                if (item.tags) { // 處理有些商品未包含 tags 的情況
 
-            }));
+                    item.tags.forEach((tag) => {
+
+                        if (!tags.includes(tag)) { tags.push(tag); }
+
+                    });
+
+                }
+
+            });
 
             return tags;
 
@@ -83,6 +91,8 @@ export default defineStore('adminProduct', {
 
                     const { products } = res.data;
                     this.products = Object.values(products);
+
+                    if (this.totalPages.length === 0) { this.filter = '全部'; }
                     if (this.currentPage > this.totalPages) { this.switchPage(1); }
 
                 })

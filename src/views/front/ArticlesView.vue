@@ -2,7 +2,7 @@
 
 <div class="container">
 
-商品詳細
+專欄文章
 
 </div>
 

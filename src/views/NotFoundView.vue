@@ -38,6 +38,10 @@
     left: 0; bottom: 0;
     z-index: 10;
     padding: 1rem 0;
+    opacity: 0;
+
+    &:hover { opacity: 1; }
+
     &::after {
         content: '';
         width: 100%; height: 100%;

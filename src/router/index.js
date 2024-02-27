@@ -15,6 +15,41 @@ const router = createRouter({
           name: 'front-index',
           component: () => import('../views/front/IndexView.vue'),
         },
+        {
+          path: 'about',
+          name: 'front-about',
+          component: () => import('../views/front/AboutView.vue'),
+        },
+        {
+          path: 'articles',
+          name: 'front-articles',
+          component: () => import('../views/front/ArticlesView.vue'),
+        },
+        {
+          path: 'article/:id',
+          name: 'front-article-detail',
+          component: () => import('../views/front/ArticleDetailView.vue'),
+        },
+        {
+          path: 'products',
+          name: 'front-products',
+          component: () => import('../views/front/ProductsView.vue'),
+        },
+        {
+          path: 'product/:id',
+          name: 'front-product-detail',
+          component: () => import('../views/front/ProductDetailView.vue'),
+        },
+        {
+          path: 'carts',
+          name: 'front-carts',
+          component: () => import('../views/front/CartsView.vue'),
+        },
+        {
+          path: 'order',
+          name: 'front-order-search',
+          component: () => import('../views/front/OrderSearchView.vue'),
+        },
       ],
     },
     {

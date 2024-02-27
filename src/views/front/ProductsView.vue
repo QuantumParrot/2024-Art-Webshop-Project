@@ -2,7 +2,7 @@
 
 <div class="container">
 
-商品詳細
+商品列表
 
 </div>
 

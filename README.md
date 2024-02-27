@@ -22,10 +22,12 @@ Personal Side Project for Practice, Not For Any Commercial Use.
 
 一部分的版型設計、切版技巧及程式撰寫參考自以下幾位直播班前輩及同學的作品，非常謝謝！🙇
 
-✨ Moreene：[嘿毛寵物旅館](https://github.com/Moreene/HayMo-Hotel-JS)
+✨ Moreene：[嘿毛寵物旅館](https://moreene.github.io/HayMo-Hotel-JS/)
 
-✨ hoongyuu：[齊托洋酒](https://github.com/hoongyuu/Cheeto-s-Wine)
+✨ zasper32171：[GOLDEN RONNY](https://zasper32171.github.io/golden_ronny/)
 
-✨ ericacadu & HuskyHsu：[パンヤ](https://github.com/ericacadu/panya)
+✨ hoongyuu：[齊托洋酒](https://hoongyuu.github.io/Cheeto-s-Wine/)
+
+✨ ericacadu & HuskyHsu：[パンヤ](https://ericacadu.github.io/panya/)
 
 ✨ PayRoom：[原生 HTML 標籤的各種應用](https://codepen.io/water38198/pen/abMMKGX)

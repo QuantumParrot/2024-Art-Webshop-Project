@@ -1,6 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+
+/* font-family */
+
+.font-dancing { font-family: 'Dancing Script', serif };
+
+/* align */
+
 .text-justify { text-align: justify; }
 
 .pre-wrap { white-space: pre-wrap; }
+
+/* shadow */
+
+.text-shadow { text-shadow: 0 0px 2px rgba(25, 25, 25, 0.25); }
+
+/* title design */
 
 .section-title {
 
@@ -16,6 +30,24 @@
         z-index: -1;
         height: 30%; width: 97%;
         background-color: $orange-200;
+
+    }
+
+}
+
+.p-title {
+
+    position: relative;
+    z-index: 0;
+
+    &::after {
+
+        content: '';
+        position: absolute;
+        bottom: 0; left: 1px;
+        z-index: -1;
+        height: 30%; width: 99%;
+        background-color: $gray-400;
 
     }
 

@@ -62,7 +62,7 @@ export default defineStore('alert', {
 
         },
 
-        checkAlert(config, fn) {
+        checkAlert(config, fn, reset) {
 
             const { title, text, icon = 'warning' } = config;
 
@@ -79,7 +79,11 @@ export default defineStore('alert', {
 
             }).then((result) => {
 
-                if (result.isConfirmed) { fn(); }
+                if (result.isConfirmed) {
+
+                    fn();
+
+                } else if (typeof reset === 'function') { reset(); }
 
                 // console.trace();
 

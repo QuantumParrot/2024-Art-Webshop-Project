@@ -123,6 +123,8 @@ import adminOrderStore from '@/stores/adminOrder';
 
 import loaderStore from '@/stores/loader';
 
+import alertStore from '@/stores/alert';
+
 //
 
 export default {
@@ -145,18 +147,27 @@ export default {
 
         ...mapActions(adminOrderStore, ['updateOrder']),
 
+        ...mapActions(alertStore, ['checkAlert']),
+
         formatTime(time) { return moment(time).format('YYYY/MM/DD HH:mm:ss'); },
 
         preUpdate(e) {
 
-            const data = {
+            const code = +e.target.value;
 
-                code: +e.target.value,
-                order: this.tempOrder,
+            const data = { code, order: this.tempOrder };
 
-            };
+            const fn = () => { this.updateOrder(data, this.hideModal); };
 
-            this.updateOrder(data, this.hideModal);
+            if (code === 4) {
+
+                const config = { title: '確定完成訂單？', text: '提醒您，完成訂單之後就無法修改狀態囉！' };
+
+                // dirty code ... 之後再修改 ... (´;ω;`)
+
+                this.checkAlert(config, fn, () => { e.target.value = this.tempOrder.state; });
+
+            } else { fn(); }
 
         },
 

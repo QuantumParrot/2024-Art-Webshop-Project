@@ -26,11 +26,11 @@ export default defineStore('adminOrder', {
 
         statesCode: {
 
-            0: { title: '未確認款項', color: '' },
-            1: { title: '已確認款項', color: '' },
-            2: { title: '安排出貨中', color: '' },
-            3: { title: '商品配送中', color: '' },
-            4: { title: '訂單已完成', color: '' },
+            0: { title: '未確認款項', color: '#c62828' },
+            1: { title: '已確認款項', color: '#ff6f00' },
+            2: { title: '安排出貨中', color: '#1565c0' },
+            3: { title: '商品配送中', color: '#00838f' },
+            4: { title: '訂單已完成', color: '#388e3c' },
 
         },
 
@@ -59,7 +59,7 @@ export default defineStore('adminOrder', {
 
             }
 
-            return { ...order, project: order.project || '無', state: order.state || 0 };
+            return { ...order, project: order.project || '不指定', state: order.state || 0 };
 
         }),
 
@@ -88,31 +88,19 @@ export default defineStore('adminOrder', {
 
             const { code, order } = data;
 
-            const fn = () => {
+            loaderStore.setLoader(order.id);
+            axios.put(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/order/${order.id}`, {
+                data: { ...order, state: Number(code) },
+            })
+                .then((res) => {
 
-                loaderStore.setLoader(order.id);
-                axios.put(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/order/${order.id}`, {
-                    data: { ...order, state: Number(code) },
+                    alertStore.toastAlert(res.data.message, 'success');
+                    hideModal();
+                    this.getOrders();
+
                 })
-                    .then((res) => {
-
-                        alertStore.toastAlert(res.data.message, 'success');
-                        hideModal();
-                        this.getOrders();
-
-                    })
-                    .catch((error) => alertStore.errorAlert(error))
-                    .finally(() => loaderStore.setLoader(''));
-
-            };
-
-            if (code === 4) {
-
-                const config = { title: '確定完成訂單？', text: '提醒您，完成訂單之後就無法修改狀態囉！' };
-
-                alertStore.checkAlert(config, fn);
-
-            } else { fn(); }
+                .catch((error) => alertStore.errorAlert(error))
+                .finally(() => loaderStore.setLoader(''));
 
         },
 

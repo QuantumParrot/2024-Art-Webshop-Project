@@ -20,42 +20,45 @@
         :current="currentPage" :total="totalPages" @switch-page="switchPage" />
 </div>
 
-<table class="table table-hover text-nowrap">
-    <thead>
-        <tr>
-        <th scope="col" width="10%">日期</th>
-        <th scope="col" width="40%">訂單</th>
-        <th scope="col" width="30%" class="d-none d-md-table-cell text-end">總額</th>
-        <th scope="col" width="15%" class="text-center">狀態</th>
-        <th scope="col" class="text-center">刪除</th>
-        </tr>
-    </thead>
-    <tbody class="align-middle">
-        <template v-for="order in ordersList" :key="order.id">
+<div class="table-responsive">
+    <table class="table table-hover text-nowrap">
+        <thead>
             <tr>
-                <td>{{ formatDate(order.create_at * 1000, '/') }}</td>
-                <td>
-                <span class="badge me-3" :class="order.is_paid ? 'bg-success' : 'bg-danger'">
-                {{ order.is_paid ? '已付款' : '未付款' }}
-                </span>
-                <a href="#" @click.prevent="openModal(order, 'check')">
-                    <span class="me-2">{{ order.user.name }}</span>
-                    <i class="bi bi-search"></i>
-                </a>
-                </td>
-                <td class="d-none d-md-table-cell text-end">NT$ {{ order.total }}</td>
-                <td class="text-center">
-                {{ statesCode[order.state || 0]?.title }}
-                </td>
-                <td class="text-end">
-                <button type="button" class="btn btn-outline-danger"
-                        :disabled="!deletePermission" @click="openModal(order, 'delete')">
-                <i class="bi bi-trash3-fill"></i></button>
-                </td>
+            <th scope="col" width="10%">日期</th>
+            <th scope="col" width="40%">訂單</th>
+            <th scope="col" width="30%" class="d-none d-md-table-cell text-end">總額</th>
+            <th scope="col" width="15%" class="text-center">狀態</th>
+            <th scope="col" class="text-center">刪除</th>
             </tr>
-        </template>
-    </tbody>
-</table>
+        </thead>
+        <tbody class="align-middle">
+            <template v-for="order in ordersList" :key="order.id">
+                <tr>
+                    <td>{{ formatDate(order.create_at * 1000, '/') }}</td>
+                    <td>
+                    <span class="badge me-3" :class="order.is_paid ? 'bg-success' : 'bg-danger'">
+                    {{ order.is_paid ? '已付款' : '未付款' }}
+                    </span>
+                    <a href="#" @click.prevent="openModal(order, 'check')">
+                        <span class="me-2">{{ order.user.name }}</span>
+                        <i class="bi bi-search"></i>
+                    </a>
+                    </td>
+                    <td class="d-none d-md-table-cell text-end">NT$ {{ order.total }}</td>
+                    <td class="text-center fw-bold">
+                        <span :style="{ color: statesCode[order.state || 0]?.color }">
+                        {{ statesCode[order.state || 0]?.title }}</span>
+                    </td>
+                    <td class="text-end">
+                    <button type="button" class="btn btn-outline-danger"
+                            :disabled="!deletePermission" @click="openModal(order, 'delete')">
+                    <i class="bi bi-trash3-fill"></i></button>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</div>
 
 </template>
 

@@ -15,8 +15,8 @@
             <div class="modal-body">
                 <ul class="nav nav-pills bg-light rounded-2 mb-3">
                     <li class="nav-item flex-grow-1">
-                    <button type="button" @click="tab = 'config'"
-                            class="w-100 nav-link" :class="{ 'active': tab === 'config' }">
+                    <button type="button" @click="tab = 'setting'"
+                            class="w-100 nav-link" :class="{ 'active': tab === 'setting' }">
                     文章設定</button>
                     </li>
                     <li class="nav-item flex-grow-1">
@@ -30,13 +30,20 @@
                     文章圖片</button>
                     </li>
                 </ul>
-                <div v-show="tab === 'config'">
+                <div v-show="tab === 'setting'">
                     <div class="mb-3">
                         <label class="form-label is-required" for="title">文章標題</label>
                         <v-field
                             id="title" type="text"
                             class="form-control" v-model.trim="article.title"
                             name="title" rules="required"></v-field>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label is-required" for="description">文章摘要</label>
+                        <v-field
+                            id="title" rows="3" class="form-control"
+                            v-model.trim="article.description"
+                            name="description" as="textarea"></v-field>
                     </div>
                     <div class="mb-3">
                         <div class="row row-cols-2">
@@ -105,7 +112,7 @@
                 </div>
                 <hr>
                 <p class="is-required">文章內容</p>
-                <ckeditor :editor="editor" :config="editorConfig" v-model="article.description" />
+                <ckeditor :editor="editor" :config="editorConfig" v-model="article.content" />
             </div>
             <div class="modal-footer justify-content-between align-items-center">
                 <div class="form-check">
@@ -172,7 +179,7 @@ export default {
 
         return {
 
-            tab: 'config',
+            tab: 'setting',
 
             article: { },
 
@@ -230,8 +237,6 @@ export default {
             this.article.tag.unshift(this.category);
 
             // console.log(this.article.tag);
-
-            this.article.content = this.article.description;
 
             if (this.article.id) {
 

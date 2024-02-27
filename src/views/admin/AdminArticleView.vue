@@ -42,10 +42,11 @@
                 <td class="text-center">
                     <div class="d-flex flex-column gap-2">
                         <button type="button" class="w-100 btn btn-outline-secondary"
-                                @click="openModal(article)">
+                                @click="openModal(article.id)">
                         編輯</button>
-                        <button type="button" class="w-100 btn btn-outline-danger"
-                                @click="deleteArticle(article)">
+                        <button type="button"
+                                class="w-100 btn btn-outline-danger"
+                                @click="deleteArticle(article.id, article.title)">
                         刪除</button>
                     </div>
                 </td>
@@ -70,11 +71,19 @@ import { mapState, mapActions } from 'pinia';
 
 import adminArticleStore from '@/stores/adminArticle';
 
+import loaderStore from '@/stores/loader';
+
+import alertStore from '@/stores/alert';
+
 //
 
 import AdminArticleModal from '@/components/modal/AdminArticleModal.vue';
 
 import PaginationComponent from '@/components/PaginationComponent.vue';
+
+//
+
+const { VITE_APP_SITE, VITE_APP_PATH } = import.meta.env;
 
 //
 
@@ -88,19 +97,41 @@ export default {
 
     computed: {
 
-        ...mapState(adminArticleStore, ['articles', 'pagination']),
+        ...mapState(adminArticleStore, ['articles', 'article', 'pagination']),
 
     },
 
     methods: {
 
-        ...mapActions(adminArticleStore, ['getArticles', 'deleteArticle', 'switchArticleStatus']),
+        ...mapActions(adminArticleStore, ['getArticles', 'getArticle', 'deleteArticle', 'switchArticleStatus']),
 
-        openModal(item) {
+        ...mapActions(loaderStore, ['createLoader', 'removeLoader']),
 
-            this.tempArticle = item ? { ...item } : { isPublic: false, create_at: this.now() };
+        ...mapActions(alertStore, ['errorAlert']),
+
+        openModal(id) {
+
+            if (id) {
+
+                this.getArticle(id);
+
+            } else { this.tempArticle = { isPublic: false, create_at: this.now() }; }
 
             this.$refs.articleModal.showModal();
+
+        },
+
+        getArticle(id) { // 權宜之計 (´;ω;`)
+
+            this.createLoader('get-single-article');
+            this.$http.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/article/${id}`)
+                .then((res) => {
+
+                    this.tempArticle = res.data.article;
+
+                })
+                .catch((error) => this.errorAlert(error))
+                .finally(() => this.removeLoader('get-single-article'));
 
         },
 

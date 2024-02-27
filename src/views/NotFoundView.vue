@@ -1,0 +1,5 @@
+<template>
+
+<img src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709020880637.jpeg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=RlRKLG%2F06bJtMDwvCxBpB91tS1DE5Gg9%2FLyUu9irrnJGRlK9SlrSgoIs6Oya6JEbIH9sJ0yGJbBL97DODf7ZdQ3VZ5F9iOf%2FGZyq7qvQFQFh6%2F3ut8fF4Cy9w31eMyf5jdZb8oocqwCqjlHDar9NKEUzQ7Jlib%2Bpc2%2Bhvi664V%2BJROJYj0SRdU1hzY0KAaEER8mzg7NHXOygcT2UPFsz0NcRfJvfPWa15gDbrydAUqszV35m0IYGqtqb%2BqFxHYBttT1NbiKvoM946eHhLpsh6X56FTX19P9diAo6G3Up2DUmKzf3O2vy7iy2tKkC2cbAt7JMVWUJMJ1%2FiDnaBDgMzA%3D%3D" alt="">
+
+</template>

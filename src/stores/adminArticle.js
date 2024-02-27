@@ -92,14 +92,14 @@ export default defineStore('adminArticle', {
 
         },
 
-        deleteArticle(data) {
+        deleteArticle(id, title) {
 
-            const config = { title: '確定刪除文章？', text: `名稱：${data.title}` };
+            const config = { title: '確定刪除文章？', text: `名稱：${title}` };
 
             alertStore.checkAlert(config, () => {
 
                 loaderStore.createLoader('delete-article');
-                axios.delete(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/article/${data.id}`)
+                axios.delete(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/article/${id}`)
                     .then((res) => {
 
                         alertStore.toastAlert(res.data.message, 'success');

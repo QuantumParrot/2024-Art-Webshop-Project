@@ -1,8 +1,8 @@
 <template>
 
 <div class="text-end mb-7">
-<h3 class="fs-2 mb-2">優惠券</h3>
-<span>目前共有 {{ coupons.length }} 張優惠券</span>
+    <h3 class="fs-2 mb-2">優惠券</h3>
+    <p class="text-muted">目前共有 {{ coupons.length }} 張優惠券</p>
 </div>
 
 <div class="alert bg-light flex-classic mb-5">

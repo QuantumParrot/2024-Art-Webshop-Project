@@ -1,0 +1,21 @@
+.arrow-animation {
+
+    position: relative;
+    padding: 0 1rem 0 1.25rem;
+  
+}
+
+.arrow {
+
+    color: tomato;
+    position: absolute;
+    left: 0.25rem;
+    animation: arrow-bounce 1s ease-out infinite;
+
+}
+
+@keyframes arrow-bounce {
+
+    0%, 100% { left: 0.25rem } 25%, 75% { left: 0.5rem } 50% { left: 0.75rem }
+
+}

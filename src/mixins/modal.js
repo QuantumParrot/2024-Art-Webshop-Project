@@ -8,7 +8,12 @@ export default {
 
         // 下面這行參考自同學向助教詢問得到的回覆，謝謝提問的同學 Ann Chou 和回覆的傑利助教！
 
-        hideModal() { this.modal.hide(); this.$refs.form.resetForm(); },
+        hideModal() {
+
+            this.modal.hide();
+            if (this.$refs.form) { this.$refs.form.resetForm(); }
+
+        },
 
     },
 

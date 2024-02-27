@@ -46,6 +46,7 @@
 
   color: $light;
   padding: 1rem;
+  border-bottom: 1px dotted $secondary;
 
   &:hover {
 

@@ -1,10 +1,10 @@
 <template>
 
 <div class="text-end mb-7">
-<h3 class="fs-2 mb-2">商品管理</h3>
-<p class="fs-6 text-muted">
-<span>目前共有 {{ products.length }} 項商品，</span>
-<span>{{ products.filter((i) => i.is_enabled).length }} 項上架中</span></p>
+    <h3 class="fs-2 mb-2">商品管理</h3>
+    <p class="text-muted">
+    <span>目前共有 {{ products.length }} 項商品，</span>
+    <span>{{ products.filter((i) => i.is_enabled).length }} 項上架中</span></p>
 </div>
 
 <div class="row justify-content-between gx-3 gy-3 gy-md-0 mb-4">

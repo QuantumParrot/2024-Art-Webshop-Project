@@ -56,7 +56,7 @@
                 <button type="submit" class="btn btn-primary me-2"
                         :disabled="!meta.valid">確認更新</button>
                 <button type="button" class="btn btn-outline-secondary"
-                        @click="hideModal()">取消</button>
+                        @click="hideModal">取消</button>
                 </div>
             </div>
             </v-form>

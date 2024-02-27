@@ -36,6 +36,9 @@ export default defineStore('adminOrder', {
 
         currentPage: 1,
 
+        orderState: '',
+        isPaid: '',
+
     }),
 
     getters: {
@@ -62,6 +65,8 @@ export default defineStore('adminOrder', {
             return { ...order, project: order.project || '不指定', state: order.state || 0 };
 
         }),
+
+        unhandled: ({ ordersList }) => ordersList.filter((i) => i.is_paid && i.state === 0).length,
 
     },
 

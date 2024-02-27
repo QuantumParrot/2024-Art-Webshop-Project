@@ -1,8 +1,8 @@
 <template>
 
 <div class="text-end mb-7">
-<h3 class="fs-2 mb-2">訂單管理</h3>
-<p class="fs-6 text-muted">目前共有 {{ ordersList.length }} 筆訂單</p>
+    <h3 class="fs-2 mb-2">訂單管理</h3>
+    <p class="text-muted">目前共有 {{ ordersList.length }} 筆訂單</p>
 </div>
 
 <template v-if="ordersList.length">
@@ -144,7 +144,11 @@ export default {
 
     },
 
-    mounted() { this.getOrders(); },
+    mounted() {
+
+        if (!this.ordersList.length) { this.getOrders(); }
+
+    },
 
 };
 

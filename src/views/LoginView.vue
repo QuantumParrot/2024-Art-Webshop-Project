@@ -10,8 +10,7 @@
                 <div class="form-floating mb-3">
                     <v-field type="email" id="username" placeholder="帳號"
                              class="form-control mb-3" :class="{ 'is-invalid': errors['username'] }"
-                             name="username" rules="email|required"
-                             :validate-on-input="true">
+                             name="username" rules="email|required">
                     </v-field>
                     <label for="username" class="form-label">
                     帳號</label>
@@ -22,8 +21,7 @@
                 <div class="form-floating mb-5">
                     <v-field type="password" id="password" placeholder="密碼"
                              class="form-control mb-3" :class="{ 'is-invalid': errors['password'] }"
-                             name="password" rules="required"
-                             :validate-on-input="true">
+                             name="password" rules="required">
                     </v-field>
                     <label for="password" class="form-label">
                     密碼</label>

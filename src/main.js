@@ -44,6 +44,7 @@ Object.keys(rules).forEach((rule) => defineRule(rule, rules[rule]));
 configure({
 
   generateMessage: localize({ zhTW }),
+  validateOnInput: true,
 
 });
 

@@ -12,7 +12,7 @@
                 <i class="bi bi-x-circle-fill"></i>
                 </button>
             </div>
-            <v-form v-slot="{ meta }" @submit="confirmUpdate">
+            <v-form v-slot="{ meta }" @submit="confirmUpdate" ref="form">
             <div class="modal-body">
                 <div class="alert bg-light">
                     <p>欄位完成度（ <span class="text-danger">*</span> 為必填欄位 ）</p>

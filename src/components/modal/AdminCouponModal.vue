@@ -9,7 +9,7 @@
                 <i class="bi bi-x-circle-fill"></i>
                 </button>
             </div>
-            <v-form v-slot="{ meta }" @submit="confirmUpdate">
+            <v-form v-slot="{ meta }" @submit="confirmUpdate" ref="form">
             <div class="modal-body">
                 <div class="mb-3">
                     <label class="form-label is-required" for="title">優惠券名稱</label>
@@ -56,7 +56,7 @@
                 <button type="submit" class="btn btn-primary me-2"
                         :disabled="!meta.valid">確認更新</button>
                 <button type="button" class="btn btn-outline-secondary"
-                        @click="hideModal">取消</button>
+                        @click="hideModal()">取消</button>
                 </div>
             </div>
             </v-form>
@@ -86,7 +86,7 @@ export default {
 
     mixins: [modalMixins, calculatorMixins],
 
-    data() { return { modal: '', coupon: {} }; },
+    data() { return { coupon: {} }; },
 
     props: ['tempCoupon'],
 

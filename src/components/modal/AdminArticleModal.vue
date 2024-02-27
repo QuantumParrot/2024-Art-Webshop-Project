@@ -11,7 +11,7 @@
                 <i class="bi bi-x-circle-fill"></i>
                 </button>
             </div>
-            <v-form v-slot="{ meta }" @submit="confirmUpdate">
+            <v-form v-slot="{ meta }" @submit="confirmUpdate" ref="form">
             <div class="modal-body">
                 <ul class="nav nav-pills bg-light rounded-2 mb-3">
                     <li class="nav-item flex-grow-1">

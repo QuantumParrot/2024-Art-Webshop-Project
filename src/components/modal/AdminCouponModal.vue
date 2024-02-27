@@ -120,15 +120,7 @@ export default {
 
         confirmUpdate() {
 
-            // 檢查是否有空值
-
-            const isCompleted = Object.values(this.coupon).every((value) => value);
-
-            if (!isCompleted) {
-
-                this.toastAlert('欄位不可空白！', 'warning');
-
-            } else if (this.coupon.id) {
+            if (this.coupon.id) {
 
                 this.updateCoupon(this.coupon, this.hideModal);
 

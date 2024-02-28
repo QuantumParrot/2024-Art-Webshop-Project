@@ -13,7 +13,7 @@
             </div>
             <v-form v-slot="{ meta }" @submit="confirmUpdate" ref="form">
             <div class="modal-body">
-                <ul class="nav nav-pills bg-light rounded-2 mb-3">
+                <ul class="nav nav-pills bg-gray rounded-2 mb-3">
                     <li class="nav-item flex-grow-1">
                     <button type="button" @click="tab = 'setting'"
                             class="w-100 nav-link" :class="{ 'active': tab === 'setting' }">

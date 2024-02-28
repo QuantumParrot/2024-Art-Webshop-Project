@@ -11,7 +11,7 @@
                 </button>
             </div>
             <div class="modal-body py-4">
-                <ul class="nav nav-pills bg-light rounded-2 mb-3">
+                <ul class="nav nav-pills bg-gray rounded-2 mb-3">
                     <li class="nav-item flex-grow-1">
                     <button type="button" @click="tab = 'content'"
                             class="w-100 nav-link" :class="{ 'active': tab === 'content' }">
@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="modal-footer" v-if="tempOrder.is_paid && tempOrder.state !== 4">
-                <div class="alert bg-light d-flex align-items-center gap-3 text-nowrap mb-0">
+                <div class="alert bg-gray d-flex align-items-center gap-3 text-nowrap mb-0">
                     <div class="d-flex align-items-center">
                         <div v-if="loadingTask === tempOrder.id"
                              class="spinner-border text-primary me-3" role="status">

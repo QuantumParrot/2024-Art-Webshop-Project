@@ -5,7 +5,7 @@
     <p class="text-muted">目前共有 {{ coupons.length }} 張優惠券</p>
 </div>
 
-<div class="alert bg-light flex-classic mb-5">
+<div class="alert bg-gray flex-classic mb-5">
     <div>
         <button type="button" class="btn btn-highlight" @click="openModal()">建立優惠券</button>
     </div>
@@ -57,7 +57,7 @@
     </table>
 </div>
 
-<div class="alert bg-light" v-else>還沒有任何優惠券！趕快建立一個吧！</div>
+<div class="alert bg-gray" v-else>還沒有任何優惠券！趕快建立一個吧！</div>
 
 <admin-coupon-modal ref="couponModal" :temp-coupon="tempCoupon" />
 

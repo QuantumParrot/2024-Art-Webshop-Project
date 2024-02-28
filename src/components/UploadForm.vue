@@ -5,7 +5,7 @@
     <input type="file" name="file-to-upload" class="form-control mb-3"
            @change="confirmUpload"
            ref="file">
-    <div class="alert bg-light overflow-scroll" v-if="image.name">
+    <div class="alert bg-gray overflow-scroll" v-if="image.name">
         <p class="fw-bold">檔案資訊</p>
         <p>檔案名稱：{{ image.name }}</p>
         <p>檔案大小：{{ $calc.convertByteUnit(image.size) }}</p>
@@ -21,7 +21,7 @@
 </form>
 
 <template v-if="useClipboard">
-<div class="alert bg-light mt-3" v-if="imageUrl">
+<div class="alert bg-gray mt-3" v-if="imageUrl">
     <p>複製圖片網址：</p>
     <clipboard-component :value="imageUrl" />
     <img class="mt-3" :src="imageUrl" alt="uploaded-image-preview">

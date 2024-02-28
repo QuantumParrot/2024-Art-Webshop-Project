@@ -1,6 +1,6 @@
 <template>
 
-<div class="h-100 bg-primary text-white">
+<div class="h-100 bg-secondary text-white">
     <div class="container py-7">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -14,9 +14,9 @@
                         <v-field
                             id="search" type="text"
                             class="form-control" :class="{ 'is-invalid': errors['id'] }"
-                            name="id" rules="required">
+                            name="id" rules="required" :validate-on-change="true">
                         </v-field>
-                        <button type="submit" class="btn btn-light">
+                        <button type="submit" class="btn btn-primary">
                             <i class="bi bi-search"></i>
                         </button>
                     </div>

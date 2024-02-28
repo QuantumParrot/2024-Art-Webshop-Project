@@ -9,7 +9,7 @@
 
 <div class="row justify-content-between gx-3 gy-3 gy-md-0 mb-4">
     <div class="col-md-4">
-        <div class="h-100 alert bg-light flex-classic mb-0">
+        <div class="h-100 alert bg-gray flex-classic mb-0">
             <button type="button" class="w-100 btn btn-primary me-3" @click="openModal()">
             <i class="bi bi-plus-lg me-1"></i>
             新增商品</button>
@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="col-md-8">
-        <div class="h-100 alert bg-light d-flex justify-content-end mb-0">
+        <div class="h-100 alert bg-gray d-flex justify-content-end mb-0">
             <pagination-component
                 :total="totalPages" :current="currentPage"
                 @switch-page="switchPage" />
@@ -82,7 +82,7 @@
     </table>
 </div>
 
-<div class="alert bg-light" v-else>還沒有任何商品！趕快建立一個吧！</div>
+<div class="alert bg-gray" v-else>還沒有任何商品！趕快建立一個吧！</div>
 
 <upload-modal ref="uploadModal" />
 

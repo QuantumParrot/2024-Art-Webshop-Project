@@ -5,7 +5,7 @@
     <p class="text-muted">目前共有 {{ articles.length }} 篇文章 (꜆꜄꜆ ˙꒳˙)꜆꜄꜆ｵﾗｵﾗｵﾗｵﾗ</p>
 </div>
 
-<div class="alert bg-light flex-classic mb-5">
+<div class="alert bg-gray flex-classic mb-5">
     <div>
         <button type="button" class="btn btn-highlight" @click="openModal()">新增文章</button>
     </div>
@@ -55,7 +55,7 @@
     </table>
 </div>
 
-<div class="alert bg-light" v-else>還沒有任何文章！趕快新增一篇吧！</div>
+<div class="alert bg-gray" v-else>還沒有任何文章！趕快新增一篇吧！</div>
 
 <admin-article-modal ref="articleModal" :temp-article="tempArticle" />
 

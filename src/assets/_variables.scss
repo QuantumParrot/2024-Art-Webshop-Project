@@ -86,11 +86,13 @@ $orange-100: #ffccbc;
 
 /* color customize - 實際會在專案上用到的顏色 */
 
+$dark:          $gray-900;
 $primary:       $gray-800;
 $secondary:     $gray-600;
+$gray:          $gray-300;
+$light:         $gray-200;
+
 $highlight:   $orange-300;
-$light:         $gray-300;
-$dark:          $gray-900;
 $subtle:      $orange-200;
 
 $success:      $green-700;
@@ -108,7 +110,8 @@ $theme-colors: (
   "danger":     $danger,
   "subtle":     $subtle,
   "light":      $light,
-  "dark":       $dark
+  "gray":       $gray,
+  "dark":       $dark,
 );
 
 /* typography */

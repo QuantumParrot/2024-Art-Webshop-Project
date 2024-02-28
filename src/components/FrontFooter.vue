@@ -1,6 +1,6 @@
 <template>
 
-<footer class="mt-auto bg-secondary text-light">
+<footer class="mt-auto bg-primary text-light">
     <div class="container py-4">
         <div class="flex-classic">
             <h2 class="font-dancing mb-0">The Cultural Collector</h2>

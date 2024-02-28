@@ -7,7 +7,7 @@
 
 <template v-if="ordersList.length">
 
-<div class="alert bg-light flex-classic mb-5">
+<div class="alert bg-gray flex-classic mb-5">
     <div class="d-flex gap-2">
     <input type="checkbox" id="unlock" class="btn-check" v-model="deletePermission">
     <label for="unlock" class="btn btn-outline-primary">
@@ -62,7 +62,7 @@
 
 </template>
 
-<div class="alert bg-light" v-else>沒有訂單記錄</div>
+<div class="alert bg-gray" v-else>沒有訂單記錄</div>
 
 <admin-order-modal ref="orderModal" :temp-order="tempOrder" />
 

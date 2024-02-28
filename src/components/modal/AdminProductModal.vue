@@ -14,7 +14,7 @@
             </div>
             <v-form v-slot="{ meta }" @submit="confirmUpdate" ref="form">
             <div class="modal-body">
-                <div class="alert bg-light">
+                <div class="alert bg-gray">
                     <p>欄位完成度（ <span class="text-danger">*</span> 為必填欄位 ）</p>
                     <div class="row fw-bold">
                         <div class="col">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <ul class="nav nav-pills
-                           flex-nowrap text-nowrap overflow-x-scroll bg-light rounded-2 mb-3">
+                           flex-nowrap text-nowrap overflow-x-scroll bg-gray rounded-2 mb-3">
                     <li class="nav-item flex-grow-1">
                     <button type="button" @click="tab = 'content'"
                             class="w-100 nav-link" :class="{ 'active': tab === 'content' }">

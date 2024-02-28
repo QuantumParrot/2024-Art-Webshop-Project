@@ -20,7 +20,22 @@ const alertStore = useAlertStore();
 
 export default defineStore('adminArticle', {
 
-    state: () => ({ articles: [], pagination: {} }),
+    state: () => ({
+
+        articles: [],
+
+        // 目前還沒有用到，後續有餘裕會把公告和文章拆開來處理
+
+        categories: {
+
+            網站公告: ['測試', '優惠活動', '價格調整', '通知'],
+            專欄文章: ['藝術', '歷史', '地球', '天文'],
+
+        },
+
+        pagination: {},
+
+    }),
 
     getters: {
 

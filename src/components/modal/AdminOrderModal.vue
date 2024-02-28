@@ -98,6 +98,7 @@
 </template>
 
 <style lang="scss" scoped>
+
 .badge {
 
   font-size: 1rem;

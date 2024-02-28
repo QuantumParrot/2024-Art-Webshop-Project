@@ -69,16 +69,30 @@
                 </div>
                 <div v-show="tab === 'category'">
                     <div class="mb-3">
-                        <label class="form-label is-required" for="category">
-                        <span>文章分類</span></label>
-                        <v-field
-                            id="category" type="text" class="form-control"
-                            v-model.trim="category"
-                            name="category" rules="required"></v-field>
+                        <div class="row row-cols-2">
+                            <div class="col">
+                                <label class="form-label is-required" for="type">文章類型</label>
+                                <v-field
+                                    id="type" class="form-select" v-model="article.type"
+                                    name="type" rules="required" as="select">
+                                    <option value="" disabled>請選擇文章類型</option>
+                                    <option value="網站公告">網站公告</option>
+                                    <option value="專欄文章">專欄文章</option>
+                                </v-field>
+                            </div>
+                            <div class="col">
+                                <label class="form-label is-required" for="category">
+                                <span>文章分類</span></label>
+                                <v-field
+                                    id="category" class="form-control"
+                                    v-model.trim="article.category"
+                                    name="category" rules="required"></v-field>
+                            </div>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <p>標籤</p>
-                        <div class="row g-3 mb-3">
+                        <div class="row gy-3 mb-3">
                             <div class="col-md-3 position-relative"
                                  v-for="(tag, index) in article.tag" :key="tag">
                             <input type="text"
@@ -155,7 +169,7 @@ import ckeditorMixins from '@/mixins/ckeditor';
 
 //
 
-import { mapActions } from 'pinia';
+import { mapState, mapActions } from 'pinia';
 
 import adminArticleStore from '@/stores/adminArticle';
 
@@ -179,9 +193,7 @@ export default {
 
             tab: 'setting',
 
-            article: { },
-
-            category: '',
+            article: {},
 
             uploadState: false,
 
@@ -190,6 +202,8 @@ export default {
     },
 
     computed: {
+
+        ...mapState(adminArticleStore, ['categories']),
 
         createAt: {
 
@@ -213,28 +227,13 @@ export default {
 
             this.article = this.tempArticle;
 
-            if (Array.isArray(this.tempArticle.tag)) {
-
-                const [category, ...tags] = this.tempArticle.tag;
-                this.category = category;
-                this.article.tag = tags;
-
-            } else {
-
-                this.category = '';
-                this.article.tag = [];
-
-            }
+            this.article.tag = Array.isArray(this.tempArticle.tag) ? this.tempArticle.tag : [];
 
         },
 
         confirmUpdate() {
 
             this.article.tag = this.article.tag.filter((i) => i);
-
-            this.article.tag.unshift(this.category);
-
-            // console.log(this.article.tag);
 
             if (this.article.id) {
 

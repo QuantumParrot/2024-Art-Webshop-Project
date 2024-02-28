@@ -28,7 +28,7 @@
         <tbody class="align-middle">
             <tr v-for="article in articles" :key="article.id">
                 <td>{{ $calc.formatDate(article.create_at * 1000, '/') }}</td>
-                <td><span class="badge bg-highlight text-dark py-2">{{ article.tag[0] }}</span></td>
+                <td><span class="badge bg-highlight text-dark py-2">{{ article.type }}</span></td>
                 <td>
                 <p class="fw-bold mb-2">{{ article.title }}</p>
                 <span class="text-muted fs-7">作者｜{{ article.author }}</span>

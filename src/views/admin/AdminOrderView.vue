@@ -34,7 +34,7 @@
         <tbody class="align-middle">
             <template v-for="order in ordersList" :key="order.id">
                 <tr>
-                    <td>{{ formatDate(order.create_at * 1000, '/') }}</td>
+                    <td>{{ $calc.formatDate(order.create_at * 1000, '/') }}</td>
                     <td>
                     <span class="badge me-3" :class="order.is_paid ? 'bg-success' : 'bg-danger'">
                     {{ order.is_paid ? '已付款' : '未付款' }}
@@ -85,10 +85,6 @@
 
 <script>
 
-import calculatorMixins from '@/mixins/calculator';
-
-//
-
 import PaginationComponent from '@/components/PaginationComponent.vue';
 
 import AdminOrderModal from '@/components/modal/AdminOrderModal.vue';
@@ -104,8 +100,6 @@ import adminOrderStore from '@/stores/adminOrder';
 //
 
 export default {
-
-    mixins: [calculatorMixins],
 
     components: { PaginationComponent, AdminOrderModal, DeleteModal },
 

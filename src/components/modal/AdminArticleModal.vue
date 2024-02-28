@@ -153,8 +153,6 @@ import modalMixins from '@/mixins/modal';
 
 import ckeditorMixins from '@/mixins/ckeditor';
 
-import calculatorMixins from '@/mixins/calculator';
-
 //
 
 import { mapActions } from 'pinia';
@@ -169,7 +167,7 @@ import UploadForm from '../UploadForm.vue';
 
 export default {
 
-    mixins: [modalMixins, ckeditorMixins, calculatorMixins],
+    mixins: [modalMixins, ckeditorMixins],
 
     components: { ckeditor: ckeditor.component, UploadForm },
 
@@ -195,7 +193,7 @@ export default {
 
         createAt: {
 
-            get() { return this.formatDate(this.article.create_at * 1000); },
+            get() { return this.$calc.formatDate(this.article.create_at * 1000); },
 
             set(date) {
 

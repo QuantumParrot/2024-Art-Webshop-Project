@@ -26,7 +26,8 @@
                     <div class="card p-2">
                         <div class="border rounded-2 p-5">
                             <p><b class="p-title">訂單編號</b>：{{ tempOrder.id }}</p>
-                            <p><b class="p-title">訂購日期</b>：{{ tempOrder.create_at }}</p>
+                            <p><b class="p-title">訂購日期</b>：
+                            <span>{{ $calc.formatTime(tempOrder.create_at * 1000) }}</span></p>
                             <details class="mb-3">
                                 <summary><b class="p-title">訂購人資訊</b>（ 展開查看詳細 ）</summary>
                                 <ul class="list-unstyled mt-3">

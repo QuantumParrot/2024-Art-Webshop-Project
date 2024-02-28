@@ -29,6 +29,8 @@ import VueAxios from 'vue-axios';
 
 //
 
+import * as calculator from '@/methods/calculator';
+
 import LoadingOverlay from './components/LoadingOverlay.vue';
 
 //
@@ -53,6 +55,8 @@ setLocale('zhTW');
 //
 
 const app = createApp(App);
+
+app.config.globalProperties.$calc = { ...calculator };
 
 const pinia = createPinia();
 

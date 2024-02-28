@@ -27,7 +27,7 @@
         </thead>
         <tbody class="align-middle">
             <tr v-for="article in articles" :key="article.id">
-                <td>{{ formatDate(article.create_at * 1000, '/') }}</td>
+                <td>{{ $calc.formatDate(article.create_at * 1000, '/') }}</td>
                 <td><span class="badge bg-highlight text-dark py-2">{{ article.tag[0] }}</span></td>
                 <td>
                 <p class="fw-bold mb-2">{{ article.title }}</p>
@@ -63,10 +63,6 @@
 
 <script>
 
-import calculatorMixins from '@/mixins/calculator';
-
-//
-
 import { mapState, mapActions } from 'pinia';
 
 import adminArticleStore from '@/stores/adminArticle';
@@ -88,8 +84,6 @@ const { VITE_APP_SITE, VITE_APP_PATH } = import.meta.env;
 //
 
 export default {
-
-    mixins: [calculatorMixins],
 
     components: { AdminArticleModal, PaginationComponent },
 
@@ -115,7 +109,7 @@ export default {
 
                 this.getArticle(id);
 
-            } else { this.tempArticle = { isPublic: false, create_at: this.now() }; }
+            } else { this.tempArticle = { isPublic: false, create_at: this.$calc.now() }; }
 
             this.$refs.articleModal.showModal();
 

@@ -27,7 +27,7 @@
         </thead>
         <tbody class="align-middle">
             <tr v-for="coupon in coupons" :key="coupon.id">
-                <td>{{ formatDate(coupon.due_date * 1000, '/') }}</td>
+                <td>{{ $calc.formatDate(coupon.due_date * 1000, '/') }}</td>
                 <td>
                     <div class="d-flex align-items-center gap-2">
                         <span>{{ coupon.title }}</span>
@@ -65,8 +65,6 @@
 
 <script>
 
-import calculatorMixins from '@/mixins/calculator';
-
 import { mapState, mapActions } from 'pinia';
 
 import adminCouponStore from '@/stores/adminCoupon';
@@ -80,8 +78,6 @@ import PaginationComponent from '@/components/PaginationComponent.vue';
 //
 
 export default {
-
-    mixins: [calculatorMixins],
 
     components: { AdminCouponModal, PaginationComponent },
 

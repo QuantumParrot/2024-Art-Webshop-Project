@@ -5,10 +5,10 @@
     <input type="file" name="file-to-upload" class="form-control mb-3"
            @change="confirmUpload"
            ref="file">
-    <div class="alert bg-light" v-if="image.name">
+    <div class="alert bg-light overflow-scroll" v-if="image.name">
         <p class="fw-bold">檔案資訊</p>
         <p>檔案名稱：{{ image.name }}</p>
-        <p>檔案大小：{{ image.size }} bytes</p>
+        <p>檔案大小：{{ $calc.convertByteUnit(image.size) }}</p>
         <p class="mb-0">檔案格式：{{ image.type }}</p>
     </div>
     <button type="submit" class="btn btn-primary"

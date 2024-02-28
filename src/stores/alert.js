@@ -95,6 +95,7 @@ export default defineStore('alert', {
 
             let text = '';
             const typeRegex = /jpg|jpeg|png/g;
+
             if (!file.name) {
 
                 text = '欄位不可空白';
@@ -110,7 +111,7 @@ export default defineStore('alert', {
                 text = '不支援此格式';
                 this.toastAlert(text, 'warning');
 
-            } else if (file.size > 3000000) {
+            } else if (file.size > 3145728) {
 
                 text = '檔案容量過大';
                 this.toastAlert(text, 'warning');

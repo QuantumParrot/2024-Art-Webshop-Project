@@ -42,7 +42,7 @@
                     <label class="form-label is-required" for="due_date">
                     優惠截止日期</label>
                     <input id="due_date" type="date" class="form-control"
-                           v-model="due_date" :min="today()">
+                           v-model="due_date" :min="$calc.today()">
                 </div>
             </div>
             <div class="modal-footer justify-content-between align-items-center">
@@ -70,8 +70,6 @@
 
 import modalMixins from '@/mixins/modal';
 
-import calculatorMixins from '@/mixins/calculator';
-
 //
 
 import { mapActions } from 'pinia';
@@ -84,7 +82,7 @@ import alertStore from '@/stores/alert';
 
 export default {
 
-    mixins: [modalMixins, calculatorMixins],
+    mixins: [modalMixins],
 
     data() { return { coupon: {} }; },
 
@@ -94,7 +92,7 @@ export default {
 
         due_date: {
 
-            get() { return this.formatDate(this.coupon.due_date * 1000); },
+            get() { return this.$calc.formatDate(this.coupon.due_date * 1000); },
 
             set(date) {
 

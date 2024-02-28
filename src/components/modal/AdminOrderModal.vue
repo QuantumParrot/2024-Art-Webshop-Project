@@ -49,7 +49,7 @@
                 <div v-show="tab === 'info'">
                     <p>
                     <span class="badge bg-primary me-2">訂單成立日期</span>
-                    {{ formatTime(tempOrder.create_at * 1000) }}
+                    {{ $calc.formatTime(tempOrder.create_at * 1000) }}
                     </p>
                     <hr>
                     <p>
@@ -109,10 +109,6 @@
 
 <script>
 
-import moment from 'moment';
-
-//
-
 import modalMixins from '@/mixins/modal';
 
 //
@@ -148,8 +144,6 @@ export default {
         ...mapActions(adminOrderStore, ['updateOrder']),
 
         ...mapActions(alertStore, ['checkAlert']),
-
-        formatTime(time) { return moment(time).format('YYYY/MM/DD HH:mm:ss'); },
 
         preUpdate(e) {
 

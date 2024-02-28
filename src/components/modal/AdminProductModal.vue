@@ -318,6 +318,8 @@ export default {
 
             if (this.product.imageUrl) {
 
+                this.product.imagesUrl = this.product.imagesUrl.filter((i) => i);
+
                 this.product.imagesUrl.push(url);
 
             } else {

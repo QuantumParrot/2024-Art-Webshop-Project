@@ -13,7 +13,7 @@
     <section class="subscription text-primary py-7">
         <div class="container">
             <div class="row">
-                <div class="col-6">
+                <div class="col-md-6">
                     <p class="text-shadow fs-4 fw-bold mb-3">
                     歡迎訂閱我們的電子報，<br>
                     好康消息、專欄文章不漏接！

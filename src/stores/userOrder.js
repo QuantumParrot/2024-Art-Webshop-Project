@@ -39,7 +39,7 @@ export default defineStore('userOrder', {
 
             }
 
-            return order;
+            return { ...order, state: 0, project: '不指定' };
 
         },
 

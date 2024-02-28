@@ -1,6 +1,6 @@
 <template>
 
-<div class="main bg-primary text-white">
+<div class="h-100 bg-primary text-white">
     <div class="container py-7">
         <div class="row justify-content-center">
             <div class="col-md-6">

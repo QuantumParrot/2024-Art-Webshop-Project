@@ -2,15 +2,21 @@
 
 <loading-overlay :isLoading="isLoading"></loading-overlay>
 
-<div class="h-100">
+<div class="h-100 d-flex flex-column">
 <front-navbar/>
-<main class="main">
+<main>
     <router-view></router-view>
 </main>
 <front-footer />
 </div>
 
 </template>
+
+<style>
+
+main { flex-grow: 1; }
+
+</style>
 
 <script>
 

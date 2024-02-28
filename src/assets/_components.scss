@@ -12,6 +12,31 @@ dialog {
 
 .btn-inline { @extend .btn-origin; position: absolute; }
 
+.btn-slider {
+
+   @extend .btn;
+
+   border: 0;
+   overflow: hidden;
+
+   position: relative;
+   z-index: 1;
+ 
+   &::after {
+ 
+     content: '';
+     width: 0; height: 100%;
+     position: absolute;
+     top: 0; right: 0;
+     z-index: -1;
+     transition: all 0.5s;
+ 
+   }
+
+   &:hover::after { width: 100%; left: 0; }
+
+}
+
 /* input */
 
 .is-required {

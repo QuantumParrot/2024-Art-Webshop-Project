@@ -23,7 +23,7 @@
             </router-link>
         </div>
         <div class="navbar-collapse flex-grow-0 order-3 order-md-2" ref="collapse">
-            <ul class="navbar-nav gap-2">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                 <router-link class="nav-link" to="/announcement">最新消息</router-link>
                 </li>

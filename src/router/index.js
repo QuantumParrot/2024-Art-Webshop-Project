@@ -5,6 +5,7 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 const router = createRouter({
 
   history: createWebHashHistory(),
+
   routes: [
     {
       path: '/',
@@ -93,7 +94,10 @@ const router = createRouter({
       component: () => import('../views/NotFoundView.vue'),
     },
   ],
+
   linkExactActiveClass: 'active',
+
+  scrollBehavior() { return { top: 0 }; },
 
 });
 

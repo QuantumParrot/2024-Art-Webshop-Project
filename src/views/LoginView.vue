@@ -29,9 +29,9 @@
                     <p class="invalid-feedback">{{ localize(message, 'password') }}</p>
                     </error-message>
                 </div>
-                <button type="submit" class="w-100 btn btn-login">確認登入</button>
+                <button type="submit" class="w-100 btn-slider btn-login">確認登入</button>
                 <router-link to="/admin" v-slot="{ navigate }" custom v-if="isLogin">
-                <button type="button" class="w-100 btn btn-navigate mt-3"
+                <button type="button" class="w-100 btn-slider btn-navigate mt-3"
                         @click="navigate">前往後台</button>
                 </router-link>
             </v-form>
@@ -82,56 +82,25 @@ form {
 
 }
 
-.btn {
-
-  overflow: hidden;
-  padding: 0.75rem;
-  border: 0;
-  font-weight: 700;
-
-}
-
 .btn-login {
 
+  padding: 0.75rem;
+  font-weight: 700;
+
   background-color: $highlight;
-  position: relative;
-  z-index: 1;
 
-  &::after {
-
-    content: '';
-    width: 0; height: 100%;
-    position: absolute;
-    top: 0; right: 0;
-    z-index: -1;
-    background-color: $orange-100;
-    transition: all 0.5s;
-
-  }
-
-  &:hover::after { width: 100%; left: 0; }
+  &::after { background-color: $orange-100; }
 
 }
 
 .btn-navigate {
 
+  padding: 0.75rem;
+  font-weight: 700;
+
   background-color: $gray-500;
-  position: relative;
-  z-index: 1;
 
-  &::after {
-
-    content: '';
-    width: 0; height: 100%;
-    position: absolute;
-    top: 0; right: 0;
-    z-index: -1;
-    background-color: $gray;
-    transition: all 0.5s;
-
-  }
-
-  &:hover::after { width: 100%; left: 0; }
+  &::after { background-color: $gray; }
 
 }
 

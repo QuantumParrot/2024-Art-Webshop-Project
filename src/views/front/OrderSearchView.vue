@@ -4,11 +4,11 @@
     <div class="container py-7">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <h3 class="h2 mb-5">
+                <h3 class="h2 mb-7">
                     <i class="bi bi-search me-2"></i>
                     查詢訂單進度
                 </h3>
-                <label for="search" class="mb-4">請輸入訂單編號：</label>
+                <label for="search" class="mb-5">請輸入訂單編號：</label>
                 <v-form v-slot="{ errors }" @submit="submitOrderId">
                     <div class="input-group mb-5">
                         <v-field
@@ -21,6 +21,12 @@
                         </button>
                     </div>
                 </v-form>
+                <details class="alert bg-light text-primary mb-5">
+                    <summary>可供使用的範例</summary>
+                    <ul class="list-unstyled mt-4 mb-0">
+                        <li>-Nr_GNNyiZSiTAKt9xTw</li>
+                    </ul>
+                </details>
                 <template v-if="tempOrder?.id">
                     <p class="mb-5">您的搜尋結果：</p>
                     <div class="card p-2">

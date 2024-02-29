@@ -26,7 +26,7 @@ export default defineStore('adminProduct', {
 
         categories: ({ products }) => {
 
-            const categories = ['全部'];
+            const categories = [];
 
             products.forEach((item) => {
 
@@ -92,7 +92,7 @@ export default defineStore('adminProduct', {
                     const { products } = res.data;
                     this.products = Object.values(products);
 
-                    if (this.totalPages.length === 0) { this.filter = '全部'; }
+                    if (this.totalPages === 0) { this.switchFilter('全部'); }
                     if (this.currentPage > this.totalPages) { this.switchPage(1); }
 
                 })

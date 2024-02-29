@@ -31,8 +31,9 @@
 <div class="d-flex justify-content-end mb-4">
     <div>
         <select class="form-select" :value="filter" @change="(e) => switchFilter(e.target.value)">
+            <option value="全部">全部</option>
             <template v-for="category in categories" :key="category">
-            <option :value="category">{{ category }}</option>
+                <option :value="category">{{ category }}</option>
             </template>
         </select>
     </div>

@@ -3,29 +3,23 @@
 <div class="h-100 bg-gray text-primary">
     <div class="container py-7">
         <h3 class="h2 text-center mb-7">專欄文章</h3>
-        <ul class="nav mb-5">
-            <li class="nav-item">
-                <a href="#" class="nav-link" :class="{ 'active': filter === '全部' }"
-                   @click.prevent="switchFilter('全部')">全部</a>
-            </li>
-            <template v-for="item in categories['專欄文章']" :key="item">
-                <li class="nav-item">
-                    <a href="#" class="nav-link" :class="{ 'active': filter === item }"
-                       @click.prevent="switchFilter(item)">{{ item }}</a>
-                </li>
-            </template>
-        </ul>
-        <ul class="row list-unstyled" v-if="displaying.length">
-            <li class="col-lg-4 col-md-6">
-                <div class="card" v-for="item in displaying" :key="item.id">
+        <div class="mb-5">
+            <category-filter-bar
+                :filters="categories['專欄文章']" :filter="filter"
+                @switch-filter="switchFilter" />
+        </div>
+        <ul class="row list-unstyled mb-7" v-if="columnList.length">
+            <template v-for="item in columnList" :key="item.id">
+            <li class="col-xl-4 col-md-6">
+                <div class="card">
                     <img class="card-img-top" :src="item.image" :alt="item.title">
-                    <div class="card-body p-3">
+                    <div class="card-body">
                         <h4 class="fs-5 fw-bold mb-4">
-                        <span class="section-title">{{ item.title }}</span>
+                            <span class="section-title">{{ item.title }}</span>
                         </h4>
                         <h5 class="fs-6 mb-4">
-                        <span>{{ $calc.formatDate(item.create_at * 1000) }}</span>
-                        <span>｜專欄：{{ item.author }}</span>
+                            <span>{{ $calc.formatDate(item.create_at * 1000) }}</span>
+                            <span>｜專欄：{{ item.author }}</span>
                         </h5>
                         <p class="text-secondary text-justify">{{ item.description }}</p>
                         <div class="text-end">
@@ -44,8 +38,14 @@
                     </div>
                 </div>
             </li>
+            </template>
         </ul>
         <div class="alert text-center" v-else>這個分類目前沒有文章喔！</div>
+        <div class="d-flex justify-content-center" v-if="totalPages.column">
+        <pagination-component
+            :current="currentPage.column" :total="totalPages.column"
+            @switch-page="changePage" />
+        </div>
     </div>
 </div>
 
@@ -59,19 +59,31 @@ import adminArticleStore from '@/stores/adminArticle';
 
 import userArticleStore from '@/stores/userArticle';
 
+//
+
+import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
+
+import PaginationComponent from '@/components/PaginationComponent.vue';
+
+//
+
 export default {
+
+    components: { CategoryFilterBar, PaginationComponent },
 
     computed: {
 
         ...mapState(adminArticleStore, ['categories']),
 
-        ...mapState(userArticleStore, ['columns', 'displaying', 'filter']),
+        ...mapState(userArticleStore, ['columns', 'columnList', 'filter', 'currentPage', 'totalPages']),
 
     },
 
     methods: {
 
-        ...mapActions(userArticleStore, ['getArticles', 'switchFilter']),
+        ...mapActions(userArticleStore, ['getArticles', 'switchFilter', 'switchPage']),
+
+        changePage(num) { this.switchPage(num, 'column'); },
 
     },
 
@@ -89,50 +101,10 @@ export default {
 
 @import '@/assets/_variables.scss';
 
-.nav-item {
-
-    flex-grow: 1;
-
-    border: 1px solid $primary;
-
-    &:not(:last-child) { border-right: none; }
-
-}
-
-.nav-link {
-
-    text-align: center;
-    background-color: $gray;
-
-    &.active {
-
-        background-color: $primary;
-        color: $light;
-        font-weight: bold;
-
-    }
-
-    &:hover {
-
-        background-color: $primary;
-        color: $light;
-        font-weight: bold;
-
-    }
-
-}
-
 .section-title::after {
 
     bottom: 0; left: 2px;
     height: 30%; width: 99%;
-
-}
-
-.card-img-top {
-
-    max-height: 350px;
-    object-fit: cover;
 
 }
 
@@ -144,5 +116,7 @@ export default {
     &::after { background-color: $secondary; }
 
 }
+
+.card-img-top { height: 250px; object-position: 50% 20%; }
 
 </style>

@@ -18,7 +18,15 @@ const { VITE_APP_SITE, VITE_APP_PATH } = import.meta.env;
 
 export default defineStore('userArticle', {
 
-    state: () => ({ articles: [], filter: '全部', article: {} }),
+    state: () => ({
+
+        articles: [],
+        article: {},
+        filter: '',
+
+        currentPage: { column: 1, news: 1, project: 1 },
+
+    }),
 
     getters: {
 
@@ -26,13 +34,17 @@ export default defineStore('userArticle', {
 
         columns: ({ articles }) => articles.filter((i) => i.type === '專欄文章'),
 
-        displaying: ({ columns, filter }) => {
+        columnList: ({ columns, filter, currentPage }) => {
 
-            if (filter === '全部') { return columns; }
+            const { column } = currentPage;
 
-            return columns.filter((i) => i.category === filter);
+            const items = filter ? columns.filter((i) => i.category === filter) : columns;
+
+            return items.filter((item, idx) => Math.floor(idx / 9) + 1 === column);
 
         },
+
+        totalPages: ({ columnList }) => ({ column: Math.ceil(columnList.length / 9) }),
 
     },
 
@@ -68,6 +80,8 @@ export default defineStore('userArticle', {
         },
 
         switchFilter(value) { this.filter = value; },
+
+        switchPage(num, type) { this.currentPage[type] = num; },
 
     },
 

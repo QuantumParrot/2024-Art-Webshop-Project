@@ -1,11 +1,11 @@
 <template>
 
-<nav class="navbar navbar-expand-md bg-white py-4">
+<nav class="navbar navbar-expand-lg bg-white py-4">
     <div class="container">
         <h1 class="mb-0 order-1">
             <router-link class="title-link" to="/">收藏家</router-link>
         </h1>
-        <div class="flex-classic gap-2 order-2 order-md-3">
+        <div class="flex-classic gap-2 order-2 order-lg-3">
             <button type="button"
                     class="btn btn-outline-primary d-lg-none"
                     @click="toggleNavbar">
@@ -22,8 +22,8 @@
             </button>
             </router-link>
         </div>
-        <div class="navbar-collapse flex-grow-0 order-3 order-md-2" ref="collapse">
-            <ul class="navbar-nav">
+        <div class="navbar-collapse flex-grow-0 order-3 order-lg-2" ref="collapse">
+            <ul class="navbar-nav gap-3">
                 <li class="nav-item">
                 <router-link class="nav-link" to="/announcement">最新消息</router-link>
                 </li>
@@ -77,15 +77,23 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 @import '@/assets/variables';
 
+.navbar { box-shadow: 0 3px 5px 5px white; }
+
 .title-link { text-decoration: none; }
 
-.nav-link { color: $primary }
+.nav-link {
 
-@media (max-width: 767px) {
+    color: $primary;
+
+    &.active, &:hover { font-weight: bold; color: $orange-700; }
+
+}
+
+@media (max-width: 991px) {
 
     .navbar-collapse {
 

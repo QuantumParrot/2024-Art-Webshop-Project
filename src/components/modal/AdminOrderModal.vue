@@ -97,17 +97,6 @@
 
 </template>
 
-<style lang="scss" scoped>
-
-.badge {
-
-  font-size: 1rem;
-  padding: 0.5rem;
-
-}
-
-</style>
-
 <script>
 
 import modalMixins from '@/mixins/modal';
@@ -171,3 +160,14 @@ export default {
 };
 
 </script>
+
+<style lang="scss" scoped>
+
+.badge {
+
+  font-size: 1rem;
+  padding: 0.5rem;
+
+}
+
+</style>

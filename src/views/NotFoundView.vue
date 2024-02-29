@@ -17,6 +17,20 @@
 
 </template>
 
+<script>
+
+export default {
+
+    methods: {
+
+        go() { this.$router.go(-1); },
+
+    },
+
+};
+
+</script>
+
 <style lang="scss" scoped>
 
 @import '@/assets/_variables.scss';
@@ -40,9 +54,8 @@
     padding: 1rem 0;
     opacity: 0;
 
-    &:hover { opacity: 1; }
-
     &::after {
+
         content: '';
         width: 100%; height: 100%;
         background-color: $secondary;
@@ -50,22 +63,11 @@
         position: absolute;
         top: 0; left: 0;
         z-index: -10;
+
     }
+
+    &:hover { opacity: 1; }
 
 }
 
 </style>
-
-<script>
-
-export default {
-
-    methods: {
-
-        go() { this.$router.go(-1); },
-
-    },
-
-};
-
-</script>

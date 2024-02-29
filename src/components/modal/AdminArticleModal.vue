@@ -149,16 +149,6 @@
 
 </template>
 
-<style lang="scss" scoped>
-
-.btn-inline {
-
-    top: .45rem; right: 1.25rem;
-
-}
-
-</style>
-
 <script>
 
 import ckeditor from '@ckeditor/ckeditor5-vue';

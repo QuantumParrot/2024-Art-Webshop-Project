@@ -20,17 +20,6 @@
 
 </template>
 
-<style>
-
-.img-zoom-out {
-
-  object-fit: cover;
-  height: 300px;
-
-}
-
-</style>
-
 <script>
 
 import modalMixins from '@/mixins/modal';
@@ -48,3 +37,14 @@ export default {
 };
 
 </script>
+
+<style>
+
+.img-zoom-out {
+
+  object-fit: cover;
+  height: 300px;
+
+}
+
+</style>

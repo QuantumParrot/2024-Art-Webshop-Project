@@ -30,17 +30,6 @@
 
 </template>
 
-<style lang="scss">
-
-.article-img {
-
-    object-fit: cover;
-    max-height: 500px;
-
-}
-
-</style>
-
 <script>
 
 import { mapState, mapActions } from 'pinia';
@@ -66,3 +55,14 @@ export default {
 };
 
 </script>
+
+<style lang="scss">
+
+.article-img {
+
+    object-fit: cover;
+    max-height: 500px;
+
+}
+
+</style>

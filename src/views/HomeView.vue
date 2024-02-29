@@ -12,12 +12,6 @@
 
 </template>
 
-<style>
-
-main { flex-grow: 1; }
-
-</style>
-
 <script>
 
 import { mapState } from 'pinia';
@@ -45,3 +39,9 @@ export default {
 };
 
 </script>
+
+<style>
+
+main { flex-grow: 1; }
+
+</style>

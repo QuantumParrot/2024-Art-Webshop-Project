@@ -42,6 +42,54 @@
 
 </template>
 
+<script>
+
+import backgroundMixins from '@/mixins/background';
+
+import validationMixins from '@/mixins/validation';
+
+//
+
+import { mapState, mapActions } from 'pinia';
+
+import adminAuthStore from '@/stores/adminAuth';
+
+import loaderStore from '@/stores/loader';
+
+//
+
+export default {
+
+    mixins: [backgroundMixins, validationMixins],
+
+    data() { return { backgroundText: '' }; },
+
+    methods: {
+
+        ...mapActions(adminAuthStore, ['login', 'checkLogin']),
+
+    },
+
+    computed: {
+
+        ...mapState(adminAuthStore, ['isLogin']), ...mapState(loaderStore, ['isLoading']),
+
+    },
+
+    async created() { await this.checkLogin(this.$route.path); },
+
+    mounted() {
+
+        const img = this.randomSwitchImg();
+        this.$refs.background.style.backgroundImage = `url(${img.url})`;
+        this.backgroundText = img.description;
+
+    },
+
+};
+
+</script>
+
 <style lang="scss" scoped>
 
 @import '@/assets/_variables.scss';
@@ -112,51 +160,3 @@ form {
 }
 
 </style>
-
-<script>
-
-import backgroundMixins from '@/mixins/background';
-
-import validationMixins from '@/mixins/validation';
-
-//
-
-import { mapState, mapActions } from 'pinia';
-
-import adminAuthStore from '@/stores/adminAuth';
-
-import loaderStore from '@/stores/loader';
-
-//
-
-export default {
-
-    mixins: [backgroundMixins, validationMixins],
-
-    data() { return { backgroundText: '' }; },
-
-    methods: {
-
-        ...mapActions(adminAuthStore, ['login', 'checkLogin']),
-
-    },
-
-    computed: {
-
-        ...mapState(adminAuthStore, ['isLogin']), ...mapState(loaderStore, ['isLoading']),
-
-    },
-
-    async created() { await this.checkLogin(this.$route.path); },
-
-    mounted() {
-
-        const img = this.randomSwitchImg();
-        this.$refs.background.style.backgroundImage = `url(${img.url})`;
-        this.backgroundText = img.description;
-
-    },
-
-};
-
-</script>

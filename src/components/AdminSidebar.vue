@@ -38,6 +38,24 @@
 
 </template>
 
+<script>
+
+import { mapActions } from 'pinia';
+
+import adminAuthStore from '@/stores/adminAuth';
+
+export default {
+
+    methods: {
+
+        ...mapActions(adminAuthStore, ['logout']),
+
+    },
+
+};
+
+</script>
+
 <style lang="scss" scoped>
 
 @import '@/assets/_variables.scss';
@@ -65,21 +83,3 @@
 }
 
 </style>
-
-<script>
-
-import { mapActions } from 'pinia';
-
-import adminAuthStore from '@/stores/adminAuth';
-
-export default {
-
-    methods: {
-
-        ...mapActions(adminAuthStore, ['logout']),
-
-    },
-
-};
-
-</script>

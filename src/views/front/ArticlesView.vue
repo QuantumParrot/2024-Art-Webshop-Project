@@ -51,6 +51,40 @@
 
 </template>
 
+<script>
+
+import { mapState, mapActions } from 'pinia';
+
+import adminArticleStore from '@/stores/adminArticle';
+
+import userArticleStore from '@/stores/userArticle';
+
+export default {
+
+    computed: {
+
+        ...mapState(adminArticleStore, ['categories']),
+
+        ...mapState(userArticleStore, ['columns', 'displaying', 'filter']),
+
+    },
+
+    methods: {
+
+        ...mapActions(userArticleStore, ['getArticles', 'switchFilter']),
+
+    },
+
+    mounted() {
+
+        if (!this.columns.length) { this.getArticles(); }
+
+    },
+
+};
+
+</script>
+
 <style lang="scss" scoped>
 
 @import '@/assets/_variables.scss';
@@ -112,37 +146,3 @@
 }
 
 </style>
-
-<script>
-
-import { mapState, mapActions } from 'pinia';
-
-import adminArticleStore from '@/stores/adminArticle';
-
-import userArticleStore from '@/stores/userArticle';
-
-export default {
-
-    computed: {
-
-        ...mapState(adminArticleStore, ['categories']),
-
-        ...mapState(userArticleStore, ['columns', 'displaying', 'filter']),
-
-    },
-
-    methods: {
-
-        ...mapActions(userArticleStore, ['getArticles', 'switchFilter']),
-
-    },
-
-    mounted() {
-
-        if (!this.columns.length) { this.getArticles(); }
-
-    },
-
-};
-
-</script>

@@ -30,6 +30,14 @@
 
 </template>
 
+<script>
+
+export default {
+
+};
+
+</script>
+
 <style>
 
 .subscription {
@@ -42,11 +50,3 @@
 }
 
 </style>
-
-<script>
-
-export default {
-
-};
-
-</script>

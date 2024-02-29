@@ -10,7 +10,14 @@ dialog {
 
 .btn-origin { border: none; padding: 0; }
 
-.btn-inline { @extend .btn-origin; position: absolute; }
+.btn-inline {
+   
+   @extend .btn-origin;
+   
+   position: absolute;
+   top: .45rem; right: 1.25rem;
+
+}
 
 .btn-slider {
 

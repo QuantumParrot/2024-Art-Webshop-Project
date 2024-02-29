@@ -43,30 +43,6 @@
 
 </template>
 
-<style lang="scss">
-
-@import '@/assets/variables';
-
-.title-link { text-decoration: none; }
-
-.nav-link { color: $primary }
-
-@media (max-width: 767px) {
-
-    .navbar-collapse {
-
-        padding-top: 1.25rem;
-
-        .nav { flex-direction: column; }
-
-        .nav-link { padding-left: 0; }
-
-    }
-
-}
-
-</style>
-
 <script>
 
 import { Collapse } from 'bootstrap/dist/js/bootstrap';
@@ -100,3 +76,27 @@ export default {
 };
 
 </script>
+
+<style lang="scss">
+
+@import '@/assets/variables';
+
+.title-link { text-decoration: none; }
+
+.nav-link { color: $primary }
+
+@media (max-width: 767px) {
+
+    .navbar-collapse {
+
+        padding-top: 1.25rem;
+
+        .nav { flex-direction: column; }
+
+        .nav-link { padding-left: 0; }
+
+    }
+
+}
+
+</style>

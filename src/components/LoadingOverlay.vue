@@ -11,6 +11,50 @@
 
 </template>
 
+<script>
+
+import 'vue-loading-overlay/dist/css/index.css';
+import Loading from 'vue-loading-overlay';
+
+export default {
+
+    components: { Loading },
+
+    props: {
+
+        isLoading: {
+
+            type: Boolean, required: true,
+
+        },
+
+        isFull: {
+
+            type: Boolean,
+            default: true,
+
+        },
+
+    },
+
+    data() {
+
+        return { loading: false };
+
+    },
+
+    watch: {
+
+        isLoading() { this.loading = this.isLoading; },
+
+    },
+
+    mounted() { this.loading = this.isLoading; },
+
+};
+
+</script>
+
 <style>
 
 /* src: https://tobiasahlin.com/spinkit/ */
@@ -63,47 +107,3 @@
 }
 
 </style>
-
-<script>
-
-import 'vue-loading-overlay/dist/css/index.css';
-import Loading from 'vue-loading-overlay';
-
-export default {
-
-    components: { Loading },
-
-    props: {
-
-        isLoading: {
-
-            type: Boolean, required: true,
-
-        },
-
-        isFull: {
-
-            type: Boolean,
-            default: true,
-
-        },
-
-    },
-
-    data() {
-
-        return { loading: false };
-
-    },
-
-    watch: {
-
-        isLoading() { this.loading = this.isLoading; },
-
-    },
-
-    mounted() { this.loading = this.isLoading; },
-
-};
-
-</script>

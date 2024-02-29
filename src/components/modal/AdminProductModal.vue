@@ -243,12 +243,6 @@
 
 </template>
 
-<style lang="scss" scoped>
-
-.btn-inline { top: .45rem; right: 1.25rem; }
-
-</style>
-
 <script>
 
 import modalMixns from '@/mixins/modal';

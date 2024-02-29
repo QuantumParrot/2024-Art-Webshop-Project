@@ -24,6 +24,22 @@
 
 </template>
 
+<script>
+
+export default {
+
+    props: ['current', 'total'],
+
+    methods: {
+
+        switchPage(num) { this.$emit('switch-page', num); },
+
+    },
+
+};
+
+</script>
+
 <style lang="scss">
 
 @import '../assets/_variables.scss';
@@ -65,19 +81,3 @@
 }
 
 </style>
-
-<script>
-
-export default {
-
-    props: ['current', 'total'],
-
-    methods: {
-
-        switchPage(num) { this.$emit('switch-page', num); },
-
-    },
-
-};
-
-</script>

@@ -27,27 +27,27 @@
                         <li>-Nr_GNNyiZSiTAKt9xTw</li>
                     </ul>
                 </details>
-                <template v-if="tempOrder?.id">
+                <template v-if="order.id">
                     <p class="mb-5">您的搜尋結果：</p>
                     <div class="card p-2">
                         <div class="border rounded-2 p-5">
-                            <p><b class="p-title">訂單編號</b>：{{ tempOrder.id }}</p>
+                            <p><b class="p-title">訂單編號</b>：{{ order.id }}</p>
                             <p><b class="p-title">訂購日期</b>：
-                            <span>{{ $calc.formatTime(tempOrder.create_at * 1000) }}</span></p>
+                            <span>{{ $calc.formatTime(order.create_at * 1000) }}</span></p>
                             <details class="mb-3">
                                 <summary><b class="p-title">訂購人資訊</b>（ 展開查看詳細 ）</summary>
                                 <ul class="list-unstyled mt-3">
-                                    <li class="mb-2"><b>姓名</b>：{{ tempOrder.user.name }}</li>
-                                    <li class="mb-2"><b>電話</b>：{{ tempOrder.user.tel }}</li>
+                                    <li class="mb-2"><b>姓名</b>：{{ order.user.name }}</li>
+                                    <li class="mb-2"><b>電話</b>：{{ order.user.tel }}</li>
                                     <li class="mb-2">
                                         <p class="mb-2"><b>地址</b>：</p>
-                                        <p class="mb-2">{{ tempOrder.user.address }}</p>
+                                        <p class="mb-2">{{ order.user.address }}</p>
                                     </li>
-                                    <li class="mb-2"><b>信箱</b>：{{ tempOrder.user.email }}</li>
-                                    <li class="mb-2"><b>選擇贊助的專案</b>：{{ tempOrder.project }}</li>
+                                    <li class="mb-2"><b>信箱</b>：{{ order.user.email }}</li>
+                                    <li class="mb-2"><b>選擇贊助的專案</b>：{{ order.project }}</li>
                                     <li>
                                         <p class="mb-2"><b>您的留言：</b></p>
-                                        <p class="mb-2">{{ tempOrder.message }}</p>
+                                        <p class="mb-2">{{ order.message }}</p>
                                     </li>
                                 </ul>
                             </details>
@@ -63,7 +63,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="align-middle">
-                                    <template v-for="(item, key) in tempOrder.products" :key="key">
+                                    <template v-for="(item, key) in order.products" :key="key">
                                     <tr>
                                         <td class="ps-0">{{ item.product.title }}</td>
                                         <td>
@@ -87,11 +87,11 @@
                                         <td colspan="5" class="px-0 py-3">
                                             <div class="flex-classic">
                                             <p class="mb-0">
-                                            <strong>總計：</strong>NT$ {{ tempOrder.total }}
+                                            <strong>總計：</strong>NT$ {{ order.total }}
                                             </p>
-                                            <button type="button" v-if="!tempOrder.is_paid"
+                                            <button type="button" v-if="!order.is_paid"
                                                     class="btn btn-highlight"
-                                                    @click="payOrder(tempOrder.id)">
+                                                    @click="payOrder(order.id)">
                                             付款去</button>
                                             </div>
                                         </td>
@@ -100,16 +100,15 @@
                                 </table>
                                 <p class="d-flex align-items-center">
                                     <span><b class="p-title">付款狀態</b>：</span>
-                                    <span class="me-2" :class="tempOrder.is_paid ?
+                                    <span class="me-2" :class="order.is_paid ?
                                           'text-success' : 'text-danger'">
-                                    {{ tempOrder.is_paid ? '已付款' : '未付款' }}
+                                    {{ order.is_paid ? '已付款' : '未付款' }}
                                     </span>
                                 </p>
                                 <p class="mb-0">
                                     <span><b class="p-title">出貨狀態</b>：</span>
-                                    <span :style="{ 'color':
-                                          statesCode[tempOrder.state].color }">
-                                    {{ statesCode[tempOrder.state].title }}
+                                    <span :style="{ 'color': statesCode[order.state].color }">
+                                    {{ statesCode[order.state].title }}
                                     </span>
                                 </p>
                             </div>
@@ -135,7 +134,7 @@ export default {
 
     computed: {
 
-        ...mapState(userOrderStore, ['tempOrder']),
+        ...mapState(userOrderStore, ['order']),
 
         ...mapState(adminOrderStore, ['statesCode']),
 

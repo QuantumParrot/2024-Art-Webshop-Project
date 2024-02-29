@@ -18,32 +18,7 @@ const { VITE_APP_SITE, VITE_APP_PATH } = import.meta.env;
 
 export default defineStore('userOrder', {
 
-    states: () => ({ order: {} }),
-
-    getters: {
-
-        tempOrder: ({ order }) => {
-
-            if (order?.message.startsWith('{"')) {
-
-                const detail = JSON.parse(order.message);
-
-                return {
-
-                    ...order,
-                    message: detail.message,
-                    state: +detail.state,
-                    project: detail.project,
-
-                };
-
-            }
-
-            return { ...order, state: 0, project: '不指定' };
-
-        },
-
-    },
+    state: () => ({ order: {} }),
 
     actions: {
 
@@ -57,7 +32,7 @@ export default defineStore('userOrder', {
 
                     if (order !== null) {
 
-                        this.order = order;
+                        this.refactorOrder(order);
 
                     } else { alertStore.toastAlert('查無此訂單', 'error'); }
 
@@ -68,6 +43,29 @@ export default defineStore('userOrder', {
                     reset();
 
                 });
+
+        },
+
+        refactorOrder(order) {
+
+            if (order.message.startsWith('{"')) {
+
+                const detail = JSON.parse(order.message);
+
+                this.order = {
+
+                    ...order,
+                    message: detail.message,
+                    state: +detail.state,
+                    project: detail.project,
+
+                };
+
+            } else {
+
+                this.order = { ...order, state: order.state || 0, project: order.project || '不指定' };
+
+            }
 
         },
 

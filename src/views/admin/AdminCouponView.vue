@@ -98,7 +98,7 @@ export default {
             this.tempCoupon = item ? { ...item } : {
 
                 is_enabled: 0,
-                due_date: this.now(),
+                due_date: this.$calc.now(),
 
             };
 

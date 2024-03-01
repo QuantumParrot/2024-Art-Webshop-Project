@@ -18,7 +18,7 @@ const { VITE_APP_SITE, VITE_APP_PATH } = import.meta.env;
 
 export default defineStore('userProduct', {
 
-    state: () => ({ products: [], pagination: {} }),
+    state: () => ({ products: [], pagination: {}, product: {} }),
 
     actions: {
 
@@ -37,7 +37,17 @@ export default defineStore('userProduct', {
 
         },
 
-        getProduct() {
+        getProduct(id) {
+
+            loaderStore.createLoader('get-single-product');
+            axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/product/${id}`)
+                .then((res) => {
+
+                    this.product = res.data.product;
+
+                })
+                .catch((error) => alertStore.errorAlert(error))
+                .finally(() => loaderStore.removeLoader('get-single-product'));
 
         },
 

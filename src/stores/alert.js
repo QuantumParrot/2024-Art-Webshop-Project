@@ -94,7 +94,7 @@ export default defineStore('alert', {
         uploadAlert(file) {
 
             let text = '';
-            const typeRegex = /jpg|jpeg|png/g;
+            const typeRegex = /jpg|jpeg|png$/g;
 
             if (!file.name) {
 

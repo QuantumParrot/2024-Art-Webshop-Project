@@ -8,20 +8,23 @@
                 :filters="categories['專欄文章']" :filter="filter"
                 @switch-filter="switchFilter" />
         </div>
-        <ul class="row list-unstyled mb-7" v-if="columnList.length">
+        <ul class="row g-5 list-unstyled mb-7" v-if="columnList.length">
             <template v-for="item in columnList" :key="item.id">
             <li class="col-xl-4 col-md-6">
-                <div class="card">
+                <div class="h-100 card">
                     <img class="card-img-top" :src="item.image" :alt="item.title">
-                    <div class="card-body">
-                        <h4 class="fs-5 fw-bold mb-4">
+                    <div class="card-body d-flex flex-column">
+                        <div class="text-nowrap overflow-x-scroll">
+                            <h4 class="fs-5 fw-bold mb-4">
                             <span class="section-title">{{ item.title }}</span>
-                        </h4>
-                        <h5 class="fs-6 mb-4">
+                            </h4>
+                            <h5 class="fs-6 mb-4">
                             <span>{{ $calc.formatDate(item.create_at * 1000) }}</span>
                             <span>｜專欄：{{ item.author }}</span>
-                        </h5>
-                        <p class="text-secondary text-justify">{{ item.description }}</p>
+                            </h5>
+                        </div>
+                        <p class="flex-grow-1 text-secondary text-justify mb-4">
+                        {{ item.description }}</p>
                         <div class="text-end">
                             <router-link :to="`/article/${item.id}`" v-slot="{ navigate }" custom>
                             <button type="button" @click="navigate"

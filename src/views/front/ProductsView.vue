@@ -1,6 +1,6 @@
 <template>
 
-<div class="h-100 h-100 bg-gray text-primary">
+<div class="h-100 bg-gray text-primary">
     <div class="container py-7">
         <h3 class="h2 text-center mb-7">商品一覽</h3>
         <ul class="nav flex-column flex-md-row mb-7">
@@ -34,7 +34,7 @@
                                 <img class="card-img-top"
                                      :src="product.imageUrl" :alt="product.title">
                                 <div class="card-navigate">
-                                    <button type="button" class="btn btn-outline-light">
+                                    <button type="button" class="btn fs-4 text-light">
                                     <i class="bi bi-search"></i>
                                     </button>
                                 </div>
@@ -43,14 +43,10 @@
                         </div>
                         <div class="card-body py-5
                                     d-flex flex-column justify-content-between">
-                            <div class="flex-grow-1">
-                                <h4 class="card-title h6 fw-bold text-nowrap overflow-scroll
-                                           d-flex align-items-center mb-3">
-                                <span class="bg-primary text-light px-2 py-2">
-                                {{ product.category }}</span>
-                                <span class="px-2">
-                                {{ product.title }}</span>
-                                </h4>
+                            <div class="flex-grow-1 d-flex align-items-center gap-3 mb-3">
+                                <h4 class="fs-5 fw-bold text-primary
+                                           text-nowrap overflow-scroll mb-0">
+                                {{ product.title }}</h4>
                             </div>
                             <div class="fs-5 flex-classic">
                                 <div>
@@ -223,15 +219,6 @@ export default {
     z-index: 2;
 
     &:hover { opacity: 1; }
-
-}
-
-.card-title { border: 1px solid $primary; }
-
-.badge {
-
-    background-color: $primary;
-    border-radius: 0;
 
 }
 

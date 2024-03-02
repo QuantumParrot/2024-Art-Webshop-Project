@@ -41,31 +41,47 @@
                                 </router-link>
                             </div>
                         </div>
-                        <div class="card-body py-5
-                                    d-flex flex-column justify-content-between">
-                            <div class="flex-grow-1 d-flex align-items-center gap-3 mb-3">
-                                <h4 class="fs-5 fw-bold text-primary
-                                           text-nowrap overflow-scroll mb-0">
-                                {{ product.title }}</h4>
-                            </div>
-                            <div class="fs-5 flex-classic">
-                                <div>
-                                <span>NT＄</span>
-                                <template v-if="product.price < product.origin_price">
-                                    <span>
-                                    <span class="text-decoration-line-through text-muted">
-                                    {{ product.origin_price }}</span>
-                                    </span>
-                                    <span class="arrow-animation">
-                                    <span class="arrow"> → </span>
-                                    </span>
-                                </template>
-                                <span class="fw-bold">{{ product.price }}</span>
+                        <div class="card-body py-5 row">
+                            <div class="col-9">
+                                <div class="h-100 d-flex flex-column justify-content-between">
+                                    <div class="flex-grow-1 d-flex gap-3 mb-3">
+                                        <h4 class="fs-5 fw-bold text-primary
+                                                   text-nowrap overflow-scroll mb-0">
+                                        {{ product.title }}</h4>
+                                    </div>
+                                    <div class="fs-6">
+                                        <span>NT＄</span>
+                                        <template v-if="product.price < product.origin_price">
+                                            <span>
+                                            <span class="text-decoration-line-through text-muted">
+                                            {{ product.origin_price }}</span>
+                                            </span>
+                                            <span class="arrow-animation">
+                                            <span class="arrow"> → </span>
+                                            </span>
+                                        </template>
+                                        <span class="fw-bold">{{ product.price }}</span>
+                                    </div>
                                 </div>
-                                <button type="button"
-                                        class="btn btn-highlight text-white rounded-1">
-                                <i class="bi bi-cart-fill"></i>
-                                </button>
+                            </div>
+                            <div class="col-3">
+                                <div class="d-flex flex-column align-items-end">
+                                    <button type="button"
+                                            class="btn btn-primary"
+                                            @click="addToCart(product.id)"
+                                            :disabled="loadingTask === product.id">
+                                    <template v-if="loadingTask === product.id">
+                                    <div role="status" class="spinner-border spinner-border-sm">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    </template>
+                                    <i class="bi bi-cart-plus-fill" v-else></i>
+                                    </button>
+                                    <button type="button"
+                                            class="btn btn-outline-primary">
+                                    <i class="bi bi-heart"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -93,6 +109,10 @@ import { mapState, mapActions } from 'pinia';
 
 import userProductStore from '@/stores/userProduct';
 
+import userCartStore from '@/stores/userCart';
+
+import loaderStore from '@/stores/loader';
+
 //
 
 import PaginationComponent from '@/components/PaginationComponent.vue';
@@ -108,6 +128,8 @@ export default {
     computed: {
 
         ...mapState(userProductStore, ['products', 'pagination']),
+
+        ...mapState(loaderStore, ['loadingTask']),
 
     },
 
@@ -126,6 +148,8 @@ export default {
     methods: {
 
         ...mapActions(userProductStore, ['getProducts']),
+
+        ...mapActions(userCartStore, ['addToCart']),
 
     },
 
@@ -221,5 +245,7 @@ export default {
     &:hover { opacity: 1; }
 
 }
+
+.btn { border-radius: 0 0 0 0; }
 
 </style>

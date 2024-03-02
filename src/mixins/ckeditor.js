@@ -17,7 +17,7 @@ import { Font } from '@ckeditor/ckeditor5-font';
 //     ImageUpload,
 // } from '@ckeditor/ckeditor5-image';
 
-import { headingConfig } from '@/assets/plugin';
+import { headingConfig } from '@/methods/plugin';
 
 //
 

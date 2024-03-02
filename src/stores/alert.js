@@ -35,12 +35,19 @@ export default defineStore('alert', {
 
         modalAlert(config) {
 
-            const { title, text, icon = 'error' } = config;
+            const {
+
+                title, text, icon = 'error',
+                buttonColor, buttonTxt,
+
+            } = config;
+
             Swal.fire({
                 title,
                 icon,
                 text: text || '',
-                confirmButtonColor: this.refuseColor,
+                confirmButtonColor: buttonColor || this.refuseColor,
+                confirmButtonText: buttonTxt || 'OK',
             });
 
         },

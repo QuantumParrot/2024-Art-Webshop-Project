@@ -12,8 +12,12 @@
             <i class="bi bi-list"></i>
             </button>
             <router-link v-slot="{ navigate }" to="/carts" custom>
-            <button type="button" class="btn btn-primary" @click="navigate">
+            <button type="button" class="btn btn-primary position-relative" @click="navigate">
                 <i class="bi bi-cart-fill"></i>
+                <span class="position-absolute top-0 start-100
+                             translate-middle p-1
+                             bg-danger border border-light rounded-circle"
+                             v-show="carts.length"></span>
             </button>
             </router-link>
             <router-link v-slot="{ navigate }" to="/order" custom>
@@ -47,6 +51,12 @@
 
 import { Collapse } from 'bootstrap/dist/js/bootstrap';
 
+//
+
+import { mapState, mapActions } from 'pinia';
+
+import cartStore from '@/stores/userCart';
+
 export default {
 
     data() {
@@ -55,7 +65,15 @@ export default {
 
     },
 
+    computed: {
+
+        ...mapState(cartStore, ['carts']),
+
+    },
+
     methods: {
+
+        ...mapActions(cartStore, ['getCarts']),
 
         toggleNavbar() { this.collapse.toggle(); },
 
@@ -66,6 +84,8 @@ export default {
         $route() { this.collapse.hide(); },
 
     },
+
+    created() { this.getCarts(); },
 
     mounted() {
 

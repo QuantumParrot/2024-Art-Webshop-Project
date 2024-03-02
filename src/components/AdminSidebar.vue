@@ -32,7 +32,11 @@
         </ul>
     </div>
     <div class="pt-4">
-        <button type="button" class="btn btn-highlight" @click="logout">登出</button>
+        <router-link to="/" v-slot="{ navigate }" custom>
+            <button type="button" class="btn btn-outline-light me-3"
+                    @click="navigate">查看前台</button>
+        </router-link>
+        <button type="button" class="btn btn-outline-highlight" @click="logout">登出</button>
     </div>
 </nav>
 

@@ -46,6 +46,10 @@ export default defineStore('userOrder', {
 
         },
 
+        createOrder() {
+
+        },
+
         refactorOrder(order) {
 
             if (order.message.startsWith('{"')) {

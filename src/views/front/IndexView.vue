@@ -18,10 +18,15 @@
                     歡迎訂閱我們的電子報，<br>
                     好康消息、專欄文章不漏接！
                     </p>
+                    <v-form v-slot="{ errors }" @submit="subscribe">
                     <div class="input-group">
-                        <input type="text" class="form-control py-2" placeholder="請輸入您的電子信箱">
-                        <button type="button" class="btn btn-primary px-5">訂閱</button>
+                        <v-field
+                            type="text" placeholder="請輸入您的電子信箱"
+                            class="form-control py-2" :class="{ 'is-invalid': errors['email'] }"
+                            name="email" rules="required"></v-field>
+                        <button type="submit" class="btn btn-primary px-5">訂閱</button>
                     </div>
+                    </v-form>
                 </div>
             </div>
         </div>
@@ -32,7 +37,34 @@
 
 <script>
 
+import { mapActions } from 'pinia';
+
+import alertStore from '@/stores/alert';
+
 export default {
+
+    methods: {
+
+        ...mapActions(alertStore, ['modalAlert']),
+
+        subscribe(data, { resetForm }) {
+
+            const config = {
+
+                title: '感謝您的訂閱！',
+                text: '什麼也沒發生 ･*･:≡(　ε:)',
+                icon: 'success',
+                buttonColor: '#424242',
+                buttonTxt: '好喔',
+
+            };
+
+            this.modalAlert(config);
+            resetForm();
+
+        },
+
+    },
 
 };
 

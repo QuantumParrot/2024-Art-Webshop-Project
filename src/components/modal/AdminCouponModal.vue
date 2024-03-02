@@ -40,7 +40,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label is-required" for="due_date">
-                    優惠截止日期</label>
+                    <span>優惠截止日期</span></label>
                     <input id="due_date" type="date" class="form-control"
                            v-model="due_date" :min="$calc.today()">
                 </div>

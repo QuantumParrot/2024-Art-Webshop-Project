@@ -113,7 +113,8 @@
                         <v-field
                             type="text" id="content"
                             class="form-control" v-model.trim="product.content"
-                            name="content" rules="required"></v-field>
+                            name="content" rules="required"
+                            placeholder="商品的材質與尺寸"></v-field>
                         </div>
                         <div class="row row-cols-2">
                             <div class="col">
@@ -133,36 +134,42 @@
                         </div>
                     </div>
                     <div v-show="tab === 'description'">
-                        <div>
-                        <label class="form-label is-required" for="description">商品介紹</label>
+                        <div class="mb-3">
+                        <label class="form-label mb-3 is-required" for="description">商品介紹</label>
                         <v-field
                             id="description" rows="10" class="form-control text-justify"
                             v-model.trim="product.description"
                             name="description" rules="required" as="textarea"></v-field>
                         </div>
+                        <label class="form-label mb-3" for="notes">商品備註</label>
+                        <textarea
+                            id="notes" rows="3"
+                            class="form-control text-justify"
+                            v-model.trim="product.notes"
+                            placeholder="需要讓消費者知道的購買須知"></textarea>
                     </div>
                     <div v-show="tab === 'price'">
                         <div class="mb-3">
-                            <div class="flex-classic mb-2">
-                                <label class="is-required" for="origin_price">商品原價</label>
-                                <span class="fs-7 text-danger">
-                                必須是大於零的整數</span>
-                            </div>
-                            <v-field
-                                id="origin_price" type="number" min="1" class="form-control"
-                                v-model.number="product.origin_price"
-                                name="origin_price" rules="required|integer|min_value:1"></v-field>
+                        <div class="flex-classic mb-2">
+                            <label class="is-required" for="origin_price">商品原價</label>
+                            <span class="fs-7 text-danger">
+                            必須是大於零的整數</span>
                         </div>
-                        <div class="mb-3">
-                            <div class="flex-classic mb-2">
-                                <label class="is-required" for="price">商品售價</label>
-                                <span class="fs-7 text-danger">
-                                必須是大於零的整數</span>
-                            </div>
-                            <v-field
-                                id="price" type="number" min="1" class="form-control"
-                                v-model.number="product.price"
-                                name="price" rules="required|integer|min_value:1"></v-field>
+                        <v-field
+                            id="origin_price" type="number" min="1" class="form-control"
+                            v-model.number="product.origin_price"
+                            name="origin_price" rules="required|integer|min_value:1"></v-field>
+                        </div>
+                        <div class="mb-0">
+                        <div class="flex-classic mb-2">
+                            <label class="is-required" for="price">商品售價</label>
+                            <span class="fs-7 text-danger">
+                            必須是大於零的整數</span>
+                        </div>
+                        <v-field
+                            id="price" type="number" min="1" class="form-control"
+                            v-model.number="product.price"
+                            name="price" rules="required|integer|min_value:1"></v-field>
                         </div>
                     </div>
                     <div v-show="tab === 'tags'">

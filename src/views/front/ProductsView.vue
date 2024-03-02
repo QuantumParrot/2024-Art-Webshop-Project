@@ -2,7 +2,7 @@
 
 <div class="h-100 bg-gray text-primary">
     <div class="container py-7">
-        <h3 class="h2 text-center mb-7">商品一覽</h3>
+        <h3 class="h2 text-center mb-7">線上商城</h3>
         <ul class="nav flex-column flex-md-row mb-7">
             <li class="nav-item">
             <router-link

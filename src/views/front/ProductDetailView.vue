@@ -6,29 +6,29 @@
         <div class="d-flex justify-content-center">
             <div>
             <img class="main-img mb-5" :class="frame ? frameSetting[frame] : ''"
-                 :src="mainImage" :alt="product.title" width="500">
+                 :src="mainImage" :alt="product.title" width="600">
             <div class="bg-light rounded-2 p-3 mb-5
                         d-flex gap-3">
             <template v-for="img in displayImages" :key="img">
-                <img class="display-img" :class="{ 'opacity-50': img !== product.imageUrl }"
+                <img class="display-img" :class="{ 'opacity-50': img !== mainImage }"
                      :src="img" :alt="product.title"
                      @click="mainImage = img">
             </template>
             </div>
             <div class="d-flex gap-3 mb-5" v-if="product.category === '複製油畫'">
-                <button type="button" class="btn btn-outline-primary"
+                <button type="button" class="btn btn-outline-primary fw-bold"
                         :class="{ 'active': frame === '' }"
                         @click="frame = ''">
                 不加框</button>
-                <button type="button" class="btn btn-outline-primary"
+                <button type="button" class="btn btn-outline-primary fw-bold"
                         :class="{ 'active': frame === 'dark' }"
                         @click="frame = 'dark'">
                 黑</button>
-                <button type="button" class="btn btn-outline-primary"
+                <button type="button" class="btn btn-outline-primary fw-bold"
                         :class="{ 'active': frame === 'wooden' }"
                         @click="frame = 'wooden'">
                 淺木</button>
-                <button type="button" class="btn btn-outline-primary"
+                <button type="button" class="btn btn-outline-primary fw-bold"
                         :class="{ 'active': frame === 'golden' }"
                         @click="frame = 'golden'">
                 金</button>
@@ -38,26 +38,42 @@
             </div>
         </div>
         <hr>
-        <div class="row g-5">
+        <div class="row g-5 mb-5">
             <div class="col-xl-7 order-xl-1 order-2">
-                <div class="alert bg-light p-5 mb-5">
-                    <div class="border border-gray rounded-2 p-5">
-                        <h3 class="fs-4 text-dark fw-bold mb-5">
-                            <span class="section-title">關於它的故事</span>
-                        </h3>
-                        <div class="lh-lg pre-wrap text-justify">{{ product.description }}</div>
+                <div class="h-100 d-flex flex-column">
+                    <div class="flex-grow-1 alert bg-light p-5 mb-5">
+                        <div class="h-100 border border-gray shadow-sm rounded-2 p-5 pb-6
+                                    d-flex flex-column justify-content-between">
+                            <div>
+                            <h3 class="lh-lg fs-4 text-dark fw-bold mb-5">
+                                <span class="section-title">關於它的故事</span>
+                            </h3>
+                            <div class="lh-lg pre-wrap text-justify mb-6">
+                            {{ product.description }}</div>
+                            </div>
+                            <div class="d-flex gap-2
+                                        flex-nowrap text-nowrap overflow-scroll">
+                                <span v-for="tag in product.tags" :key="tag"
+                                      class="badge bg-primary fs-6 py-2">
+                                {{ tag }}</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="alert bg-light p-5">
-                    <p class="lh-lg mb-0">
-                    <i class="bi bi-c-circle me-1"></i>
-                    商品的圖片與文字出處請參閱：<a target="_blank" href="https://www.notion.so/9f522b0de5c2413c8090249c96bd692a?v=5b0f1f1c376f4b468a56aaec87a97c8a">本站索引</a></p>
+                    <div class="alert bg-light p-5 mb-0">
+                        <p class="lh-lg mb-0">
+                        <i class="bi bi-c-circle me-1"></i>
+                        圖片與文字出處請參閱：<a target="_blank" href="https://www.notion.so/9f522b0de5c2413c8090249c96bd692a?v=5b0f1f1c376f4b468a56aaec87a97c8a">本站索引</a></p>
+                    </div>
                 </div>
             </div>
             <div class="col-xl-5 order-xl-2 order-1">
                 <div class="sticky-sidebar">
                     <div class="alert bg-light p-5 mb-5">
-                        <div>
+                        <h4 class="fs-5 text-dark fw-bold mb-4">購買須知</h4>
+                        <p class="lh-lg pre-wrap text-justify mb-0">{{ product.notes || '無' }}</p>
+                    </div>
+                    <div class="alert bg-light p-5 mb-5">
+                        <div class="mb-5">
                             <p class="text-nowrap overflow-scroll">
                             <span class="fs-6 badge bg-primary px-3 py-2 me-2">規格</span>
                             {{ product.content }}</p>
@@ -79,7 +95,7 @@
                                 <div class="col-sm-8">
                                     <div class="input-group">
                                     <button type="button" class="btn btn-secondary input-group-text"
-                                            @click="this.quantity --" :disabled="quantity < 1">
+                                            @click="this.quantity --" :disabled="quantity <= 1">
                                     <i class="bi bi-dash"></i>
                                     </button>
                                     <input
@@ -106,7 +122,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="alert bg-light p-5">
+                    <div class="alert bg-light p-5 mb-0">
                         <div class="row g-3">
                             <div class="col-sm-4">
                                 <div class="d-flex flex-sm-column
@@ -137,6 +153,22 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="alert bg-white p-5">
+        <h4 class="text-center mb-5">您也許感興趣的商品</h4>
+            <div class="row g-5">
+                <div class="col-md-4" v-for="item in relatedProducts" :key="item.id">
+                    <a class="text-decoration-none"
+                       href="#" @click.prevent="$router.push(`/product/${item.id}`)">
+                    <div class="card">
+                        <img class="card-img-top" :src="item.imageUrl" :alt="item.title">
+                        <div class="card-body py-5 flex-classic">
+                            <h5 class="fs-6 fw-bold mb-0">{{ item.title }}</h5>
+                            <p class="mb-0">NT$ {{ item.price }}</p>
+                        </div>
+                    </div></a>
                 </div>
             </div>
         </div>
@@ -180,7 +212,7 @@ export default {
 
     computed: {
 
-        ...mapState(userProductStore, ['product']),
+        ...mapState(userProductStore, ['product', 'relatedProducts']),
 
         ...mapState(loaderStore, ['isLoading', 'loadingTask']),
 
@@ -196,9 +228,19 @@ export default {
 
     watch: {
 
+        '$route.params': {
+
+            handler() { this.getProduct(this.$route.params.id); },
+
+            deep: true,
+
+        },
+
         product() {
 
-            this.mainImage = this.product.imageUrl; this.quantity = 1;
+            this.mainImage = this.product.imageUrl;
+            this.quantity = 1;
+            this.frame = '';
 
         },
 
@@ -283,5 +325,7 @@ hr { margin: 1.5rem 0; }
 }
 
 .section-title::after { left: 1%; }
+
+.card-img-top { height: 250px; object-position: 50% 30%; }
 
 </style>

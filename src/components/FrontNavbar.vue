@@ -35,7 +35,7 @@
                 <router-link class="nav-link" to="/about">關於我們</router-link>
                 </li>
                 <li class="nav-item">
-                <router-link class="nav-link" to="/products">商品一覽</router-link>
+                <router-link class="nav-link" to="/products">線上商城</router-link>
                 </li>
                 <li class="nav-item">
                 <router-link class="nav-link" to="/articles">專欄文章</router-link>

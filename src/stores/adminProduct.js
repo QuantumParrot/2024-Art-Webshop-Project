@@ -55,7 +55,7 @@ export default defineStore('adminProduct', {
 
             });
 
-            return tags;
+            return tags.sort((a, b) => a.length - b.length);
 
         },
 

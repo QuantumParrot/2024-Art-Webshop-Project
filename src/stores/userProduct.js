@@ -26,6 +26,7 @@ export default defineStore('userProduct', {
         pagination: {},
 
         product: {},
+        totalProducts: [],
         relatedProducts: [],
 
     }),
@@ -54,7 +55,20 @@ export default defineStore('userProduct', {
                 .then((res) => {
 
                     this.product = res.data.product;
-                    this.getRelatedProducts(res.data.product);
+
+                    if (this.totalProducts.length) {
+
+                        // console.log('已經取過全部商品的資料！');
+
+                        this.getRelatedProducts(res.data.product);
+
+                    } else {
+
+                        // console.log('還未取過全部商品的資料！');
+
+                        this.getTotalProducts(res.data.product, this.getRelatedProducts);
+
+                    }
 
                 })
                 .catch((error) => alertStore.errorAlert(error))
@@ -62,48 +76,71 @@ export default defineStore('userProduct', {
 
         },
 
-        getRelatedProducts(item) {
+        getTotalProducts(data, fn) {
 
-            loaderStore.createLoader('get-related-products');
+            loaderStore.createLoader('get-total-products');
 
             axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/products/all`)
                 .then((res) => {
 
-                    const { category, tags } = item;
-
-                    let { products } = res.data;
-
-                    // 取得所有商品之後，先篩選掉當前的商品 ( 自己 ) 和沒有標籤的商品
-
-                    products = products.filter((i) => i.id !== item.id && Array.isArray(i.tags));
-
-                    // 接著開始尋找有同樣標籤的商品
-
-                    const results = products.filter((i) => i.tags.some((tag) => tags.includes(tag)));
-
-                    // console.log('results', results.map((i) => i.title));
-
-                    if (results.length < 3) {
-
-                        // console.log('篩選結果小於三！');
-
-                        const excludes = results.map((i) => i.id);
-
-                        const filterAgain = products.filter((i) => i.category === category && !excludes.includes(i.id));
-
-                        results.push(...this.getRandomProducts(filterAgain, 3 - results.length));
-
-                        this.relatedProducts = results.length < 3 ? this.getRandomProducts(products, 3 - results.length) : results;
-
-                    } else {
-
-                        this.relatedProducts = this.getRandomProducts(results, 3);
-
-                    }
+                    this.totalProducts = Object.values(res.data.products);
+                    if (typeof fn === 'function') { fn(data); }
 
                 })
                 .catch((error) => alertStore.errorAlert(error))
-                .finally(() => loaderStore.removeLoader('get-related-products'));
+                .finally(() => loaderStore.removeLoader('get-total-products'));
+
+        },
+
+        getRelatedProducts(item) { // 寫得超爛 XD 還在改良中！
+
+            const { category, tags } = item;
+
+            // 取得所有商品之後，先篩選掉當前的商品 ( 自己 ) 和沒有標籤的商品
+
+            const products = this.totalProducts.filter((i) => i.id !== item.id && Array.isArray(i.tags));
+
+            // 接著開始尋找有同樣標籤的商品
+
+            const results = products.filter((i) => i.tags.some((tag) => tags.includes(tag)));
+
+            // console.log('results', results.map((i) => i.title));
+
+            if (results.length < 3) {
+
+                // 篩選結果少於三個？沒關係，就從同類型 ( category ) 裡面挑幾個出來吧！
+
+                const excludes = results.map((i) => i.id);
+
+                const categoryFilter = products.filter((i) => i.category === category && !excludes.includes(i.id));
+
+                if (categoryFilter.length > 3) {
+
+                    results.push(...this.getRandomProducts(categoryFilter, 3 - results.length));
+
+                } else {
+
+                    results.push(...categoryFilter);
+
+                    if (results.length < 3) {
+
+                        // 怎麼還是少於三個啦 ｡ﾟ(ﾟ´ω`ﾟ)ﾟ｡ 只好從所有商品裡面亂槍打鳥了
+
+                        const remains = products.filter((i) => !results.map((result) => result.id).includes(i.id));
+
+                        // console.log(remains.map((i) => i.title));
+
+                        results.push(...this.getRandomProducts(remains, 3 - results.length));
+
+                    }
+
+                }
+
+                this.relatedProducts = results;
+
+                // console.log(this.relatedProducts.map((i) => i.title));
+
+            } else { this.relatedProducts = this.getRandomProducts(results, 3); }
 
         },
 

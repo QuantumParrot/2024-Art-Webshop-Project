@@ -94,12 +94,14 @@
             <div class="row gy-5">
                 <div class="col-md-8 order-md-1 order-2">
                     <ul class="list-unstyled mb-5">
-                    <template v-for="item in news" :key="item.id">
+                    <template v-for="item in news.filter((i, idx) => idx < 3)" :key="item.id">
                         <li class="alert bg-light p-5 mb-0 d-flex">
                         <p class="mb-0">
                         <span class="fw-bold me-3">
                         {{ $calc.formatDate(item.create_at * 1000, '/') }}</span>
-                        {{ item.title }}</p>
+                        <router-link :to="`/news/${item.id}`">
+                        {{ item.title }}</router-link>
+                        </p>
                         </li>
                     </template>
                     </ul>

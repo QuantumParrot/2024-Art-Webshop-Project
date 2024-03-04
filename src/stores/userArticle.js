@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import axios from 'axios';
 
 //
@@ -32,6 +34,8 @@ export default defineStore('userArticle', {
 
         news: ({ articles }) => articles.filter((i) => i.type === '網站公告'),
 
+        newsList: ({ news, currentPage }) => news.filter((i, idx) => Math.floor(idx / 5) + 1 === currentPage.news),
+
         columns: ({ articles }) => articles.filter((i) => i.type === '專欄文章'),
 
         columnList: ({ columns, filter, currentPage }) => {
@@ -44,7 +48,12 @@ export default defineStore('userArticle', {
 
         },
 
-        totalPages: ({ columnList }) => ({ column: Math.ceil(columnList.length / 9) }),
+        totalPages: ({ columns, news }) => ({
+
+            column: Math.ceil(columns.length / 9),
+            news: Math.ceil(news.length / 5),
+
+        }),
 
     },
 
@@ -71,7 +80,14 @@ export default defineStore('userArticle', {
                 .then((res) => {
 
                     // console.log(res);
+
                     this.article = res.data.article;
+
+                    if (this.article.type === '專欄文章') {
+
+                        this.router.push(`/article/${this.article.id}`);
+
+                    } else { this.router.push(`/news/${this.article.id}`); }
 
                 })
                 .catch((error) => alertStore.errorAlert(error))

@@ -2,7 +2,7 @@
 
 <div class="h-100 bg-gray text-primary">
     <div class="container py-7">
-        <div class="bg-white rounded-2 p-md-7 p-5 shadow" v-if="article.id">
+        <div class="bg-white rounded-2 p-md-7 p-5 shadow" v-show="!isLoading">
             <div class="p-3 border rounded-2">
                 <div class="text-center mb-6">
                     <h3 class="h2 fw-bold lh-lg py-3 border-bottom mb-3">{{ article.title }}</h3>
@@ -35,6 +35,8 @@
 
 import { mapState, mapActions } from 'pinia';
 
+import loaderStore from '@/stores/loader';
+
 import userArticleStore from '@/stores/userArticle';
 
 import SubscriptionComponent from '@/components/SubscriptionComponent.vue';
@@ -46,6 +48,20 @@ export default {
     computed: {
 
         ...mapState(userArticleStore, ['article']),
+
+        ...mapState(loaderStore, ['isLoading']),
+
+    },
+
+    watch: {
+
+        '$route.params.id': {
+
+            handler(n) { this.getArticle(n); },
+
+            deep: true,
+
+        },
 
     },
 

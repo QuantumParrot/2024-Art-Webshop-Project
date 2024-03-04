@@ -18,20 +18,29 @@ const { VITE_APP_SITE, VITE_APP_PATH } = import.meta.env;
 
 export default defineStore('userCart', {
 
-    state: () => ({ carts: [] }),
+    state: () => ({ carts: [], sum: {} }),
 
     actions: {
 
         getCarts() {
 
+            loaderStore.createLoader('get-carts');
             axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/cart`)
                 .then((res) => {
 
+                    // console.log(res.data);
+
                     this.carts = res.data.data.carts;
+                    this.sum = {
+
+                        total: res.data.data.total,
+                        finalTotal: res.data.data.final_total,
+
+                    };
 
                 })
                 .catch((error) => alertStore.errorAlert(error))
-                .finally(() => {});
+                .finally(() => loaderStore.removeLoader('get-carts'));
 
         },
 
@@ -50,64 +59,69 @@ export default defineStore('userCart', {
 
         },
 
-    },
+        updateCart(cart, qty) { // cartId & productId
 
-    updateCart(cart, qty) { // cartId & productId
-
-        loaderStore.createLoader('update-cart');
-        axios.put(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/cart/${cart.id}`, {
-            data: { product_id: cart.product_id, qty },
-        })
-            .then((res) => {
-
-                alertStore.toastAlert(res.data.message, 'success');
-                this.getCarts();
-
+            loaderStore.createLoader('update-cart');
+            axios.put(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/cart/${cart.id}`, {
+                data: { product_id: cart.product_id, qty },
             })
-            .catch((error) => alertStore.errorAlert(error))
-            .finally(() => loaderStore.removeLoader('update-cart'));
+                .then((res) => {
 
-    },
+                    alertStore.toastAlert(res.data.message, 'success');
+                    this.getCarts();
 
-    deleteSingleCart(id) { // cartId
+                })
+                .catch((error) => alertStore.errorAlert(error))
+                .finally(() => loaderStore.removeLoader('update-cart'));
 
-        loaderStore.createLoader('delete-single-cart');
-        axios.delete(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/cart/${id}`)
-            .then((res) => {
+        },
 
-                alertStore.toastAlert(res.data.message, 'success');
-                this.getCarts();
+        deleteSingleCart(id) { // cartId
 
-            })
-            .catch((error) => alertStore.errorAlert(error))
-            .finally(() => loaderStore.removeLoader('delete-single-cart'));
+            loaderStore.createLoader('delete-single-cart');
+            axios.delete(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/cart/${id}`)
+                .then((res) => {
 
-    },
+                    alertStore.toastAlert(res.data.message, 'success');
+                    this.getCarts();
 
-    clearCart() {
+                })
+                .catch((error) => alertStore.errorAlert(error))
+                .finally(() => loaderStore.removeLoader('delete-single-cart'));
 
-        loaderStore.createLoader('delete-all-carts');
-        axios.delete(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/carts`)
-            .then((res) => {
+        },
 
-                alertStore.toastAlert(res.data.message, 'success');
-                this.getCarts();
+        clearCart() {
 
-            })
-            .catch((error) => alertStore.errorAlert(error))
-            .finally(() => loaderStore.removeLoader('delete-all-carts'));
+            loaderStore.createLoader('delete-all-carts');
+            axios.delete(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/carts`)
+                .then((res) => {
 
-    },
+                    alertStore.toastAlert(res.data.message, 'success');
+                    this.getCarts();
 
-    useCoupon(code) {
+                })
+                .catch((error) => alertStore.errorAlert(error))
+                .finally(() => loaderStore.removeLoader('delete-all-carts'));
 
-        axios.post(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/coupon`, { data: { code } })
-            .then((res) => {
+        },
 
-                console.log(res.data);
+        useCoupon(code) {
 
-            })
-            .catch((error) => alertStore.errorAlert(error));
+            loaderStore.setLoader('use-coupon');
+            axios.post(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/coupon`, { data: { code } })
+                .then((res) => {
+
+                    // console.log(res.data);
+                    this.sum.finalTotal = res.data.final_total;
+                    alertStore.toastAlert('已套用優惠券！', 'success');
+                    this.getCarts();
+
+                })
+                .catch((error) => alertStore.errorAlert(error))
+                .finally(() => loaderStore.setLoader(''));
+
+        },
 
     },
 

@@ -12,3 +12,43 @@
     object-fit: cover;
 
 }
+
+.mask {
+
+    position: relative;
+
+    // transition: all 0.75s;
+
+    &::after {
+
+        content: '';
+        width: 100%; height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        z-index: 1;
+
+        background-color: $gray-500;
+        opacity: 0.5;
+
+        transition: opacity 0.3s;
+
+    }
+
+    // &:hover { transform: scale(1.2); }
+
+    &:hover::after { opacity: 0.2; }
+
+    &-txt {
+
+        width: 100%; height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        z-index: 2;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+};

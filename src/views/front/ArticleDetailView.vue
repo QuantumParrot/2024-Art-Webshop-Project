@@ -26,6 +26,7 @@
             </div>
         </div>
     </div>
+    <subscription-component />
 </div>
 
 </template>
@@ -36,7 +37,11 @@ import { mapState, mapActions } from 'pinia';
 
 import userArticleStore from '@/stores/userArticle';
 
+import SubscriptionComponent from '@/components/SubscriptionComponent.vue';
+
 export default {
+
+    components: { SubscriptionComponent },
 
     computed: {
 

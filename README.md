@@ -1,4 +1,4 @@
-## 收藏家 - The Cultural Collector -
+## 收藏家 - The Global Collector -
 
 此為參與 2023 年底六角學院 Vue 直播班的個人專案作品。
 
@@ -33,5 +33,7 @@ Personal Side Project for Practice, Not For Any Commercial Use.
 ✨ hoongyuu：[齊托洋酒](https://hoongyuu.github.io/Cheeto-s-Wine/)
 
 ✨ ericacadu & HuskyHsu：[パンヤ](https://ericacadu.github.io/panya/)
+
+✨ verakang：[藝享世界](https://verakang.github.io/artworld/)
 
 ✨ PayRoom：[原生 HTML 標籤的各種應用](https://codepen.io/water38198/pen/abMMKGX)

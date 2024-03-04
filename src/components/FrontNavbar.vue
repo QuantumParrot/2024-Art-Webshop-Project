@@ -29,7 +29,7 @@
         <div class="navbar-collapse flex-grow-0 order-3 order-lg-2" ref="collapse">
             <ul class="navbar-nav gap-3">
                 <li class="nav-item">
-                <router-link class="nav-link" to="/announcement">最新消息</router-link>
+                <router-link class="nav-link" to="/news">最新消息</router-link>
                 </li>
                 <li class="nav-item">
                 <router-link class="nav-link" to="/about">關於我們</router-link>

@@ -116,7 +116,7 @@
                                          v-show="loadingTask">
                                     <span class="visually-hidden">Loading...</span>
                                     </div>
-                                    <span>{{ loadingTask ? '加入中 ...' : '加入購物車' }}</span>
+                                    <span>{{ loadingTask ? '加入中' : '加入購物車' }}</span>
                                     </button>
                                 </div>
                             </div>
@@ -157,7 +157,7 @@
             </div>
         </div>
         <div class="alert bg-white p-5">
-        <h4 class="text-center mb-5">您也許感興趣的商品</h4>
+        <h4 class="text-center mb-5">為您推薦</h4>
             <div class="row g-5">
                 <div class="col-md-4" v-for="item in relatedProducts" :key="item.id">
                     <a class="text-decoration-none"

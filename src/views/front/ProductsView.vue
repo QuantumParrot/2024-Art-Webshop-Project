@@ -95,6 +95,7 @@
                 @switch-page="(num) => getProducts(pagination.category, num)" />
         </div>
     </div>
+    <subscription-component />
 </div>
 
 </template>
@@ -117,11 +118,13 @@ import loaderStore from '@/stores/loader';
 
 import PaginationComponent from '@/components/PaginationComponent.vue';
 
+import SubscriptionComponent from '@/components/SubscriptionComponent.vue';
+
 //
 
 export default {
 
-    components: { PaginationComponent },
+    components: { PaginationComponent, SubscriptionComponent },
 
     mixins: [categoryMixins],
 

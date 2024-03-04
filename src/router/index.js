@@ -22,6 +22,16 @@ const router = createRouter({
           component: () => import('../views/front/AboutView.vue'),
         },
         {
+          path: 'news',
+          name: 'front-news',
+          component: () => import('../views/front/NewsView.vue'),
+        },
+        {
+          path: 'news/:id',
+          name: 'front-news-detail',
+          component: () => import('../views/front/NewsDetailView.vue'),
+        },
+        {
           path: 'articles',
           name: 'front-articles',
           component: () => import('../views/front/ArticlesView.vue'),

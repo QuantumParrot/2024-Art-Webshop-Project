@@ -1,1 +1,0 @@
-import{d as o}from"./pinia@2.1.7_vue@3.4.19-CHKlOEZr.js";const i=o("loader",{state:()=>({loadingQueue:[],loadingTask:""}),getters:{isLoading:({loadingQueue:e})=>!!e.length},actions:{createLoader(e){this.loadingQueue.push(e)},removeLoader(e){this.loadingQueue.splice(this.loadingQueue.indexOf(e),1)},setLoader(e){this.loadingTask=e}}});export{i as l};

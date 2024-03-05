@@ -3,15 +3,41 @@
 <div class="h-100">
     <section class="bg-primary text-white py-7">
         <div class="container">
+            <h2 class="h1 lh-lg">
+            邀請您一同探索<br>
+            這顆星球上的<span class="text-shadow">吉光片羽</span>
+            </h2>
         </div>
     </section>
     <section class="py-7">
-        <div class="container">
+        <div class="container lh-lg">
+            <div class="mb-7">
+                <h3 class="fw-bold mb-5">豐富藏品，形塑靈魂</h3>
+                <p>我們是一個小型的<b>藝術品販售平台</b></p>
+                <p>這裡匯聚了世界各地的歷史痕跡、文明瑰寶與創意結晶</p>
+                <p>歡迎盡情瀏覽、仔細品味它們的故事</p>
+                <p>找尋與您的靈魂最契合的物品</p>
+                <p>讓它妝點您的<b>店面</b>，您的<b>住家</b></p>
+                <p>以及您的<b>個人鑑賞品味</b></p>
+            </div>
+            <div class="mb-7">
+                <h3 class="fw-bold mb-5">共享見聞，拓展視野</h3>
+                <p>還在想 ε≡ﾍ( ´∀`)ﾉ</p>
+            </div>
+            <div>
+                <h3 class="fw-bold mb-5">回饋社會，實踐關懷</h3>
+                <p>我們相信，藝術鑑賞與社會參與並不矛盾</p>
+                <p>收藏家會妥善運用您在這裡的支出</p>
+                <p>每一筆訂單的<b>部分收益</b></p>
+                <p>將用來<b>贊助</b>不同類型的<b>非營利公益組織</b></p>
+                <p>歡迎自由選擇想支持的計畫</p>
+                <p class="mb-0">詳情請參考我們的方案介紹</p>
+            </div>
         </div>
     </section>
     <section class="bg-primary text-white py-7">
         <div class="container">
-            <h3 class="mb-7">我們蒐羅來自世界各地的美麗藏品 ...</h3>
+            <h3 class="mb-7">蒐羅來自世界各地的美麗藏品 ...</h3>
             <div class="row g-3 mb-3">
                 <div class="col-md-6">
                     <router-link to="products?category=複製油畫">

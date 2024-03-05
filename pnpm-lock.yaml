@@ -74,6 +74,9 @@ dependencies:
   sweetalert2:
     specifier: ^11.10.5
     version: 11.10.5
+  swiper:
+    specifier: ^11.0.7
+    version: 11.0.7
   vee-validate:
     specifier: ^4.12.5
     version: 4.12.5(vue@3.4.19)
@@ -2839,6 +2842,11 @@ packages:
 
   /sweetalert2@11.10.5:
     resolution: {integrity: sha512-q9eE3EKhMcpIDU/Xcz7z5lk8axCGkgxwK47gXGrrfncnBJWxHPPHnBVAjfsVXcTt8Yi8U6HNEcBRSu+qGeyFdA==}
+    dev: false
+
+  /swiper@11.0.7:
+    resolution: {integrity: sha512-cDfglW1B6uSmB6eB6pNmzDTNLmZtu5bWWa1vak0RU7fOI9qHjMzl7gVBvYSl34b0RU2N11HxxETJqQ5LeqI1cA==}
+    engines: {node: '>= 4.7.0'}
     dev: false
 
   /text-table@0.2.0:

@@ -2,7 +2,6 @@
 
 <div class="h-100 bg-gray text-primary">
     <div class="container py-7">
-        <template v-if="!isLoading">
         <div class="d-flex justify-content-center">
             <div>
             <img class="main-img mb-5" :class="frame ? frameSetting[frame] : ''"
@@ -95,7 +94,7 @@
                                 <div class="col-sm-8">
                                     <div class="input-group">
                                     <button type="button" class="btn btn-secondary input-group-text"
-                                            @click="this.quantity --" :disabled="quantity <= 1">
+                                            @click="this.quantity -= 1" :disabled="quantity <= 1">
                                     <i class="bi bi-dash"></i>
                                     </button>
                                     <input
@@ -103,7 +102,7 @@
                                         class="form-control text-center" min="1"
                                         v-model.number="quantity">
                                     <button type="button" class="btn btn-secondary input-group-text"
-                                            @click="this.quantity ++">
+                                            @click="this.quantity += 1">
                                     <i class="bi bi-plus"></i>
                                     </button>
                                     </div>
@@ -172,7 +171,6 @@
                 </div>
             </div>
         </div>
-        </template>
     </div>
 </div>
 

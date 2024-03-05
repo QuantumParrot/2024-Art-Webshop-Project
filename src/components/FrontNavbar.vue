@@ -16,7 +16,7 @@
                 <i class="bi bi-cart-fill"></i>
                 <span class="position-absolute top-0 start-100
                              translate-middle p-1
-                             bg-danger border border-light rounded-circle"
+                             bg-danger border border-white rounded-circle"
                              v-show="carts.length"></span>
             </button>
             </router-link>

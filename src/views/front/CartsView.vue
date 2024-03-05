@@ -3,7 +3,7 @@
 <div class="h-100 bg-gray text-primary">
     <div class="container py-7">
         <div class="row justify-content-center">
-            <div class="col-md-10" v-if="!isLoading">
+            <div class="col-md-10">
                 <template v-if="carts.length">
                 <div class="nav w-100 mb-7 align-items-center
                             justify-content-lg-center justify-content-between gap-lg-4 gap-2">
@@ -30,9 +30,24 @@
                         <span class="h6 mb-0">完成付款</span>
                     </div>
                 </div>
+                <div class="flex-classic mb-5">
+                    <template v-if="step === 1">
+                    <button
+                        type="button" class="btn btn-outline-primary rounded-1"
+                        @click="$router.push('/products')">
+                        <i class="bi bi-caret-left-fill"></i>
+                        繼續購物</button>
+                    <button
+                        type="button" @click="clearCart"
+                        class="btn btn-outline-danger rounded-1">
+                        清空購物車</button>
+                    </template>
+                </div>
+                <template v-if="step === 1">
+                <!-- STEP 1 -->
                 <div class="d-flex flex-column gap-3">
                 <template v-for="cart in carts" :key="cart">
-                    <div class="bg-white rounded-2 p-3 position-relative">
+                    <div class="bg-white rounded-1 p-3 position-relative">
                         <div class="row align-items-center g-3">
                             <div class="col-xl-8 col-lg-7">
                                 <div class="row align-items-stretch gx-3">
@@ -65,11 +80,22 @@
                             <div class="col-xl-4 col-lg-5">
                                 <div class="flex-classic gap-3">
                                     <div class="input-group">
-                                        <span class="input-group-text">－</span>
-                                        <input
+                                        <button
+                                            type="button" class="input-group-text btn btn-primary"
+                                            :disabled="cart.qty <= 1"
+                                            @click="changeCartQty(cart.id, cart.qty - 1)">
+                                        <i class="bi bi-dash"></i>
+                                        </button>
+                                        <input @input="checkQty"
                                             type="number" class="form-control py-1 text-center"
-                                            :value="cart.qty">
-                                        <span class="input-group-text">＋</span>
+                                            min="1" :value="cart.qty"
+                                            @change="(e) =>
+                                                    changeCartQty(cart.id, +e.target.value)">
+                                        <button
+                                            type="button" class="input-group-text btn btn-primary"
+                                            @click="changeCartQty(cart.id, cart.qty + 1)">
+                                        <i class="bi bi-plus"></i>
+                                        </button>
                                     </div>
                                     <div class="w-75 text-end">
                                         <p class="mb-0"><b>NT＄{{ cart.total }}</b></p>
@@ -79,7 +105,8 @@
                         </div>
                         <div class="position-absolute top-0 end-0">
                             <button type="button"
-                                    class="btn btn-sm btn-remove btn-primary rounded-2"
+                                    class="btn btn-sm btn-remove btn-primary
+                                           rounded-1 shadow-sm"
                                     @click="deleteSingleCart(cart.id)">
                                 <i class="bi bi-x-lg"></i>
                             </button>
@@ -92,20 +119,21 @@
                         <div class="col-xl-4 col-lg-5">
                             <div class="input-group">
                                 <label for="coupon"
-                                       class="input-group-text bg-primary text-white fw-bold">
+                                       class="input-group-text
+                                              bg-primary text-white fw-bold">
                                 <div role="status" class="spinner-border spinner-border-sm me-2"
-                                     v-show="loadingTask">
+                                     v-show="!!loadingTask">
                                 <span class="visually-hidden">Loading...</span>
                                 </div>
                                 {{ couponLabelText }}</label>
                                 <input
-                                    id="coupon" type="text" class="form-control"
-                                    v-model.trim="couponCode"
-                                    @change="checkCoupon"
-                                    :disabled="!couponEditable">
-                                <button type="button" class="btn btn-primary"
-                                        v-if="!couponEditable" @click="couponEditable = true">
-                                    <i class="bi bi-arrow-repeat"></i>
+                                    id="coupon" type="text"
+                                    class="form-control" v-model.trim="couponCode"
+                                    :disabled="loadingTask || !couponEditable">
+                                <button type="button" class="btn btn-primary" @click="checkCoupon"
+                                        :disabled="!!loadingTask">
+                                    <span v-if="couponEditable"><b>確認</b></span>
+                                    <i class="bi bi-arrow-repeat" v-else></i>
                                 </button>
                             </div>
                         </div>
@@ -119,6 +147,14 @@
                         <span class="ms-1" v-show="sum.final_total !== sum.total">
                         {{ sum.finalTotal }}</span>
                     </p>
+                </div>
+                </template>
+                <template v-else-if="step === 2">
+                    <order-form />
+                </template>
+                <div class="text-end mt-5">
+                    <button type="button" class="btn btn-highlight"
+                            @click="step += 1" v-if="step === 1">下一步</button>
                 </div>
                 </template>
                 <div class="alert bg-light text-center mb-0" v-else>
@@ -140,7 +176,13 @@ import loaderStore from '@/stores/loader';
 
 import cartStore from '@/stores/userCart';
 
+//
+
+import OrderForm from '@/components/OrderForm.vue';
+
 export default {
+
+    components: { OrderForm },
 
     data() {
 
@@ -151,6 +193,8 @@ export default {
 
             couponUsed: ['text-decoration-line-through', 'text-secondary'],
             couponEditable: true,
+
+            timer: '',
 
         };
 
@@ -179,9 +223,14 @@ export default {
 
             handler(n) {
 
-                if (n[0].coupon) { // !== undefined
+                if (n.length) {
 
-                    this.couponCode = n[0].coupon.code;
+                    if (n[0].coupon) { // !== undefined
+
+                        this.couponCode = n[0].coupon.code;
+                        this.couponEditable = false;
+
+                    }
 
                 }
 
@@ -191,17 +240,45 @@ export default {
 
         },
 
-        couponCode(n) { this.couponEditable = !n; },
+        step() { window.scrollTo(0, 0); },
 
     },
 
     methods: {
 
-        ...mapActions(cartStore, ['deleteSingleCart', 'useCoupon']),
+        ...mapActions(cartStore, ['updateCart', 'deleteSingleCart', 'clearCart', 'useCoupon']),
 
         checkCoupon() {
 
-            if (this.couponCode) { this.useCoupon(this.couponCode); }
+            if (!this.couponEditable) {
+
+                this.couponEditable = true;
+
+            } else if (this.couponEditable && this.couponCode) { this.useCoupon(this.couponCode); }
+
+        },
+
+        changeCartQty(id, qty) {
+
+            const target = this.carts.find((i) => i.id === id);
+
+            // console.log(qty);
+
+            if (!Number.isInteger(qty)) {
+
+                target.qty = Math.floor(qty);
+
+            } else if (qty < 1) {
+
+                target.qty = 1;
+
+            } else { target.qty = qty; }
+
+            // debounce
+
+            if (this.timer) { clearTimeout(this.timer); }
+
+            this.timer = setTimeout(() => this.updateCart(target, target.qty), 500);
 
         },
 

@@ -93,16 +93,22 @@ export default defineStore('userCart', {
 
         clearCart() {
 
-            loaderStore.createLoader('delete-all-carts');
-            axios.delete(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/carts`)
-                .then((res) => {
+            const config = { title: '確定清空購物車？' };
 
-                    alertStore.toastAlert(res.data.message, 'success');
-                    this.getCarts();
+            alertStore.checkAlert(config, () => {
 
-                })
-                .catch((error) => alertStore.errorAlert(error))
-                .finally(() => loaderStore.removeLoader('delete-all-carts'));
+                loaderStore.createLoader('delete-all-carts');
+                axios.delete(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/carts`)
+                    .then((res) => {
+
+                        alertStore.toastAlert(res.data.message, 'success');
+                        this.getCarts();
+
+                    })
+                    .catch((error) => alertStore.errorAlert(error))
+                    .finally(() => loaderStore.removeLoader('delete-all-carts'));
+
+            });
 
         },
 

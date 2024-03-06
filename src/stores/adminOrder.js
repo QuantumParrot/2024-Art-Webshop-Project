@@ -54,15 +54,25 @@ export default defineStore('adminOrder', {
                 return {
 
                     ...order,
-                    message: data.message,
+
+                    message: data.message || '無',
                     project: data.project,
                     state: parseInt(data.state, 10),
+
+                    total: parseInt(order.total.toFixed(0), 10),
 
                 };
 
             }
 
-            return { ...order, project: order.project || '不指定', state: order.state || 0 };
+            return {
+
+                ...order,
+                project: order.project || '不指定',
+                state: order.state || 0,
+                total: parseInt(order.total.toFixed(0), 10),
+
+            };
 
         }),
 

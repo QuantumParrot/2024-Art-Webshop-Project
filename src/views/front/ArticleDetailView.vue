@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <subscription-component />
+    <subscription-section />
 </div>
 
 </template>
@@ -39,11 +39,11 @@ import loaderStore from '@/stores/loader';
 
 import userArticleStore from '@/stores/userArticle';
 
-import SubscriptionComponent from '@/components/SubscriptionComponent.vue';
+import SubscriptionSection from '@/components/SubscriptionSection.vue';
 
 export default {
 
-    components: { SubscriptionComponent },
+    components: { SubscriptionSection },
 
     computed: {
 

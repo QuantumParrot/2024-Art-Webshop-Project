@@ -14,7 +14,7 @@
             <div class="mb-7">
                 <h3 class="fw-bold mb-5">豐富藏品，形塑靈魂</h3>
                 <p>我們是一個小型的<b>藝術品販售平台</b></p>
-                <p>這裡匯聚了世界各地的歷史痕跡、文明瑰寶與創意結晶</p>
+                <p>匯聚了世界各地的歷史痕跡、文明瑰寶與創意結晶</p>
                 <p>歡迎盡情瀏覽、仔細品味它們的故事</p>
                 <p>找尋與您的靈魂最契合的物品</p>
                 <p>讓它妝點您的<b>店面</b>，您的<b>住家</b></p>
@@ -152,7 +152,7 @@
             </div>
         </div>
     </section>
-    <subscription-component />
+    <subscription-section />
 </div>
 
 </template>
@@ -163,11 +163,11 @@ import { mapState, mapActions } from 'pinia';
 
 import userArticleStore from '@/stores/userArticle';
 
-import SubscriptionComponent from '@/components/SubscriptionComponent.vue';
+import SubscriptionSection from '@/components/SubscriptionSection.vue';
 
 export default {
 
-    components: { SubscriptionComponent },
+    components: { SubscriptionSection },
 
     computed: {
 

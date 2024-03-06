@@ -126,7 +126,7 @@ export default {
 
         openModal(order, type) {
 
-            this.tempOrder = { ...order };
+            this.tempOrder = { ...order, total: +(order.total.toFixed(0)) };
 
             if (type === 'check') {
 

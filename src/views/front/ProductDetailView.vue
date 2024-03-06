@@ -4,8 +4,10 @@
     <div class="container py-7">
         <div class="d-flex justify-content-center">
             <div>
-            <img class="main-img mb-5" :class="frame ? frameSetting[frame] : ''"
-                 :src="mainImage" :alt="product.title" width="600">
+            <div class="position-relative mb-5">
+                <img class="main-img" :class="frame ? frameSetting[frame] : ''"
+                     :src="mainImage" :alt="product.title" width="600">
+            </div>
             <div class="bg-light rounded-2 p-3 mb-5
                         d-flex gap-3">
             <template v-for="img in displayImages" :key="img">

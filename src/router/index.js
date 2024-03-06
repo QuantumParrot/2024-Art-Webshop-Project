@@ -52,9 +52,31 @@ const router = createRouter({
           component: () => import('../views/front/ProductDetailView.vue'),
         },
         {
-          path: 'carts',
-          name: 'front-carts',
-          component: () => import('../views/front/CartsView.vue'),
+          path: 'checkout',
+          name: 'front-checkout',
+          component: () => import('../views/front/checkout/CheckoutView.vue'),
+          children: [
+            {
+              path: '',
+              name: 'front-checkout',
+              redirect: { name: 'front-checkout-carts' },
+            },
+            {
+              path: 'carts',
+              name: 'front-checkout-carts',
+              component: () => import('../views/front/checkout/CartsView.vue'),
+            },
+            {
+              path: 'form',
+              name: 'front-checkout-form',
+              component: () => import('../views/front/checkout/OrderFormView.vue'),
+            },
+            {
+              path: 'order',
+              name: 'front-checkout-order-pay',
+              component: () => import('../views/front/checkout/OrderPaymentView.vue'),
+            },
+          ],
         },
         {
           path: 'order',

@@ -50,7 +50,7 @@
             @switch-page="changePage" />
         </div>
     </div>
-    <subscription-component />
+    <subscription-section />
 </div>
 
 </template>
@@ -69,13 +69,13 @@ import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
 
 import PaginationComponent from '@/components/PaginationComponent.vue';
 
-import SubscriptionComponent from '@/components/SubscriptionComponent.vue';
+import SubscriptionSection from '@/components/SubscriptionSection.vue';
 
 //
 
 export default {
 
-    components: { CategoryFilterBar, PaginationComponent, SubscriptionComponent },
+    components: { CategoryFilterBar, PaginationComponent, SubscriptionSection },
 
     computed: {
 

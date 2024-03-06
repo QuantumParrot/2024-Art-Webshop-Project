@@ -33,8 +33,8 @@ export default defineStore('userCart', {
                     this.carts = res.data.data.carts;
                     this.sum = {
 
-                        total: res.data.data.total,
-                        finalTotal: res.data.data.final_total,
+                        total: +(res.data.data.total.toFixed(0)),
+                        finalTotal: +(res.data.data.final_total.toFixed(0)),
 
                     };
 

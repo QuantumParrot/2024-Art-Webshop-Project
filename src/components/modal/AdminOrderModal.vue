@@ -24,19 +24,36 @@
                     </li>
                 </ul>
                 <div v-show="tab === 'content'">
-                    <table class="table table-light">
+                    <table class="table table-light align-middle">
                         <tbody>
-                            <tr v-for="(item, key) in tempOrder.products" :key="key">
+                            <template v-for="(item, key) in tempOrder.products" :key="key">
+                            <tr>
                             <td>{{ item.product.title }}</td>
                             <td>× {{ item.qty }} {{ item.product.unit }}</td>
-                            <td class="text-end">NT$ {{ item.total }}</td>
+                            <td class="text-end">
+                                <div class="flex-classic">
+                                <span>NT＄</span>
+                                <span :class="{ 'text-decoration-line-through': item.coupon }">
+                                {{ item.total }}</span>
+                                </div>
+                            </td>
                             </tr>
+                            <tr v-if="item.coupon">
+                            <td colspan="2" class="fs-7">優惠券：{{ item.coupon.code }}</td>
+                            <td>
+                                <div class="flex-classic">
+                                <span>NT＄</span>
+                                <span><b>{{ item.final_total }}</b></span>
+                                </div>
+                            </td>
+                            </tr>
+                            </template>
                         </tbody>
                         <tfoot class="fs-5 fw-bold">
-                            <tr>
-                            <td colspan="2">總計</td>
-                            <td class="text-end">NT$ {{ tempOrder.total }}</td>
-                            </tr>
+                        <tr>
+                        <td colspan="2" class="py-3">總計</td>
+                        <td class="text-end">NT＄{{ tempOrder.total }}</td>
+                        </tr>
                         </tfoot>
                     </table>
                     <p class="mb-0">

@@ -8,10 +8,10 @@
         <div class="flex-classic gap-2 order-2 order-lg-3">
             <button type="button"
                     class="btn btn-outline-primary d-lg-none"
-                    @click="toggleNavbar">
+                    @click="toggle">
             <i class="bi bi-list"></i>
             </button>
-            <router-link v-slot="{ navigate }" to="/carts" custom>
+            <router-link v-slot="{ navigate }" to="/checkout/carts" custom>
             <button type="button" class="btn btn-primary position-relative" @click="navigate">
                 <i class="bi bi-cart-fill"></i>
                 <span class="position-absolute top-0 start-100
@@ -75,7 +75,7 @@ export default {
 
         ...mapActions(cartStore, ['getCarts']),
 
-        toggleNavbar() { this.collapse.toggle(); },
+        toggle() { this.collapse.toggle(); },
 
     },
 

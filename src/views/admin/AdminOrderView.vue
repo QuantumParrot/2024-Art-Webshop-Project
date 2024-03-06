@@ -20,6 +20,16 @@
         :current="currentPage" :total="totalPages" @switch-page="switchPage" />
 </div>
 
+<div class="d-flex justify-content-end mb-4">
+    <div>
+        <select class="form-select" :value="timeAscending"
+                @change="(e) => switchFilter('timeAscending', +e.target.value)">
+        <option :value="1">由舊到新</option>
+        <option :value="0">由新到舊</option>
+        </select>
+    </div>
+</div>
+
 <div class="table-responsive">
     <table class="table table-hover text-nowrap">
         <thead>
@@ -32,7 +42,7 @@
             </tr>
         </thead>
         <tbody class="align-middle">
-            <template v-for="order in ordersList" :key="order.id">
+            <template v-for="order in displaying" :key="order.id">
                 <tr>
                     <td>{{ $calc.formatDate(order.create_at * 1000, '/') }}</td>
                     <td>
@@ -116,13 +126,13 @@ export default {
 
     computed: {
 
-        ...mapState(adminOrderStore, ['ordersList', 'statesCode', 'currentPage', 'totalPages']),
+        ...mapState(adminOrderStore, ['ordersList', 'displaying', 'statesCode', 'currentPage', 'totalPages', 'timeAscending']),
 
     },
 
     methods: {
 
-        ...mapActions(adminOrderStore, ['getOrders', 'switchPage', 'deleteOrder', 'downTheDrain']),
+        ...mapActions(adminOrderStore, ['getOrders', 'switchPage', 'deleteOrder', 'downTheDrain', 'switchFilter']),
 
         openModal(order, type) {
 

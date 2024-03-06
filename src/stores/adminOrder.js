@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import axios from 'axios';
 
 //
@@ -39,6 +41,8 @@ export default defineStore('adminOrder', {
         orderState: '',
         isPaid: '',
 
+        timeAscending: 0,
+
     }),
 
     getters: {
@@ -75,6 +79,14 @@ export default defineStore('adminOrder', {
             };
 
         }),
+
+        displaying: ({ timeAscending, ordersList, currentPage }) => {
+
+            ordersList.sort((a, b) => (timeAscending ? a.create_at - b.create_at : b.create_at - a.create_at));
+
+            return ordersList.filter((o, i) => Math.floor(i / 5) + 1 === currentPage);
+
+        },
 
         unhandled: ({ ordersList }) => ordersList.filter((i) => i.is_paid && i.state === 0).length,
 
@@ -153,6 +165,8 @@ export default defineStore('adminOrder', {
             });
 
         },
+
+        switchFilter(filter, value) { this[filter] = value; },
 
     },
 

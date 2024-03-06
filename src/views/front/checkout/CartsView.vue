@@ -206,7 +206,7 @@ export default {
 
     methods: {
 
-        ...mapActions(cartStore, ['updateCart', 'deleteSingleCart', 'clearCart', 'useCoupon']),
+        ...mapActions(cartStore, ['getCarts', 'updateCart', 'deleteSingleCart', 'clearCart', 'useCoupon']),
 
         checkCoupon() {
 
@@ -245,6 +245,8 @@ export default {
     },
 
     mounted() {
+
+        this.getCarts();
 
         if (this.carts[0]?.coupon) { this.couponCode = this.carts[0].coupon.code; }
 

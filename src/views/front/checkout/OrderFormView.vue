@@ -2,18 +2,18 @@
 
 <v-form v-slot="{ errors }" @submit="createOrder">
 
-<div class="alert bg-white p-lg-7 p-md-5 p-2 shadow-sm mb-5">
+<div class="alert bg-white p-lg-7 p-5 shadow-sm mb-5">
     <div class="accordion mb-5" aria-expanded="false">
         <div class="accordion-item overflow-hidden">
             <div class="accordion-header">
-                <button type="button" class="accordion-button"
-                        aria-expanded="false" @click="toggle">
+                <button type="button" class="bg-gray accordion-button collapsed"
+                        aria-expanded="false" data-bs-toggle="collapse" data-bs-target="#accordion">
                 <b>查看訂單明細</b>
                 </button>
             </div>
-            <div class="accordion-collapse collapse" ref="accordion">
-                <div class="table-responsive px-lg-7 p-5">
-                    <table class="table table-hover text-nowrap">
+            <div class="accordion-collapse collapse" aria-expanded="false" id="accordion">
+                <div class="table-responsive px-lg-7 p-5 pb-0" style="height: 300px;">
+                    <table class="table table-hover text-nowrap mb-0">
                         <thead>
                             <tr>
                             <th scope="col" width="40%" class="pb-3">項目</th>
@@ -36,9 +36,9 @@
                             － {{ sum.total - sum.finalTotal }}</td>
                         </tr>
                         </tbody>
-                        <tfoot>
+                        <tfoot class="sticky-bottom">
                         <tr>
-                        <td colspan="3" class="text-end py-3">
+                        <td colspan="3" class="text-end py-3 border-0">
                             <div class="flex-classic fs-5">
                             <span><b>總計</b></span>
                             <span>NT＄<b>{{ sum.finalTotal }}</b></span>
@@ -130,10 +130,6 @@
 
 <script>
 
-import Collapse from 'bootstrap/js/dist/collapse';
-
-//
-
 import validationMixins from '@/mixins/validation';
 
 //
@@ -150,8 +146,6 @@ export default {
 
     mixins: [validationMixins],
 
-    data() { return { accordion: '' }; },
-
     computed: {
 
         ...mapState(cartStore, ['carts', 'sum']),
@@ -162,18 +156,9 @@ export default {
 
         ...mapActions(userOrderStore, ['createOrder']),
 
-        toggle() { this.accordion.toggle(); },
-
     },
 
     created() { if (!this.carts.length) { this.$router.replace('/checkout/carts'); } },
-
-    mounted() {
-
-        this.accordion = new Collapse(this.$refs.accordion);
-        // this.accordion.hide();
-
-    },
 
 };
 

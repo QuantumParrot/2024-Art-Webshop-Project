@@ -11,11 +11,24 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="alert bg-light">
-                </div>
-                <div class="alert bg-light">
-                </div>
-                <div class="alert bg-light mb-0">
+                <div class="accordion" id="faq">
+                    <template v-for="q in questions" :key="q.id">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <button type="button" class="bg-light accordion-button collapsed"
+                                    data-bs-toggle="collapse" :data-bs-target="`#faq${q.id}`"
+                                    aria-expanded="false" :aria-controls="`#faq-${q.id}`">
+                            <b>{{ q.question }}</b>
+                            </button>
+                        </div>
+                        <div class="accordion-collapse collapse" :id="`faq${q.id}`"
+                             data-bs-parent="#faq" aria-expanded="false">
+                        <div class="accordion-body">
+                            <p class="mb-0 lh-lg" v-html="q.answer"></p>
+                        </div>
+                        </div>
+                    </div>
+                    </template>
                 </div>
             </div>
         </div>
@@ -48,11 +61,17 @@
 
 <script>
 
+import faqMixins from '@/mixins/faq';
+
+//
+
 import { mapActions } from 'pinia';
 
 import alertStore from '@/stores/alert';
 
 export default {
+
+    mixins: [faqMixins],
 
     methods: {
 

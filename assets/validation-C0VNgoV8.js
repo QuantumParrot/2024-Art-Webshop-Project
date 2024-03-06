@@ -1,0 +1,1 @@
+const t={data(){return{transText:{username:"帳號",password:"密碼",name:"姓名",address:"地址",email:"信箱"}}},methods:{localize(e,r){return e.replace(`${r} `,this.transText[r])},isPhone(e){return/^09\d{8}$/.test(e)?!0:"須填寫國內的手機號碼"}}};export{t as v};

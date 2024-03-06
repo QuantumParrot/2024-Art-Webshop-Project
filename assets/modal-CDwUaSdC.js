@@ -1,0 +1,1 @@
+import{M as o}from"./bootstrap@5.3.2_@popperjs_core@2.11.8-D5C7Xrhu.js";const t={methods:{showModal(){this.modal.show()},hideModal(){this.modal.hide(),this.$refs.form&&this.$refs.form.resetForm()}},mounted(){this.modal=new o(this.$refs.modal,{backdrop:"static"})}};export{t as m};

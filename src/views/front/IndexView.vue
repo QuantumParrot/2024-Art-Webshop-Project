@@ -1,18 +1,18 @@
 <template>
 
 <div class="h-100">
-    <section class="bg-primary text-white py-7">
+    <section class="banner bg-primary text-white py-7">
         <div class="container">
-            <h2 class="h1 lh-lg">
+            <h2 class="h1 lh-lg text-shadow-black letter-space-sm">
             邀請您一同探索<br>
             這顆星球上的<span class="text-shadow">吉光片羽</span>
             </h2>
         </div>
     </section>
-    <section class="py-7">
+    <section class="bg-gray py-7">
         <div class="container lh-lg">
             <div class="mb-7">
-                <h3 class="fw-bold mb-5">豐富藏品，形塑靈魂</h3>
+                <h3 class="fw-bold mb-5">豐富藏品，形塑風格</h3>
                 <p>我們是一個小型的<b>藝術品販售平台</b></p>
                 <p>匯聚了世界各地的歷史痕跡、文明瑰寶與創意結晶</p>
                 <p>歡迎盡情瀏覽、仔細品味它們的故事</p>
@@ -121,14 +121,14 @@
                 <div class="col-md-8 order-md-1 order-2">
                     <ul class="list-unstyled mb-5">
                     <template v-for="item in news.filter((i, idx) => idx < 3)" :key="item.id">
-                        <li class="alert bg-light p-5 mb-0 d-flex">
-                        <p class="mb-0">
+                    <li class="alert bg-light p-5 mb-0">
+                        <p class="lh-lg mb-0">
                         <span class="fw-bold me-3">
                         {{ $calc.formatDate(item.create_at * 1000, '/') }}</span>
                         <router-link :to="`/news/${item.id}`">
                         {{ item.title }}</router-link>
                         </p>
-                        </li>
+                    </li>
                     </template>
                     </ul>
                     <div class="text-end">
@@ -187,7 +187,18 @@ export default {
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+@import '@/assets/variables';
+
+.banner {
+
+    height: 500px;
+    background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709747039567.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=huaaWlHhoL0zPI4EWlEi7uFjNVODg3RutDRaYCWhZwuqK3c%2FLLq0%2Fp4WcB1RRz8AWt0RbhND1I1PmoBDL620%2FvsP64OzQJ%2By955dUdNYFFIPsp2WNKEXxa4xjGQWx0Yqp6zri670P5QbTmrPoJPGhoj3r%2BQF8wV8dL4rIcHDgMn6k16FoqJz61LLTkFwX5hKbC1QmdV9hi3UOC7H8YlVDqtfyQ43wsVnM%2BS1i%2BqJWxnLnvPZlPVc20wK7IHChHsH5jBm5JGTlk8Ne7gnHn92FlnCDUHQ8ImOd6RLKBZqKm0Je4GPP%2BP7ZCZ%2F2eOKCZXztENy3keXo0VkGJbxj7RK7A%3D%3D);
+    background-repeat: no-repeat;
+    background-position: 50% center;
+
+}
 
 .mask-txt { flex-direction: column; }
 

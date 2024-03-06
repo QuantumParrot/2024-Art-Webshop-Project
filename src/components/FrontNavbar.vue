@@ -1,8 +1,8 @@
 <template>
 
-<nav class="navbar navbar-expand-lg bg-white py-4">
+<nav class="navbar navbar-expand-lg text-primary py-4 shadow-sm">
     <div class="container">
-        <h1 class="mb-0 order-1">
+        <h1 class="letter-space-sm mb-0 order-1">
             <router-link class="title-link" to="/">收藏家</router-link>
         </h1>
         <div class="flex-classic gap-2 order-2 order-lg-3">
@@ -49,7 +49,7 @@
 
 <script>
 
-import { Collapse } from 'bootstrap/dist/js/bootstrap';
+import Collapse from 'bootstrap/js/dist/collapse';
 
 //
 
@@ -101,7 +101,11 @@ export default {
 
 @import '@/assets/variables';
 
-.navbar { box-shadow: 0 3px 5px 5px white; }
+.navbar {
+
+    background-image: linear-gradient(180deg, $gray, white);
+
+}
 
 .title-link { text-decoration: none; }
 

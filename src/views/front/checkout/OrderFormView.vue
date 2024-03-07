@@ -12,7 +12,7 @@
                 </button>
             </div>
             <div class="accordion-collapse collapse" aria-expanded="false" id="accordion">
-                <div class="table-responsive px-lg-7 p-5 pb-0" style="height: 300px;">
+                <div class="table-responsive px-lg-7 p-5 pb-0" style="max-height: 300px;">
                     <table class="table table-hover text-nowrap mb-0">
                         <thead>
                             <tr>
@@ -38,7 +38,7 @@
                         </tbody>
                         <tfoot class="sticky-bottom">
                         <tr>
-                        <td colspan="3" class="text-end py-3 border-0">
+                        <td colspan="3" class="text-end py-5 border-0">
                             <div class="flex-classic fs-5">
                             <span><b>總計</b></span>
                             <span>NT＄<b>{{ sum.finalTotal }}</b></span>
@@ -167,5 +167,7 @@ export default {
 <style scoped>
 
 .form-label { margin-bottom: 1rem; }
+
+.form-control, .form-select { border-radius: 0.25rem; } /* rounded-1 */
 
 </style>

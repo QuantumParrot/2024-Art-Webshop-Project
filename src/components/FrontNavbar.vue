@@ -22,7 +22,7 @@
             </router-link>
             <router-link v-slot="{ navigate }" to="/order" custom>
             <button type="button" class="btn btn-outline-primary" @click="navigate">
-                <i class="bi bi-search"></i>
+                <i class="bi bi-person-fill"></i>
             </button>
             </router-link>
         </div>

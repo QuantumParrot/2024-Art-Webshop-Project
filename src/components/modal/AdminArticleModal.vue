@@ -78,6 +78,7 @@
                                     <option value="" disabled>請選擇文章類型</option>
                                     <option value="網站公告">網站公告</option>
                                     <option value="專欄文章">專欄文章</option>
+                                    <option value="公益計劃">公益計劃</option>
                                 </v-field>
                             </div>
                             <div class="col">

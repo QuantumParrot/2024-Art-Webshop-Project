@@ -39,7 +39,7 @@ export default {
                     id: 6,
                     type: '問題回報',
                     question: '商品或文章的資訊有錯誤⋯⋯',
-                    answer: '天啊 Σ(°Д°; <br>如果您願意，請聯繫我們：ataraxia528491@gmail.com。<br>我們將立刻與您確認細節，非常謝謝您的細心與建議！',
+                    answer: '天啊 Σ(°Д°; <br>如果您願意，請聯繫我們的網站管理員：ataraxia528491@gmail.com。<br>我們將立刻與您確認細節，非常謝謝您的細心與建議！',
                 },
             ],
 

@@ -32,7 +32,7 @@ export default defineStore('userArticle', {
 
     getters: {
 
-        news: ({ articles }) => articles.filter((i) => i.type === '網站公告'),
+        news: ({ articles }) => articles.filter((i) => i.type === '網站公告').sort((a, b) => b.create_at - a.create_at),
 
         newsList: ({ news, currentPage }) => news.filter((i, idx) => Math.floor(idx / 5) + 1 === currentPage.news),
 

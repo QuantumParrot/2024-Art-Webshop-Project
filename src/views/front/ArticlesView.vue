@@ -44,7 +44,7 @@
             </template>
         </ul>
         <div class="alert text-center py-7 mb-5" v-else>這個分類目前沒有文章喔！</div>
-        <div class="d-flex justify-content-center" v-if="totalPages.column">
+        <div class="d-flex justify-content-center">
         <pagination-component
             :current="currentPage.column" :total="totalPages.column"
             @switch-page="changePage" />

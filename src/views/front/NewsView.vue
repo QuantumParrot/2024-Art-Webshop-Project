@@ -3,12 +3,14 @@
 <div class="h-100 bg-gray text-primary">
     <div class="container py-7">
         <h3 class="h2 text-center mb-7">最新消息</h3>
-        <ul class="list-unstyled alert bg-white
-                   px-md-7 p-5 mb-7">
+        <ul class="list-unstyled d-flex flex-column gap-5
+                   alert bg-white px-md-7 p-5 mb-7">
             <template v-for="item in news" :key="item.id">
-            <li class="d-flex align-items-center gap-md-7 gap-5">
+            <li class="d-flex flex-md-row flex-column
+                       align-items-md-center
+                       gap-md-7 gap-3">
                 <div>
-                <span class="badge bg-primary fs-6">{{ item.category }}</span>
+                <span class="badge bg-primary fs-6 rounded-1">{{ item.category }}</span>
                 </div>
                 <router-link class="nav-link text-decoration-none" :to="`/news/${item.id}`">
                     <p class="fs-7 mb-2">

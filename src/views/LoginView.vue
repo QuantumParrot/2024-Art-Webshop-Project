@@ -5,8 +5,8 @@
 <div class="container-fluid" ref="background">
     <div class="h-100 row justify-content-center align-items-center">
         <div class="col-lg-4 col-md-6">
-            <v-form class="p-5 shadow" v-slot="{ errors }" @submit="login">
-                <h2 class="mb-5 text-center text-white">管理員登入</h2>
+            <v-form class="p-7 shadow" v-slot="{ errors }" @submit="login">
+                <h2 class="mb-7 text-center text-white">管理員登入</h2>
                 <div class="form-floating mb-3">
                     <v-field type="email" id="username" placeholder="帳號"
                              class="form-control mb-3" :class="{ 'is-invalid': errors['username'] }"
@@ -18,7 +18,7 @@
                     <p class="invalid-feedback">{{ localize(message, 'username') }}</p>
                     </error-message>
                 </div>
-                <div class="form-floating mb-5">
+                <div class="form-floating mb-7">
                     <v-field type="password" id="password" placeholder="密碼"
                              class="form-control mb-3" :class="{ 'is-invalid': errors['password'] }"
                              name="password" rules="required">

@@ -1,6 +1,6 @@
 <template>
 
-<div class="h-100 bg-gray text-primary">
+<div class="h-100 bg-gray text-primary" v-if="products.length">
     <div class="container py-7">
         <h3 class="h2 text-center mb-7">線上商城</h3>
         <ul class="nav flex-column flex-md-row mb-7">
@@ -19,12 +19,12 @@
             </li>
             </template>
         </ul>
-        <div class="d-flex justify-content-center mb-7" v-if="products.length">
+        <div class="d-flex justify-content-center mb-7" v-show="products.length">
             <pagination-component
                 :current="pagination.current_page" :total="pagination.total_pages"
                 @switch-page="(num) => getProducts(pagination.category, num)" />
         </div>
-        <ul class="row g-6 list-unstyled mb-7" v-if="products.length">
+        <ul class="row g-6 list-unstyled mb-7">
             <template v-for="product in products" :key="product.id">
                 <li class="col-xl-4 col-md-6">
                     <div class="h-100 card border-0 rounded-0 shadow">
@@ -88,11 +88,10 @@
                 </li>
             </template>
         </ul>
-        <div class="alert text-center mb-7" v-else>這個分類目前沒有商品喔！</div>
-        <div class="d-flex justify-content-center" v-if="products.length">
-            <pagination-component
-                :current="pagination.current_page" :total="pagination.total_pages"
-                @switch-page="(num) => getProducts(pagination.category, num)" />
+        <div class="d-flex justify-content-center" v-show="products.length">
+        <pagination-component
+            :current="pagination.current_page" :total="pagination.total_pages"
+            @switch-page="(num) => getProducts(pagination.category, num)" />
         </div>
     </div>
     <subscription-section />

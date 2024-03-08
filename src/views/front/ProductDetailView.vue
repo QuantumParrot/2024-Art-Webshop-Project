@@ -63,7 +63,7 @@
                     <div class="alert bg-light p-5 mb-0">
                         <p class="lh-lg mb-0">
                         <i class="bi bi-c-circle me-1"></i>
-                        圖片與文字出處請參閱：<a target="_blank" href="https://www.notion.so/9f522b0de5c2413c8090249c96bd692a?v=5b0f1f1c376f4b468a56aaec87a97c8a">本站索引</a></p>
+                        圖片與文字參考資料請參閱：<a target="_blank" href="https://www.notion.so/9f522b0de5c2413c8090249c96bd692a?v=5b0f1f1c376f4b468a56aaec87a97c8a">本站索引</a></p>
                     </div>
                 </div>
             </div>

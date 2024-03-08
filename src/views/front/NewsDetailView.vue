@@ -17,7 +17,7 @@
                     <div class="px-md-7 px-6 pt-7 pb-6">
                         <div class="row flex-column gx-7 gy-5">
                             <div class="col">
-                                <img class="object-fit-cover" height="400px"
+                                <img class="object-fit-cover"
                                      :src="article.image" :alt="article.title">
                             </div>
                             <div class="col">

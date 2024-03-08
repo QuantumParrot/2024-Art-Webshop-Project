@@ -43,7 +43,7 @@ export default {
 
     border: 1px solid $primary;
 
-    margin: 0 -1px -1px 0
+    margin: 0 -1px -1px 0;
 
 }
 
@@ -52,15 +52,7 @@ export default {
     text-align: center;
     background-color: $gray;
 
-    &.active {
-
-        background-color: $primary;
-        color: $light;
-        font-weight: bold;
-
-    }
-
-    &:hover {
+    &.active, &:hover {
 
         background-color: $primary;
         color: $light;

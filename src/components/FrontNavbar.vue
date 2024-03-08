@@ -26,7 +26,7 @@
             </button>
             </router-link>
         </div>
-        <div class="navbar-collapse flex-grow-0 order-3 order-lg-2" ref="collapse">
+        <div class="navbar-collapse collapse flex-grow-0 order-3 order-lg-2" ref="collapse">
             <ul class="navbar-nav gap-3">
                 <li class="nav-item">
                 <router-link class="nav-link" to="/news">最新消息</router-link>
@@ -89,7 +89,7 @@ export default {
 
     mounted() {
 
-        this.collapse = new Collapse(this.$refs.collapse);
+        this.collapse = new Collapse(this.$refs.collapse, { toggle: false });
 
     },
 

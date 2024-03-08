@@ -71,17 +71,29 @@ const router = createRouter({
               name: 'front-checkout-form',
               component: () => import('../views/front/checkout/OrderFormView.vue'),
             },
-            {
-              path: 'order',
-              name: 'front-checkout-order-pay',
-              component: () => import('../views/front/checkout/OrderPaymentView.vue'),
-            },
           ],
         },
         {
-          path: 'order',
-          name: 'front-order-search',
-          component: () => import('../views/front/OrderSearchView.vue'),
+          path: 'member',
+          name: 'front-member',
+          component: () => import('../views/front/member/MemberView.vue'),
+          children: [
+            {
+              path: '',
+              name: 'front-member',
+              redirect: { name: 'front-member-order-search' },
+            },
+            {
+              path: 'collection',
+              name: 'front-member-collection',
+              component: () => import('../views/front/member/CollectionView.vue'),
+            },
+            {
+              path: 'order',
+              name: 'front-member-order-search',
+              component: () => import('../views/front/member/OrderSearchView.vue'),
+            },
+          ],
         },
       ],
     },

@@ -57,7 +57,14 @@
                     <td class="d-none d-md-table-cell">
                     <span class="badge bg-highlight text-dark py-2">{{ product.category }}</span>
                     </td>
-                    <td>{{ product.title }}</td>
+                    <td>
+                    <router-link
+                        class="text-info me-3" target="_blank" :to="`/product/${product.id}`"
+                        v-if="product.is_enabled">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                    </router-link>
+                    <span>{{ product.title }}</span>
+                    </td>
                     <td class="text-end">$ {{ product.origin_price }}</td>
                     <td class="text-end">$ {{ product.price }}</td>
                     <td class="text-center">

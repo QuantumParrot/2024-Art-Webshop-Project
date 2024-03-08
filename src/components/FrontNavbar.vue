@@ -20,7 +20,7 @@
                              v-show="carts.length"></span>
             </button>
             </router-link>
-            <router-link v-slot="{ navigate }" to="/order" custom>
+            <router-link v-slot="{ navigate }" to="/member/order" custom>
             <button type="button" class="btn btn-outline-primary" @click="navigate">
                 <i class="bi bi-person-fill"></i>
             </button>

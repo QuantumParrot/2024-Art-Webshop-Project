@@ -17,6 +17,6 @@ export default {
 
     },
 
-    mounted() { this.modal = new Modal(this.$refs.modal, { backdrop: 'static' }); },
+    mounted() { this.modal = new Modal(this.$refs.modal, { backdrop: 'static', focus: false }); },
 
 };

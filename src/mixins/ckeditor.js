@@ -49,6 +49,34 @@ export default {
 
                 },
 
+                link: {
+
+                    // If want to leave the decision whether a link should open in a new tab or not
+
+                    // Don't use "addTargetToExternalLinks" configuration
+
+                    // addTargetToExternalLinks: true,
+
+                    decorators: {
+
+                        openInNewTab: {
+
+                            mode: 'manual',
+                            defaultValue: true,
+                            attributes: {
+
+                                target: '_blank',
+                                rel: 'noopener noreferrer',
+
+                            },
+                            label: '是否另開新視窗',
+
+                        },
+
+                    },
+
+                },
+
                 heading: headingConfig,
 
             },

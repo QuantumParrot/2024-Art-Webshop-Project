@@ -19,7 +19,7 @@
 
 export default {
 
-    props: ['collapse', 'filters', 'filter'],
+    props: ['filters', 'filter'],
 
     emits: ['switch-filter'],
 

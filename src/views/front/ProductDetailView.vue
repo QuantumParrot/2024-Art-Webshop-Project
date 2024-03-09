@@ -1,9 +1,22 @@
 <template>
 
-<div class="h-100 bg-gray text-primary">
+<div class="h-100 bg-gray text-primary" v-show="!transition">
     <div class="container py-7">
         <div class="d-flex justify-content-center">
             <div>
+            <nav class="mb-5" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb flex-nowrap text-nowrap overflow-x-scroll">
+                    <li class="breadcrumb-item">
+                    <router-link to="/">首頁</router-link></li>
+                    <li class="breadcrumb-item">
+                    <router-link to="/products">商品列表</router-link></li>
+                    <li class="breadcrumb-item">
+                    <router-link :to="`/products?category=${product.category}`">
+                    {{ product.category }}</router-link>
+                    </li>
+                    <li class="breadcrumb-item active"></li>
+                </ol>
+            </nav>
             <div class="position-relative mb-5">
                 <img class="main-img" :class="frame ? frameSetting[frame] : ''"
                      :src="mainImage" :alt="product.title" width="600">
@@ -194,6 +207,8 @@ export default {
 
         return {
 
+            transition: true,
+
             frame: '',
             frameSetting: {
 
@@ -241,6 +256,10 @@ export default {
             this.mainImage = this.product.imageUrl;
             this.quantity = 1;
             this.frame = '';
+
+            this.transition = false;
+
+            window.scrollTo(0, 0, 'smooth');
 
         },
 

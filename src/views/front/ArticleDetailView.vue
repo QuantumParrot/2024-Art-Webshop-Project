@@ -1,8 +1,8 @@
 <template>
 
-<div class="h-100 bg-gray text-primary">
+<div class="h-100 bg-gray text-primary" v-show="!isLoading">
     <div class="container py-7">
-        <div class="bg-white rounded-2 p-md-7 p-5 shadow" v-show="!isLoading">
+        <div class="bg-white rounded-2 p-md-7 p-5 shadow">
             <div class="p-3 border rounded-2">
                 <div class="text-center mb-6">
                     <h3 class="h2 fw-bold lh-lg py-3 border-bottom mb-3">{{ article.title }}</h3>
@@ -13,12 +13,33 @@
                     <img class="article-img" :src="article.image" :alt="article.title">
                 </div>
                 <div class="row justify-content-center mb-3">
-                    <div class="col-lg-6 col-md-8">
+                    <div class="col-xl-6 col-md-8 mb-2">
                         <div class="text-justify" v-html="article.content"></div>
                     </div>
                 </div>
-                <div class="border-top py-6 mb-0">
-                    <h4 class="text-center fw-bold">相關商品</h4>
+                <div class="row justify-content-center border-top py-6" v-if="author">
+                    <div class="col-xl-6 col-md-8">
+                        <h4 class="text-center mb-6"><b>作者介紹</b></h4>
+                        <div class="row gy-3">
+                            <div class="col-sm-3">
+                                <div class="d-flex justify-content-center">
+                                <div class="author-img"
+                                :style="{ backgroundImage: `url(${author.image})`}"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="h-100 d-flex flex-column justify-content-center">
+                                <h5 class="fs-6 mb-3">
+                                <b>{{ article.author }}</b>｜{{ author.name }}
+                                </h5>
+                                <p class="fs-7 mb-0">{{ author.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-top py-6">
+                <h4 class="text-center mb-6"><b>為您推薦</b></h4>
                 </div>
                 <div class="text-center mb-3">
                     <router-link class="fw-bold text-info" to="/articles">回文章列表</router-link>
@@ -33,15 +54,25 @@
 
 <script>
 
+import authorsMixins from '@/mixins/authors';
+
+//
+
 import { mapState, mapActions } from 'pinia';
 
 import loaderStore from '@/stores/loader';
 
 import userArticleStore from '@/stores/userArticle';
 
+//
+
 import SubscriptionSection from '@/components/SubscriptionSection.vue';
 
+//
+
 export default {
+
+    mixins: [authorsMixins],
 
     components: { SubscriptionSection },
 
@@ -50,6 +81,8 @@ export default {
         ...mapState(userArticleStore, ['article']),
 
         ...mapState(loaderStore, ['isLoading']),
+
+        author() { return this.authors.find((i) => i.column === this.article.author); },
 
     },
 
@@ -83,6 +116,22 @@ export default {
 
     object-fit: cover;
     max-height: 500px;
+
+}
+
+.author-img {
+
+    width: 100px; height: 100px;
+    border-radius: 50%;
+
+    background-size: cover;
+    background-position: center center;
+
+}
+
+@media (max-width: 991px) {
+
+    .author-img { width: 80px; height: 80px; }
 
 }
 

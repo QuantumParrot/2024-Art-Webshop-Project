@@ -12,7 +12,7 @@
             </div>
             <div class="col-md-8">
                 <div class="accordion mb-5" id="faq">
-                    <template v-for="q in questions" :key="q.id">
+                    <template v-for="q in featuredQuestions" :key="q.id">
                     <div class="accordion-item">
                         <div class="accordion-header">
                             <button type="button" class="bg-light accordion-button collapsed"

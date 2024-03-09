@@ -71,6 +71,11 @@ const router = createRouter({
               name: 'front-checkout-form',
               component: () => import('../views/front/checkout/OrderFormView.vue'),
             },
+            {
+              path: 'order',
+              name: 'front-checkout-order-pay',
+              component: () => import('../views/front/checkout/OrderPaymentView.vue'),
+            },
           ],
         },
         {

@@ -173,14 +173,8 @@
                         </div>
                     </div>
                     <div v-show="tab === 'tags'">
-                        <div>
+                        <div class="mb-3">
                         <p>商品標籤</p>
-                        <div class="d-flex gap-2 flex-wrap mb-3">
-                            <button type="button" v-for="tag in tagsList" :key="tag"
-                                    class="btn btn-origin" @click="product.tags.push(tag)">
-                            <span class="badge p-2 bg-subtle text-primary fs-6">{{ tag }}</span>
-                            </button>
-                        </div>
                         <div class="row g-3 mb-3">
                             <div class="col-md-3 position-relative"
                                  v-for="(tag, index) in product.tags" :key="tag">
@@ -195,6 +189,14 @@
                         <button type="button" class="btn btn-primary"
                                 @click="product.tags.push('')">
                         新增標籤</button>
+                        </div>
+                        <p>曾經使用過的標籤：</p>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <button v-for="tag in tagsList" :key="tag"
+                                    type="button" class="btn btn-origin"
+                                    @click="product.tags.push(tag)">
+                            <span class="badge p-2 bg-subtle text-primary fs-6">{{ tag }}</span>
+                            </button>
                         </div>
                     </div>
                     <div v-show="tab === 'image'">

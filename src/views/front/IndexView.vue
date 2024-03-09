@@ -14,8 +14,8 @@
             <div class="row g-3 mb-7">
                 <div class="col-lg-6 col-md-4">
                     <img class="intro-img rounded-1"
-                         alt="Image by vecstock on Freepik"
-                         src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709833356947.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=cQcqUcPPea8hzSvucIapEgogCBTcMH%2FoUJ4bj6ORscP1%2FCNnuo8eVu4YIawyojm8gDJdlUS6gwRTk1NHbPcxg5BT0Gqm03cmRMmwuOJMV1P9lCKiu2kqGrSiG%2BdLAB5iR7gsvZCJ3hGGg1qNUzChZwa%2FKk42gCZ4Ruc4%2F1vbBFgeARWc4LF6NRbPsrF6oYA2nu8CdrpyMm%2F9DwiQdwQjuN6aiNcoVtmnApI6YRBtOUQpz6TV4FkfhkQlWsPbkbc%2FAolsa1ho3RzNGpw05vgTb0XbR0pCKrrBuVg9YAS6nqNJBWy%2BvPSl68wKRnBo5bOvea%2B59O4SmpU4u2Th7TjvIA%3D%3D">
+                         alt="Image by Bianca Fazacas on Unsplash"
+                         src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1710000525437.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=AlR7N4VamKsOqdXkK44fPMjxcB0xA7vu1%2FaglK9lKJJExH5k32lqepXywkm3kripat70dkBMqX2Vihwi90Jf%2B2kRdoUrtTjI9Tcy2qvEPRR%2Fu%2FSiPF5ZkqZtMUpYpk3Zz776tKBIdPN294hAPnJa0BayCzciAWoiLktKye%2FZ5ncIXfGt3fOQOOtKD2Bx9vP%2B32a5Ry0x05%2Bq8w06BF6POm8q0Q5MPV4k5gyI76CaJQNJncaCQiCljgNbSqPkVtf9%2BZlqO3q9X2%2Fqf2K8dAA3smK4utoucOyEgiUdhL44Lgbth75FmZD7Fn7%2BtFcfGUS2gCljXqypPziDCVk%2Fu5tg3g%3D%3D">
                 </div>
                 <div class="col-lg-6 col-md-8">
                     <div
@@ -275,9 +275,10 @@ img { object-fit: cover; }
 .banner {
 
     height: 500px;
-    background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709747039567.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=huaaWlHhoL0zPI4EWlEi7uFjNVODg3RutDRaYCWhZwuqK3c%2FLLq0%2Fp4WcB1RRz8AWt0RbhND1I1PmoBDL620%2FvsP64OzQJ%2By955dUdNYFFIPsp2WNKEXxa4xjGQWx0Yqp6zri670P5QbTmrPoJPGhoj3r%2BQF8wV8dL4rIcHDgMn6k16FoqJz61LLTkFwX5hKbC1QmdV9hi3UOC7H8YlVDqtfyQ43wsVnM%2BS1i%2BqJWxnLnvPZlPVc20wK7IHChHsH5jBm5JGTlk8Ne7gnHn92FlnCDUHQ8ImOd6RLKBZqKm0Je4GPP%2BP7ZCZ%2F2eOKCZXztENy3keXo0VkGJbxj7RK7A%3D%3D);
+    background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1710004950072.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=dZNhm32F89EIliw2AFxuxqQfDO2E6GcQyYDaGzzNAykb%2FdKix0kc1Ju20%2BucFI6HgU6MCa7DmfrfUjJYPdatckrEo1r3Xgi3h8jyRJSWSCSeMOuP0NwMMZh9Q%2FSxn1NXMC8JvrMIob6AdCjEt9uv8uihe7J3b3Wz9NVn8b0bJtsLmcT%2BaJB%2B5aYZ6OYkS7LuLH27wlqV2LSV%2F92Bq6JWDvM8uMg7MJBhesdFqrlWpY6WTnWtryBMGBcBecjNVf5Vpp%2BP6YE9D5cx9rfcUz4tu6dyUU6GC6JxUqZwSUui8bizHRao1d7FaUbjL2%2B5MEvrdNWqNsC69z6iu%2FSREiZb%2Bw%3D%3D);
     background-repeat: no-repeat;
     background-position: 50% center;
+    background-size: cover;
 
 }
 

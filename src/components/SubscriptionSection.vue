@@ -11,13 +11,14 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="accordion" id="faq">
+                <div class="accordion mb-5" id="faq">
                     <template v-for="q in questions" :key="q.id">
                     <div class="accordion-item">
                         <div class="accordion-header">
                             <button type="button" class="bg-light accordion-button collapsed"
                                     data-bs-toggle="collapse" :data-bs-target="`#faq${q.id}`"
                                     aria-expanded="false" :aria-controls="`#faq-${q.id}`">
+                            <i class="fs-7 text-highlight bi bi-asterisk me-3"></i>
                             <b>{{ q.question }}</b>
                             </button>
                         </div>
@@ -29,6 +30,16 @@
                         </div>
                     </div>
                     </template>
+                </div>
+                <div class="text-end">
+                    <router-link class="text-decoration-none" to="/about">
+                        <span class="arrow-animation">
+                            <span class="arrow">
+                                <i class="bi bi-caret-right-fill"></i>
+                            </span>
+                        </span>
+                        <span>READ MORE</span>
+                    </router-link>
                 </div>
             </div>
         </div>

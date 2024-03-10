@@ -26,6 +26,8 @@ export default defineStore('adminOrder', {
 
         orders: [],
 
+        pagination: {},
+
         statesCode: {
 
             0: { title: '未確認款項', color: '#c62828' },
@@ -35,6 +37,8 @@ export default defineStore('adminOrder', {
             4: { title: '訂單已完成', color: '#388e3c' },
 
         },
+
+        // 用來篩選訂單狀態的變數
 
         currentPage: 1,
 
@@ -47,9 +51,7 @@ export default defineStore('adminOrder', {
 
     getters: {
 
-        totalPages: ({ orders }) => Math.ceil(orders.length / 5),
-
-        ordersList: ({ orders }) => orders.map((order) => {
+        refactorOrders: ({ orders }) => orders.map((order) => {
 
             if (order.message.startsWith('{"')) {
 
@@ -72,6 +74,7 @@ export default defineStore('adminOrder', {
             return {
 
                 ...order,
+
                 project: order.project || '不指定',
                 state: order.state || 0,
                 total: parseInt(order.total.toFixed(0), 10),
@@ -80,15 +83,15 @@ export default defineStore('adminOrder', {
 
         }),
 
-        displaying: ({ timeAscending, ordersList, currentPage }) => {
+        displaying: ({ timeAscending, refactorOrders, currentPage }) => {
 
-            ordersList.sort((a, b) => (timeAscending ? a.create_at - b.create_at : b.create_at - a.create_at));
+            refactorOrders.sort((a, b) => (timeAscending ? a.create_at - b.create_at : b.create_at - a.create_at));
 
-            return ordersList.filter((o, i) => Math.floor(i / 5) + 1 === currentPage);
+            return refactorOrders.filter((o, i) => Math.floor(i / 10) + 1 === currentPage);
 
         },
 
-        unhandled: ({ ordersList }) => ordersList.filter((i) => i.is_paid && i.state === 0).length,
+        unhandled: ({ refactorOrders }) => refactorOrders.filter((i) => i.is_paid && i.state === 0).length,
 
     },
 
@@ -96,14 +99,47 @@ export default defineStore('adminOrder', {
 
         switchPage(num) { this.currentPage = num; },
 
-        getOrders() {
+        resetOrders() { this.totalOrderList.length = 0; },
+
+        getOrders(page = 1) {
+
+            // 必須取得所有訂單才能做整體的狀態管理 ( 來自同學 Ann Chou 的程式碼提供的靈感，謝謝！ )
+
+            const apiUrl = `${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/orders?page=`;
 
             loaderStore.createLoader('get-orders');
-            axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/orders`)
+
+            axios.get(`${apiUrl}${page}`)
                 .then((res) => {
 
-                    this.orders = res.data.orders;
-                    this.switchPage(1);
+                    const { pagination } = res.data;
+
+                    this.totalPages = res.data.pagination.total_pages;
+
+                    const reqs = [];
+
+                    for (let i = 1; i <= pagination.total_pages; i += 1) {
+
+                        reqs.push(axios.get(`${apiUrl}${i}`));
+
+                    }
+
+                    return Promise.all(reqs);
+
+                })
+                .then((resArr) => {
+
+                    // 回傳的結果會是 [ {...}, {...} ] 陣列包物件的格式
+
+                    const total = [];
+
+                    // 取出物件中的 orders 資料，解構之後一一丟進變數 total 裡
+
+                    resArr.forEach((res) => total.push(...res.data.orders));
+
+                    // 每次取得訂單時都能重新賦值，就不用事先清空舊有的訂單資料了
+
+                    this.orders = total;
 
                 })
                 .catch((error) => alertStore.errorAlert(error))

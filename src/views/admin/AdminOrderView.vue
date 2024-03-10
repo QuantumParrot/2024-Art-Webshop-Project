@@ -2,10 +2,10 @@
 
 <div class="text-end mb-7">
     <h3 class="fs-2 mb-2">訂單管理</h3>
-    <p class="text-muted">目前共有 {{ ordersList.length }} 筆訂單</p>
+    <p class="text-muted">目前共有 {{ refactorOrders.length }} 筆訂單</p>
 </div>
 
-<template v-if="ordersList.length">
+<template v-if="refactorOrders.length">
 
 <div class="alert bg-gray flex-classic mb-5">
     <div class="d-flex gap-2">
@@ -17,7 +17,8 @@
             @click="downTheDrain">刪除所有訂單</button>
     </div>
     <pagination-component
-        :current="currentPage" :total="totalPages" @switch-page="switchPage" />
+        :current="currentPage" :total="pagination.total_pages"
+        @switch-page="switchPage" />
 </div>
 
 <div class="d-flex justify-content-end mb-4">
@@ -126,7 +127,7 @@ export default {
 
     computed: {
 
-        ...mapState(adminOrderStore, ['ordersList', 'displaying', 'statesCode', 'currentPage', 'totalPages', 'timeAscending']),
+        ...mapState(adminOrderStore, ['refactorOrders', 'currentPage', 'displaying', 'statesCode', 'pagination', 'timeAscending']),
 
     },
 
@@ -150,7 +151,7 @@ export default {
 
     mounted() {
 
-        if (!this.ordersList.length) { this.getOrders(); }
+        if (!this.refactorOrders.length) { this.getOrders(); }
 
     },
 

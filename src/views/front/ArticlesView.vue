@@ -3,7 +3,7 @@
 <div class="h-100 bg-gray text-primary">
     <div class="container py-7">
         <h3 class="h2 text-center mb-7">專欄文章</h3>
-        <div class="mb-5">
+        <div class="mb-7">
             <category-filter-bar
                 :filters="categories['專欄文章']" :filter="filter"
                 @switch-filter="switchFilter" />

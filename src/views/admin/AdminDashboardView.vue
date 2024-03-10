@@ -6,7 +6,9 @@
     <h3 class="mb-5"><span class="section-title">訂單近況</span></h3>
         <p class="mb-0" v-if="!!unhandled">
         <span>有 <span class="fw-bold text-danger">{{ unhandled }}</span> 筆已付款的訂單尚未處理喔！</span>
-        <span class="arrow-animation"><span class="arrow">→</span></span>
+        <span class="arrow-animation">
+        <span class="arrow">→</span>
+        </span>
         <span><router-link class="text-info" to="admin/order">前往訂單頁面</router-link></span>
         </p>
         <p class="mb-0" v-else>目前沒有新消息</p>
@@ -32,7 +34,7 @@ export default {
 
     computed: {
 
-        ...mapState(adminOrderStore, ['unhandled']),
+        ...mapState(adminOrderStore, ['orders', 'unhandled']),
 
     },
 
@@ -62,7 +64,7 @@ export default {
 
     },
 
-    mounted() { this.getOrders(); },
+    async mounted() { this.getOrders(); },
 
 };
 

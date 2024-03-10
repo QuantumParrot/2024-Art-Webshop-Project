@@ -3,7 +3,7 @@
 <loading-overlay :isLoading="isLoading"></loading-overlay>
 
 <div class="h-100 d-flex flex-column">
-<front-navbar/>
+<front-navbar />
 <main>
     <router-view></router-view>
 </main>

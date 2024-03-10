@@ -1,8 +1,8 @@
 <template>
 
 <Loading
-    v-model:active="loading"
-    :is-full-page="isFull" :z-index="1060" :background-color="'#757575'">
+    v-model:active="loading" :is-full-page="isFull" :z-index="1060"
+    :background-color="backgroundColor" :opacity="opacity">
     <div class="spinner">
     <div class="double-bounce1"></div>
     <div class="double-bounce2"></div>
@@ -34,6 +34,15 @@ export default {
             default: true,
 
         },
+
+        opacity: {
+
+            type: Number,
+            default: 0.5,
+
+        },
+
+        backgroundColor: { type: String, default: '#757575' },
 
     },
 

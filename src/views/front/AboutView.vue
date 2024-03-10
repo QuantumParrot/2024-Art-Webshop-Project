@@ -5,7 +5,7 @@
         <div class="profile mb-7 overflow-hidden">
             <img class="w-100 h-100 object-fit-cover rounded-2"
                  alt="Image by Joseph on Unsplash"
-                 src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1710000754385.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=iNtTm4dgOgiHLWhbK6oyK0Ctq%2Bau1cMB7AWbmIb00hfhS5NINzgyLUbntQPG0h%2FCc3e9PEi40B4YRvnmh%2F%2FZhNEbhSfDft%2BXkhP%2BkaZ9ggmIH%2BLOGtqT1OaC3tyglwqXqUjByLSePAEjYsBRtTbund2GJlI5stXvvhqWCDclpQU87hAgFzuZo7a1qRWiCcL3xpit%2BSlpe337ugaSodlRatSRXFVLR2riAIh0G2gAqnkH6IWezdRiqzHHb2McaL6rkNKvSuR0Pw%2F%2Fv8DDcfvg5mS9xsMa53xvJiBfWUUNPKCyrtPYG8K8fh2KDRWSM3lx17ocib3FkmbNf2UgfbMMgw%3D%3D">
+                 src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1710039277736.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=e0amGflGBfJ0MrTJtOUcm0VZIkPNZ8i0Ec6xFV1%2FSXN%2BM5ScwrPus3Yucr%2FqRIxt6EBEwPfzQ3f39frzjf6%2B07YvrzNGVICSo3E%2BANxqq7ZntJ0117Xliu%2B5dt%2BjNJt6xIXIcQDsjINkIvYIYEQYQU2J%2BZeo%2B7L%2BuYmeM5SrNiwd0r4Hc%2FKtmWYJfB0xLjMsGch76%2FXPum568ZC94RhpmSP%2Fn5%2B8Z51%2Bi6QZi6%2Fo4KONabfqjKYSCZubBXVwkZvHnoIgiBCudh3OU%2Bk7urDKiD4P4pou61RWkNiz0ZzyUj2K%2Fg2YN3BXxumfbVSAuQWV8kRkAiCWmG7%2F%2Fcrivq317w%3D%3D">
             <div class="position-absolute top-0 w-100 h-100 z-2
                         d-flex flex-column
                         justify-content-center align-items-lg-start align-items-center">

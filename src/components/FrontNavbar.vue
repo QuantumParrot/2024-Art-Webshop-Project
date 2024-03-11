@@ -6,10 +6,8 @@
             <router-link class="title-link" to="/">收藏家</router-link>
         </h1>
         <div class="flex-classic gap-2 order-2 order-lg-3">
-            <button type="button"
-                    class="btn btn-outline-primary d-lg-none"
-                    @click="toggle">
-            <i class="bi bi-list"></i>
+            <button type="button" class="btn btn-outline-primary d-lg-none" @click="toggle">
+                <i class="bi bi-list"></i>
             </button>
             <router-link v-slot="{ navigate }" to="/checkout/carts" custom>
             <button type="button" class="btn btn-primary position-relative" @click="navigate">

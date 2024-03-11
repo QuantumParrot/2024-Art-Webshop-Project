@@ -1,8 +1,8 @@
 <template>
 
 <div class="text-end mb-7">
-    <h3 class="fs-2 mb-2">優惠券</h3>
-    <p class="text-muted">目前共有 {{ coupons.length }} 張優惠券</p>
+<h3 class="fs-2 mb-2">優惠券</h3>
+<p class="text-muted">目前共有 {{ coupons.length }} 張優惠券</p>
 </div>
 
 <div class="alert bg-gray flex-classic mb-5">
@@ -31,7 +31,8 @@
                 <td>
                     <div class="d-flex align-items-center gap-2">
                         <span>{{ coupon.title }}</span>
-                        <span class="badge bg-primary py-2">{{ coupon.code }}</span>
+                        <span class="d-none d-md-block badge bg-primary py-2">
+                        {{ coupon.code }}</span>
                     </div>
                 </td>
                 <td class="text-end">{{ coupon.percent }}％</td>

@@ -36,4 +36,8 @@ Personal Side Project for Practice, Not For Any Commercial Use.
 
 ✨ verakang：[藝享世界](https://verakang.github.io/artworld/)
 
+✨ AnnChouCode：[WandererLand](https://annchoucode.github.io/WandererLand/)
+
+✨ huan5678、eee317、sp1daTomm、echocarriet：[選集](https://select-wave.vercel.app/#/)
+
 ✨ PayRoom：[原生 HTML 標籤的各種應用](https://codepen.io/water38198/pen/abMMKGX)

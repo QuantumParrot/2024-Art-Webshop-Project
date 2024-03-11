@@ -1,6 +1,6 @@
 <template>
 
-<nav aria-label="page navigation">
+<nav class="overflow-x-scroll" aria-label="page navigation">
     <ul class="pagination mb-0">
         <li>
         <a href="#" @click.prevent="switchPage(current - 1)"

@@ -29,23 +29,30 @@
                      @click="mainImage = img">
             </template>
             </div>
-            <div class="d-flex gap-3 mb-5" v-if="product.category === '複製油畫'">
-                <button type="button" class="btn btn-outline-primary fw-bold"
+            <div class="overflow-x-scroll">
+            <div class="frames d-flex flex-nowrap text-nowrap mb-5"
+                 v-if="product.category === '複製油畫'">
+                <button type="button" class="fs-7 btn btn-outline-primary rounded-0"
                         :class="{ 'active': frame === '' }"
                         @click="frame = ''">
-                不加框</button>
-                <button type="button" class="btn btn-outline-primary fw-bold"
+                <b>無畫框</b></button>
+                <button type="button" class="fs-7 btn btn-outline-primary rounded-0"
                         :class="{ 'active': frame === 'dark' }"
                         @click="frame = 'dark'">
-                黑</button>
-                <button type="button" class="btn btn-outline-primary fw-bold"
+                <b>極簡黑</b></button>
+                <button type="button" class="fs-7 btn btn-outline-primary rounded-0"
                         :class="{ 'active': frame === 'wooden' }"
                         @click="frame = 'wooden'">
-                淺木</button>
-                <button type="button" class="btn btn-outline-primary fw-bold"
+                <b>淺木紋</b></button>
+                <button type="button" class="fs-7 btn btn-outline-primary rounded-0"
                         :class="{ 'active': frame === 'golden' }"
                         @click="frame = 'golden'">
-                金</button>
+                <b>典雅金</b></button>
+                <button type="button" class="fs-7 btn btn-outline-primary rounded-0"
+                        :class="{ 'active': frame === 'baroque' }"
+                        @click="frame = 'baroque'">
+                <b>巴洛克</b></button>
+            </div>
             </div>
             <h2 class="text-black mb-5">{{ product.title }}</h2>
             <p class="mb-0">{{ product.subtitle }}</p>
@@ -215,6 +222,7 @@ export default {
                 wooden: 'frame-wooden',
                 golden: 'frame-golden',
                 dark: 'frame-dark',
+                baroque: 'frame-baroque',
 
             },
 
@@ -303,7 +311,13 @@ hr { margin: 1.5rem 0; }
 
 }
 
-.btn.active { pointer-events: none; }
+.frames {
+
+    .btn { margin: 0 -1px -1px 0; }
+
+    .btn.active { pointer-events: none; }
+
+}
 
 .display-img {
 
@@ -340,6 +354,18 @@ hr { margin: 1.5rem 0; }
 
     @extend .basic-frame;
     border-image-source: url('https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709377766860.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=PKDDwODOFPEg4m%2FurAdlfBCMX8iXnq0vg%2Bprk1yOVpEfaHDkaa5NBdfli6udPi1f%2BVD%2FSI2JMtGz0lJ%2FoVl45AYy7GFzDcsVIrMDscaKJs0rHEQUDdLkhB79jYxM6VXW0KtmhH75pEHS%2BVJvj4AQib0Y%2BQnb4Sk2BXAaOgNQUHRk0BDRN2mSMU%2FTWAmrdRtD4cYKfNUjH0REDfzfTfev6gxjJ7I7OBxB1YTXStiszQHiPEDtTTvmckohm0X9sGVK7UhzMXCEeWO%2BQGW%2BpAO%2Fv1uJWfIrEopf8BRZ1pi9YBi8Je%2BDNWyKv6a7QLpkqNG0Yauy9gT2eIhycYwa9jsnww%3D%3D');
+
+}
+
+.frame-baroque {
+
+    @extend .basic-frame;
+    border-image-source: url('https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709808760692.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=ItgELpQ5KErsr%2BGkG%2F%2BG1jowKifEeu0WYWPJRD1r7EJp66PDvnDen%2FIeGY%2FPMhj%2BqCf1zQvF7i1XmDv8kIWo0yWIy77cpKzBaCIezebT3Y4eeJVnafA1qZ9jjv0i2pGeYhbkX0VHjXtsel5qzGdR3xSkCzu61Rko3APbDfQhhaDcZZLZLMvZYlimwHjiRoQ%2B%2BmgA3bRSmW5sTmmuIX6YFvKyy1KsaUXzE990qTlkxt16MDdweqB5cggsuv%2Fwur6u7tT%2BJfJyAuYzDvy0OQIEn4HJv57HZRFr3CPAP7fbcamRdjVU%2BgWY2JEiWOh4iQlQnWjCcMtdNSgwKqCJBQBCIA%3D%3D');
+
+    --framing-thickness: 30px;
+    border-image-width:  30px;
+    border-image-slice: 90;
+    padding: 30px;
 
 }
 

@@ -4,15 +4,15 @@
 
 <div class="container-fluid h-100" v-if="isLogin">
     <div class="row h-100">
-        <div class="col-md-3 bg-primary text-white">
-            <nav class="sticky-top h-100 px-2 py-4" style="max-height: 100vh;">
+        <div class="col-lg-3 bg-primary text-white">
+        <div class="sticky-top h-100 px-2 py-4" style="max-height: 100vh;">
             <admin-sidebar />
-            </nav>
         </div>
-        <div class="col-md-9">
-            <div class="h-100 px-2 py-4">
+        </div>
+        <div class="col-lg-9 pb-lg-0 pb-7">
+        <div class="h-100 px-2 py-4">
             <router-view />
-            </div>
+        </div>
         </div>
     </div>
 </div>

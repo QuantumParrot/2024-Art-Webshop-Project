@@ -26,8 +26,6 @@ export default defineStore('adminOrder', {
 
         orders: [],
 
-        pagination: {},
-
         statesCode: {
 
             0: { title: '未確認款項', color: '#c62828' },
@@ -42,8 +40,8 @@ export default defineStore('adminOrder', {
 
         currentPage: 1,
 
-        orderState: '',
-        isPaid: '',
+        orderState: 5,
+        isPaid: 2,
 
         timeAscending: 0,
 
@@ -83,15 +81,39 @@ export default defineStore('adminOrder', {
 
         }),
 
-        displaying: ({ timeAscending, refactorOrders, currentPage }) => {
+        stateOptions: ({ isPaid }) => {
 
-            refactorOrders.sort((a, b) => (timeAscending ? a.create_at - b.create_at : b.create_at - a.create_at));
+            if (isPaid !== 0) { return [0, 1, 2, 3, 4]; }
 
-            return refactorOrders.filter((o, i) => Math.floor(i / 10) + 1 === currentPage);
+            return [];
 
         },
 
-        unhandled: ({ refactorOrders }) => refactorOrders.filter((i) => i.is_paid && i.state === 0).length,
+        filterOrders: ({ refactorOrders, isPaid, orderState }) => {
+
+            let newOrders = isPaid === 2 ? refactorOrders : refactorOrders.filter((o) => o.is_paid === !!isPaid);
+
+            // console.log(newOrders.length);
+
+            newOrders = orderState === 5 ? newOrders : newOrders.filter((o) => o.state === orderState);
+
+            // console.log(newOrders.length);
+
+            return newOrders;
+
+        },
+
+        displaying: ({ filterOrders, currentPage, timeAscending }) => {
+
+            filterOrders.sort((a, b) => (timeAscending ? a.create_at - b.create_at : b.create_at - a.create_at));
+
+            return filterOrders.filter((o, i) => Math.floor(i / 10) + 1 === currentPage);
+
+        },
+
+        totalPages: ({ filterOrders }) => Math.ceil(filterOrders.length / 10),
+
+        unhandled: ({ refactorOrders }) => refactorOrders.filter((o) => o.is_paid && o.state === 0).length,
 
     },
 
@@ -113,8 +135,6 @@ export default defineStore('adminOrder', {
                 .then((res) => {
 
                     const { pagination } = res.data;
-
-                    this.totalPages = res.data.pagination.total_pages;
 
                     const reqs = [];
 

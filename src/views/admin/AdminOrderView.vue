@@ -5,8 +5,6 @@
     <p class="text-muted">目前共有 {{ refactorOrders.length }} 筆訂單</p>
 </div>
 
-<template v-if="refactorOrders.length">
-
 <div class="alert bg-gray flex-classic mb-5">
     <div class="d-flex gap-2">
     <input type="checkbox" id="unlock" class="btn-check" v-model="deletePermission">
@@ -17,21 +15,44 @@
             @click="downTheDrain">刪除所有訂單</button>
     </div>
     <pagination-component
-        :current="currentPage" :total="pagination.total_pages"
-        @switch-page="switchPage" />
+        :current="currentPage" :total="totalPages" @switch-page="switchPage" />
 </div>
 
-<div class="d-flex justify-content-end mb-4">
-    <div>
-        <select class="form-select" :value="timeAscending"
-                @change="(e) => switchFilter('timeAscending', +e.target.value)">
-        <option :value="1">由舊到新</option>
-        <option :value="0">由新到舊</option>
+<div class="d-flex flex-md-row flex-column gap-3 mb-5">
+    <div class="d-flex align-items-center text-nowrap">
+        <label for="time" class="form-label mb-0 me-3"><b>建立時間</b></label>
+        <select
+            class="form-select" id="time" :value="timeAscending"
+            @change="(e) => switchFilter('timeAscending', +e.target.value)">
+            <option :value="1">由舊到新</option>
+            <option :value="0">由新到舊</option>
+        </select>
+    </div>
+    <div class="d-flex align-items-center text-nowrap">
+        <label for="paid" class="form-label mb-0 me-3"><b>付款狀態</b></label>
+        <select
+            class="form-select" id="paid" :value="isPaid"
+            @change="(e) => switchFilter('isPaid', +e.target.value)">
+            <option :value="2" selected>全部</option>
+            <option :value="1">已付款</option>
+            <option :value="0">未付款</option>
+        </select>
+    </div>
+    <div class="d-flex align-items-center text-nowrap">
+        <label for="delivery" class="form-label mb-0 me-3"><b>出貨狀態</b></label>
+        <select
+            class="form-select" id="delivery" :value="orderState"
+            @change="(e) => switchFilter('orderState', +e.target.value)">
+            <option :value="5" selected>全部</option>
+            <option
+                v-for="num in stateOptions" :key="num"
+                :value="num">
+            {{ statesCode[num]?.title }}</option>
         </select>
     </div>
 </div>
 
-<div class="table-responsive">
+<div class="table-responsive" v-if="displaying.length">
     <table class="table table-hover text-nowrap">
         <thead>
             <tr>
@@ -70,8 +91,6 @@
         </tbody>
     </table>
 </div>
-
-</template>
 
 <div class="alert bg-gray" v-else>沒有訂單記錄</div>
 
@@ -127,7 +146,7 @@ export default {
 
     computed: {
 
-        ...mapState(adminOrderStore, ['refactorOrders', 'currentPage', 'displaying', 'statesCode', 'pagination', 'timeAscending']),
+        ...mapState(adminOrderStore, ['refactorOrders', 'filterOrders', 'displaying', 'currentPage', 'totalPages', 'statesCode', 'stateOptions', 'timeAscending', 'isPaid', 'orderState']),
 
     },
 
@@ -146,6 +165,14 @@ export default {
             } else { this.$refs.deleteModal.showModal(); }
 
         },
+
+    },
+
+    watch: {
+
+        totalPages(n) { if (n < this.currentPage) { this.switchPage(1); } },
+
+        isPaid(n) { if (!n) { this.switchFilter('orderState', 5); } },
 
     },
 

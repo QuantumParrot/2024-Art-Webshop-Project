@@ -166,9 +166,28 @@ export default {
 
         },
 
+        changeFilterByQuery(query) {
+
+            if (query.paid || query.state) {
+
+                this.switchFilter('isPaid', +query.paid || 2);
+                this.switchFilter('orderState', +query.state);
+
+            }
+
+        },
+
     },
 
     watch: {
+
+        '$route.query': {
+
+            handler(n) { this.changeFilterByQuery(n); },
+
+            deep: true,
+
+        },
 
         totalPages(n) { if (n < this.currentPage) { this.switchPage(1); } },
 
@@ -179,6 +198,8 @@ export default {
     mounted() {
 
         if (!this.refactorOrders.length) { this.getOrders(); }
+
+        this.changeFilterByQuery(this.$route.query);
 
     },
 

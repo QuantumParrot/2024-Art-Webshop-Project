@@ -7,9 +7,11 @@
         <p class="mb-0" v-if="!!unhandled">
         <span>有 <span class="fw-bold text-danger">{{ unhandled }}</span> 筆已付款的訂單尚未處理喔！</span>
         <span class="arrow-animation">
-        <span class="arrow">→</span>
+        <span class="arrow">→</span></span>
+        <span>
+        <router-link class="text-info" to="admin/order?paid=1&state=0">
+        前往訂單頁面</router-link>
         </span>
-        <span><router-link class="text-info" to="admin/order">前往訂單頁面</router-link></span>
         </p>
         <p class="mb-0" v-else>目前沒有新消息</p>
 </section>

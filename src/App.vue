@@ -3,3 +3,17 @@
 <router-view></router-view>
 
 </template>
+
+<script>
+
+import aos from 'aos';
+
+import 'aos/dist/aos.css';
+
+export default {
+
+    mounted() { aos.init(); },
+
+};
+
+</script>

@@ -8,7 +8,7 @@
             <router-link
                 to="/products"
                 class="nav-link" :class="{ 'link-active': !$route.query.category }">
-                全部</router-link>
+                全部商品</router-link>
             </li>
             <template v-for="item in categories" :key="item">
             <li class="nav-item">

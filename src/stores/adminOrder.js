@@ -153,11 +153,7 @@ export default defineStore('adminOrder', {
 
                     const total = [];
 
-                    // 取出物件中的 orders 資料，解構之後一一丟進變數 total 裡
-
                     resArr.forEach((res) => total.push(...res.data.orders));
-
-                    // 每次取得訂單時都能重新賦值，就不用事先清空舊有的訂單資料了
 
                     this.orders = total;
 

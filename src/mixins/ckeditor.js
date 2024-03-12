@@ -1,6 +1,3 @@
-// 給可能會失憶的自己看：如果編輯器掛掉，請改用 @ckeditor/ckeditor5-build-classic 的 classic editor
-// 若是如此，以下的插件通通不需要
-
 import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
 
 import { Essentials } from '@ckeditor/ckeditor5-essentials';

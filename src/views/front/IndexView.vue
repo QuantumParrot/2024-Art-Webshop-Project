@@ -4,8 +4,34 @@
     <section class="banner bg-primary text-white py-7">
         <div class="container">
             <h2 class="h1 lh-lg text-shadow-black letter-space-sm">
-            邀請您一同探索<br>
-            這顆星球上的<span class="text-shadow">吉光片羽</span>
+            <span data-aos="fade-right" data-aos-delay="150">邀</span>
+            <span data-aos="fade-right" data-aos-delay="250">請</span>
+            <span data-aos="fade-right" data-aos-delay="350">您</span>
+            <span data-aos="fade-right" data-aos-delay="450">一</span>
+            <span data-aos="fade-right" data-aos-delay="550">同</span>
+            <span data-aos="fade-right" data-aos-delay="650">探</span>
+            <span data-aos="fade-right" data-aos-delay="750">索</span>
+            <br>
+            <span data-aos="fade-right" data-aos-delay="850">這</span>
+            <span data-aos="fade-right" data-aos-delay="950">顆</span>
+            <span data-aos="fade-right"
+                  data-aos-delay="1050">星</span>
+            <span data-aos="fade-right"
+                  data-aos-delay="1150">球</span>
+            <span data-aos="fade-right"
+                  data-aos-delay="1250">上</span>
+            <span data-aos="fade-right"
+                  data-aos-delay="1350">的</span>
+            <span class="text-shadow">
+            <span data-aos="fade-right"
+                  data-aos-delay="1450">吉</span>
+            <span data-aos="fade-right"
+                  data-aos-delay="1550">光</span>
+            <span data-aos="fade-right"
+                  data-aos-delay="1650">片</span>
+            <span data-aos="fade-right"
+                  data-aos-delay="1750">羽</span>
+            </span>
             </h2>
         </div>
     </section>
@@ -36,7 +62,7 @@
                                 </p>
                                 <router-link target="_blank" to="/products"
                                              class="btn-slider rounded-1 ps-3">
-                                <span class="me-2">前往選購</span>
+                                <span class="me-2">立即選購</span>
                                 <span class="text-highlight">
                                 <i class="bi bi-caret-right-fill"></i>
                                 </span>
@@ -117,7 +143,8 @@
     </section>
     <section class="bg-primary text-white py-7">
         <div class="container">
-            <h3 class="mb-7">蒐羅來自世界各地的美麗藏品 ...</h3>
+            <h3 data-aos="fade-right" data-aos-duration="1500"
+                class="mb-7">來自世界各地的美麗藏品 ...</h3>
             <div class="row g-3 mb-3">
                 <div class="col-md-6">
                     <router-link to="products?category=複製油畫">
@@ -274,7 +301,7 @@ img { object-fit: cover; }
 
 .banner {
 
-    height: 500px;
+    height: 550px;
     background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1710004950072.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=dZNhm32F89EIliw2AFxuxqQfDO2E6GcQyYDaGzzNAykb%2FdKix0kc1Ju20%2BucFI6HgU6MCa7DmfrfUjJYPdatckrEo1r3Xgi3h8jyRJSWSCSeMOuP0NwMMZh9Q%2FSxn1NXMC8JvrMIob6AdCjEt9uv8uihe7J3b3Wz9NVn8b0bJtsLmcT%2BaJB%2B5aYZ6OYkS7LuLH27wlqV2LSV%2F92Bq6JWDvM8uMg7MJBhesdFqrlWpY6WTnWtryBMGBcBecjNVf5Vpp%2BP6YE9D5cx9rfcUz4tu6dyUU6GC6JxUqZwSUui8bizHRao1d7FaUbjL2%2B5MEvrdNWqNsC69z6iu%2FSREiZb%2Bw%3D%3D);
     background-repeat: no-repeat;
     background-position: 50% center;
@@ -285,7 +312,7 @@ img { object-fit: cover; }
 .intro-sec {
 
     height: 100%;
-    background-color: $light
+    background-color: $light;
 
 }
 

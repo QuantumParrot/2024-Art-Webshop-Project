@@ -6,12 +6,12 @@
     <div class="row h-100">
         <div class="col-lg-3 bg-primary text-white">
         <div class="sticky-top h-100 px-2 py-4" style="max-height: 100vh;">
-            <admin-sidebar />
+        <admin-sidebar />
         </div>
         </div>
         <div class="col-lg-9 pb-lg-0 pb-7">
         <div class="h-100 px-2 py-4">
-            <router-view />
+        <router-view />
         </div>
         </div>
     </div>

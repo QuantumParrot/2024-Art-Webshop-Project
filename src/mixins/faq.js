@@ -46,7 +46,7 @@ export default {
                 {
                     id: 6,
                     type: '其他問題',
-                    question: '商品或文章提供的資訊有誤⋯⋯',
+                    question: '商品或文章的資訊有誤⋯⋯',
                     answer: '天啊 Σ(°Д°; <br>如果您願意，請聯繫我們的網站管理員：ataraxia528491@gmail.com。<br>我們將立刻與您確認細節，非常謝謝您的細心與建議！',
                 },
                 {

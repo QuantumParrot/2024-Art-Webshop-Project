@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-    <faq-section />
+    <faq-section :types="['文章問題', '其他問題']" />
     <subscription-section />
 </div>
 

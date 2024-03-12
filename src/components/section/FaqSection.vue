@@ -18,7 +18,8 @@
                             <button type="button" class="bg-light accordion-button collapsed"
                                     data-bs-toggle="collapse" :data-bs-target="`#faq${q.id}`"
                                     aria-expanded="false" :aria-controls="`#faq-${q.id}`">
-                            <i class="fs-7 text-highlight bi bi-asterisk me-3"></i>
+                            <i class="d-none d-md-block
+                                      fs-7 text-highlight bi bi-asterisk me-3"></i>
                             <b>{{ q.question }}</b>
                             </button>
                         </div>
@@ -36,7 +37,7 @@
                                  :to="{ path: '/about', hash: '#faq' }">
                         <span class="arrow-animation">
                             <span class="arrow">
-                                <i class="bi bi-caret-right-fill"></i>
+                            <i class="bi bi-caret-right-fill"></i>
                             </span>
                         </span>
                         <span>READ MORE</span>

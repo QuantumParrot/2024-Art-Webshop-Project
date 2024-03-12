@@ -83,6 +83,8 @@ export default defineStore('userProduct', {
             axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/products/all`)
                 .then((res) => {
 
+                    // console.log(res);
+
                     this.totalProducts = Object.values(res.data.products);
                     if (typeof fn === 'function') { fn(data); }
 

@@ -22,7 +22,7 @@
                      :src="mainImage" :alt="product.title" width="600">
             </div>
             <div class="bg-light rounded-2 p-3 mb-5
-                        d-flex gap-3">
+                        d-flex gap-3 overflow-x-scroll">
             <template v-for="img in displayImages" :key="img">
                 <img class="display-img" :class="{ 'opacity-50': img !== mainImage }"
                      :src="img" :alt="product.title"

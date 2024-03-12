@@ -10,11 +10,15 @@ import useLoaderStore from './loader';
 
 import useAlertStore from './alert';
 
+import useUserProductStore from './userProduct';
+
 //
 
 const loaderStore = useLoaderStore();
 
 const alertStore = useAlertStore();
+
+const userProductStore = useUserProductStore();
 
 const { VITE_APP_SITE, VITE_APP_PATH } = import.meta.env;
 
@@ -26,7 +30,9 @@ export default defineStore('userArticle', {
         article: {},
         filter: '',
 
-        currentPage: { column: 1, news: 1, project: 1 },
+        relatedProducts: [],
+
+        currentPage: { column: 1, news: 1 },
 
     }),
 
@@ -47,6 +53,8 @@ export default defineStore('userArticle', {
             return items.filter((item, idx) => Math.floor(idx / 9) + 1 === column);
 
         },
+
+        projects: ({ articles }) => articles.filter((i) => i.type === '公益計劃'),
 
         totalPages: ({ columns, news }) => ({
 
@@ -86,6 +94,7 @@ export default defineStore('userArticle', {
                     if (this.article.type === '專欄文章') {
 
                         this.router.push(`/article/${this.article.id}`);
+                        this.getRelatedProducts(this.article.tag);
 
                     } else { this.router.push(`/news/${this.article.id}`); }
 
@@ -98,6 +107,32 @@ export default defineStore('userArticle', {
         switchFilter(value) { this.filter = value; },
 
         switchPage(num, type) { this.currentPage[type] = num; },
+
+        async getRelatedProducts(tag) {
+
+            const res = await axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/products/all`);
+
+            const products = Object.values(res.data.products);
+
+            let results = [];
+
+            if (Array.isArray(tag)) {
+
+                results = products.filter((i) => i.tags.some((t) => tag.includes(t)));
+
+            }
+
+            if (results.length > 3) {
+
+                results = userProductStore.getRandomProducts(results, 3);
+
+            } else { results.push(...userProductStore.getRandomProducts(products, Math.abs(results.length - 3))); }
+
+            this.relatedProducts = results;
+
+            // console.log(results);
+
+        },
 
     },
 

@@ -50,6 +50,8 @@ export default defineStore('adminAuth', {
                 .then(() => { this.changeLoginState(true); })
                 .catch((error) => {
 
+                    document.cookie = 'hexVueToken=; Max-Age=-1';
+
                     if (path !== '/login') {
 
                         alertStore.errorAlert(error);

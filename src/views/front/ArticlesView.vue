@@ -23,8 +23,8 @@
                             <span>｜專欄：{{ item.author }}</span>
                             </h5>
                         </div>
-                        <p class="flex-grow-1 text-secondary text-justify mb-4">
-                        {{ item.description }}</p>
+                        <p class="flex-grow-1
+                                  text-secondary text-justify mb-4">{{ item.description }}</p>
                         <div class="text-end">
                             <router-link :to="`/article/${item.id}`" v-slot="{ navigate }" custom>
                             <button type="button" @click="navigate"

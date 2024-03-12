@@ -19,7 +19,8 @@
                     </error-message>
                 </div>
                 <div class="form-floating mb-7">
-                    <v-field type="password" id="password" placeholder="密碼"
+                    <v-field id="password" :type="isPwdVisible ? 'text' : 'password'"
+                             placeholder="密碼"
                              class="form-control mb-3" :class="{ 'is-invalid': errors['password'] }"
                              name="password" rules="required">
                     </v-field>
@@ -28,6 +29,10 @@
                     <error-message name="password" v-slot="{ message }">
                     <p class="invalid-feedback">{{ localize(message, 'password') }}</p>
                     </error-message>
+                    <button type="button" class="fs-5 btn btn-inline"
+                            @click="isPwdVisible = !isPwdVisible" v-show="!errors['password']">
+                    <i class="bi" :class="isPwdVisible ? 'bi-eye' : 'bi-eye-slash'"></i>
+                    </button>
                 </div>
                 <button type="submit" class="w-100 btn-slider btn-login">確認登入</button>
                 <router-link to="/admin" v-slot="{ navigate }" custom v-if="isLogin">
@@ -62,7 +67,11 @@ export default {
 
     mixins: [backgroundMixins, validationMixins],
 
-    data() { return { backgroundText: '' }; },
+    data() {
+
+        return { backgroundText: '', isPwdVisible: false };
+
+    },
 
     methods: {
 
@@ -151,6 +160,8 @@ form {
   &::after { background-color: $gray; }
 
 }
+
+.btn-inline { top: 0.85rem; right: .75rem; }
 
 .invalid-feedback {
 

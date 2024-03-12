@@ -33,7 +33,15 @@ export default {
 
     },
 
-    created() { if (!this.tempOrder.id) { this.$router.replace('/checkout/carts'); } },
+    methods: {
+
+        redirect() { if (!this.tempOrder.id) { this.$router.replace('/checkout/carts'); } },
+
+    },
+
+    activated() { this.redirect(); },
+
+    created() { this.redirect(); },
 
 };
 

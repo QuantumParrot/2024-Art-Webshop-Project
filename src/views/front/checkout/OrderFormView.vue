@@ -68,7 +68,8 @@
             <v-field
                 id="tel" type="tel" class="form-control mb-3"
                 :class="{ 'is-invalid': errors['tel'] }"
-                name="tel" :rules="isPhone"></v-field>
+                name="tel" :rules="isPhone">
+            </v-field>
             <error-message name="tel" v-slot="{ message }">
             <p class="invalid-feedback">{{ localize(message, 'tel') }}</p>
             </error-message>
@@ -78,7 +79,8 @@
             <v-field
                 id="email" type="email" class="form-control mb-3"
                 :class="{ 'is-invalid': errors['email'] }"
-                name="email" rules="required|email"></v-field>
+                name="email" rules="required|email">
+            </v-field>
             <error-message name="email" v-slot="{ message }">
             <p class="invalid-feedback">{{ localize(message, 'email') }}</p>
             </error-message>
@@ -88,7 +90,8 @@
             <v-field
                 id="address" type="text" class="form-control mb-3"
                 :class="{ 'is-invalid': errors['address'] }"
-                name="address" rules="required"></v-field>
+                name="address" rules="required">
+            </v-field>
             <error-message name="address" v-slot="{ message }">
             <p class="invalid-feedback">{{ localize(message, 'address') }}</p>
             </error-message>

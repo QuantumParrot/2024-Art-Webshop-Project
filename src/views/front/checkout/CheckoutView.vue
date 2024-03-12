@@ -36,7 +36,9 @@
         <!-- main -->
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <router-view />
+                <router-view v-slot="{ Component }">
+                    <keep-alive><component :is="Component"></component></keep-alive>
+                </router-view>
             </div>
         </div>
         </template>

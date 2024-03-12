@@ -73,7 +73,7 @@ const router = createRouter({
               path: 'carts',
               name: 'front-checkout-carts',
               component: () => import('../views/front/checkout/CartsView.vue'),
-              meta: { title: '購物車 - 收藏家' },
+              meta: { title: '購物明細 - 收藏家' },
             },
             {
               path: 'form',

@@ -144,8 +144,8 @@ export default defineStore('userOrder', {
 
                     alertStore.modalAlert(config);
 
-                    this.getOrder(id);
                     cartStore.getCarts();
+                    this.getOrder(id);
 
                     setTimeout(() => this.router.push('/'), 1500);
 

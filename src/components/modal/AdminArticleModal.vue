@@ -55,16 +55,21 @@
                                     name="author" rules="required"></v-field>
                             </div>
                             <div class="col">
-                                <div class="mb-3">
-                                    <label class="form-label is-required" for="create_at">
-                                    <span>發表日期</span></label>
-                                    <v-field
-                                        id="create_at" type="date"
-                                        class="form-control" v-model="createAt"
-                                        name="create_at" rules="required"></v-field>
-                                </div>
+                                <label class="form-label is-required" for="create_at">
+                                <span>發表日期</span></label>
+                                <v-field
+                                    id="create_at" type="date"
+                                    class="form-control" v-model="createAt"
+                                    name="create_at" rules="required"></v-field>
                             </div>
                         </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="link" class="form-label">文章連結</label>
+                        <v-field
+                            id="link" type="text"
+                            class="form-control" v-model.trim="article.link"
+                            name="link"></v-field>
                     </div>
                 </div>
                 <div v-show="tab === 'category'">

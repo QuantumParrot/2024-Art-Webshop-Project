@@ -101,6 +101,7 @@
             <option value="" selected>不指定</option>
             <option value="野生動物救援計畫">野生動物救援計畫</option>
             <option value="海洋保育計畫">海洋保育計畫</option>
+            <option value="社會關懷計畫">社會關懷計畫</option>
             </v-field>
         </div>
         <div>

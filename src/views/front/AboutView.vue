@@ -35,6 +35,39 @@
             <span class="text-light">雖然網站是假的，</span>
             <span>但是這些團體是真實的存在，歡迎點選以下的連結認識他們喔！</span>
             </p>
+            <h4 class="mb-6">
+            <i class="text-highlight bi bi-brightness-high-fill me-3"></i>
+            <b>海洋保育</b>
+            </h4>
+            <div class="row mb-6">
+                <template v-for="item in ocean" :key="item.id">
+                <div class="col-lg-4 col-md-6">
+                    <NGO-card :org="item"></NGO-card>
+                </div>
+                </template>
+            </div>
+            <h4 class="mb-6">
+            <i class="text-highlight bi bi-brightness-high-fill me-3"></i>
+            <b>野生動物救援</b>
+            </h4>
+            <div class="row mb-6">
+                <template v-for="item in wildAnimal" :key="item.id">
+                <div class="col-lg-4 col-md-6">
+                    <NGO-card :org="item"></NGO-card>
+                </div>
+                </template>
+            </div>
+            <h4 class="mb-6">
+            <i class="text-highlight bi bi-brightness-high-fill me-3"></i>
+            <b>社會關懷</b>
+            </h4>
+            <div class="row mb-6">
+                <template v-for="item in socialCare" :key="item.id">
+                <div class="col-lg-4 col-md-6">
+                    <NGO-card :org="item"></NGO-card>
+                </div>
+                </template>
+            </div>
         </div>
         <div class="mb-7">
             <h3 class="text-dark mb-7"><b>常見問答</b></h3>
@@ -86,13 +119,27 @@
 
 import faqMixins from '@/mixins/faq';
 
+import { mapState, mapActions } from 'pinia';
+
+import userArticleStore from '@/stores/userArticle';
+
+//
+
+import NGOCard from '@/components/card/NGOCard.vue';
+
 export default {
+
+    components: { NGOCard },
 
     mixins: [faqMixins],
 
     data() { return { filter: '' }; },
 
     computed: {
+
+        ...mapState(userArticleStore, ['projects']),
+
+        // 常見問答
 
         faqTypes() {
 
@@ -116,7 +163,23 @@ export default {
 
         },
 
+        // 公益計劃
+
+        ocean() { return this.projects.filter((i) => i.category === '海洋保育'); },
+
+        wildAnimal() { return this.projects.filter((i) => i.category === '野生動物救援'); },
+
+        socialCare() { return this.projects.filter((i) => i.category === '社會關懷'); },
+
     },
+
+    methods: {
+
+        ...mapActions(userArticleStore, ['getArticles']),
+
+    },
+
+    mounted() { if (!this.projects.length) { this.getArticles(); } },
 
 };
 

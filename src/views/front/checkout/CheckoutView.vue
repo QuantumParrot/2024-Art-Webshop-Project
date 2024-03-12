@@ -47,6 +47,8 @@
             去<router-link class="text-info" to="/products">逛逛</router-link>吧！
         </div>
     </div>
+    <faq-section :types="['付款問題', '取貨問題', '訂單問題']" />
+    <subscription-section />
 </div>
 
 </template>
@@ -63,7 +65,15 @@ import userOrderStore from '@/stores/userOrder';
 
 //
 
+import FaqSection from '@/components/section/FaqSection.vue';
+
+import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
+
+//
+
 export default {
+
+    components: { FaqSection, SubscriptionSection },
 
     data() { return { step: 1 }; },
 

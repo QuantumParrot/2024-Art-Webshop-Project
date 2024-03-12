@@ -166,7 +166,15 @@ const router = createRouter({
 
   linkExactActiveClass: 'active',
 
-  scrollBehavior() { return { top: 0, behavior: 'smooth' }; },
+  scrollBehavior(to, from, savedPosition) {
+
+    if (to.hash) { return { el: to.hash, top: 20 }; }
+
+    if (savedPosition) { return savedPosition; }
+
+    return { top: 0, behavior: 'smooth' };
+
+  },
 
 });
 

@@ -50,6 +50,7 @@
             @switch-page="changePage" />
         </div>
     </div>
+    <faq-section :types="['文章問題', '其他問題']" />
     <subscription-section />
 </div>
 
@@ -69,13 +70,19 @@ import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
 
 import PaginationComponent from '@/components/PaginationComponent.vue';
 
-import SubscriptionSection from '@/components/SubscriptionSection.vue';
+import FaqSection from '@/components/section/FaqSection.vue';
+
+import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
 
 //
 
 export default {
 
-    components: { CategoryFilterBar, PaginationComponent, SubscriptionSection },
+    components: {
+
+        CategoryFilterBar, PaginationComponent, FaqSection, SubscriptionSection,
+
+    },
 
     computed: {
 

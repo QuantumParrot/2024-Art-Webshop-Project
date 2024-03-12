@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="mb-7">
-            <h3 class="text-dark mb-7"><b>公益計劃</b></h3>
+            <h3 class="text-dark mb-7" id="project"><b>公益計劃</b></h3>
             <p>我們會將每一筆訂單 <b class="text-danger">10 ～ 20％</b> 的收益，</p>
             <p>全數回饋給這些在不同社會議題努力的非營利組織，謝謝他們為這片土地的付出！</p>
             <p class="mb-7">
@@ -70,12 +70,12 @@
             </div>
         </div>
         <div class="mb-7">
-            <h3 class="text-dark mb-7"><b>常見問答</b></h3>
+            <h3 class="text-dark mb-7" id="faq"><b>常見問答</b></h3>
             <div class="row mb-7">
                 <div class="col-md-4">
                     <select class="form-select py-3 fw-bold" v-model="filter">
                         <option value="">全部問題</option>
-                        <option v-for="type in faqTypes" :key="type" :value="type">
+                        <option v-for="type in sortOrder" :key="type" :value="type">
                         {{ type }}</option>
                     </select>
                 </div>
@@ -141,21 +141,9 @@ export default {
 
         // 常見問答
 
-        faqTypes() {
-
-            const types = [];
-
-            this.questions.forEach((q) => {
-
-                if (!types.includes(q.type)) { types.push(q.type); }
-
-            });
-
-            return types;
-
-        },
-
         displayingQuestions() {
+
+            this.sortQuestions();
 
             if (this.filter) { return this.questions.filter((q) => q.type === this.filter); }
 

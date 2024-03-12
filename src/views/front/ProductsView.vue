@@ -37,6 +37,7 @@
             @switch-page="(num) => getProducts(pagination.category, num)" />
         </div>
     </div>
+    <faq-section :types="['付款問題', '取貨問題']" />
     <subscription-section />
 </div>
 
@@ -62,7 +63,9 @@ import userCollectionStore from '@/stores/userCollection';
 
 import PaginationComponent from '@/components/PaginationComponent.vue';
 
-import SubscriptionSection from '@/components/SubscriptionSection.vue';
+import FaqSection from '@/components/section/FaqSection.vue';
+
+import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
 
 import ProductCard from '@/components/card/ProductCard.vue';
 
@@ -70,7 +73,11 @@ import ProductCard from '@/components/card/ProductCard.vue';
 
 export default {
 
-    components: { ProductCard, PaginationComponent, SubscriptionSection },
+    components: {
+
+        ProductCard, PaginationComponent, FaqSection, SubscriptionSection,
+
+    },
 
     mixins: [categoryMixins],
 

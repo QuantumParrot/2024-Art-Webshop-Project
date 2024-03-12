@@ -62,6 +62,7 @@
             </div>
         </div>
     </div>
+    <faq-section />
     <subscription-section />
 </div>
 
@@ -81,7 +82,9 @@ import userArticleStore from '@/stores/userArticle';
 
 //
 
-import SubscriptionSection from '@/components/SubscriptionSection.vue';
+import FaqSection from '@/components/section/FaqSection.vue';
+
+import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
 
 //
 
@@ -89,7 +92,7 @@ export default {
 
     mixins: [authorsMixins],
 
-    components: { SubscriptionSection },
+    components: { FaqSection, SubscriptionSection },
 
     computed: {
 

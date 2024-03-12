@@ -97,7 +97,14 @@
             </error-message>
         </div>
         <div class="mb-5">
-            <label for="project" class="form-label">選擇您想贊助的計畫</label>
+            <label for="project" class="form-label">選擇您想贊助的計劃</label>
+            <p class="lh-lg fs-7 fw-bold mb-4">
+            <span>我們會將訂單的部分收益用來贊助公益團體，詳請可參考：</span>
+            <router-link class="text-info" target="_blank" to="/about">公益計劃介紹</router-link>
+            <span>（  新分頁  ）</span>
+            <br>
+            <span>如果選擇不指定，代表您同意由我們自行分配款項</span>
+            </p>
             <v-field
                 id="project" name="project" as="select"
                 class="form-select">

@@ -127,7 +127,8 @@
                                 <p class="mb-6">
                                 詳情請參考我們的方案介紹
                                 </p>
-                                <router-link target="_blank" to="/about"
+                                <router-link target="_blank"
+                                             :to="{ path: '/about', hash: '#project' }"
                                              class="btn-slider rounded-1 ps-3">
                                 <span class="me-2">深入瞭解</span>
                                 <span class="text-highlight">
@@ -258,6 +259,7 @@
             </div>
         </div>
     </section>
+    <faq-section />
     <subscription-section />
 </div>
 
@@ -269,11 +271,13 @@ import { mapState, mapActions } from 'pinia';
 
 import userArticleStore from '@/stores/userArticle';
 
-import SubscriptionSection from '@/components/SubscriptionSection.vue';
+import FaqSection from '@/components/section/FaqSection.vue';
+
+import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
 
 export default {
 
-    components: { SubscriptionSection },
+    components: { FaqSection, SubscriptionSection },
 
     computed: {
 

@@ -203,10 +203,17 @@
                         <div class="mb-3">
                         <h5 class="fw-bold mb-3">圖片設定</h5>
                         <label class="form-label is-required" for="imageUrl">主圖網址</label>
-                        <v-field
-                            id="imageUrl" type="text" class="form-control mb-3"
-                            v-model.trim="product.imageUrl"
-                            name="imageUrl" rules="required|url"></v-field>
+                        <div class="position-relative">
+                            <v-field
+                                id="imageUrl" type="text" class="form-control pe-7 mb-3"
+                                v-model.trim="product.imageUrl"
+                                name="imageUrl" rules="required|url"></v-field>
+                            <button type="button" class="btn btn-origin btn-inline"
+                                    v-show="product.imageUrl"
+                                    @click="product.imageUrl = ''">
+                            <i class="bi bi-x-lg"></i>
+                            </button>
+                        </div>
                         <img :src="product.imageUrl" :alt="product.title" v-if="product.imageUrl">
                         </div>
                         <div class="mb-3" v-if="product.imagesUrl.length">
@@ -214,7 +221,7 @@
                             <div class="row g-3">
                             <template v-for="(img, idx) in product.imagesUrl" :key="img">
                                 <div class="col-md-6 position-relative">
-                                    <input type="text" class="form-control pe-5"
+                                    <input type="text" class="form-control pe-6"
                                            v-model.trim="product.imagesUrl[idx]">
                                     <button type="button" class="btn btn-origin btn-inline"
                                             @click="product.imagesUrl.splice(idx, 1)">
@@ -361,3 +368,9 @@ export default {
 };
 
 </script>
+
+<style lang="scss" scoped>
+
+.btn-inline { right: 1rem; }
+
+</style>

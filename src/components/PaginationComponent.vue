@@ -32,7 +32,13 @@ export default {
 
     methods: {
 
-        switchPage(num) { this.$emit('switch-page', num); },
+        switchPage(num) {
+
+            window.scrollTo(0, 0, 'smooth');
+
+            this.$emit('switch-page', num);
+
+        },
 
     },
 

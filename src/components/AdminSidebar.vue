@@ -37,12 +37,9 @@
         </ul>
     </div>
     <div class="nav-footer flex-classic">
-        <router-link to="/" v-slot="{ navigate }" custom>
-        <button type="button" class="w-100 btn btn-outline-light rounded-0"
-                @click="navigate">
+        <router-link to="/" target="_blank" class="w-100 btn btn-outline-light rounded-0">
         <i class="bi bi-house-door me-3"></i>
         <span>前台</span>
-        </button>
         </router-link>
         <button type="button" class="w-100 btn btn-outline-highlight rounded-0"
                 @click="logout">

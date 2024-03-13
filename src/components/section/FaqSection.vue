@@ -33,7 +33,7 @@
                     </template>
                 </div>
                 <div class="text-end">
-                    <router-link class="text-decoration-none"
+                    <router-link target="_blank" class="text-decoration-none"
                                  :to="{ path: '/about', hash: '#faq' }">
                         <span class="arrow-animation">
                             <span class="arrow">

@@ -109,7 +109,7 @@ export default {
 
     },
 
-    mounted() { this.getCoupons(); },
+    created() { if (!this.coupons.length) { this.getCoupons(); } },
 
 };
 

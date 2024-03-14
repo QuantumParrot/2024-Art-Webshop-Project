@@ -39,7 +39,7 @@ export default defineStore('adminProduct', {
 
         tagsList: ({ products }) => {
 
-            const tags = [];
+            const list = {};
 
             products.forEach((item) => {
 
@@ -47,7 +47,9 @@ export default defineStore('adminProduct', {
 
                     item.tags.forEach((tag) => {
 
-                        if (!tags.includes(tag)) { tags.push(tag); }
+                        if (!list[tag.length]) { list[tag.length] = []; }
+
+                        if (!list[tag.length].includes(tag)) { list[tag.length].push(tag); }
 
                     });
 
@@ -55,7 +57,7 @@ export default defineStore('adminProduct', {
 
             });
 
-            return tags.sort((a, b) => a.length - b.length);
+            return list;
 
         },
 

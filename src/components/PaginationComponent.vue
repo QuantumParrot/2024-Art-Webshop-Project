@@ -1,18 +1,18 @@
 <template>
 
 <nav aria-label="page navigation">
-    <ul class="pagination mb-0">
+    <ul class="w-100 pagination mb-0">
         <li>
         <a href="#" @click.prevent="switchPage(current - 1)"
            class="page-link" :class="{ 'disabled': current - 1 < 1 }">
         &laquo;</a>
         </li>
         <template v-for="i in total" :key="i">
-            <li>
-            <a href="#" @click.prevent="switchPage(i)"
-               class="page-link" :class="{ 'active': current === i }">
-            {{ i }}</a>
-            </li>
+        <li>
+        <a href="#" @click.prevent="switchPage(i)"
+           class="page-link" :class="{ 'active': current === i }">
+        {{ i }}</a>
+        </li>
         </template>
         <li>
         <a href="#" @click.prevent="switchPage(current + 1)"
@@ -28,13 +28,21 @@
 
 export default {
 
-    props: ['current', 'total'],
+    props: {
+
+        current: { required: true },
+
+        total: { required: true },
+
+        scrollToTop: { default: true },
+
+    },
 
     methods: {
 
         switchPage(num) {
 
-            window.scrollTo(0, 0, 'smooth');
+            if (this.scrollToTop) { window.scrollTo(0, 0, 'smooth'); }
 
             this.$emit('switch-page', num);
 
@@ -46,7 +54,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 @import '../assets/_variables.scss';
 
@@ -81,6 +89,18 @@ export default {
     pointer-events: none;
     background-color: $gray-400;
     color: black;
+
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  nav {
+
+    overflow-x: scroll;
+    padding: .25rem;
+    margin: 0 -0.25rem;
 
   }
 

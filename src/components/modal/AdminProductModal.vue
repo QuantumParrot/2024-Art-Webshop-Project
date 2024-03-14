@@ -15,52 +15,67 @@
             <v-form v-slot="{ meta }" @submit="confirmUpdate" ref="form">
             <div class="modal-body">
                 <div class="alert bg-gray">
-                    <p>欄位完成度（ <span class="text-danger">*</span> 為必填欄位 ）</p>
-                    <div class="row fw-bold">
+                    <p>
+                    <i class="bi bi-flag-fill text-highlight me-2"></i>
+                    <span>欄位完成度</span>
+                    </p>
+                    <div class="row gy-2 flex-md-row flex-column fw-bold">
                         <div class="col">
-                            <i class="bi me-2" :class="product.title ?
-                               'bi-check-square text-success' : 'bi-square'"></i>
-                            <span>名稱</span>
+                            <div class="row">
+                                <div class="col">
+                                    <i class="bi me-2" :class="product.title ?
+                                    'bi-check-square text-success' : 'bi-square'"></i>
+                                    <span>名稱</span>
+                                </div>
+                                <div class="col">
+                                    <i class="bi me-2" :class="product.subtitle ?
+                                    'bi-check-square text-success' : 'bi-square'"></i>
+                                    <span>別名</span>
+                                </div>
+                                <div class="col">
+                                    <i class="bi me-2" :class="product.content ?
+                                    'bi-check-square text-success' : 'bi-square'"></i>
+                                    <span>規格</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="col">
-                            <i class="bi me-2" :class="product.subtitle ?
-                               'bi-check-square text-success' : 'bi-square'"></i>
-                            <span>別名</span>
+                            <div class="row">
+                                <div class="col">
+                                    <i class="bi me-2" :class="product.category ?
+                                    'bi-check-square text-success' : 'bi-square'"></i>
+                                    <span>分類</span>
+                                </div>
+                                <div class="col">
+                                    <i class="bi me-2" :class="product.unit ?
+                                    'bi-check-square text-success' : 'bi-square'"></i>
+                                    <span>單位</span>
+                                </div>
+                                <div class="col">
+                                    <i class="bi me-2" :class="product.description ?
+                                    'bi-check-square text-success' : 'bi-square'"></i>
+                                    <span>介紹</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="col">
-                            <i class="bi me-2" :class="product.content ?
-                               'bi-check-square text-success' : 'bi-square'"></i>
-                            <span>規格</span>
-                        </div>
-                        <div class="col">
-                            <i class="bi me-2" :class="product.category ?
-                               'bi-check-square text-success' : 'bi-square'"></i>
-                            <span>分類</span>
-                        </div>
-                        <div class="col">
-                            <i class="bi me-2" :class="product.unit ?
-                               'bi-check-square text-success' : 'bi-square'"></i>
-                            <span>單位</span>
-                        </div>
-                        <div class="col">
-                            <i class="bi me-2" :class="product.description ?
-                               'bi-check-square text-success' : 'bi-square'"></i>
-                            <span>介紹</span>
-                        </div>
-                        <div class="col">
-                            <i class="bi me-2" :class="product.origin_price ?
-                               'bi-check-square text-success' : 'bi-square'"></i>
-                            <span>原價</span>
-                        </div>
-                        <div class="col">
-                            <i class="bi me-2" :class="product.price ?
-                               'bi-check-square text-success' : 'bi-square'"></i>
-                            <span>售價</span>
-                        </div>
-                        <div class="col">
-                            <i class="bi me-2" :class="product.imageUrl ?
-                               'bi-check-square text-success' : 'bi-square'"></i>
-                            <span>主圖</span>
+                            <div class="row">
+                                <div class="col">
+                                    <i class="bi me-2" :class="product.origin_price ?
+                                    'bi-check-square text-success' : 'bi-square'"></i>
+                                    <span>原價</span>
+                                </div>
+                                <div class="col">
+                                    <i class="bi me-2" :class="product.price ?
+                                    'bi-check-square text-success' : 'bi-square'"></i>
+                                    <span>售價</span>
+                                </div>
+                                <div class="col">
+                                    <i class="bi me-2" :class="product.imageUrl ?
+                                    'bi-check-square text-success' : 'bi-square'"></i>
+                                    <span>主圖</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -69,27 +84,27 @@
                     <li class="nav-item flex-grow-1">
                     <button type="button" @click="tab = 'content'"
                             class="w-100 nav-link" :class="{ 'active': tab === 'content' }">
-                    商品內容</button>
+                    <span class="d-sm-inline d-none">商品</span>內容</button>
                     </li>
                     <li class="nav-item flex-grow-1">
                     <button type="button" @click="tab = 'description'"
                             class="w-100 nav-link" :class="{ 'active': tab === 'description' }">
-                    商品介紹</button>
+                    <span class="d-sm-inline d-none">商品</span>介紹</button>
                     </li>
                     <li class="nav-item flex-grow-1">
                     <button type="button" @click="tab = 'price'"
                             class="w-100 nav-link" :class="{ 'active': tab === 'price' }">
-                    商品售價</button>
+                    <span class="d-sm-inline d-none">商品</span>售價</button>
                     </li>
                     <li class="nav-item flex-grow-1">
                     <button type="button" @click="tab = 'tags'"
                             class="w-100 nav-link" :class="{ 'active': tab === 'tags' }">
-                    商品標籤</button>
+                    <span class="d-sm-inline d-none">商品</span>標籤</button>
                     </li>
                     <li class="nav-item flex-grow-1">
                     <button type="button" @click="tab = 'image'"
                             class="w-100 nav-link" :class="{ 'active': tab === 'image' }">
-                    商品圖片</button>
+                    <span class="d-sm-inline d-none">商品</span>圖片</button>
                     </li>
                 </ul>
                 <div class="alert border rounded-2">
@@ -102,7 +117,7 @@
                             name="title" rules="required"></v-field>
                         </div>
                         <div class="mb-3">
-                        <label class="form-label is-required" for="subtitle">商品別名</label>
+                        <label class="form-label is-required" for="subtitle">英文別名</label>
                         <v-field
                             type="text" id="subtitle"
                             class="form-control" v-model.trim="product.subtitle"
@@ -110,19 +125,24 @@
                         </div>
                         <div class="mb-3">
                         <label class="form-label is-required" for="content">商品規格</label>
+                        <p class="fs-7 text-muted mb-2">商品的材質、尺寸、重量⋯⋯等等</p>
                         <v-field
                             type="text" id="content"
                             class="form-control" v-model.trim="product.content"
-                            name="content" rules="required"
-                            placeholder="商品的材質與尺寸"></v-field>
+                            name="content" rules="required"></v-field>
                         </div>
                         <div class="row row-cols-2">
                             <div class="col">
                                 <label class="form-label is-required" for="category">商品分類</label>
                                 <v-field
-                                    type="text" id="category"
+                                    type="text" id="category" list="categories"
                                     class="form-control" v-model.trim="product.category"
                                     name="category" rules="required"></v-field>
+                                <datalist id="categories">
+                                    <template v-for="category in categories" :key="category">
+                                    <option :value="category">{{ category }}</option>
+                                    </template>
+                                </datalist>
                             </div>
                             <div class="col">
                                 <label class="form-label is-required" for="unit">商品單位</label>
@@ -176,7 +196,7 @@
                         <div class="mb-3">
                         <p>商品標籤</p>
                         <div class="row g-3 mb-3">
-                            <div class="col-md-3 position-relative"
+                            <div class="col-lg-3 col-md-4 position-relative"
                                  v-for="(tag, index) in product.tags" :key="tag">
                             <input type="text"
                                    class="form-control"
@@ -190,33 +210,58 @@
                                 @click="product.tags.push('')">
                         新增標籤</button>
                         </div>
-                        <p>曾經使用過的標籤：</p>
-                        <div class="d-flex gap-2 flex-wrap">
-                            <button v-for="tag in tagsList" :key="tag"
-                                    type="button" class="btn btn-origin"
-                                    @click="product.tags.push(tag)">
-                            <span class="badge p-2 bg-subtle text-primary fs-6">{{ tag }}</span>
-                            </button>
+                        <p>點擊新增使用過的標籤：</p>
+                        <div class="d-flex flex-column gap-3">
+                            <template v-for="(list, length) in tagsList" :key="length">
+                                <details open>
+                                    <summary><b>{{ length }} 個字</b></summary>
+                                    <div class="d-flex gap-2 flex-wrap mt-3">
+                                        <button
+                                            v-for="tag in list" :key="tag"
+                                            type="button" class="btn btn-origin"
+                                            @click="product.tags.push(tag)">
+                                        <span class="tag badge p-2 rounded-1 fs-6">{{ tag }}</span>
+                                    </button>
+                                    </div>
+                                </details>
+                            </template>
                         </div>
                     </div>
                     <div v-show="tab === 'image'">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <a target="_blank" :href="product.imageUrl">
+                            <img v-if="product.imageUrl"
+                                 :src="product.imageUrl" :alt="product.title"
+                                 height="150" class="product-img">
+                            </a>
+                            <template v-for="img in product.imagesUrl" :key="img">
+                            <a target="_blank" :href="img">
+                            <img v-if="img"
+                                 :src="img" :alt="product.title"
+                                 height="150" class="product-img">
+                            </a>
+                            </template>
+                        </div>
                         <div class="mb-3">
-                        <h5 class="fw-bold mb-3">圖片設定</h5>
-                        <label class="form-label is-required" for="imageUrl">主圖網址</label>
-                        <div class="position-relative">
-                            <v-field
-                                id="imageUrl" type="text" class="form-control pe-7 mb-3"
-                                v-model.trim="product.imageUrl"
-                                name="imageUrl" rules="required|url"></v-field>
-                            <button type="button" class="btn btn-origin btn-inline"
-                                    v-show="product.imageUrl"
-                                    @click="product.imageUrl = ''">
-                            <i class="bi bi-x-lg"></i>
-                            </button>
+                            <h5 class="fw-bold mb-3">圖片設定</h5>
+                            <label class="form-label is-required" for="imageUrl">主圖網址</label>
+                            <div class="position-relative">
+                                <v-field
+                                    id="imageUrl" type="text" class="form-control pe-7 mb-3"
+                                    v-model.trim="product.imageUrl"
+                                    name="imageUrl" rules="required|url"></v-field>
+                                <button type="button" class="btn btn-origin btn-inline"
+                                        v-show="product.imageUrl"
+                                        @click="product.imageUrl = ''">
+                                <i class="bi bi-x-lg"></i>
+                                </button>
+                            </div>
                         </div>
-                        <img :src="product.imageUrl" :alt="product.title" v-if="product.imageUrl">
-                        </div>
-                        <div class="mb-3" v-if="product.imagesUrl.length">
+                        <button type="button"
+                                class="btn btn-primary mb-3"
+                                @click="product.imagesUrl.push('')">
+                        新增圖片</button>
+                        <div v-if="product.imagesUrl.length">
                             <p>副圖網址</p>
                             <div class="row g-3">
                             <template v-for="(img, idx) in product.imagesUrl" :key="img">
@@ -227,22 +272,15 @@
                                             @click="product.imagesUrl.splice(idx, 1)">
                                     <i class="bi bi-x-lg"></i>
                                     </button>
-                                    <img class="mt-3" :src="img" :alt="product.title" v-if="img">
                                 </div>
                             </template>
                             </div>
                         </div>
-                        <button type="button"
-                                class="btn btn-primary"
-                                @click="product.imagesUrl.push('')"
-                                :disabled="product.imagesUrl.length > 4">
-                        新增圖片</button>
                     </div>
                 </div>
                 <div class="p-3 border rounded-2 mt-3" v-show="tab === 'image'">
                     <h5 class="fw-bold mb-3">上傳圖片</h5>
                     <upload-form
-                        v-if="product.imagesUrl.length < 5"
                         :use-clipboard="false" :upload-state="uploadState"
                         @add-new-image="addNewImage" @update-upload-state="updateState" />
                 </div>
@@ -297,7 +335,7 @@ export default {
 
     },
 
-    computed: { ...mapState(adminProductStore, ['tagsList']) },
+    computed: { ...mapState(adminProductStore, ['categories', 'tagsList']) },
 
     watch: { tempProduct() { this.updateData(); } },
 
@@ -371,6 +409,36 @@ export default {
 
 <style lang="scss" scoped>
 
+@import '@/assets/_variables.scss';
+
+img { object-fit: cover; }
+
+.product-img {
+
+    &:hover { border: 1px dotted $secondary; }
+
+}
+
 .btn-inline { right: 1rem; }
+
+.tag {
+
+    background-color: $light;
+    color: $primary;
+
+    &:hover {
+
+        background-color: $primary;
+        color: $light;
+
+    }
+
+}
+
+@media (max-width: 991px) {
+
+    .modal-lg { --bs-modal-width: 1140px; }
+
+}
 
 </style>

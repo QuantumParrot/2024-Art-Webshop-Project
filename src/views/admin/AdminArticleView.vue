@@ -131,7 +131,7 @@ export default {
 
     },
 
-    mounted() { this.getArticles(); },
+    created() { if (!this.articles.length) { this.getArticles(); } },
 
 };
 

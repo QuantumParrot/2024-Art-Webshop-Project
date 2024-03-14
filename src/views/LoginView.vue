@@ -3,7 +3,7 @@
 <loading-overlay :isLoading="isLoading"></loading-overlay>
 
 <div class="container-fluid" ref="background">
-    <div class="h-100 row justify-content-center align-items-center">
+    <div class="h-100 row justify-content-center align-items-center" style="min-height: 100vh;">
         <div class="col-lg-4 col-md-6">
             <v-form class="p-7 shadow" v-slot="{ errors }" @submit="login">
                 <h2 class="mb-7 text-center text-white">管理員登入</h2>

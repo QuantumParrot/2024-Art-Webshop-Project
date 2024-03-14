@@ -7,10 +7,11 @@
     <span>{{ products.filter((i) => i.is_enabled).length }} 項上架中</span></p>
 </div>
 
-<div class="row justify-content-between gx-3 gy-3 gy-md-0 mb-4">
-    <div class="col-md-4">
+<div class="row justify-content-between gx-3 gy-3 gy-lg-0 mb-4">
+    <div class="col-xl-4 col-lg-5">
         <div class="h-100 alert bg-gray flex-classic mb-0">
-            <button type="button" class="w-100 btn btn-primary me-3" @click="openModal()">
+            <button type="button" class="w-100 btn btn-primary me-3"
+                    @click="openModal()">
             <i class="bi bi-plus-lg me-1"></i>
             新增商品</button>
             <button type="button" class="w-100 btn btn-primary"
@@ -19,10 +20,11 @@
             上傳圖片</button>
         </div>
     </div>
-    <div class="col-md-8">
-        <div class="h-100 alert bg-gray d-flex justify-content-end mb-0">
+    <div class="col-xl-8 col-lg-7">
+        <div class="w-100 h-100 alert bg-gray mb-0
+                    d-flex align-items-center justify-content-end">
             <pagination-component
-                :total="totalPages" :current="currentPage"
+                :total="totalPages" :current="currentPage" :scroll-to-top="false"
                 @switch-page="switchPage" />
         </div>
     </div>
@@ -176,7 +178,7 @@ export default {
 
     },
 
-    created() { this.getProducts(); },
+    created() { if (!this.products.length) { this.getProducts(); } },
 
 };
 

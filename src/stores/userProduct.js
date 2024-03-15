@@ -116,25 +116,17 @@ export default defineStore('userProduct', {
 
                 const categoryFilter = products.filter((i) => i.category === category && !excludes.includes(i.id));
 
-                if (categoryFilter.length > 3) {
+                results.push(...this.getRandomProducts(categoryFilter, 3 - results.length));
 
-                    results.push(...this.getRandomProducts(categoryFilter, 3 - results.length));
+                if (results.length < 3) {
 
-                } else {
+                    // 怎麼還是少於三個啦 ｡ﾟ(ﾟ´ω`ﾟ)ﾟ｡ 只好從所有商品裡面亂槍打鳥了
 
-                    results.push(...categoryFilter);
+                    const remains = products.filter((i) => !results.map((result) => result.id).includes(i.id));
 
-                    if (results.length < 3) {
+                    // console.log(remains.map((i) => i.title));
 
-                        // 怎麼還是少於三個啦 ｡ﾟ(ﾟ´ω`ﾟ)ﾟ｡ 只好從所有商品裡面亂槍打鳥了
-
-                        const remains = products.filter((i) => !results.map((result) => result.id).includes(i.id));
-
-                        // console.log(remains.map((i) => i.title));
-
-                        results.push(...this.getRandomProducts(remains, 3 - results.length));
-
-                    }
+                    results.push(...this.getRandomProducts(remains, 3 - results.length));
 
                 }
 

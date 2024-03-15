@@ -4,34 +4,16 @@
     <section class="banner bg-primary text-white py-7">
         <div class="container">
             <h2 class="h1 lh-lg text-shadow-black letter-space-sm">
-            <span data-aos="fade-right" data-aos-delay="150">邀</span>
-            <span data-aos="fade-right" data-aos-delay="250">請</span>
-            <span data-aos="fade-right" data-aos-delay="350">您</span>
-            <span data-aos="fade-right" data-aos-delay="450">一</span>
-            <span data-aos="fade-right" data-aos-delay="550">同</span>
-            <span data-aos="fade-right" data-aos-delay="650">探</span>
-            <span data-aos="fade-right" data-aos-delay="750">索</span>
+            <span class="banner-txt" data-aos="fade-right"
+                  data-aos-duration="1500">
+            邀請您一同探索</span>
             <br>
-            <span data-aos="fade-right" data-aos-delay="850">這</span>
-            <span data-aos="fade-right" data-aos-delay="950">顆</span>
-            <span data-aos="fade-right"
-                  data-aos-delay="1050">星</span>
-            <span data-aos="fade-right"
-                  data-aos-delay="1150">球</span>
-            <span data-aos="fade-right"
-                  data-aos-delay="1250">上</span>
-            <span data-aos="fade-right"
-                  data-aos-delay="1350">的</span>
-            <span class="text-shadow">
-            <span data-aos="fade-right"
-                  data-aos-delay="1450">吉</span>
-            <span data-aos="fade-right"
-                  data-aos-delay="1550">光</span>
-            <span data-aos="fade-right"
-                  data-aos-delay="1650">片</span>
-            <span data-aos="fade-right"
-                  data-aos-delay="1750">羽</span>
-            </span>
+            <span class="banner-txt" data-aos="fade-right"
+                  data-aos-delay="1000" data-aos-duration="1500">
+            這顆星球上的</span>
+            <span class="banner-txt" data-aos="fade-right"
+                  data-aos-delay="2000" data-aos-duration="1500">
+            <b class="text-shadow">吉光片羽</b></span>
             </h2>
         </div>
     </section>
@@ -310,6 +292,12 @@ img { object-fit: cover; }
     background-repeat: no-repeat;
     background-position: 50% center;
     background-size: cover;
+
+}
+
+.banner-txt {
+
+    background-color: rgba(0, 0, 0, .35);
 
 }
 

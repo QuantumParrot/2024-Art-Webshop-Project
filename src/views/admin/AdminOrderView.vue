@@ -1,8 +1,8 @@
 <template>
 
-<div class="text-end mb-7">
-    <h3 class="fs-2 mb-2">訂單管理</h3>
-    <p class="text-muted">目前共有 {{ refactorOrders.length }} 筆訂單</p>
+<div class="lh-lg text-end mb-6">
+<h3 class="fs-2 mb-3">ORDERS｜訂單</h3>
+<p class="text-muted">目前共有 {{ refactorOrders.length }} 筆訂單</p>
 </div>
 
 <div class="alert bg-gray flex-classic mb-5">

@@ -1,11 +1,11 @@
 <template>
 
-<div class="text-end mb-7">
-<h3 class="fs-2 mb-2">優惠券</h3>
+<div class="lh-lg text-end mb-6">
+<h3 class="fs-2 mb-3">COUPONS｜優惠券</h3>
 <p class="text-muted">目前共有 {{ coupons.length }} 張優惠券</p>
 </div>
 
-<div class="alert bg-gray flex-classic mb-5">
+<div class="alert bg-gray flex-classic mb-6">
     <div>
         <button type="button" class="btn btn-highlight" @click="openModal()">建立優惠券</button>
     </div>

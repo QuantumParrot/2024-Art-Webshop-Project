@@ -24,16 +24,13 @@ export default defineStore('adminArticle', {
 
         articles: [],
 
-        // 目前還沒有用到，後續有餘裕會把公告和文章拆開來處理
-
         categories: {
 
             網站公告: ['網站測試', '優惠活動', '價格調整', '營運通知', '展覽資訊', '講座資訊'],
             專欄文章: ['藝術', '歷史', '地球', '天文'],
+            公益計劃: ['海洋保育', '野生動物救援', '社會關懷'],
 
         },
-
-        pagination: {},
 
     }),
 
@@ -59,15 +56,16 @@ export default defineStore('adminArticle', {
 
     actions: {
 
+        // 尚未處理文章總數量超過十篇的情況！記得補上！
+
         getArticles(page = 1) {
 
             loaderStore.createLoader('get-articles');
             axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/articles?page=${page}`)
                 .then((res) => {
 
-                    const { articles, pagination } = res.data;
+                    const { articles } = res.data;
                     this.articles = articles.sort((a, b) => b.create_at - a.create_at);
-                    this.pagination = pagination;
 
                 })
                 .catch((error) => alertStore.errorAlert(error))

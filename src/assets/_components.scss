@@ -8,6 +8,12 @@ dialog {
 
 }
 
+@media (max-width: 991px) {
+
+   .modal-lg { --bs-modal-width: 1140px; }
+
+}
+
 /* buttons */
 
 .btn-origin { border: none; padding: 0; }
@@ -61,4 +67,4 @@ dialog {
 
 }
 
-// .form-label { margin-bottom: 1rem; }
+.form-label { margin-bottom: 1rem; }

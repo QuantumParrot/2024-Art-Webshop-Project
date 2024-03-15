@@ -2,7 +2,7 @@
 
 <p class="text-end fs-5 mb-7">{{ greeting }}，管理員！</p>
 
-<section class="card p-3 mb-7">
+<section class="card p-3 mb-5">
     <h3 class="mb-5"><span class="section-title">訂單近況</span></h3>
     <div class="lh-lg d-flex flex-column flex-sm-row" v-if="!!unhandled">
         <span>有 <span class="fw-bold text-danger">{{ unhandled }}</span> 筆已付款的訂單尚未處理喔！</span>
@@ -17,9 +17,10 @@
     <p class="mb-0" v-else>目前沒有新消息</p>
 </section>
 
-<section class="alert bg-gray">
-    <h3 class="fs-5 mb-5">後台導覽</h3>
-    <ul class="list-unstyled d-flex flex-column gap-3">
+<section class="alert bg-light">
+    <details>
+    <summary class="fs-5">後台導覽</summary>
+    <ul class="list-unstyled d-flex flex-column gap-3 mt-3">
         <li class="d-flex flex-column flex-md-row">
             <p class="mb-md-0">
             <b><span class="letter-space-md">商</span>品</b>
@@ -39,7 +40,7 @@
             <b><span class="letter-space-md">文</span>章</b>
             <i class="bi bi-caret-right-fill text-highlight mx-2"></i>
             </p>
-            <p class="mb-0">管理您的最新消息、專欄文章、公益企劃</p>
+            <p class="mb-0">管理您的網站公告、專欄文章、公益企劃</p>
         </li>
         <li class="d-flex flex-column flex-md-row">
             <p class="mb-md-0">
@@ -49,6 +50,7 @@
             <p class="mb-0">管理您的優惠券</p>
         </li>
     </ul>
+    </details>
     <hr>
     <p class="lh-lg fs-7 mb-0">如果您遇上任何操作問題及錯誤，請聯絡：ataraxia528491@gmail.com</p>
 </section>

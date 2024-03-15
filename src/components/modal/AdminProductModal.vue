@@ -125,7 +125,7 @@
                         </div>
                         <div class="mb-3">
                         <label class="form-label is-required" for="content">商品規格</label>
-                        <p class="fs-7 text-muted mb-2">商品的材質、尺寸、重量⋯⋯等等</p>
+                        <p class="fs-7 text-muted mb-3">商品的材質、尺寸、重量⋯⋯等等</p>
                         <v-field
                             type="text" id="content"
                             class="form-control" v-model.trim="product.content"
@@ -432,12 +432,6 @@ img { object-fit: cover; }
         color: $light;
 
     }
-
-}
-
-@media (max-width: 991px) {
-
-    .modal-lg { --bs-modal-width: 1140px; }
 
 }
 

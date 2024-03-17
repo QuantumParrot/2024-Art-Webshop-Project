@@ -81,9 +81,7 @@ export default {
 
             if (this.types.length) {
 
-                this.sortQuestions();
-
-                return this.questions.filter((q) => this.types.includes(q.type));
+                return this.sortQuestions(this.questions).filter((q) => this.types.includes(q.type));
 
             }
 
@@ -97,7 +95,7 @@ export default {
 
         // 讓問題照著 sortOrder 給的順序排序
 
-        sortQuestions() { this.questions.sort((a, b) => this.sortOrder.findIndex((order) => order === a.type) - this.sortOrder.findIndex((order) => order === b.type)); },
+        sortQuestions(questions) { return questions.toSorted((a, b) => this.sortOrder.findIndex((order) => order === a.type) - this.sortOrder.findIndex((order) => order === b.type)); },
 
     },
 

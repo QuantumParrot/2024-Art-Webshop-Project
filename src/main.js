@@ -12,6 +12,8 @@ import { createApp, markRaw } from 'vue';
 
 import { createPinia } from 'pinia';
 
+// vee-validate
+
 import {
 
   defineRule, configure,
@@ -25,9 +27,15 @@ import { setLocale, localize } from '@vee-validate/i18n';
 
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
 
+// axios
+
 import axios from 'axios';
 
 import VueAxios from 'vue-axios';
+
+// vue-lottie
+
+import { Vue3Lottie } from 'vue3-lottie';
 
 //
 
@@ -74,6 +82,8 @@ app.component('v-form', Form);
 app.component('v-field', Field);
 
 app.component('error-message', ErrorMessage);
+
+app.component('lottie-player', Vue3Lottie);
 
 app.component('loading-overlay', LoadingOverlay);
 

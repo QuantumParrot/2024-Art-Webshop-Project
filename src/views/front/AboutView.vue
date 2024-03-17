@@ -32,7 +32,7 @@
             <p>我們會將每一筆訂單 <b class="text-danger">10 ～ 20％</b> 的收益，</p>
             <p>全數回饋給這些在不同社會議題努力的非營利組織，謝謝他們為這片土地的付出！</p>
             <p class="mb-7">
-            <span class="text-light">雖然網站是假的，</span>
+            <span class="text-muted">雖然網站是假的，</span>
             <span>但是這些團體是真實的存在，歡迎點選以下的連結認識他們喔！</span>
             </p>
             <h4 class="mb-6">
@@ -142,8 +142,6 @@ export default {
         // 常見問答
 
         displayingQuestions() {
-
-            this.sortQuestions();
 
             if (this.filter) { return this.questions.filter((q) => q.type === this.filter); }
 

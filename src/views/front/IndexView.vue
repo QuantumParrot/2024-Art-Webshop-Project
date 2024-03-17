@@ -6,7 +6,7 @@
             <h2 class="h1 lh-lg text-shadow-black letter-space-sm">
             <span class="banner-txt" data-aos="fade-right"
                   data-aos-duration="1500">
-            邀請您一同探索</span>
+            邀您一同探索</span>
             <br>
             <span class="banner-txt" data-aos="fade-right"
                   data-aos-delay="1000" data-aos-duration="1500">

@@ -93,7 +93,7 @@ export default defineStore('userOrder', {
                     .then((res) => {
 
                         this.tempOrder = this.refactorOrder(res.data.order);
-                        this.router.push('/checkout/order');
+                        this.router.replace('/checkout/order');
 
                     })
                     .catch((error) => alertStore.errorAlert(error))

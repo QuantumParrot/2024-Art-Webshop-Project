@@ -2,7 +2,7 @@
 
 <div class="h-100 bg-gray text-primary">
     <div class="container py-7">
-        <template v-if="carts.length">
+        <template v-if="step !== 0">
         <!-- progress -->
         <div class="row justify-content-center">
             <div class="col-md-10">
@@ -33,18 +33,17 @@
                 </div>
             </div>
         </div>
+        </template>
         <!-- main -->
         <div class="row justify-content-center">
             <div class="col-md-10">
+                <template v-if="$route.path === 'checkout/form'">
                 <router-view v-slot="{ Component }">
                     <keep-alive><component :is="Component"></component></keep-alive>
                 </router-view>
+                </template>
+                <router-view v-else></router-view>
             </div>
-        </div>
-        </template>
-        <div class="alert bg-light text-center mb-0" v-else>
-            購物車空空如也！
-            去<router-link class="text-info" to="/products">逛逛</router-link>吧！
         </div>
     </div>
     <faq-section :types="['付款問題', '取貨問題', '訂單問題']" />
@@ -57,7 +56,7 @@
 
 //
 
-import { mapState } from 'pinia';
+import { mapState, mapActions } from 'pinia';
 
 import userCartStore from '@/stores/userCart';
 
@@ -75,7 +74,7 @@ export default {
 
     components: { FaqSection, SubscriptionSection },
 
-    data() { return { step: 1 }; },
+    data() { return { step: 0 }; },
 
     computed: {
 
@@ -85,29 +84,59 @@ export default {
 
     },
 
+    methods: {
+
+        ...mapActions(userCartStore, ['getCarts']),
+
+    },
+
     watch: {
+
+        carts(n) {
+
+            if (this.$route.name === 'front-checkout-carts') {
+
+                this.step = n.length ? 1 : 0;
+
+            }
+
+        },
 
         '$route.name': {
 
             handler(n) {
 
-                if (n === 'front-checkout-carts') {
+                // console.log(n);
 
-                    this.step = 1;
+                if (n === 'front-checkout-form') {
 
-                } else if (n === 'front-checkout-form') {
+                    if (!this.carts.length) {
 
-                    this.step = 2;
+                        this.$router.replace('/checkout/carts');
+
+                    } else { this.step = 2; }
 
                 } else if (n === 'front-checkout-order-pay') {
 
-                    this.step = 3;
+                    if (!this.tempOrder.id) {
+
+                        this.$router.replace('/checkout/carts');
+
+                    } else {
+
+                        this.step = 3;
+
+                        this.getCarts(); // 重新整理購物車
+
+                    }
 
                 }
 
             },
 
             deep: true,
+
+            immediate: true,
 
         },
 

@@ -1,5 +1,6 @@
 <template>
 
+<template v-if="carts.length">
 <v-form v-slot="{ errors }" @submit="createOrder">
 
 <div class="alert bg-white p-lg-7 p-5 shadow-sm mb-5">
@@ -136,6 +137,7 @@
 </div>
 
 </v-form>
+</template>
 
 </template>
 
@@ -169,15 +171,11 @@ export default {
 
     },
 
-    created() { if (!this.carts.length) { this.$router.replace('/checkout/carts'); } },
-
 };
 
 </script>
 
 <style scoped>
-
-.form-label { margin-bottom: 1rem; }
 
 .form-control, .form-select { border-radius: 0.25rem; } /* rounded-1 */
 

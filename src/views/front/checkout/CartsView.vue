@@ -1,5 +1,7 @@
 <template>
 
+<template v-if="carts.length">
+
 <div class="flex-classic mb-5">
     <button tyoe="button" class="btn btn-outline-secondary rounded-1"
             @click="$router.push('/products')">
@@ -133,6 +135,18 @@
 
 </template>
 
+<template v-else>
+
+<div class="alert bg-light text-center mb-0">
+    購物車空空如也！
+    去<router-link class="text-info" to="/products">逛逛</router-link>吧！
+</div>
+<lottie-player :animationData="sleepCatJSON" :height="250" />
+
+</template>
+
+</template>
+
 <script>
 
 import { mapState, mapActions } from 'pinia';
@@ -143,11 +157,15 @@ import cartStore from '@/stores/userCart';
 
 //
 
+import sleepCatJSON from '@/assets/lottie/sleep-cat.json';
+
 export default {
 
     data() {
 
         return {
+
+            sleepCatJSON,
 
             couponCode: '',
 
@@ -221,8 +239,6 @@ export default {
         changeCartQty(id, qty) {
 
             const target = this.carts.find((i) => i.id === id);
-
-            // console.log(qty);
 
             if (!Number.isInteger(qty)) {
 

@@ -5,8 +5,9 @@
         <div class="row gy-5">
             <div class="col-md-4">
                 <div class="h-100 d-flex align-items-center">
-                    <h3 class="fw-bold mb-0">常見問答｜
-                        <span class="fs-5 text-light">Q & A</span>
+                    <h3 class="mb-0">
+                        <b><span>常見問答｜</span>
+                        <span class="fs-5 text-light">Q & A</span></b>
                     </h3>
                 </div>
             </div>

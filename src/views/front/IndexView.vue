@@ -5,14 +5,14 @@
         <div class="container">
             <h2 class="h1 lh-lg text-shadow-black letter-space-sm">
             <span class="banner-txt" data-aos="fade-right"
-                  data-aos-duration="1500">
+                  data-aos-duration="1200">
             邀您一同探索</span>
             <br>
             <span class="banner-txt" data-aos="fade-right"
-                  data-aos-delay="1000" data-aos-duration="1500">
+                  data-aos-delay="1000" data-aos-duration="1200">
             這顆星球上的</span>
             <span class="banner-txt" data-aos="fade-right"
-                  data-aos-delay="2000" data-aos-duration="1500">
+                  data-aos-delay="2000" data-aos-duration="1200">
             <b class="text-shadow">吉光片羽</b></span>
             </h2>
         </div>
@@ -126,7 +126,7 @@
     </section>
     <section class="bg-primary text-white py-7">
         <div class="container">
-            <h3 data-aos="fade-right" data-aos-duration="1500"
+            <h3 data-aos="fade-right" data-aos-duration="1200"
                 class="mb-7">來自世界各地的美麗藏品 ...</h3>
             <div class="row g-3 mb-3">
                 <div class="col-md-6">
@@ -233,8 +233,9 @@
                 </div>
                 <div class="col-md-4 order-md-2 order-1">
                     <div class="h-100 d-flex justify-content-md-end align-items-center">
-                        <h3 class="fw-bold mb-0">最新消息｜
-                            <span class="fs-5 text-primary">NEWS</span>
+                        <h3 class="mb-0">
+                            <b><span>最新消息｜</span>
+                            <span class="fs-5 text-primary">NEWS</span></b>
                         </h3>
                     </div>
                 </div>
@@ -287,11 +288,26 @@ img { object-fit: cover; }
 
 .banner {
 
-    height: 550px;
+    height: 600px;
     background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1710004950072.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=dZNhm32F89EIliw2AFxuxqQfDO2E6GcQyYDaGzzNAykb%2FdKix0kc1Ju20%2BucFI6HgU6MCa7DmfrfUjJYPdatckrEo1r3Xgi3h8jyRJSWSCSeMOuP0NwMMZh9Q%2FSxn1NXMC8JvrMIob6AdCjEt9uv8uihe7J3b3Wz9NVn8b0bJtsLmcT%2BaJB%2B5aYZ6OYkS7LuLH27wlqV2LSV%2F92Bq6JWDvM8uMg7MJBhesdFqrlWpY6WTnWtryBMGBcBecjNVf5Vpp%2BP6YE9D5cx9rfcUz4tu6dyUU6GC6JxUqZwSUui8bizHRao1d7FaUbjL2%2B5MEvrdNWqNsC69z6iu%2FSREiZb%2Bw%3D%3D);
     background-repeat: no-repeat;
     background-position: 50% center;
     background-size: cover;
+
+    position: relative;
+
+    &::after {
+
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        width: 100%; height: 100px;
+        background-image: linear-gradient(to top, $gray, transparent);
+        box-shadow: 5px 5px $gray;
+
+    }
 
 }
 

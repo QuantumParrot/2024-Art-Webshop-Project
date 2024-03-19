@@ -81,6 +81,8 @@
 
 <script>
 
+// 需要優化的地方：執行 getArticle 的流程
+
 import { mapState, mapActions } from 'pinia';
 
 import adminArticleStore from '@/stores/adminArticle';
@@ -152,7 +154,7 @@ export default {
 
         },
 
-        getArticle(id) { // 權宜之計 (´;ω;`)
+        getArticle(id) {
 
             this.createLoader('get-single-article');
             this.$http.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/article/${id}`)

@@ -1,11 +1,3 @@
-/* 
-
-Heading Config
-
-https://ckeditor.com/docs/ckeditor5/latest/api/module_heading_headingconfig-HeadingConfig.html
-
-*/
-
 const classes = ['mb-3'];
 
 export const headingConfig = {

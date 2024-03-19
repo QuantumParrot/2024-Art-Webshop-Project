@@ -116,6 +116,8 @@
 
 <script>
 
+// 需要優化的地方：執行 preUpdate 的流程
+
 import modalMixins from '@/mixins/modal';
 
 //
@@ -163,8 +165,6 @@ export default {
             if (code === 4) {
 
                 const config = { title: '確定完成訂單？', text: '提醒您，完成訂單之後就無法修改狀態囉！' };
-
-                // dirty code ... 之後再修改 ... (´;ω;`)
 
                 this.checkAlert(config, fn, () => { e.target.value = this.tempOrder.state; });
 

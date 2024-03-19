@@ -1,3 +1,5 @@
+// 需要優化的地方：尚未處理文章總數量超過十篇的情況！記得補上！
+
 import axios from 'axios';
 
 //
@@ -26,7 +28,7 @@ export default defineStore('adminArticle', {
 
         categories: {
 
-            網站公告: ['網站測試', '優惠活動', '價格調整', '營運通知', '展覽資訊', '講座資訊'],
+            網站公告: ['網站測試', '營運通知', '優惠活動', '展覽資訊', '講座資訊'],
             專欄文章: ['藝術', '歷史', '地球', '天文'],
             公益計劃: ['海洋保育', '野生動物救援', '社會關懷'],
 
@@ -55,8 +57,6 @@ export default defineStore('adminArticle', {
     },
 
     actions: {
-
-        // 尚未處理文章總數量超過十篇的情況！記得補上！
 
         getArticles(page = 1) {
 

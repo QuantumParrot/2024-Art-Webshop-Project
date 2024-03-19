@@ -55,8 +55,6 @@
 
 import faqMixins from '@/mixins/faq';
 
-//
-
 export default {
 
     props: {

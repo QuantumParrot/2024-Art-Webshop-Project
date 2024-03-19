@@ -106,8 +106,6 @@ export default {
 
             handler(n) {
 
-                // console.log(n);
-
                 if (n === 'front-checkout-form') {
 
                     if (!this.carts.length) {
@@ -126,7 +124,7 @@ export default {
 
                         this.step = 3;
 
-                        this.getCarts(); // 重新整理購物車
+                        this.getCarts();
 
                     }
 

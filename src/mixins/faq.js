@@ -6,11 +6,7 @@ export default {
 
         return {
 
-            // 排序
-
             sortOrder: ['付款問題', '取貨問題', '訂單問題', '文章問題', '其他問題'],
-
-            // 預計之後改用文章 api 處理
 
             questions: [
                 {
@@ -75,8 +71,6 @@ export default {
 
     computed: {
 
-        // 以 props 形式帶入 types 變數，藉以在不同頁面顯示不同的 faq
-
         featuredQuestions() {
 
             if (this.types.length) {
@@ -92,8 +86,6 @@ export default {
     },
 
     methods: {
-
-        // 讓問題照著 sortOrder 給的順序排序
 
         sortQuestions(questions) { return questions.toSorted((a, b) => this.sortOrder.findIndex((order) => order === a.type) - this.sortOrder.findIndex((order) => order === b.type)); },
 

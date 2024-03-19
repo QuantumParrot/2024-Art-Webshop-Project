@@ -36,8 +36,6 @@ export default defineStore('adminOrder', {
 
         },
 
-        // 用來篩選訂單狀態的變數
-
         currentPage: 1,
 
         orderState: 5,
@@ -93,11 +91,7 @@ export default defineStore('adminOrder', {
 
             let newOrders = isPaid === 2 ? refactorOrders : refactorOrders.filter((o) => o.is_paid === !!isPaid);
 
-            // console.log(newOrders.length);
-
             newOrders = orderState === 5 ? newOrders : newOrders.filter((o) => o.state === orderState);
-
-            // console.log(newOrders.length);
 
             return newOrders;
 
@@ -125,8 +119,6 @@ export default defineStore('adminOrder', {
 
         getOrders(page = 1) {
 
-            // 必須取得所有訂單才能做整體的狀態管理 ( 來自同學 Ann Chou 的程式碼提供的靈感，謝謝！ )
-
             const apiUrl = `${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/orders?page=`;
 
             loaderStore.createLoader('get-orders');
@@ -148,8 +140,6 @@ export default defineStore('adminOrder', {
 
                 })
                 .then((resArr) => {
-
-                    // 回傳的結果會是 [ {...}, {...} ] 陣列包物件的格式
 
                     const total = [];
 

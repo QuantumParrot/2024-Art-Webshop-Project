@@ -329,7 +329,7 @@ export default {
             modal: '',
             title: '',
             tab: 'content',
-            product: { imagesUrl: [], tags: [] }, // 為了避免跳錯而事先定義 ( 也可以用可選串連 )
+            product: { imagesUrl: [], tags: [] },
             uploadState: false,
         };
 
@@ -379,8 +379,6 @@ export default {
         },
 
         confirmUpdate() {
-
-            // 刪除 imagesUrl / tags 陣列中的空值
 
             this.product.imagesUrl = this.product.imagesUrl.filter((i) => i);
             this.product.tags = this.product.tags.filter((i) => i);

@@ -4,8 +4,6 @@ export default {
 
         return {
 
-            // 模擬創作者投稿文章的感覺
-
             authors: [
                 {
                     column: '趣聞錄',

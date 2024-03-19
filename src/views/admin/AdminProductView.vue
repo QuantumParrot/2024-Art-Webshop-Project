@@ -160,12 +160,6 @@ export default {
 
         openModal(item, type) {
 
-            // 因為我將新增商品的事件觸發寫成 @click="openModal()" 此時 item 為空值，所以做如下判斷
-
-            // 如果是寫成 @click="openModal" 因為不帶入任何參數所以 item 會是 event 物件，就沒辦法做下面這段判斷
-
-            // 雖然判斷條件改成 item.id 似乎也行，但是畢竟 item 是有東西的，感覺很怪 (?)
-
             this.tempProduct = item ? { ...item } : { is_enabled: false };
 
             if (type === 'delete') {

@@ -48,12 +48,6 @@ export default {
 
                 link: {
 
-                    // If want to leave the decision whether a link should open in a new tab or not
-
-                    // Don't use "addTargetToExternalLinks" configuration
-
-                    // addTargetToExternalLinks: true,
-
                     decorators: {
 
                         openInNewTab: {

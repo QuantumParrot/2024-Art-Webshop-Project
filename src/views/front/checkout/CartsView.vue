@@ -3,7 +3,7 @@
 <template v-if="carts.length">
 
 <div class="flex-classic mb-5">
-    <button tyoe="button" class="btn btn-outline-secondary rounded-1"
+    <button type="button" class="btn btn-outline-secondary rounded-1"
             @click="$router.push('/products')">
     <span class="text-highlight"><i class="bi bi-caret-left-fill"></i></span>
     繼續購物</button>
@@ -172,8 +172,6 @@ export default {
             couponUsed: ['text-decoration-line-through', 'text-secondary'],
             couponEditable: true,
 
-            // 止抖
-
             timer: '',
 
         };
@@ -205,7 +203,7 @@ export default {
 
                 if (n.length) {
 
-                    if (n[0].coupon) { // !== undefined
+                    if (n[0].coupon) {
 
                         this.couponCode = n[0].coupon.code;
                         this.couponEditable = false;

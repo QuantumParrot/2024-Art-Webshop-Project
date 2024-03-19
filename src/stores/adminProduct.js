@@ -43,7 +43,9 @@ export default defineStore('adminProduct', {
 
             products.forEach((item) => {
 
-                if (item.tags) { // 處理有些商品未包含 tags 的情況
+                // 處理有些商品未包含 tags 的情況
+
+                if (item.tags) {
 
                     item.tags.forEach((tag) => {
 

@@ -130,8 +130,6 @@ export default defineStore('userArticle', {
 
             this.relatedProducts = results;
 
-            // console.log(results);
-
         },
 
     },

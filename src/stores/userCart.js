@@ -28,8 +28,6 @@ export default defineStore('userCart', {
             axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/cart`)
                 .then((res) => {
 
-                    // console.log(res.data);
-
                     this.carts = res.data.data.carts;
                     this.sum = {
 
@@ -44,7 +42,9 @@ export default defineStore('userCart', {
 
         },
 
-        addToCart(id, qty = 1) { // productId
+        // 需要 productId
+
+        addToCart(id, qty = 1) {
 
             loaderStore.setLoader(id);
             axios.post(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/cart`, { data: { product_id: id, qty } })
@@ -59,7 +59,9 @@ export default defineStore('userCart', {
 
         },
 
-        updateCart(cart, qty) { // cartId & productId
+        // 需要 cartId & productId
+
+        updateCart(cart, qty) {
 
             loaderStore.createLoader('update-cart');
             axios.put(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/cart/${cart.id}`, {
@@ -118,7 +120,6 @@ export default defineStore('userCart', {
             axios.post(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/coupon`, { data: { code } })
                 .then((res) => {
 
-                    // console.log(res.data);
                     this.sum.finalTotal = res.data.final_total;
                     alertStore.toastAlert('已套用優惠券！', 'success');
                     this.getCarts();

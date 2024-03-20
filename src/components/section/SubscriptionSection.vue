@@ -8,15 +8,15 @@
                 歡迎訂閱我們的電子報，<br>
                 好康消息、專欄文章不漏接！
                 </p>
-                <v-form v-slot="{ errors }" @submit="subscribe">
-                <div class="input-group">
-                    <v-field
-                        type="text" placeholder="請輸入您的電子信箱"
-                        class="form-control py-2" :class="{ 'is-invalid': errors['email'] }"
-                        name="email" rules="required"></v-field>
-                    <button type="submit" class="btn btn-primary px-5">訂閱</button>
-                </div>
-                </v-form>
+                <VForm v-slot="{ errors }" @submit="subscribe">
+                    <div class="input-group">
+                        <VField
+                            type="text" placeholder="請輸入您的電子信箱"
+                            class="form-control py-2" :class="{ 'is-invalid': errors['email'] }"
+                            name="email" rules="required"></VField>
+                        <button type="submit" class="btn btn-primary px-5">訂閱</button>
+                    </div>
+                </VForm>
             </div>
         </div>
     </div>

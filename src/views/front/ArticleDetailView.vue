@@ -7,8 +7,8 @@
                 <div class="text-center mb-6">
                     <h3 class="h2 fw-bold lh-lg py-3 border-bottom mb-3">{{ article.title }}</h3>
                     <p>
-                    <span>{{ $calc.formatDate(article.create_at * 1000) }}</span>
-                    <span>｜專欄：{{ article.author }}</span>
+                        <span>{{ $calc.formatDate(article.create_at * 1000) }}</span>
+                        <span>｜專欄：{{ article.author }}</span>
                     </p>
                     <img class="article-img" :src="article.image" :alt="article.title">
                 </div>
@@ -24,16 +24,18 @@
                             <div class="row gy-3">
                                 <div class="col-sm-3">
                                     <div class="d-flex justify-content-center">
-                                    <div class="author-img"
-                                    :style="{ backgroundImage: `url(${author.image})`}"></div>
+                                        <div
+                                            class="author-img"
+                                            :style="{ backgroundImage: `url(${author.image})`}">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-9">
                                     <div class="h-100 d-flex flex-column justify-content-center">
-                                    <h5 class="fs-6 mb-3">
-                                    <b>{{ article.author }}</b>｜{{ author.name }}
-                                    </h5>
-                                    <p class="fs-7 mb-0">{{ author.description }}</p>
+                                        <h5 class="fs-6 mb-3">
+                                            <b>{{ article.author }}</b>｜{{ author.name }}
+                                        </h5>
+                                        <p class="fs-7 mb-0">{{ author.description }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -46,13 +48,16 @@
                         <div class="col-md-4" v-for="item in relatedProducts" :key="item.id">
                             <a class="text-decoration-none"
                             href="#" @click.prevent="$router.push(`/product/${item.id}`)">
-                            <div class="card">
-                                <img class="card-img-top" :src="item.imageUrl" :alt="item.title">
-                                <div class="card-body py-5 flex-classic">
-                                    <h5 class="fs-6 fw-bold mb-0">{{ item.title }}</h5>
-                                    <p class="mb-0">NT$ {{ item.price }}</p>
+                                <div class="card">
+                                    <img
+                                        class="card-img-top"
+                                        :src="item.imageUrl" :alt="item.title">
+                                    <div class="card-body py-5 flex-classic">
+                                        <h5 class="fs-6 fw-bold mb-0">{{ item.title }}</h5>
+                                        <p class="mb-0">NT$ {{ item.price }}</p>
+                                    </div>
                                 </div>
-                            </div></a>
+                            </a>
                         </div>
                     </div>
                 </div>

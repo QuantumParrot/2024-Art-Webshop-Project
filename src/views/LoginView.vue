@@ -1,45 +1,47 @@
 <template>
 
-<loading-overlay :isLoading="isLoading"></loading-overlay>
+<LoadingOverlay :isLoading="isLoading" />
 
 <div class="container-fluid" ref="background">
     <div class="h-100 row justify-content-center align-items-center" style="min-height: 100vh;">
         <div class="col-lg-4 col-md-6">
-            <v-form class="p-7 shadow" v-slot="{ errors }" @submit="login">
+            <VForm class="p-7 shadow" v-slot="{ errors }" @submit="login">
                 <h2 class="mb-7 text-center text-white">管理員登入</h2>
                 <div class="form-floating mb-3">
-                    <v-field type="email" id="username" placeholder="帳號"
-                             class="form-control mb-3" :class="{ 'is-invalid': errors['username'] }"
-                             name="username" rules="email|required">
-                    </v-field>
-                    <label for="username" class="form-label">
-                    帳號</label>
-                    <error-message name="username" v-slot="{ message }">
-                    <p class="invalid-feedback">{{ localize(message, 'username') }}</p>
-                    </error-message>
+                    <VField
+                        type="email" id="username" placeholder="帳號"
+                        class="form-control mb-3" :class="{ 'is-invalid': errors['username'] }"
+                        name="username" rules="email|required">
+                    </VField>
+                    <label for="username" class="form-label">帳號</label>
+                    <ErrorMessage name="username" v-slot="{ message }">
+                        <p class="invalid-feedback">{{ localize(message, 'username') }}</p>
+                    </ErrorMessage>
                 </div>
                 <div class="form-floating mb-7">
-                    <v-field id="password" :type="isPwdVisible ? 'text' : 'password'"
-                             placeholder="密碼"
-                             class="form-control mb-3" :class="{ 'is-invalid': errors['password'] }"
-                             name="password" rules="required">
-                    </v-field>
-                    <label for="password" class="form-label">
-                    密碼</label>
-                    <error-message name="password" v-slot="{ message }">
-                    <p class="invalid-feedback">{{ localize(message, 'password') }}</p>
-                    </error-message>
-                    <button type="button" class="fs-5 btn btn-inline"
-                            @click="isPwdVisible = !isPwdVisible" v-show="!errors['password']">
-                    <i class="bi" :class="isPwdVisible ? 'bi-eye' : 'bi-eye-slash'"></i>
+                    <VField
+                        id="password" :type="isPwdVisible ? 'text' : 'password'"
+                        placeholder="密碼"
+                        class="form-control mb-3" :class="{ 'is-invalid': errors['password'] }"
+                        name="password" rules="required">
+                    </VField>
+                    <label for="password" class="form-label">密碼</label>
+                    <ErrorMessage name="password" v-slot="{ message }">
+                        <p class="invalid-feedback">{{ localize(message, 'password') }}</p>
+                    </ErrorMessage>
+                    <button
+                        type="button" class="fs-5 btn btn-inline" v-show="!errors['password']"
+                        @click="isPwdVisible = !isPwdVisible">
+                        <i class="bi" :class="isPwdVisible ? 'bi-eye' : 'bi-eye-slash'"></i>
                     </button>
                 </div>
                 <button type="submit" class="w-100 btn-slider btn-login">確認登入</button>
-                <router-link to="/admin" v-slot="{ navigate }" custom v-if="isLogin">
-                <button type="button" class="w-100 btn-slider btn-navigate mt-3"
+                <RouterLink v-if="isLogin" to="/admin" v-slot="{ navigate }" custom>
+                    <button
+                        type="button" class="w-100 btn-slider btn-navigate mt-3"
                         @click="navigate">前往後台</button>
-                </router-link>
-            </v-form>
+                </RouterLink>
+            </VForm>
         </div>
     </div>
     <p class="bg-text py-2 mb-0">{{ backgroundText }}</p>

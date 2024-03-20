@@ -4,8 +4,8 @@
     v-model:active="loading" :is-full-page="isFull" :z-index="1060"
     :background-color="backgroundColor" :opacity="opacity">
     <div class="spinner">
-    <div class="double-bounce1"></div>
-    <div class="double-bounce2"></div>
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
     </div>
 </Loading>
 

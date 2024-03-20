@@ -3,23 +3,26 @@
 <nav class="navbar navbar-expand-lg text-primary py-4 shadow-sm">
     <div class="container">
         <h1 class="letter-space-sm mb-0 order-1">
-            <router-link class="title-link" to="/"><b>收藏家</b></router-link>
+            <RouterLink class="title-link" to="/"><b>收藏家</b></RouterLink>
         </h1>
         <div class="flex-classic gap-2 order-2 order-lg-3">
-            <router-link v-slot="{ navigate }" to="/checkout/carts" custom>
-            <button type="button" class="btn btn-primary position-relative" @click="navigate">
-                <i class="bi bi-cart-fill"></i>
-                <span class="position-absolute top-0 start-100
-                             translate-middle p-1
-                             bg-danger border border-white rounded-circle"
-                             v-show="carts.length"></span>
-            </button>
-            </router-link>
-            <router-link v-slot="{ navigate }" to="/member/order" custom>
-            <button type="button" class="btn btn-outline-primary" @click="navigate">
-                <i class="bi bi-person-fill"></i>
-            </button>
-            </router-link>
+            <RouterLink v-slot="{ navigate }" to="/checkout/carts" custom>
+                <button
+                    type="button" class="btn btn-primary position-relative"
+                    @click="navigate">
+                    <i class="bi bi-cart-fill"></i>
+                    <span
+                        class="position-absolute top-0 start-100
+                        translate-middle p-1
+                        bg-danger border border-white rounded-circle"
+                        v-show="carts.length"></span>
+                </button>
+            </RouterLink>
+            <RouterLink v-slot="{ navigate }" to="/member/order" custom>
+                <button type="button" class="btn btn-outline-primary" @click="navigate">
+                    <i class="bi bi-person-fill"></i>
+                </button>
+            </RouterLink>
             <button type="button" class="btn btn-primary d-lg-none" @click="toggle">
                 <i class="bi bi-list"></i>
             </button>
@@ -27,16 +30,16 @@
         <div class="navbar-collapse collapse flex-grow-0 order-3 order-lg-2" ref="collapse">
             <ul class="navbar-nav gap-3">
                 <li class="nav-item">
-                <router-link class="nav-link" to="/news">最新消息</router-link>
+                    <RouterLink class="nav-link" to="/news">最新消息</RouterLink>
                 </li>
                 <li class="nav-item">
-                <router-link class="nav-link" to="/products">線上商城</router-link>
+                    <RouterLink class="nav-link" to="/products">線上商城</RouterLink>
                 </li>
                 <li class="nav-item">
-                <router-link class="nav-link" to="/about">關於我們</router-link>
+                    <RouterLink class="nav-link" to="/about">關於我們</RouterLink>
                 </li>
                 <li class="nav-item">
-                <router-link class="nav-link" to="/articles">專欄文章</router-link>
+                    <RouterLink class="nav-link" to="/articles">專欄文章</RouterLink>
                 </li>
             </ul>
         </div>

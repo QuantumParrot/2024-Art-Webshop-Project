@@ -5,46 +5,47 @@
         <h2 class="text-center mb-lg-7 mb-5">後台管理</h2>
         <ul class="nav bg-primary">
             <li class="nav-item flex-grow-1">
-                <router-link class="nav-link" to="/admin">
+                <RouterLink class="nav-link" to="/admin">
                     <i class="text-highlight bi bi-pie-chart-fill me-4"></i>
                     <span>首頁</span>
-                </router-link>
+                </RouterLink>
             </li>
             <li class="nav-item flex-grow-1">
-                <router-link class="nav-link" to="/admin/product">
+                <RouterLink class="nav-link" to="/admin/product">
                     <i class="text-highlight bi bi-box-seam-fill me-4"></i>
                     <span>商品</span>
-                </router-link>
+                </RouterLink>
             </li>
             <li class="nav-item flex-grow-1">
-                <router-link class="nav-link" to="/admin/order">
+                <RouterLink class="nav-link" to="/admin/order">
                     <i class="text-highlight bi bi-file-earmark-text me-4"></i>
                     <span>訂單</span>
-                </router-link>
+                </RouterLink>
             </li>
             <li class="nav-item flex-grow-1">
-                <router-link class="nav-link" to="/admin/article">
+                <RouterLink class="nav-link" to="/admin/article">
                     <i class="text-highlight bi bi-pencil-square me-4"></i>
                     <span>文章</span>
-                </router-link>
+                </RouterLink>
             </li>
             <li class="nav-item flex-grow-1">
-                <router-link class="nav-link" to="/admin/coupon">
+                <RouterLink class="nav-link" to="/admin/coupon">
                     <i class="text-highlight bi bi-percent me-4"></i>
                     <span>優惠券</span>
-                </router-link>
+                </RouterLink>
             </li>
         </ul>
     </div>
     <div class="nav-footer flex-classic">
-        <router-link to="/" target="_blank" class="w-100 btn btn-outline-light rounded-0">
-        <i class="bi bi-house-door me-3"></i>
-        <span>前台</span>
-        </router-link>
-        <button type="button" class="w-100 btn btn-outline-highlight rounded-0"
-                @click="logout">
-        <i class="bi bi-box-arrow-right me-3"></i>
-        <span>登出</span>
+        <RouterLink to="/" target="_blank" class="w-100 btn btn-outline-light rounded-0">
+            <i class="bi bi-house-door me-3"></i>
+            <span>前台</span>
+        </RouterLink>
+        <button
+            type="button" class="w-100 btn btn-outline-highlight rounded-0"
+            @click="logout">
+            <i class="bi bi-box-arrow-right me-3"></i>
+            <span>登出</span>
         </button>
     </div>
 </nav>

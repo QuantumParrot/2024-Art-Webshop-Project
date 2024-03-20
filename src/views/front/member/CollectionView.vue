@@ -6,28 +6,31 @@
 </h3>
 
 <div class="flex-classic mb-5">
-<h4>商品收藏（ 共 {{ collection.length }} 筆 ）</h4>
-<button type="button" class="float-end btn btn-outline-light"
-        @click="clearCollection"
-        :disabled="!collection.length">清空收藏</button>
+    <h4>商品收藏（ 共 {{ collection.length }} 筆 ）</h4>
+    <button
+        type="button" class="btn btn-outline-light"
+        @click="clearCollection" :disabled="!collection.length">
+    清空收藏</button>
 </div>
 
 <template v-if="displaying.length">
+
 <div class="mb-5">
-<pagination-component :current="currentPage" :total="totalPages" @switch-page="switchPage" />
+    <PaginationComponent :current="currentPage" :total="totalPages" @switch-page="switchPage" />
 </div>
 <ul class="list-unstyled row g-4">
     <template v-for="item in displaying" :key="item.id">
     <li class="col-xxl-4 col-xl-6">
-        <product-card :product="item" />
+        <ProductCard :product="item" />
     </li>
     </template>
 </ul>
+
 </template>
 
 <div class="alert bg-light text-primary" v-else>
     <span>目前沒有任何收藏哦！去</span>
-    <router-link class="text-info" to="/products">逛逛</router-link>吧！
+    <RouterLink class="text-info" to="/products">逛逛</RouterLink>吧！
 </div>
 
 </template>

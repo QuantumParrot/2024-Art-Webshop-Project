@@ -2,28 +2,31 @@
 
 <p class="fs-7 text-danger">僅限 JPG、JPEG 與 PNG 格式，檔案大小限制為 3MB 以下。</p>
 <form method="post" enctype="multipart/form-data" ref="form">
-    <input type="file" name="file-to-upload" class="form-control mb-3"
-           @change="confirmUpload"
-           ref="file">
+    <input
+        type="file" name="file-to-upload" class="form-control mb-3"
+        @change="confirmUpload"
+        ref="file">
     <div class="alert bg-gray overflow-scroll" v-if="image.name">
         <p class="fw-bold">檔案資訊</p>
         <p>檔案名稱：{{ image.name }}</p>
         <p>檔案大小：{{ $calc.convertByteUnit(image.size) }}</p>
         <p class="mb-0">檔案格式：{{ image.type }}</p>
     </div>
-    <button type="submit" class="btn btn-primary"
-            @click.prevent="upload" :disabled="disabled || isUploading">
-    <span class="spinner-border spinner-border-sm me-2"
-          role="status" aria-hidden="true"
-          v-show="isUploading"></span>
-    <span v-text="isUploading ? '上傳中，請稍候' : '確認上傳'"></span>
+    <button
+        type="submit" class="btn btn-primary"
+        @click.prevent="upload" :disabled="disabled || isUploading">
+        <span
+            class="spinner-border spinner-border-sm me-2"
+            role="status" aria-hidden="true"
+            v-show="isUploading"></span>
+        <span v-text="isUploading ? '上傳中，請稍候' : '確認上傳'"></span>
     </button>
 </form>
 
 <template v-if="useClipboard">
 <div class="alert bg-gray mt-3" v-if="imageUrl">
     <p>複製圖片網址：</p>
-    <clipboard-component :value="imageUrl" />
+    <ClipboardComponent :value="imageUrl" />
     <img class="mt-3" :src="imageUrl" alt="uploaded-image-preview">
 </div>
 </template>

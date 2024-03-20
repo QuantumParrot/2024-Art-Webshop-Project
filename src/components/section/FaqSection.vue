@@ -16,32 +16,34 @@
                     <template v-for="q in featuredQuestions" :key="q.id">
                     <div class="accordion-item">
                         <div class="accordion-header">
-                            <button type="button" class="bg-light accordion-button collapsed"
-                                    data-bs-toggle="collapse" :data-bs-target="`#faq${q.id}`"
-                                    aria-expanded="false" :aria-controls="`#faq-${q.id}`">
-                            <i class="d-none d-md-block
-                                      fs-7 text-highlight bi bi-asterisk me-3"></i>
-                            <b>{{ q.question }}</b>
+                            <button
+                                type="button" class="bg-light accordion-button collapsed"
+                                data-bs-toggle="collapse" :data-bs-target="`#faq${q.id}`"
+                                aria-expanded="false" :aria-controls="`#faq-${q.id}`">
+                                <i class="d-none d-md-block
+                                fs-7 text-highlight bi bi-asterisk me-3"></i>
+                                <b>{{ q.question }}</b>
                             </button>
                         </div>
-                        <div class="accordion-collapse collapse" :id="`faq${q.id}`"
-                             data-bs-parent="#faq" aria-expanded="false">
-                        <div class="accordion-body">
-                            <p class="mb-0 lh-lg" v-html="q.answer"></p>
-                        </div>
+                        <div
+                            class="accordion-collapse collapse" :id="`faq${q.id}`"
+                            data-bs-parent="#faq" aria-expanded="false">
+                            <div class="accordion-body">
+                                <p class="mb-0 lh-lg" v-html="q.answer"></p>
+                            </div>
                         </div>
                     </div>
                     </template>
                 </div>
                 <div class="text-end">
-                    <router-link target="_blank" :to="{ path: '/about', hash: '#faq' }">
+                    <RouterLink target="_blank" :to="{ path: '/about', hash: '#faq' }">
                         <span class="arrow-animation">
                             <span class="arrow">
                                 <i class="bi bi-caret-right-fill"></i>
                             </span>
                         </span>
                         <span>更多問答</span>
-                    </router-link>
+                    </RouterLink>
                 </div>
             </div>
         </div>

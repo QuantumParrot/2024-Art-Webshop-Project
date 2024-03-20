@@ -1,15 +1,15 @@
 <template>
 
 <div class="lh-lg text-end mb-6">
-<h3 class="fs-2 mb-3">COUPONS｜優惠券</h3>
-<p class="text-muted">目前共有 {{ coupons.length }} 張優惠券</p>
+    <h3 class="fs-2 mb-3">COUPONS｜優惠券</h3>
+    <p class="text-muted">目前共有 {{ coupons.length }} 張優惠券</p>
 </div>
 
 <div class="alert bg-gray flex-classic mb-6">
     <div>
         <button type="button" class="btn btn-highlight" @click="openModal()">建立優惠券</button>
     </div>
-    <pagination-component
+    <PaginationComponent
         :current="pagination.current_page" :total="pagination.total_pages"
         @switch-page="getCoupons" />
 </div>
@@ -18,11 +18,11 @@
     <table class="table table-hover text-nowrap">
         <thead>
             <tr>
-            <th scope="col" width="10%">到期</th>
-            <th scope="col" width="50%">名稱</th>
-            <th scope="col" width="15%" class="text-end">折扣</th>
-            <th scope="col" width="10%" class="text-center">狀態</th>
-            <th scope="col" width="15%" class="text-center">處理</th>
+                <th scope="col" width="10%">到期</th>
+                <th scope="col" width="50%">名稱</th>
+                <th scope="col" width="15%" class="text-end">折扣</th>
+                <th scope="col" width="10%" class="text-center">狀態</th>
+                <th scope="col" width="15%" class="text-center">處理</th>
             </tr>
         </thead>
         <tbody class="align-middle">
@@ -32,24 +32,28 @@
                     <div class="d-flex align-items-center gap-2">
                         <span>{{ coupon.title }}</span>
                         <span class="d-none d-md-block badge bg-primary py-2">
-                        {{ coupon.code }}</span>
+                        {{ coupon.code }}
+                        </span>
                     </div>
                 </td>
                 <td class="text-end">{{ coupon.percent }}％</td>
                 <td class="text-center">
                     <div class="form-switch">
-                        <input type="checkbox" role="switch"
-                               class="form-check-input"
-                               :checked="coupon.is_enabled" @change="switchCouponStatus(coupon)">
+                        <input
+                            type="checkbox" role="switch"
+                            class="form-check-input"
+                            :checked="coupon.is_enabled" @change="switchCouponStatus(coupon)">
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="d-flex flex-column gap-2">
-                        <button type="button" class="w-100 btn btn-outline-secondary"
-                                @click="openModal(coupon)">
+                        <button
+                            type="button" class="w-100 btn btn-outline-secondary"
+                            @click="openModal(coupon)">
                         編輯</button>
-                        <button type="button" class="w-100 btn btn-outline-danger"
-                                @click="deleteCoupon(coupon)">
+                        <button
+                            type="button" class="w-100 btn btn-outline-danger"
+                            @click="deleteCoupon(coupon)">
                         刪除</button>
                     </div>
                 </td>
@@ -60,7 +64,7 @@
 
 <div class="alert bg-gray" v-else>還沒有任何優惠券！趕快建立一個吧！</div>
 
-<admin-coupon-modal ref="couponModal" :temp-coupon="tempCoupon" />
+<AdminCouponModal ref="couponModal" :temp-coupon="tempCoupon" />
 
 </template>
 

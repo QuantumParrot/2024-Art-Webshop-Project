@@ -5,14 +5,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="mb-0">上傳圖片</h4>
-                <button type="button"
-                        class="btn border-0 p-0 fs-4"
-                        @click="hideModal" :disabled="uploadState">
-                <i class="bi bi-x-circle-fill"></i>
+                <button
+                    type="button" class="btn border-0 p-0 fs-4" :disabled="uploadState"
+                    @click="hideModal">
+                    <i class="bi bi-x-circle-fill"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <upload-form
+                <UploadForm
                    :use-clipboard="true"
                    :upload-state="uploadState"
                    @update-upload-state="updateState" />

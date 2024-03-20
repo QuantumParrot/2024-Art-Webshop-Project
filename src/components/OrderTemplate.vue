@@ -28,55 +28,55 @@
             <table class="table text-nowrap">
                 <thead>
                 <tr>
-                <th scope="col"></th>
-                <th scope="col" width="20%"></th>
-                <th scope="col" width="10%"></th>
-                <th scope="col" width="20%"></th>
+                    <th scope="col"></th>
+                    <th scope="col" width="20%"></th>
+                    <th scope="col" width="10%"></th>
+                    <th scope="col" width="20%"></th>
                 </tr>
                 </thead>
                 <tbody class="align-middle">
-                <template v-for="(item, key) in order.products" :key="key">
-                <tr>
-                    <td class="ps-0 py-3">{{ item.product.title }}</td>
-                    <td>
-                    {{ item.qty }} {{ item.product.unit }}</td>
-                    <td>
-                    <span class="arrow-animation">
-                    <span class="arrow">→</span>
-                    </span>
-                    </td>
-                    <td class="pe-0 text-end">
-                        <div class="flex-classic">
-                            <span>NT$</span>
-                            <span :class="{ 'text-decoration-line-through': item.coupon }">
-                            {{ item.total }}</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr v-if="item.coupon">
-                    <td colspan="3" class="fs-7 ps-0 py-3">優惠券折扣</td>
-                    <td class="pe-0 text-end">
-                        <div class="flex-classic">
-                            <span>NT$</span>
-                            <span><b>{{ +(item.final_total.toFixed(0)) }}</b></span>
-                        </div>
-                    </td>
-                </tr>
-                </template>
+                    <template v-for="(item, key) in order.products" :key="key">
+                    <tr>
+                        <td class="ps-0 py-3">{{ item.product.title }}</td>
+                        <td>{{ item.qty }} {{ item.product.unit }}</td>
+                        <td>
+                            <span class="arrow-animation">
+                                <span class="arrow"> → </span>
+                            </span>
+                        </td>
+                        <td class="pe-0 text-end">
+                            <div class="flex-classic">
+                                <span>NT＄</span>
+                                <span :class="{ 'text-decoration-line-through': item.coupon }">
+                                {{ item.total }}</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr v-if="item.coupon">
+                        <td colspan="3" class="fs-7 ps-0 py-3">優惠券折扣</td>
+                        <td class="pe-0 text-end">
+                            <div class="flex-classic">
+                                <span>NT＄</span>
+                                <span><b>{{ +(item.final_total.toFixed(0)) }}</b></span>
+                            </div>
+                        </td>
+                    </tr>
+                    </template>
                 </tbody>
                 <tfoot>
-                <tr>
-                <td colspan="5" class="px-0 py-3">
-                    <div class="flex-classic">
-                    <p class="mb-0">
-                    <strong>總計：</strong>NT$ {{ order.total }}
-                    </p>
-                    <button type="button" class="btn btn-highlight"
-                            @click="payOrder(order.id)" v-if="!order.is_paid">
-                    付款去</button>
-                    </div>
-                </td>
-                </tr>
+                    <tr>
+                        <td colspan="5" class="px-0 py-3">
+                            <div class="flex-classic">
+                                <p class="mb-0">
+                                    <strong>總計：</strong>NT＄ {{ order.total }}
+                                </p>
+                                <button
+                                    type="button" class="btn btn-highlight"
+                                    @click="payOrder(order.id)" v-if="!order.is_paid">
+                                付款去</button>
+                            </div>
+                        </td>
+                    </tr>
                 </tfoot>
             </table>
             <p class="d-flex align-items-center">

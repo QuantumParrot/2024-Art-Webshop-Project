@@ -7,9 +7,7 @@
         </div>
     </div>
     <div class="px-5 pb-5">
-        <h5 class="text-center text-highlight mb-5">
-        <b>{{ org.title }}</b>
-        </h5>
+        <h5 class="text-center text-highlight mb-5"><b>{{ org.title }}</b></h5>
         <div class="d-flex flex-column justify-content-between">
             <p class="flex-grow-1 text-justify lh-lg mb-5">{{ org.description }}</p>
             <a class="btn-primary btn-slider" target="_blank" :href="org.link">

@@ -4,59 +4,76 @@
     <div class="container py-7">
         <div class="d-flex justify-content-center">
             <div>
-            <nav class="mb-5" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-                <ol class="breadcrumb flex-nowrap text-nowrap overflow-x-scroll">
-                    <li class="breadcrumb-item">
-                    <router-link to="/">首頁</router-link></li>
-                    <li class="breadcrumb-item">
-                    <router-link to="/products">商品列表</router-link></li>
-                    <li class="breadcrumb-item">
-                    <router-link :to="`/products?category=${product.category}`">
-                    {{ product.category }}</router-link>
-                    </li>
-                    <li class="d-md-block d-none breadcrumb-item active"
-                        aria-current="page">{{ product.title }}</li>
-                </ol>
-            </nav>
-            <div class="position-relative mb-5">
-                <img class="main-img" :class="frame ? frameSetting[frame] : ''"
-                     :src="mainImage" :alt="product.title" width="600">
-            </div>
-            <div class="bg-light rounded-2 p-3 mb-5
-                        d-flex gap-3 overflow-x-scroll">
-            <template v-for="img in displayImages" :key="img">
-                <img class="display-img" :class="{ 'opacity-50': img !== mainImage }"
-                     :src="img" :alt="product.title"
-                     @click="mainImage = img">
-            </template>
-            </div>
-            <div class="overflow-x-scroll">
-            <div class="frames d-flex flex-nowrap text-nowrap mb-5"
-                 v-if="product.category === '複製油畫'">
-                <button type="button" class="fs-7 btn btn-outline-primary rounded-0"
-                        :class="{ 'active': frame === '' }"
-                        @click="frame = ''">
-                <b>無畫框</b></button>
-                <button type="button" class="fs-7 btn btn-outline-primary rounded-0"
-                        :class="{ 'active': frame === 'dark' }"
-                        @click="frame = 'dark'">
-                <b>極簡黑</b></button>
-                <button type="button" class="fs-7 btn btn-outline-primary rounded-0"
-                        :class="{ 'active': frame === 'wooden' }"
-                        @click="frame = 'wooden'">
-                <b>淺木紋</b></button>
-                <button type="button" class="fs-7 btn btn-outline-primary rounded-0"
-                        :class="{ 'active': frame === 'golden' }"
-                        @click="frame = 'golden'">
-                <b>典雅金</b></button>
-                <button type="button" class="fs-7 btn btn-outline-primary rounded-0"
-                        :class="{ 'active': frame === 'baroque' }"
-                        @click="frame = 'baroque'">
-                <b>巴洛克</b></button>
-            </div>
-            </div>
-            <h2 class="text-black mb-5">{{ product.title }}</h2>
-            <p class="mb-0">{{ product.subtitle }}</p>
+                <nav class="mb-5" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                    <ol class="breadcrumb flex-nowrap text-nowrap overflow-x-scroll">
+                        <li class="breadcrumb-item">
+                            <RouterLink to="/">首頁</RouterLink>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <RouterLink to="/products">商品列表</RouterLink>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <RouterLink :to="`/products?category=${product.category}`">
+                                <span>{{ product.category }}</span>
+                            </RouterLink>
+                        </li>
+                        <li class="d-md-block d-none breadcrumb-item active"
+                            aria-current="page">
+                            <span>{{ product.title }}</span>
+                        </li>
+                    </ol>
+                </nav>
+                <div class="position-relative mb-5">
+                    <img
+                        class="main-img" :class="frame ? frameSetting[frame] : ''"
+                        :src="mainImage" :alt="product.title" width="600">
+                </div>
+                <div class="bg-light rounded-2 p-3 mb-5 d-flex gap-3 overflow-x-scroll">
+                    <template v-for="img in displayImages" :key="img">
+                    <img
+                        class="display-img" :class="{ 'opacity-50': img !== mainImage }"
+                        :src="img" :alt="product.title"
+                        @click="mainImage = img">
+                    </template>
+                </div>
+                <div class="overflow-x-scroll">
+                    <div
+                        class="frames d-flex flex-nowrap text-nowrap mb-5"
+                        v-if="product.category === '複製油畫'">
+                        <button
+                            type="button" class="fs-7 btn btn-outline-primary rounded-0"
+                            :class="{ 'active': frame === '' }"
+                            @click="frame = ''">
+                            <b>無畫框</b>
+                        </button>
+                        <button
+                            type="button" class="fs-7 btn btn-outline-primary rounded-0"
+                            :class="{ 'active': frame === 'dark' }"
+                            @click="frame = 'dark'">
+                            <b>極簡黑</b>
+                        </button>
+                        <button
+                            type="button" class="fs-7 btn btn-outline-primary rounded-0"
+                            :class="{ 'active': frame === 'wooden' }"
+                            @click="frame = 'wooden'">
+                            <b>淺木紋</b>
+                        </button>
+                        <button
+                            type="button" class="fs-7 btn btn-outline-primary rounded-0"
+                            :class="{ 'active': frame === 'golden' }"
+                            @click="frame = 'golden'">
+                            <b>典雅金</b>
+                        </button>
+                        <button
+                            type="button" class="fs-7 btn btn-outline-primary rounded-0"
+                            :class="{ 'active': frame === 'baroque' }"
+                            @click="frame = 'baroque'">
+                            <b>巴洛克</b>
+                        </button>
+                    </div>
+                </div>
+                <h2 class="text-black mb-5">{{ product.title }}</h2>
+                <p class="mb-0">{{ product.subtitle }}</p>
             </div>
         </div>
         <hr>
@@ -64,27 +81,29 @@
             <div class="col-xl-7 order-xl-1 order-2">
                 <div class="h-100 d-flex flex-column">
                     <div class="flex-grow-1 alert bg-light p-5 mb-5">
-                        <div class="h-100 border border-gray rounded-2 p-5 pb-6
-                                    d-flex flex-column justify-content-between">
+                        <div
+                            class="h-100 border border-gray rounded-2 p-5 pb-6
+                            d-flex flex-column justify-content-between">
                             <div>
-                            <h3 class="lh-lg fs-4 text-dark fw-bold mb-5">
-                                <span class="section-title">關於它的故事</span>
-                            </h3>
-                            <div class="lh-lg pre-wrap text-justify mb-6">
-                            {{ product.description }}</div>
+                                <h3 class="lh-lg fs-4 text-dark fw-bold mb-5">
+                                    <span class="section-title">關於它的故事</span>
+                                </h3>
+                                <div class="lh-lg pre-wrap text-justify mb-6">
+                                    <span>{{ product.description }}</span>
+                                </div>
                             </div>
-                            <div class="d-flex gap-2
-                                        flex-nowrap text-nowrap overflow-scroll">
-                                <span v-for="tag in product.tags" :key="tag"
-                                      class="badge bg-primary fs-6 py-2">
-                                {{ tag }}</span>
+                            <div class="d-flex gap-2 flex-nowrap text-nowrap overflow-scroll">
+                                <template v-for="tag in product.tags" :key="tag">
+                                <span class="badge bg-primary fs-6 py-2">{{ tag }}</span>
+                                </template>
                             </div>
                         </div>
                     </div>
                     <div class="alert bg-light p-5 mb-0">
                         <p class="lh-lg mb-0">
-                        <i class="bi bi-c-circle me-1"></i>
-                        圖片與文字參考資料請參閱：<a target="_blank" href="https://www.notion.so/9f522b0de5c2413c8090249c96bd692a?v=5b0f1f1c376f4b468a56aaec87a97c8a">本站索引</a></p>
+                            <i class="bi bi-c-circle me-1"></i>
+                            <span>圖片與文字參考資料請參閱：<a target="_blank" href="https://www.notion.so/9f522b0de5c2413c8090249c96bd692a?v=5b0f1f1c376f4b468a56aaec87a97c8a">本站索引</a></span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -96,49 +115,58 @@
                     </div>
                     <div class="alert bg-light p-5 mb-5">
                         <div class="mb-5">
-                            <p class="text-nowrap overflow-scroll">
-                            <span class="fs-6 badge bg-primary px-3 py-2 me-2">規格</span>
-                            {{ product.content }}</p>
-                            <p class="text-nowrap overflow-scroll">
-                            <span class="fs-6 badge bg-primary px-3 py-2 me-2">單位</span>
-                            一{{ product.unit }}</p>
+                            <p class="text-nowrap overflow-x-scroll">
+                                <span class="fs-6 badge bg-primary px-3 py-2 me-2">規格</span>
+                                <span>{{ product.content }}</span>
+                            </p>
+                            <p class="text-nowrap overflow-x-scroll">
+                                <span class="fs-6 badge bg-primary px-3 py-2 me-2">單位</span>
+                                <span>一{{ product.unit }}</span>
+                            </p>
                         </div>
                         <div class="alert bg-white p-5 mb-0">
                             <p class="fs-5 fw-bold mb-5">
-                            <span>NT＄</span>
-                            <template v-if="product.origin_price > product.price">
-                            <span class="text-muted text-decoration-line-through">
-                            {{ product.origin_price }}</span>
-                            <span class="arrow-animation"><span class="arrow">→</span></span>
-                            </template>
-                            <span>{{ product.price }}</span>
+                                <span>NT＄</span>
+                                <template v-if="product.origin_price > product.price">
+                                <span class="text-muted text-decoration-line-through">
+                                {{ product.origin_price }}
+                                </span>
+                                <span class="arrow-animation">
+                                    <span class="arrow"> → </span>
+                                </span>
+                                </template>
+                                <span>{{ product.price }}</span>
                             </p>
                             <div class="row g-3">
                                 <div class="col-sm-8">
                                     <div class="input-group">
-                                    <button type="button" class="btn btn-secondary input-group-text"
+                                        <button
+                                            type="button" class="btn btn-secondary input-group-text"
                                             @click="this.quantity -= 1" :disabled="quantity <= 1">
-                                    <i class="bi bi-dash"></i>
-                                    </button>
-                                    <input
-                                        type="number"
-                                        class="form-control text-center" min="1"
-                                        v-model.number="quantity">
-                                    <button type="button" class="btn btn-secondary input-group-text"
+                                            <i class="bi bi-dash"></i>
+                                        </button>
+                                        <input
+                                            type="number"
+                                            class="form-control text-center" min="1"
+                                            v-model.number="quantity">
+                                        <button
+                                            type="button" class="btn btn-secondary input-group-text"
                                             @click="this.quantity += 1">
-                                    <i class="bi bi-plus"></i>
-                                    </button>
+                                            <i class="bi bi-plus"></i>
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="col-sm-4 text-end">
-                                    <button type="button" class="w-100 btn btn-primary"
-                                            @click="addToCart(product.id, quantity)"
-                                            :disabled="!!loadingTask">
-                                    <div role="status" class="spinner-border spinner-border-sm me-2"
-                                         v-show="loadingTask">
-                                    <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                    <span>{{ loadingTask ? '加入中' : '加入購物車' }}</span>
+                                    <button
+                                        type="button" class="w-100 btn btn-primary"
+                                        @click="addToCart(product.id, quantity)"
+                                        :disabled="!!loadingTask">
+                                        <div
+                                            class="spinner-border spinner-border-sm me-2"
+                                            role="status" v-show="loadingTask">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                        <span>{{ loadingTask ? '加入中' : '加入購物車' }}</span>
                                     </button>
                                 </div>
                             </div>
@@ -147,29 +175,38 @@
                     <div class="alert bg-light p-5 mb-0">
                         <div class="row g-3">
                             <div class="col-sm-4">
-                                <div class="d-flex flex-sm-column
-                                            justify-content-sm-center align-items-center">
-                                    <div class="bg-white rounded-pill shadow-sm
-                                                px-3 py-2 mb-sm-3 me-sm-0 me-3">
-                                    <i class="bi bi-truck fs-3"></i></div>
+                                <div
+                                    class="d-flex flex-sm-column
+                                    justify-content-sm-center align-items-center">
+                                    <div
+                                        class="bg-white rounded-pill shadow-sm
+                                        px-3 py-2 mb-sm-3 me-sm-0 me-3">
+                                        <i class="bi bi-truck fs-3"></i>
+                                    </div>
                                     <span>專業物流配送</span>
                                 </div>
                             </div>
                             <div class="col-sm-4">
-                                <div class="d-flex flex-sm-column
-                                            justify-content-sm-center align-items-center">
-                                    <div class="bg-white rounded-pill shadow-sm
-                                                px-3 py-2 mb-sm-3 me-sm-0 me-3">
-                                    <i class="bi bi-7-circle fs-3"></i></div>
+                                <div
+                                    class="d-flex flex-sm-column
+                                    justify-content-sm-center align-items-center">
+                                    <div
+                                        class="bg-white rounded-pill shadow-sm
+                                        px-3 py-2 mb-sm-3 me-sm-0 me-3">
+                                        <i class="bi bi-7-circle fs-3"></i>
+                                    </div>
                                     <span>七天鑑賞期</span>
                                 </div>
                             </div>
                             <div class="col-sm-4">
-                                <div class="d-flex flex-sm-column
-                                            justify-content-sm-center align-items-center">
-                                    <div class="bg-white rounded-pill shadow-sm
-                                                px-3 py-2 mb-sm-3 me-sm-0 me-3">
-                                    <i class="bi bi-recycle fs-3"></i></div>
+                                <div
+                                    class="d-flex flex-sm-column
+                                    justify-content-sm-center align-items-center">
+                                    <div
+                                        class="bg-white rounded-pill shadow-sm
+                                        px-3 py-2 mb-sm-3 me-sm-0 me-3">
+                                        <i class="bi bi-recycle fs-3"></i>
+                                    </div>
                                     <span>採用環保包裝</span>
                                 </div>
                             </div>
@@ -179,19 +216,22 @@
             </div>
         </div>
         <div class="alert bg-white p-5">
-        <h4 class="text-center mb-5">為您推薦</h4>
+            <h4 class="text-center mb-5">為您推薦</h4>
             <div class="row g-5">
-                <div class="col-md-4" v-for="item in relatedProducts" :key="item.id">
-                    <a class="text-decoration-none"
-                       href="#" @click.prevent="$router.push(`/product/${item.id}`)">
-                    <div class="card">
-                        <img class="card-img-top" :src="item.imageUrl" :alt="item.title">
-                        <div class="card-body py-5 flex-classic">
-                            <h5 class="fs-6 fw-bold mb-0">{{ item.title }}</h5>
-                            <p class="mb-0">NT$ {{ item.price }}</p>
+                <template v-for="item in relatedProducts" :key="item.id">
+                <div class="col-md-4">
+                    <a href="#" class="text-decoration-none"
+                    @click.prevent="$router.push(`/product/${item.id}`)">
+                        <div class="card">
+                            <img class="card-img-top" :src="item.imageUrl" :alt="item.title">
+                            <div class="card-body py-5 flex-classic">
+                                <h5 class="fs-6 fw-bold mb-0">{{ item.title }}</h5>
+                                <p class="mb-0">NT$ {{ item.price }}</p>
+                            </div>
                         </div>
-                    </div></a>
+                    </a>
                 </div>
+                </template>
             </div>
         </div>
     </div>

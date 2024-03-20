@@ -3,21 +3,24 @@
 <nav aria-label="page navigation">
     <ul class="w-100 pagination mb-0">
         <li>
-        <a href="#" @click.prevent="switchPage(current - 1)"
-           class="page-link" :class="{ 'disabled': current - 1 < 1 }">
-        &laquo;</a>
+            <a
+            href="#" @click.prevent="switchPage(current - 1)"
+            class="page-link" :class="{ 'disabled': current - 1 < 1 }">
+            &laquo;</a>
         </li>
         <template v-for="i in total" :key="i">
         <li>
-        <a href="#" @click.prevent="switchPage(i)"
-           class="page-link" :class="{ 'active': current === i }">
-        {{ i }}</a>
+            <a
+            href="#" @click.prevent="switchPage(i)"
+            class="page-link" :class="{ 'active': current === i }">
+            {{ i }}</a>
         </li>
         </template>
         <li>
-        <a href="#" @click.prevent="switchPage(current + 1)"
-           class="page-link" :class="{ 'disabled': current + 1 > total }">
-        &raquo;</a>
+            <a
+            href="#" @click.prevent="switchPage(current + 1)"
+            class="page-link" :class="{ 'disabled': current + 1 > total }">
+            &raquo;</a>
         </li>
     </ul>
 </nav>

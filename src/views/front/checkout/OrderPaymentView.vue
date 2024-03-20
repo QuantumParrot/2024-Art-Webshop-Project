@@ -1,26 +1,28 @@
 <template>
 
 <div class="text-md-center" style="margin-top: -3rem">
-    <lottie-player :animationData="successJSON" :height="250" />
+    <LottiePlayer :animationData="successJSON" :height="250" />
     <h3 class="text-center mb-7"><b>訂單已成立</b></h3>
     <p><b class="text-danger">請務必記下您的訂單編號</b>，方便您隨時追蹤訂單進度！</p>
-    <p class="mb-0">如在未付款的情況下關閉此頁，您<b class="text-danger">
-    <span>仍然能在</span>
-    <router-link
-        target="_blank" to="/member"
-        class="text-decoration-none text-dark border-bottom-dotted">個人專區</router-link>
-    <span>透過訂單編號進行付款</span></b>哦！</p>
+    <p class="mb-0">
+        <span>如在未付款的情況下關閉此頁，您<b class="text-danger">
+        <span>仍然能在</span>
+        <RouterLink
+            target="_blank" to="/member"
+            class="text-decoration-none text-dark border-bottom-dotted">個人專區</RouterLink>
+        <span>透過訂單編號進行付款</span></b>哦！</span>
+    </p>
 </div>
 <template v-if="tempOrder.id">
     <div class="text-md-center my-7">
         <p>複製訂單編號：</p>
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <clipboard-component :value="tempOrder.id" />
+                <ClipboardComponent :value="tempOrder.id" />
             </div>
         </div>
     </div>
-    <order-template :order="tempOrder" />
+    <OrderTemplate :order="tempOrder" />
 </template>
 
 </template>

@@ -1,5 +1,3 @@
-/* eslint-disable indent */
-
 import './assets/main.scss';
 
 import 'bootstrap-icons/font/bootstrap-icons.scss';
@@ -16,8 +14,8 @@ import { createPinia } from 'pinia';
 
 import {
 
-  defineRule, configure,
-  Form, Field, ErrorMessage,
+    defineRule, configure,
+    Form, Field, ErrorMessage,
 
 } from 'vee-validate';
 
@@ -55,8 +53,8 @@ Object.keys(rules).forEach((rule) => defineRule(rule, rules[rule]));
 
 configure({
 
-  generateMessage: localize({ zhTW }),
-  validateOnInput: true,
+    generateMessage: localize({ zhTW }),
+    validateOnInput: true,
 
 });
 
@@ -72,20 +70,20 @@ const pinia = createPinia();
 
 pinia.use(({ store }) => {
 
-  const newStore = store;
-  newStore.router = markRaw(router);
+    const newStore = store;
+    newStore.router = markRaw(router);
 
 });
 
-app.component('v-form', Form);
+app.component('VForm', Form);
 
-app.component('v-field', Field);
+app.component('VField', Field);
 
-app.component('error-message', ErrorMessage);
+app.component('ErrorMessage', ErrorMessage);
 
-app.component('lottie-player', Vue3Lottie);
+app.component('LottiePlayer', Vue3Lottie);
 
-app.component('loading-overlay', LoadingOverlay);
+app.component('LoadingOverlay', LoadingOverlay);
 
 app.use(pinia);
 

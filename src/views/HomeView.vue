@@ -1,13 +1,13 @@
 <template>
 
-<loading-overlay :isLoading="isLoading"></loading-overlay>
+<LoadingOverlay :isLoading="isLoading" />
 
 <div class="h-100 d-flex flex-column">
-<front-navbar />
-<main>
-    <router-view />
-</main>
-<front-footer />
+    <FrontNavbar />
+    <main>
+        <RouterView />
+    </main>
+    <FrontFooter />
 </div>
 
 </template>

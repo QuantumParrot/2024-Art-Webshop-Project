@@ -6,8 +6,9 @@
         <!-- progress -->
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <div class="nav w-100 mb-7 align-items-center
-                            justify-content-xl-center justify-content-between gap-lg-6 gap-2">
+                <div
+                    class="nav w-100 mb-7 align-items-center
+                    justify-content-xl-center justify-content-between gap-lg-6 gap-2">
                     <div class="nav-item h2 mb-0 shadow-sm" :class="{ 'active': step === 1 }">
                         <i class="bi bi-1-square-fill" style="line-height: 1;"></i>
                         <span class="h6 mb-0">確認商品</span>
@@ -38,16 +39,16 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <template v-if="$route.path === 'checkout/form'">
-                <router-view v-slot="{ Component }">
-                    <keep-alive><component :is="Component"></component></keep-alive>
-                </router-view>
+                    <RouterView v-slot="{ Component }">
+                        <keep-alive><component :is="Component" /></keep-alive>
+                    </RouterView>
                 </template>
-                <router-view v-else></router-view>
+                <RouterView v-else />
             </div>
         </div>
     </div>
-    <faq-section :types="['付款問題', '取貨問題', '訂單問題']" />
-    <subscription-section />
+    <FaqSection :types="['付款問題', '取貨問題', '訂單問題']" />
+    <SubscriptionSection />
 </div>
 
 </template>

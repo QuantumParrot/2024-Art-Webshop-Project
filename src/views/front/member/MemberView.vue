@@ -6,21 +6,23 @@
             <div class="col-lg-3">
                 <ul class="sticky-top nav flex-lg-column">
                     <li class="nav-item">
-                    <router-link
-                        to="/member/order" class="nav-link py-md-4"
-                        :class="{ 'link-active': $route.path === '/member/order' }">
-                        訂單查詢</router-link>
+                        <RouterLink
+                            to="/member/order" class="nav-link py-md-4"
+                            :class="{ 'link-active': $route.path === '/member/order' }">
+                            訂單查詢
+                        </RouterLink>
                     </li>
                     <li class="nav-item">
-                    <router-link
-                        to="/member/collection" class="nav-link py-md-4"
-                        :class="{ 'link-active': $route.path === '/member/collection' }">
-                        我的收藏</router-link>
+                        <RouterLink
+                            to="/member/collection" class="nav-link py-md-4"
+                            :class="{ 'link-active': $route.path === '/member/collection' }">
+                            我的收藏
+                        </RouterLink>
                     </li>
                 </ul>
             </div>
             <div class="flex-grow-1 col-lg-7">
-                <router-view />
+                <RouterView />
             </div>
         </div>
     </div>

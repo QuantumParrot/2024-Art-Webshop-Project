@@ -5,12 +5,17 @@
 <section class="card p-3 mb-5">
     <h3 class="mb-5"><span class="section-title">訂單近況</span></h3>
     <div class="lh-lg d-flex flex-column flex-sm-row" v-if="!!unhandled">
-        <span>有 <span class="fw-bold text-danger">{{ unhandled }}</span> 筆已付款的訂單尚未處理喔！</span>
+        <span>
+        有
+        <span class="fw-bold text-danger">{{ unhandled }}</span>
+        筆已付款的訂單尚未處理喔！
+        </span>
         <div>
             <span class="arrow-animation">
-            <span class="arrow">→</span></span>
+                <span class="arrow">→</span></span>
             <span>
-            <router-link class="text-info" to="admin/order?paid=1&state=0">前往訂單頁面</router-link>
+                <RouterLink class="text-info" to="admin/order?paid=1&state=0">
+                前往訂單頁面</RouterLink>
             </span>
         </div>
     </div>
@@ -23,29 +28,29 @@
     <ul class="list-unstyled d-flex flex-column gap-3 mt-3">
         <li class="d-flex flex-column flex-md-row">
             <p class="mb-md-0">
-            <b><span class="letter-space-md">商</span>品</b>
-            <i class="bi bi-caret-right-fill text-highlight mx-2"></i>
+                <b><span class="letter-space-md">商</span>品</b>
+                <i class="bi bi-caret-right-fill text-highlight mx-2"></i>
             </p>
             <p class="mb-0">管理您的商品</p>
         </li>
         <li class="d-flex flex-column flex-md-row">
             <p class="mb-md-0">
-            <b><span class="letter-space-md">訂</span>單</b>
-            <i class="bi bi-caret-right-fill text-highlight mx-2"></i>
+                <b><span class="letter-space-md">訂</span>單</b>
+                <i class="bi bi-caret-right-fill text-highlight mx-2"></i>
             </p>
             <p class="mb-0">管理您的訂單</p>
         </li>
         <li class="d-flex flex-column flex-md-row">
             <p class="mb-md-0">
-            <b><span class="letter-space-md">文</span>章</b>
-            <i class="bi bi-caret-right-fill text-highlight mx-2"></i>
+                <b><span class="letter-space-md">文</span>章</b>
+                <i class="bi bi-caret-right-fill text-highlight mx-2"></i>
             </p>
             <p class="mb-0">管理您的網站公告、專欄文章、公益企劃</p>
         </li>
         <li class="d-flex flex-column flex-md-row">
             <p class="mb-md-0">
-            <b>優惠券</b>
-            <i class="bi bi-caret-right-fill text-highlight mx-2"></i>
+                <b>優惠券</b>
+                <i class="bi bi-caret-right-fill text-highlight mx-2"></i>
             </p>
             <p class="mb-0">管理您的優惠券</p>
         </li>

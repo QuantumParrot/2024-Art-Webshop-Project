@@ -42,12 +42,12 @@
                     {{ item.qty }} {{ item.product.unit }}</td>
                     <td>
                     <span class="arrow-animation">
-                    <span class="arrow">→</span>
+                    <span class="arrow"> → </span>
                     </span>
                     </td>
                     <td class="pe-0 text-end">
                         <div class="flex-classic">
-                            <span>NT$</span>
+                            <span>NT＄</span>
                             <span :class="{ 'text-decoration-line-through': item.coupon }">
                             {{ item.total }}</span>
                         </div>
@@ -57,7 +57,7 @@
                     <td colspan="3" class="fs-7 ps-0 py-3">優惠券折扣</td>
                     <td class="pe-0 text-end">
                         <div class="flex-classic">
-                            <span>NT$</span>
+                            <span>NT＄</span>
                             <span><b>{{ +(item.final_total.toFixed(0)) }}</b></span>
                         </div>
                     </td>
@@ -69,7 +69,7 @@
                 <td colspan="5" class="px-0 py-3">
                     <div class="flex-classic">
                     <p class="mb-0">
-                    <strong>總計：</strong>NT$ {{ order.total }}
+                    <strong>總計：</strong>NT＄ {{ order.total }}
                     </p>
                     <button type="button" class="btn btn-highlight"
                             @click="payOrder(order.id)" v-if="!order.is_paid">

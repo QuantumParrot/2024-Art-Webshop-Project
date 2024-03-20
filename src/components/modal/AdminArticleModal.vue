@@ -33,7 +33,7 @@
                 <div v-show="tab === 'setting'">
                     <div class="mb-5">
                         <label class="form-label is-required" for="title">
-                            <span>{{ type === '公益計劃' ?  '組織名稱' : '標題' }}</span>
+                            <span>{{ type === '公益計劃' ? '組織名稱' : '標題' }}</span>
                         </label>
                         <v-field
                             id="title" type="text"

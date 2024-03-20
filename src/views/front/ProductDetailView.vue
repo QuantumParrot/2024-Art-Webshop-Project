@@ -109,7 +109,7 @@
                             <template v-if="product.origin_price > product.price">
                             <span class="text-muted text-decoration-line-through">
                             {{ product.origin_price }}</span>
-                            <span class="arrow-animation"><span class="arrow">→</span></span>
+                            <span class="arrow-animation"><span class="arrow"> → </span></span>
                             </template>
                             <span>{{ product.price }}</span>
                             </p>

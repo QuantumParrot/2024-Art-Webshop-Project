@@ -134,7 +134,7 @@
                     <div class="overflow-hidden">
                         <div class="mask">
                             <img src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1708467331249.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=B3yrKMMG0T3BbgxQKu%2FFOzNraQlVFZR0jACqOBzoYWYOGzcT6PmvXKLMVuzetVScSGBZqxPP2JqESKAExEBJd7t7wwUUrWSlF8bo27De6xCGrzF8v%2BpI1AQjpmIsAoCd1EoogT%2B2uCprxtSl%2BgktidvmRfYPF541n3TAa60pvm%2B6Y4J0xx8Xzo3fyuHX4%2BQHClDwD3MN7mc3EmDSimcQjuEZMF9eklK9uaQ%2BLsaow62S0%2BGStgruV%2Ffv2a%2FqJj8yXAY9GLgpXjiS4lQjqrWdQ35W6wfnSiHjKAHv7XcqoyggtO0v5HaLSk8UbgzPGVL2mlBiQYHcfLd6KOk9ps9H%2BQ%3D%3D"
-                                 alt="painting" height="400px">
+                                 alt="painting" height="400">
                             <div class="mask-txt fs-4 text-shadow-black">
                                 <p class="mb-0">＃ 油畫</p>
                             </div>
@@ -147,7 +147,7 @@
                     <div class="overflow-hidden">
                         <div class="mask">
                             <img src="https://images.unsplash.com/photo-1515139832362-a06b09ecced0?q=80&w=2930&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                 alt="sculpture" height="400px">
+                                 alt="sculpture" height="400">
                             <div class="mask-txt fs-4 text-shadow-black">
                                 <p class="mb-0">＃ 雕塑</p>
                             </div>
@@ -162,7 +162,7 @@
                     <div class="overflow-hidden">
                         <div class="mask">
                             <img src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709489767874.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=n4L5%2FjlupJO3Yl4XNKdNCvk06IguPwxLtt3KGRj6PsmhrK%2BSTjC0JToqlXybIMmRJKaoKjMFe5gNn9Iv6noEjL02zhl6JHLjMbiBEtUJOnta%2B0nq04TLPW%2BLN%2BCAZB3neTSYtaXI5PuW6cwTo3U%2Bz5N%2BBzMT00eimhGi%2FRshRlxmJwqhiShsD%2F5oicV7WYEkho57Wff72yZKtRKxDWs6A9TN1SN%2Bh5DagqQmzPm%2FrZn6YhxZvJq9UecrGfrJeR04rpY3pPeU5HtWMF6jymRCy7S%2BbRdHZJtMeaKujMHaiA7m5Up5c3k5x%2BqgfAzqpVA3hfLD0josoBK6ol38UR634Q%3D%3D"
-                                 alt="toy and model" height="300px" class="w-100">
+                                 alt="toy and model" height="300" class="w-100">
                             <div class="mask-txt fs-4 text-shadow-black">
                                 <p class="mb-0">＃ 玩具模型</p>
                             </div>
@@ -175,7 +175,7 @@
                     <div class="overflow-hidden">
                         <div class="mask">
                             <img src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1707154286226.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=DPe%2BbJeO1jl3RKwjXPdfZd62%2Bic%2FArYzAxuY5Hz2yOl9E0aI4cm0IV4Am%2Bp6C74SDRRijgSQjyvqJ7pDCKDBnyH73rAwwUR9fdsZaYvL%2F5AgBVgnHDkORUmH0W0XXYrLT%2BgyjDt%2BBAUbNxalb%2FxlmgW7y2rg%2FRL73%2BGTs1uN%2BwRxp%2FBeM37rYfN78aCs99JhBECvbXDna2pXok4CjBN2xlf92RGLESCWc4ZiWyXW3biq6UOjyCw20DSOfwSx16sEZfyZpaFRaF0d%2BUZhG1YaNIc9cZHB31vBoiP4dRBVUsj4VBj0suZWgzUfJy9r%2BgrLFitGbzI07L8V5ZpjqGH7qg%3D%3D"
-                                 alt="deco and antique" height="300px" class="w-100">
+                                 alt="deco and antique" height="300" class="w-100">
                             <div class="mask-txt fs-4 text-shadow-black">
                                 <p class="mb-0">＃ 裝飾雜貨</p>
                             </div>
@@ -188,7 +188,7 @@
                     <div class="overflow-hidden">
                         <div class="mask">
                             <img src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709490186395.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=jgjiLKuTWkohFV347QfMCLN1vrgI6sQYWPvaBNiQXz9ir%2Bk0knRKY67JYE170HZhnTRHPuipYMYTcSjOn3DgqYZmW%2BwH2yi8xP6JjvdEKn6JwmVatEQcIu5SOWEEkFayv2LW63BAM5yiJBbuVszkCgzL73dQmHQX%2FTEj%2FNWBNFlSZ3GXOLPL%2F41EknhSAMw6OTKIVhS7B4JorjfVJ4rau4RNu1QaGe0fyzvJccQtx2B36tpT0aPt210OlQJafMhxgCqCMMshtRgKCIvxq6D%2FEzKz4B3K%2F2BqAIkn0%2FcJP79bJ%2BViHtMu4T4PM7GC5ZlV6HXRfgfEyM%2B5HQPyC26%2BxQ%3D%3D"
-                                 alt="stationery" height="300px" class="w-100 object-fit-cover">
+                                 alt="stationery" height="300" class="w-100 object-fit-cover">
                             <div class="mask-txt fs-4 text-shadow-black">
                                 <p class="mb-0">＃ 文具禮品</p>
                             </div>
@@ -217,8 +217,7 @@
                         <p class="lh-lg mb-0">
                         <span class="fw-bold me-3">
                         {{ $calc.formatDate(item.create_at * 1000, '/') }}</span>
-                        <router-link :to="`/news/${item.id}`">
-                        {{ item.title }}</router-link>
+                        <router-link :to="`/news/${item.id}`">{{ item.title }}</router-link>
                         </p>
                     </li>
                     </template>

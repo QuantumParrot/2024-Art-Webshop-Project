@@ -34,7 +34,7 @@
 
 <script>
 
-import orderTemplate from '@/components/OrderTemplate.vue';
+import OrderTemplate from '@/components/OrderTemplate.vue';
 
 import { mapState, mapActions } from 'pinia';
 
@@ -44,7 +44,7 @@ import userOrderStore from '@/stores/userOrder';
 
 export default {
 
-    components: { orderTemplate },
+    components: { OrderTemplate },
 
     computed: {
 

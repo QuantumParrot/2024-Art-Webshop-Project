@@ -236,8 +236,7 @@
                             </a>
                             <template v-for="img in product.imagesUrl" :key="img">
                             <a target="_blank" :href="img">
-                            <img v-if="img"
-                                 :src="img" :alt="product.title"
+                            <img v-if="img" :src="img" :alt="product.title"
                                  height="150" class="product-img">
                             </a>
                             </template>
@@ -265,14 +264,14 @@
                             <p>副圖網址</p>
                             <div class="row g-3">
                             <template v-for="(img, idx) in product.imagesUrl" :key="img">
-                                <div class="col-md-6 position-relative">
-                                    <input type="text" class="form-control pe-6"
-                                           v-model.trim="product.imagesUrl[idx]">
-                                    <button type="button" class="btn btn-origin btn-inline"
-                                            @click="product.imagesUrl.splice(idx, 1)">
-                                    <i class="bi bi-x-lg"></i>
-                                    </button>
-                                </div>
+                            <div class="col-md-6 position-relative">
+                                <input type="text" class="form-control pe-6"
+                                       v-model.trim="product.imagesUrl[idx]">
+                                <button type="button" class="btn btn-origin btn-inline"
+                                        @click="product.imagesUrl.splice(idx, 1)">
+                                <i class="bi bi-x-lg"></i>
+                                </button>
+                            </div>
                             </template>
                             </div>
                         </div>

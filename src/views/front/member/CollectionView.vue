@@ -7,8 +7,7 @@
 
 <div class="flex-classic mb-5">
 <h4>商品收藏（ 共 {{ collection.length }} 筆 ）</h4>
-<button type="button" class="float-end btn btn-outline-light"
-        @click="clearCollection"
+<button type="button" class="btn btn-outline-light" @click="clearCollection"
         :disabled="!collection.length">清空收藏</button>
 </div>
 

@@ -44,10 +44,9 @@
             class="form-select" id="delivery" :value="orderState"
             @change="(e) => switchFilter('orderState', +e.target.value)">
             <option :value="5" selected>全部</option>
-            <option
-                v-for="num in stateOptions" :key="num"
-                :value="num">
-            {{ statesCode[num]?.title }}</option>
+            <template v-for="num in stateOptions" :key="num">
+            <option :value="num">{{ statesCode[num]?.title }}</option>
+            </template>
         </select>
     </div>
 </div>

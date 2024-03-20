@@ -5,7 +5,7 @@
 <div class="h-100 d-flex flex-column">
 <front-navbar />
 <main>
-    <router-view></router-view>
+    <router-view />
 </main>
 <front-footer />
 </div>

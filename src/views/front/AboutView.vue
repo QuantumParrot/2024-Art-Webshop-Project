@@ -64,7 +64,7 @@
             <div class="row mb-6">
                 <template v-for="item in socialCare" :key="item.id">
                 <div class="col-lg-4 col-md-6">
-                    <NGO-card :org="item"></NGO-card>
+                    <NGO-card :org="item" />
                 </div>
                 </template>
             </div>

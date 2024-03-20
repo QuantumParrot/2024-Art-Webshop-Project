@@ -27,7 +27,7 @@
 
 <template v-if="order.id">
     <p class="mb-5">您的訂單：</p>
-    <order-template :order="order"></order-template>
+    <order-template :order="order" />
 </template>
 
 </template>

@@ -109,7 +109,9 @@ export default {
   background-size: cover;
   position: relative;
   z-index: 10;
+
   &::after {
+
     content: '';
     width: 100%; height: 100%;
     position: absolute;
@@ -117,6 +119,7 @@ export default {
     z-index: -10;
     background-color: $gray-500;
     opacity: 0.5;
+
   }
 
 }

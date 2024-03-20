@@ -116,17 +116,17 @@ export default {
 
 .section-title::after {
 
-    bottom: 0; left: 2px;
-    height: 30%; width: 99%;
+  bottom: 0; left: 2px;
+  height: 30%; width: 99%;
 
 }
 
 .btn-navigate {
 
-    background-color: $primary;
-    color: $light;
+  background-color: $primary;
+  color: $light;
 
-    &::after { background-color: $secondary; }
+  &::after { background-color: $secondary; }
 
 }
 

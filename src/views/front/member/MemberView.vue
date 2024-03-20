@@ -36,22 +36,22 @@
 
 .nav-link {
 
-    text-align: center;
-    background-color: $gray;
-    color: $primary;
+  text-align: center;
+  background-color: $gray;
+  color: $primary;
 
-    border: 1px solid $gray;
-    margin: 0 -1px -1px 0;
+  border: 1px solid $gray;
+  margin: 0 -1px -1px 0;
 
-    &.link-active, &:hover {
+  &.link-active, &:hover {
 
-        background-color: $primary;
-        color: $gray;
-        font-weight: bold;
+    background-color: $primary;
+    color: $gray;
+    font-weight: bold;
 
-        border-color: $primary;
+    border-color: $primary;
 
-    }
+  }
 
 }
 

@@ -104,49 +104,49 @@ export default {
 
 .card-img {
 
-    border-radius: 0 0 0 0;
-    position: relative;
+  border-radius: 0 0 0 0;
+  position: relative;
 
-    &:hover {
+  &:hover {
 
-        transform: scale(1.2);
-        transition: all 0.75s;
+    transform: scale(1.2);
+    transition: all 0.75s;
 
-    }
+  }
 
-    &:hover::after {
+  &:hover::after {
 
-        content: '';
-        width: 100%; height: 100%;
-        position: absolute;
-        top: 0; left: 0;
-        z-index: 1;
-        backdrop-filter: brightness(70%);
+    content: '';
+    width: 100%; height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 1;
+    backdrop-filter: brightness(70%);
 
-    }
+  }
 
 }
 
 .card-img-top {
 
-    height: 300px;
-    object-position: 50% 30%;
-    border-radius: 0 0 0 0;
+  height: 300px;
+  object-position: 50% 30%;
+  border-radius: 0 0 0 0;
 
 }
 
 .card-navigate {
 
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    z-index: 2;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  z-index: 2;
 
-    &:hover { opacity: 1; }
+  &:hover { opacity: 1; }
 
 }
 

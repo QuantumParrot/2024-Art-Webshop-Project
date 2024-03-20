@@ -139,34 +139,34 @@ export default {
 
 .nav-item {
 
-    flex-grow: 1;
+  flex-grow: 1;
 
-    border: 1px solid $primary;
+  border: 1px solid $primary;
 
-    margin: 0 -1px -1px 0
+  margin: 0 -1px -1px 0
 
 }
 
 .nav-link {
 
-    text-align: center;
-    background-color: $gray;
+  text-align: center;
+  background-color: $gray;
 
-    &.link-active {
+  &.link-active {
 
-        background-color: $primary;
-        color: $light;
-        font-weight: bold;
+    background-color: $primary;
+    color: $light;
+    font-weight: bold;
 
-    }
+  }
 
-    &:hover {
+  &:hover {
 
-        background-color: $primary;
-        color: $light;
-        font-weight: bold;
+    background-color: $primary;
+    color: $light;
+    font-weight: bold;
 
-    }
+  }
 
 }
 

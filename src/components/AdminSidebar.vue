@@ -71,23 +71,23 @@ export default {
 
 .nav-link {
 
-    color: $light;
-    padding: 1.5rem;
-    border-bottom: 1px dotted $secondary;
+  color: $light;
+  padding: 1.5rem;
+  border-bottom: 1px dotted $secondary;
 
-    &:hover {
+  &:hover {
 
-        color: $primary;
-        background-color: $light;
+    color: $primary;
+    background-color: $light;
 
-    }
+  }
 
-    &.active {
+  &.active {
 
-        color: $primary;
-        background-color: $light;
+    color: $primary;
+    background-color: $light;
 
-    }
+  }
 
 }
 
@@ -99,28 +99,28 @@ nav { min-height: calc(100vh - 38px); }
 
 @media (max-width: 991px) {
 
-    nav { min-height: auto; }
+  nav { min-height: auto; }
 
-    .sidebar .nav {
+  .sidebar .nav {
 
-        width: 100%;
+    width: 100%;
 
-        position: fixed;
-        right: 0; bottom: 0;
-        z-index: 2000;
+    position: fixed;
+    right: 0; bottom: 0;
+    z-index: 2000;
 
-        padding: 0;
+    padding: 0;
 
-        flex-direction: row;
-        align-items: center;
+    flex-direction: row;
+    align-items: center;
 
-    }
+  }
 
-    .nav-link { text-align: center; padding: 1rem; }
+  .nav-link { text-align: center; padding: 1rem; }
 
-    .bi { display: none; }
+  .bi { display: none; }
 
-    .nav-footer { text-align: center; }
+  .nav-footer { text-align: center; }
 
 }
 

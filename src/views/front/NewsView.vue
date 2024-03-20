@@ -70,7 +70,7 @@ export default {
 
 .nav-link {
 
-    &:hover { color: $secondary }
+  &:hover { color: $secondary }
 
 }
 

@@ -177,20 +177,20 @@ export default {
 
 .profile {
 
-    position: relative;
-    height: 700px;
+  position: relative;
+  height: 700px;
 
-    &::after {
+  &::after {
 
-        content: '';
-        width: 100%; height: 100%;
-        position: absolute;
-        top: 0; right: 0;
-        z-index: 1;
+    content: '';
+    width: 100%; height: 100%;
+    position: absolute;
+    top: 0; right: 0;
+    z-index: 1;
 
-        background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
 
-    };
+  };
 
 }
 
@@ -198,14 +198,14 @@ export default {
 
 .accordion-button {
 
-    background-color: $secondary;
-    color: $light;
+  background-color: $secondary;
+  color: $light;
 
 }
 
 @media (max-width: 471px) {
 
-    .profile { height: 800px; }
+  .profile { height: 800px; }
 
 };
 

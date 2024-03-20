@@ -150,39 +150,39 @@ export default {
 
 .nav-item {
 
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 
-    background-color: $light;
-    border-radius: .25rem;
-    padding: .5rem 1rem .5rem .5rem;
+  background-color: $light;
+  border-radius: .25rem;
+  padding: .5rem 1rem .5rem .5rem;
 
-    &.active {
+  &.active {
 
-        background-color: $primary;
-        color: $light;
+    background-color: $primary;
+    color: $light;
 
-    }
+  }
 
 }
 
 @media (max-width: 575px) {
 
-    .card-img { max-height: 250px; object-position: 50% 15%; }
+  .card-img { max-height: 250px; object-position: 50% 15%; }
 
 }
 
 @media (max-width: 492px) {
 
-    .nav {
+  .nav {
 
-        flex-direction: column;
-        align-items: start;
+    flex-direction: column;
+    align-items: start;
 
-    }
+  }
 
-    .nav-item { width: 100%; }
+  .nav-item { width: 100%; }
 
 }
 

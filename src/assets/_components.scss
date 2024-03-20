@@ -2,15 +2,15 @@
 
 dialog {
 
-   border: none;
-   max-width: 700px;
-   width: calc(100vw - 24px);
+  border: none;
+  max-width: 700px;
+  width: calc(100vw - 24px);
 
 }
 
 @media (max-width: 991px) {
 
-   .modal-lg { --bs-modal-width: 1140px; }
+  .modal-lg { --bs-modal-width: 1140px; }
 
 }
 
@@ -20,35 +20,35 @@ dialog {
 
 .btn-inline {
    
-   @extend .btn-origin;
+  @extend .btn-origin;
    
-   position: absolute;
-   top: .45rem; right: 1.25rem;
+  position: absolute;
+  top: .45rem; right: 1.25rem;
 
 }
 
 .btn-slider {
 
-   @extend .btn;
+  @extend .btn;
 
-   border: 0;
-   overflow: hidden;
+  border: 0;
+  overflow: hidden;
 
-   position: relative;
-   z-index: 1;
+  position: relative;
+  z-index: 1;
  
-   &::after {
+  &::after {
  
-     content: '';
-     width: 0; height: 100%;
-     position: absolute;
-     top: 0; right: 0;
-     z-index: -1;
-     transition: all 0.5s;
+    content: '';
+    width: 0; height: 100%;
+    position: absolute;
+    top: 0; right: 0;
+    z-index: -1;
+    transition: all 0.5s;
  
-   }
+  }
 
-   &:hover::after { width: 100%; left: 0; }
+  &:hover::after { width: 100%; left: 0; }
 
 }
 
@@ -56,14 +56,14 @@ dialog {
 
 .is-required {
 
-   &::before {
+  &::before {
 
-      content: '*';
-      color: $danger;
-      font-weight: bold;
-      margin-right: .25rem;
+    content: '*';
+    color: $danger;
+    font-weight: bold;
+    margin-right: .25rem;
 
-   }
+  }
 
 }
 

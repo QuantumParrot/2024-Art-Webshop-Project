@@ -288,47 +288,43 @@ img { object-fit: cover; }
 
 .banner {
 
-    height: 600px;
-    background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1710004950072.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=dZNhm32F89EIliw2AFxuxqQfDO2E6GcQyYDaGzzNAykb%2FdKix0kc1Ju20%2BucFI6HgU6MCa7DmfrfUjJYPdatckrEo1r3Xgi3h8jyRJSWSCSeMOuP0NwMMZh9Q%2FSxn1NXMC8JvrMIob6AdCjEt9uv8uihe7J3b3Wz9NVn8b0bJtsLmcT%2BaJB%2B5aYZ6OYkS7LuLH27wlqV2LSV%2F92Bq6JWDvM8uMg7MJBhesdFqrlWpY6WTnWtryBMGBcBecjNVf5Vpp%2BP6YE9D5cx9rfcUz4tu6dyUU6GC6JxUqZwSUui8bizHRao1d7FaUbjL2%2B5MEvrdNWqNsC69z6iu%2FSREiZb%2Bw%3D%3D);
-    background-repeat: no-repeat;
-    background-position: 50% center;
-    background-size: cover;
+  height: 600px;
+  background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1710004950072.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=dZNhm32F89EIliw2AFxuxqQfDO2E6GcQyYDaGzzNAykb%2FdKix0kc1Ju20%2BucFI6HgU6MCa7DmfrfUjJYPdatckrEo1r3Xgi3h8jyRJSWSCSeMOuP0NwMMZh9Q%2FSxn1NXMC8JvrMIob6AdCjEt9uv8uihe7J3b3Wz9NVn8b0bJtsLmcT%2BaJB%2B5aYZ6OYkS7LuLH27wlqV2LSV%2F92Bq6JWDvM8uMg7MJBhesdFqrlWpY6WTnWtryBMGBcBecjNVf5Vpp%2BP6YE9D5cx9rfcUz4tu6dyUU6GC6JxUqZwSUui8bizHRao1d7FaUbjL2%2B5MEvrdNWqNsC69z6iu%2FSREiZb%2Bw%3D%3D);
+  background-repeat: no-repeat;
+  background-position: 50% center;
+  background-size: cover;
 
-    position: relative;
+  position: relative;
 
-    &::after {
+  &::after {
 
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
 
-        width: 100%; height: 100px;
-        background-image: linear-gradient(to top, $gray, transparent);
-        box-shadow: 5px 5px $gray;
+    width: 100%; height: 100px;
+    background-image: linear-gradient(to top, $gray, transparent);
+    box-shadow: 5px 5px $gray;
 
-    }
-
-}
-
-.banner-txt {
-
-    background-color: rgba(0, 0, 0, .35);
+  }
 
 }
+
+.banner-txt { background-color: rgba(0, 0, 0, .35); }
 
 .intro-sec {
 
-    height: 100%;
-    background-color: $light;
+  height: 100%;
+  background-color: $light;
 
 }
 
 .intro-img {
 
-    width: 100%;
-    height: 400px;
-    min-height: 100%;
+  width: 100%;
+  height: 400px;
+  min-height: 100%;
 
 }
 
@@ -336,10 +332,10 @@ img { object-fit: cover; }
 
 .btn-slider {
 
-    background-color: $primary;
-    color: $gray;
+  background-color: $primary;
+  color: $gray;
 
-    &::after { background-color: $secondary; }
+  &::after { background-color: $secondary; }
 
 }
 

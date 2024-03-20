@@ -101,7 +101,7 @@ export default {
 
 .navbar {
 
-    background-image: linear-gradient(180deg, $gray, white);
+  background-image: linear-gradient(180deg, $gray, white);
 
 }
 
@@ -109,23 +109,23 @@ export default {
 
 .nav-link {
 
-    color: $primary;
+  color: $primary;
 
-    &.active, &:hover { font-weight: bold; color: $orange-700; }
+  &.active, &:hover { font-weight: bold; color: $orange-700; }
 
 }
 
 @media (max-width: 991px) {
 
-    .navbar-collapse {
+  .navbar-collapse {
 
-        padding-top: 1.25rem;
+    padding-top: 1.25rem;
 
-        .nav { flex-direction: column; }
+    .nav { flex-direction: column; }
 
-        .nav-link { padding-left: 0; }
+    .nav-link { padding-left: 0; }
 
-    }
+  }
 
 }
 

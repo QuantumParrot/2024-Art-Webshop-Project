@@ -138,18 +138,18 @@ export default {
 
 .article-img {
 
-    object-fit: cover;
-    max-height: 500px;
+  object-fit: cover;
+  max-height: 500px;
 
 }
 
 .author-img {
 
-    width: 100px; height: 100px;
-    border-radius: 50%;
+  width: 100px; height: 100px;
+  border-radius: 50%;
 
-    background-size: cover;
-    background-position: center center;
+  background-size: cover;
+  background-position: center center;
 
 }
 
@@ -157,7 +157,7 @@ export default {
 
 @media (max-width: 991px) {
 
-    .author-img { width: 80px; height: 80px; }
+  .author-img { width: 80px; height: 80px; }
 
 }
 

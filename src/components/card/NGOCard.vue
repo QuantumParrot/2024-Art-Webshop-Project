@@ -33,7 +33,7 @@ export default { props: ['org'] };
 
 .btn-slider {
 
-    &::after { background-color: $secondary };
+  &::after { background-color: $secondary };
 
 }
 

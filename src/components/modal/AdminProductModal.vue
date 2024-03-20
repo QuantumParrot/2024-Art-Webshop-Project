@@ -413,7 +413,7 @@ img { object-fit: cover; }
 
 .product-img {
 
-    &:hover { border: 1px dotted $secondary; }
+  &:hover { border: 1px dotted $secondary; }
 
 }
 
@@ -421,15 +421,15 @@ img { object-fit: cover; }
 
 .tag {
 
-    background-color: $light;
-    color: $primary;
+  background-color: $light;
+  color: $primary;
 
-    &:hover {
+  &:hover {
 
-        background-color: $primary;
-        color: $light;
+    background-color: $primary;
+    color: $light;
 
-    }
+  }
 
 }
 

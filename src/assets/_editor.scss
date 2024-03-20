@@ -1,4 +1,4 @@
-// 不知道權重怎麼設計的，官方提供的方法也蓋不掉，所以就用下下策，之後有時間再研究看看
+// 需要優化的地方：找出 !important 以外的方法
 
 .ck.ck-balloon-panel { z-index: 1100 !important; }
 

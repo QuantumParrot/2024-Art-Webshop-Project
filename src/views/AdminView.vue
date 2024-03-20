@@ -1,6 +1,6 @@
 <template>
 
-<loading-overlay :isLoading="isLoading"></loading-overlay>
+<loading-overlay :isLoading="isLoading" />
 
 <div class="container-fluid h-100" v-if="isLogin">
     <div class="row h-100">

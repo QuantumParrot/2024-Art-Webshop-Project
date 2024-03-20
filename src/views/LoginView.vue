@@ -1,6 +1,6 @@
 <template>
 
-<loading-overlay :isLoading="isLoading"></loading-overlay>
+<loading-overlay :isLoading="isLoading" />
 
 <div class="container-fluid" ref="background">
     <div class="h-100 row justify-content-center align-items-center" style="min-height: 100vh;">

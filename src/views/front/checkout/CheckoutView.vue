@@ -42,7 +42,7 @@
                     <keep-alive><component :is="Component"></component></keep-alive>
                 </router-view>
                 </template>
-                <router-view v-else></router-view>
+                <router-view v-else />
             </div>
         </div>
     </div>

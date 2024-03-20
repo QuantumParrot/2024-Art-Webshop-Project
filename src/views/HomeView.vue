@@ -1,6 +1,6 @@
 <template>
 
-<loading-overlay :isLoading="isLoading"></loading-overlay>
+<loading-overlay :isLoading="isLoading" />
 
 <div class="h-100 d-flex flex-column">
 <front-navbar />

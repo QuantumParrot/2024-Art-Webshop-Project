@@ -2,11 +2,7 @@
 
 <template v-if="carts.length">
 
-<div class="flex-classic mb-5">
-    <button type="button" class="btn btn-outline-secondary rounded-1"
-            @click="$router.push('/products')">
-    <span class="text-highlight"><i class="bi bi-caret-left-fill"></i></span>
-    繼續購物</button>
+<div class="d-flex justify-content-end mb-5">
     <button type="button" class="btn btn-outline-secondary rounded-1"
             @click="clearCart">
     清空購物車</button>
@@ -21,15 +17,12 @@
             <div class="col-xl-8 col-lg-7">
                 <div class="row align-items-stretch gx-3">
                     <div class="col-sm-4">
-                        <div class="h-100 mask z-0">
+                        <div class="h-100">
                             <router-link target="_blank"
                                          :to="`/product/${cart.product.id}`">
                             <img class="card-img object-fit-cover"
                                  :src="cart.product.imageUrl"
                                  :alt="cart.product.title">
-                            <div class="z-2 mask-txt text-light fs-3">
-                            <i class="bi bi-box-arrow-up-right"></i>
-                            </div>
                             </router-link>
                         </div>
                     </div>
@@ -58,8 +51,7 @@
                         <input
                             type="number" class="form-control py-1 text-center"
                             min="1" :value="cart.qty"
-                            @change="(e) =>
-                                    changeCartQty(cart.id, +e.target.value)">
+                            @change="(e) => changeCartQty(cart.id, +e.target.value)">
                         <button
                             type="button" class="input-group-text btn btn-primary"
                             @click="changeCartQty(cart.id, cart.qty + 1)">
@@ -67,7 +59,7 @@
                         </button>
                     </div>
                     <div class="w-75 text-end">
-                        <p class="mb-0"><b>NT＄{{ cart.total }}</b></p>
+                        <p class="mb-0"><b>NT＄ {{ cart.total }}</b></p>
                     </div>
                 </div>
             </div>
@@ -117,7 +109,7 @@
     <span class="text-danger">{{ sum.total - sum.finalTotal }}</span> 元！
     </p>
     <p class="fs-5 mb-0">
-    <span>總計：</span><span>NT＄</span>
+    <span>總計：</span><span>NT＄ </span>
     <span :class="sum.finalTotal !== sum.total ? couponUsed: ''">
     {{ sum.total }}</span>
     <span class="ms-1" v-show="sum.finalTotal !== sum.total">
@@ -125,12 +117,16 @@
     </p>
 </div>
 
-<div>
-<router-link to="/checkout/form" v-slot="{ navigate }" custom>
-    <button type="button" class="float-end btn btn-highlight rounded-1"
-            @click="navigate">
-    下一步</button>
-</router-link>
+<div class="flex-classic">
+    <button type="button" class="btn btn-outline-primary rounded-1"
+            @click="$router.push('/products')">
+    <span><i class="bi bi-caret-left-fill"></i></span>
+    繼續購物</button>
+    <router-link to="/checkout/form" v-slot="{ navigate }" custom>
+        <button type="button" class="btn btn-primary rounded-1"
+                @click="navigate">
+        下一步</button>
+    </router-link>
 </div>
 
 </template>

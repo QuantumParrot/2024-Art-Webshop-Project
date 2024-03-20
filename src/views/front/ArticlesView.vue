@@ -2,7 +2,7 @@
 
 <div class="h-100 bg-gray text-primary">
     <div class="container py-7">
-        <h3 class="h2 text-center mb-7">專欄文章</h3>
+        <h2 class="text-center py-5 mb-7"><b>專欄文章</b></h2>
         <div class="mb-7">
             <category-filter-bar
                 :filters="categories['專欄文章']" :filter="filter"
@@ -50,7 +50,6 @@
             @switch-page="changePage" />
         </div>
     </div>
-    <faq-section :types="['文章問題', '其他問題']" />
     <subscription-section />
 </div>
 
@@ -70,8 +69,6 @@ import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
 
 import PaginationComponent from '@/components/PaginationComponent.vue';
 
-import FaqSection from '@/components/section/FaqSection.vue';
-
 import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
 
 //
@@ -80,7 +77,7 @@ export default {
 
     components: {
 
-        CategoryFilterBar, PaginationComponent, FaqSection, SubscriptionSection,
+        CategoryFilterBar, PaginationComponent, SubscriptionSection,
 
     },
 

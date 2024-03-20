@@ -78,7 +78,7 @@ export default defineStore('userOrder', {
 
             };
 
-            const config = { title: '確認送出訂單？', text: '一旦按下確定，即視為交易成立' };
+            const config = { title: '確認送出訂單？', text: '一旦按下確定，即視為交易成立', type: 'confirm' };
 
             alertStore.checkAlert(config, () => {
 
@@ -140,7 +140,14 @@ export default defineStore('userOrder', {
             axios.post(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/pay/${id}`)
                 .then(() => {
 
-                    const config = { title: '謝謝您！', text: '我們將立即為您出貨，敬請耐心等待等候！', icon: 'success' };
+                    const config = {
+
+                        title: '謝謝您！',
+                        text: '我們將立即為您出貨，敬請耐心等待等候！',
+                        icon: 'success',
+                        buttonColor: '#424242',
+
+                    };
 
                     alertStore.modalAlert(config);
 

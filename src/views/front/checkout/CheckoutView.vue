@@ -7,24 +7,24 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="nav w-100 mb-7 align-items-center
-                            justify-content-lg-center justify-content-between gap-lg-6 gap-2">
+                            justify-content-xl-center justify-content-between gap-lg-6 gap-2">
                     <div class="nav-item h2 mb-0 shadow-sm" :class="{ 'active': step === 1 }">
                         <i class="bi bi-1-square-fill" style="line-height: 1;"></i>
                         <span class="h6 mb-0">確認商品</span>
                     </div>
                     <div class="d-md-block d-none">
-                        <span class="arrow-animation">
-                            <span class="arrow">➡️</span>
-                        </span>
+                        <div class="fs-4 px-2">
+                            <span class="text-highlight"><i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                     <div class="nav-item h2 mb-0 shadow-sm" :class="{ 'active': step === 2 }">
                         <i class="bi bi-2-square-fill" style="line-height: 1;"></i>
                         <span class="h6 mb-0">填寫收件資料</span>
                     </div>
                     <div class="d-md-block d-none">
-                        <span class="arrow-animation">
-                            <span class="arrow">➡️</span>
-                        </span>
+                        <div class="fs-4 px-2">
+                            <span class="text-highlight"><i class="bi bi-arrow-right"></i></span>
+                        </div>
                     </div>
                     <div class="nav-item h2 mb-0 shadow-sm" :class="{ 'active': step === 3 }">
                         <i class="bi bi-3-square-fill" style="line-height: 1;"></i>

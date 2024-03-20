@@ -2,7 +2,7 @@
 
 <div class="h-100 bg-gray text-primary">
     <div class="container py-7">
-        <h3 class="h2 text-center mb-7">最新消息</h3>
+        <h2 class="text-center py-5 mb-7"><b>最新消息</b></h2>
         <ul class="list-unstyled d-flex flex-column gap-5
                    alert bg-white px-md-7 p-5 mb-7">
             <template v-for="item in news" :key="item.id">

@@ -14,7 +14,8 @@
                     <router-link :to="`/products?category=${product.category}`">
                     {{ product.category }}</router-link>
                     </li>
-                    <li class="breadcrumb-item active"></li>
+                    <li class="d-md-block d-none breadcrumb-item active"
+                        aria-current="page">{{ product.title }}</li>
                 </ol>
             </nav>
             <div class="position-relative mb-5">
@@ -63,7 +64,7 @@
             <div class="col-xl-7 order-xl-1 order-2">
                 <div class="h-100 d-flex flex-column">
                     <div class="flex-grow-1 alert bg-light p-5 mb-5">
-                        <div class="h-100 border border-gray shadow-sm rounded-2 p-5 pb-6
+                        <div class="h-100 border border-gray rounded-2 p-5 pb-6
                                     d-flex flex-column justify-content-between">
                             <div>
                             <h3 class="lh-lg fs-4 text-dark fw-bold mb-5">

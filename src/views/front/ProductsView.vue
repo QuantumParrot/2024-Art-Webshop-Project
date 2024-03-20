@@ -2,7 +2,7 @@
 
 <div class="h-100 bg-gray text-primary" v-if="products.length">
     <div class="container py-7">
-        <h3 class="h2 text-center mb-7">線上商城</h3>
+        <h2 class="text-center py-5 mb-7"><b>線上商城</b></h2>
         <ul class="nav flex-column flex-md-row mb-7">
             <li class="nav-item">
             <router-link
@@ -19,11 +19,6 @@
             </li>
             </template>
         </ul>
-        <div class="d-flex justify-content-center mb-7" v-show="products.length">
-            <pagination-component
-                :current="pagination.current_page" :total="pagination.total_pages"
-                @switch-page="(num) => getProducts(pagination.category, num)" />
-        </div>
         <ul class="row g-6 list-unstyled mb-7">
             <template v-for="product in products" :key="product.id">
             <li class="col-xl-4 col-md-6">
@@ -37,7 +32,6 @@
             @switch-page="(num) => getProducts(pagination.category, num)" />
         </div>
     </div>
-    <faq-section :types="['付款問題', '取貨問題']" />
     <subscription-section />
 </div>
 
@@ -63,21 +57,15 @@ import userCollectionStore from '@/stores/userCollection';
 
 import PaginationComponent from '@/components/PaginationComponent.vue';
 
-import FaqSection from '@/components/section/FaqSection.vue';
+import ProductCard from '@/components/card/ProductCard.vue';
 
 import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
-
-import ProductCard from '@/components/card/ProductCard.vue';
 
 //
 
 export default {
 
-    components: {
-
-        ProductCard, PaginationComponent, FaqSection, SubscriptionSection,
-
-    },
+    components: { ProductCard, PaginationComponent, SubscriptionSection },
 
     mixins: [categoryMixins],
 

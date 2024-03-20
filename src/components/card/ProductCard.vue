@@ -1,8 +1,8 @@
 <template>
 
-<div class="h-100 card border-0 rounded-0 shadow">
+<div class="h-100 card overflow-hidden">
     <div class="overflow-hidden">
-        <div class="card-img">
+        <div class="card-img overflow-hidden">
             <router-link :to="`/product/${product.id}`">
             <img class="card-img-top"
                  :src="product.imageUrl" :alt="product.title">
@@ -14,8 +14,8 @@
             </router-link>
         </div>
     </div>
-    <div class="card-body py-5 row">
-        <div class="col-9">
+    <div class="card-body py-5">
+        <div class="mb-5">
             <div class="h-100 d-flex flex-column justify-content-between">
                 <div class="flex-grow-1 d-flex gap-3 mb-3">
                     <h4 class="fs-5 fw-bold text-primary
@@ -33,29 +33,28 @@
                         <span class="arrow"> → </span>
                         </span>
                     </template>
-                    <span class="fw-bold">{{ product.price }}</span>
+                    <span class="fw-bold">{{ product.price }} 元</span>
                 </div>
             </div>
         </div>
-        <div class="col-3">
-            <div class="d-flex flex-column align-items-end">
-                <button type="button"
-                        class="btn btn-primary"
-                        @click="addToCart(product.id)"
-                        :disabled="loadingTask === product.id">
-                <template v-if="loadingTask === product.id">
-                <div role="status" class="spinner-border spinner-border-sm">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                </template>
-                <i class="bi bi-cart-plus-fill" v-else></i>
-                </button>
-                <button type="button" class="btn btn-outline-primary"
-                        @click="toggleCollection(product.id)">
-                <i class="bi" :class="collection.includes(product.id) ?
-                'bi-heart-fill' : 'bi-heart'"></i>
-                </button>
+        <div class="flex-classic gap-3">
+            <button type="button" class="btn btn-outline-primary"
+                    @click="toggleCollection(product.id)">
+            <i class="bi" :class="collection.includes(product.id) ?
+            'bi-heart-fill' : 'bi-heart'"></i>
+            </button>
+            <button type="button"
+                    class="w-100 btn btn-primary"
+                    @click="addToCart(product.id)"
+                    :disabled="loadingTask === product.id">
+            <template v-if="loadingTask === product.id">
+            <div role="status" class="spinner-border spinner-border-sm">
+                <span class="visually-hidden">Loading...</span>
             </div>
+            </template>
+            <i class="bi bi-cart-plus-fill" v-else></i>
+            <span class="ms-2">加入購物車</span>
+            </button>
         </div>
     </div>
 </div>
@@ -104,8 +103,8 @@ export default {
 
 .card-img {
 
-  border-radius: 0 0 0 0;
   position: relative;
+  border-radius: 0.25rem 0 0;
 
   &:hover {
 
@@ -131,7 +130,6 @@ export default {
 
   height: 300px;
   object-position: 50% 30%;
-  border-radius: 0 0 0 0;
 
 }
 
@@ -149,7 +147,5 @@ export default {
   &:hover { opacity: 1; }
 
 }
-
-.btn { border-radius: 0 0 0 0; }
 
 </style>

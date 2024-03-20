@@ -3,12 +3,9 @@
 <nav class="navbar navbar-expand-lg text-primary py-4 shadow-sm">
     <div class="container">
         <h1 class="letter-space-sm mb-0 order-1">
-            <router-link class="title-link" to="/">收藏家</router-link>
+            <router-link class="title-link" to="/"><b>收藏家</b></router-link>
         </h1>
         <div class="flex-classic gap-2 order-2 order-lg-3">
-            <button type="button" class="btn btn-outline-primary d-lg-none" @click="toggle">
-                <i class="bi bi-list"></i>
-            </button>
             <router-link v-slot="{ navigate }" to="/checkout/carts" custom>
             <button type="button" class="btn btn-primary position-relative" @click="navigate">
                 <i class="bi bi-cart-fill"></i>
@@ -23,6 +20,9 @@
                 <i class="bi bi-person-fill"></i>
             </button>
             </router-link>
+            <button type="button" class="btn btn-primary d-lg-none" @click="toggle">
+                <i class="bi bi-list"></i>
+            </button>
         </div>
         <div class="navbar-collapse collapse flex-grow-0 order-3 order-lg-2" ref="collapse">
             <ul class="navbar-nav gap-3">
@@ -30,10 +30,10 @@
                 <router-link class="nav-link" to="/news">最新消息</router-link>
                 </li>
                 <li class="nav-item">
-                <router-link class="nav-link" to="/about">關於我們</router-link>
+                <router-link class="nav-link" to="/products">線上商城</router-link>
                 </li>
                 <li class="nav-item">
-                <router-link class="nav-link" to="/products">線上商城</router-link>
+                <router-link class="nav-link" to="/about">關於我們</router-link>
                 </li>
                 <li class="nav-item">
                 <router-link class="nav-link" to="/articles">專欄文章</router-link>

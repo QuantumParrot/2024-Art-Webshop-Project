@@ -71,7 +71,12 @@ export default defineStore('alert', {
 
         checkAlert(config, fn, reset) {
 
-            const { title, text, icon = 'warning' } = config;
+            const {
+
+                title, text, icon = 'warning',
+                type = 'delete',
+
+            } = config;
 
             Swal.fire({
 
@@ -81,7 +86,7 @@ export default defineStore('alert', {
                 showCancelButton: true,
                 cancelButtonText: this.noText,
                 focusConfirm: false,
-                confirmButtonColor: this.refuseColor,
+                confirmButtonColor: type === 'delete' ? this.refuseColor : '#424242',
                 confirmButtonText: this.okText,
 
             }).then((result) => {

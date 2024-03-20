@@ -10,7 +10,9 @@
                         <router-link to="/">首頁</router-link></li>
                         <li class="breadcrumb-item">
                         <router-link to="/news">最新消息</router-link></li>
-                        <li class="breadcrumb-item active" aria-current="page"></li>
+                        <li class="d-md-block d-none breadcrumb-item active"
+                            aria-current="page">
+                        {{ article.title }}</li>
                     </ol>
                 </nav>
                 <div class="bg-light rounded-2 shadow-sm" v-show="!isLoading">

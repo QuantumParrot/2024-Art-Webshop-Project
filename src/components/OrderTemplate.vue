@@ -19,7 +19,7 @@
                 <li class="mb-2"><b>選擇贊助的專案</b>：{{ order.project }}</li>
                 <li>
                     <p class="mb-2"><b>您的留言</b>：</p>
-                    <p class="mb-0">{{ order.message }}</p>
+                    <p class="pre-wrap mb-0">{{ order.message }}</p>
                 </li>
             </ul>
         </details>

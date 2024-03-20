@@ -34,14 +34,13 @@
                     </template>
                 </div>
                 <div class="text-end">
-                    <router-link target="_blank" class="text-decoration-none"
-                                 :to="{ path: '/about', hash: '#faq' }">
+                    <router-link target="_blank" :to="{ path: '/about', hash: '#faq' }">
                         <span class="arrow-animation">
                             <span class="arrow">
-                            <i class="bi bi-caret-right-fill"></i>
+                                <i class="bi bi-caret-right-fill"></i>
                             </span>
                         </span>
-                        <span>READ MORE</span>
+                        <span>更多問答</span>
                     </router-link>
                 </div>
             </div>

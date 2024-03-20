@@ -10,9 +10,9 @@
                         d-flex flex-column
                         justify-content-center align-items-lg-start align-items-center">
                 <div class="profile-txt rounded-2 px-5 py-7 mx-md-5
-                            text-light text-shadow-black">
-                    <h3 class="mb-md-7 mb-5"><b>認識我們</b></h3>
-                    <div class="lh-lg">
+                            text-light text-shadow-black lh-lg">
+                    <h2 class="h3 mb-md-7 mb-5"><b>認識我們</b></h2>
+                    <div>
                         <p>收藏家的創業構想起源於 2015 年，</p>
                         <p>最初的團隊成員在博物館擔任導覽志工時互相認識，</p>
                         <p>懷抱不切實際的夢想與藍圖，憑藉對歷史藝術的熱情與執著，</p>
@@ -81,20 +81,20 @@
                 </div>
             </div>
         </div>
-        <div class="accordion mb-7" id="faq">
+        <div class="accordion mb-7" id="faq-section">
             <template v-for="q in displayingQuestions" :key="q.id">
             <div class="accordion-item">
                 <div class="accordion-header">
                     <button type="button"
-                            class="accordion-button collapsed"
+                            class="bg-light accordion-button collapsed"
                             data-bs-toggle="collapse" :data-bs-target="`#faq${q.id}`"
                             aria-expanded="false" :aria-controls="`#faq-${q.id}`">
-                    <i class="fs-7 text-subtle bi bi-asterisk me-3"></i>
-                    <b>{{ q.question }}</b>
+                    <i class="fs-7 text-highlight bi bi-asterisk me-3"></i>
+                    <b class="text-dark">{{ q.question }}</b>
                     </button>
                 </div>
                 <div class="accordion-collapse collapse" :id="`faq${q.id}`"
-                     data-bs-parent="#faq" aria-expanded="false">
+                     data-bs-parent="#faq-section" aria-expanded="false">
                 <div class="accordion-body">
                     <p class="mb-0 lh-lg" v-html="q.answer"></p>
                 </div>

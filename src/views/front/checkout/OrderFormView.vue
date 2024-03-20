@@ -42,7 +42,7 @@
                         <td colspan="3" class="text-end py-5 border-0">
                             <div class="flex-classic fs-5">
                             <span><b>總計</b></span>
-                            <span>NT＄<b>{{ sum.finalTotal }}</b></span>
+                            <span>NT＄ <b>{{ sum.finalTotal }}</b></span>
                             </div>
                         </td>
                         </tr>
@@ -127,12 +127,12 @@
 
 <div class="flex-classic">
     <router-link to="/checkout/carts" v-slot="{ navigate }">
-    <button type="button" class="btn btn-outline-secondary rounded-1"
+    <button type="button" class="btn btn-outline-primary rounded-1"
             @click="navigate">
-    <span class="text-highlight"><i class="bi bi-caret-left-fill"></i></span>
+    <span><i class="bi bi-caret-left-fill"></i></span>
     上一步</button>
     </router-link>
-    <button type="submit" class="btn btn-highlight rounded-1">
+    <button type="submit" class="btn btn-primary rounded-1">
     送出訂單</button>
 </div>
 

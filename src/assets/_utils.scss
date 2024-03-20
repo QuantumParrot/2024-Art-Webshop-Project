@@ -50,3 +50,14 @@
 };
 
 .border-bottom-dotted { border-bottom: 1px dotted $primary; }
+
+/* scrollbar */
+
+.overflex-scroll, .overflow-x-scroll {
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar { display: none; }
+
+}

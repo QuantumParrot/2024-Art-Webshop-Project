@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 import axios from 'axios';
 
 //
@@ -17,8 +15,6 @@ import useUserProductStore from './userProduct';
 const loaderStore = useLoaderStore();
 
 const alertStore = useAlertStore();
-
-const userProductStore = useUserProductStore();
 
 const { VITE_APP_SITE, VITE_APP_PATH } = import.meta.env;
 
@@ -40,7 +36,11 @@ export default defineStore('userArticle', {
 
         news: ({ articles }) => articles.filter((i) => i.type === '網站公告').sort((a, b) => b.create_at - a.create_at),
 
-        newsList: ({ news, currentPage }) => news.filter((i, idx) => Math.floor(idx / 5) + 1 === currentPage.news),
+        newsList: ({ news, currentPage }) => {
+
+            news.filter((i, idx) => Math.floor(idx / 5) + 1 === currentPage.news);
+
+        },
 
         columns: ({ articles }) => articles.filter((i) => i.type === '專欄文章'),
 
@@ -110,6 +110,8 @@ export default defineStore('userArticle', {
 
         async getRelatedProducts(tag) {
 
+            const { getRandomProducts } = useUserProductStore();
+
             const res = await axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/products/all`);
 
             const products = Object.values(res.data.products);
@@ -124,9 +126,13 @@ export default defineStore('userArticle', {
 
             if (results.length > 3) {
 
-                results = userProductStore.getRandomProducts(results, 3);
+                results = getRandomProducts(results, 3);
 
-            } else { results.push(...userProductStore.getRandomProducts(products, Math.abs(results.length - 3))); }
+            } else {
+
+                results.push(...getRandomProducts(products, Math.abs(results.length - 3)));
+
+            }
 
             this.relatedProducts = results;
 

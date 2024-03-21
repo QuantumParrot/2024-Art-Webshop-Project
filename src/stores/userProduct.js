@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 import axios from 'axios';
 
 //
@@ -92,23 +90,31 @@ export default defineStore('userProduct', {
 
             const { category, tags } = item;
 
-            const products = this.totalProducts.filter((i) => i.id !== item.id && Array.isArray(i.tags));
+            // p => products
 
-            const results = products.filter((i) => i.tags.some((tag) => tags.includes(tag)));
+            const p = this.totalProducts.filter((i) => i.id !== item.id && Array.isArray(i.tags));
+
+            const results = p.filter((i) => i.tags.some((tag) => tags.includes(tag)));
 
             if (results.length < 3) {
 
-                const excludes = results.map((i) => i.id);
+                // ex => excludes
 
-                const categoryFilter = products.filter((i) => i.category === category && !excludes.includes(i.id));
+                const ex = results.map((i) => i.id);
 
-                results.push(...this.getRandomProducts(categoryFilter, 3 - results.length));
+                // cf => categoryFilter
+
+                const cf = p.filter((i) => i.category === category && !ex.includes(i.id));
+
+                results.push(...this.getRandomProducts(cf, 3 - results.length));
 
                 if (results.length < 3) {
 
-                    const remains = products.filter((i) => !results.map((result) => result.id).includes(i.id));
+                    // rm => remains
 
-                    results.push(...this.getRandomProducts(remains, 3 - results.length));
+                    const rm = p.filter((i) => !results.map((result) => result.id).includes(i.id));
+
+                    results.push(...this.getRandomProducts(rm, 3 - results.length));
 
                 }
 

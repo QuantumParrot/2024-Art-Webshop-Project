@@ -67,8 +67,11 @@ export default {
 
         totalItems() { return this.totalProducts.filter((i) => this.collection.includes(i.id)); },
 
-        // eslint-disable-next-line max-len
-        displaying() { return this.totalItems.filter((i, idx) => Math.floor(idx / 6) + 1 === this.currentPage); },
+        displaying() {
+
+            return this.totalItems.filter((i, idx) => Math.floor(idx / 6) + 1 === this.currentPage);
+
+        },
 
     },
 

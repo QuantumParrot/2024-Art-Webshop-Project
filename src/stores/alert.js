@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-
 import Swal from 'sweetalert2';
 
 //
@@ -113,26 +111,38 @@ export default defineStore('alert', {
                 text = '欄位不可空白';
                 this.toastAlert(text, 'warning');
 
-            } else if (!file.type.startsWith('image/')) {
+                return false;
+
+            }
+
+            if (!file.type.startsWith('image/')) {
 
                 text = '須為圖片檔案';
                 this.toastAlert(text, 'warning');
 
-            } else if (!typeRegex.test(file.name.split('.')[1])) {
+                return false;
+
+            }
+
+            if (!typeRegex.test(file.name.split('.')[1])) {
 
                 text = '不支援此格式';
                 this.toastAlert(text, 'warning');
 
-            } else if (file.size > 3145728) {
+                return false;
+
+            }
+
+            if (file.size > 3145728) {
 
                 text = '檔案容量過大';
                 this.toastAlert(text, 'warning');
 
-            } else {
-
-                return true;
+                return false;
 
             }
+
+            return true;
 
         },
 

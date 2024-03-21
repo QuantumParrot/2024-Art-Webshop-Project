@@ -3,9 +3,9 @@
 <div class="text-md-center" style="margin-top: -3rem">
     <LottiePlayer :animationData="successJSON" :height="250" />
     <h3 class="text-center mb-7"><b>訂單已成立</b></h3>
-    <p><b class="text-danger">請務必記下您的訂單編號</b>，方便您隨時追蹤訂單進度！</p>
+    <p><b>請務必記下您的訂單編號</b>，方便您隨時追蹤訂單進度！</p>
     <p class="mb-0">
-        <span>如在未付款的情況下關閉此頁，您<b class="text-danger">
+        <span>如在未付款的情況下關閉此頁，您<b>
         <span>仍然能在</span>
         <RouterLink
             target="_blank" to="/member"

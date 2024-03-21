@@ -76,7 +76,7 @@
             <h3 class="text-dark mb-7" id="faq"><b>常見問答</b></h3>
         </div>
         <div class="accordion mb-7" id="faq-section">
-            <template v-for="q in questions" :key="q.id">
+            <template v-for="q in sortQuestions" :key="q.id">
             <div class="accordion-item">
                 <div class="accordion-header">
                     <button

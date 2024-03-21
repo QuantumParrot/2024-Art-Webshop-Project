@@ -1,12 +1,10 @@
-/* eslint-disable max-len */
-
 export default {
 
     data() {
 
         return {
 
-            sortOrder: ['付款問題', '取貨問題', '訂單問題', '文章問題', '其他問題'],
+            order: ['付款問題', '取貨問題', '訂單問題', '文章問題', '其他問題'],
 
             questions: [
                 {
@@ -71,23 +69,26 @@ export default {
 
     computed: {
 
+        sortQuestions() {
+
+            const { questions, order } = this;
+
+            return questions.toSorted((a, b) => order.findIndex((o) => o === a.type)
+            - order.findIndex((o) => o === b.type));
+
+        },
+
         featuredQuestions() {
 
             if (this.types.length) {
 
-                return this.sortQuestions(this.questions).filter((q) => this.types.includes(q.type));
+                return this.sortQuestions.filter((q) => this.types.includes(q.type));
 
             }
 
             return this.questions.filter((q) => q.id < 7);
 
         },
-
-    },
-
-    methods: {
-
-        sortQuestions(questions) { return questions.toSorted((a, b) => this.sortOrder.findIndex((order) => order === a.type) - this.sortOrder.findIndex((order) => order === b.type)); },
 
     },
 

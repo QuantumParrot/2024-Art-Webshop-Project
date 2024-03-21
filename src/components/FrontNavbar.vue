@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-lg text-primary py-4 shadow-sm">
     <div class="container">
         <h1 class="letter-space-sm mb-0 order-1">
-            <router-link class="title-link" to="/"><b>收藏家</b></router-link>
+            <router-link class="title" to="/"><b>收藏家</b></router-link>
         </h1>
         <div class="flex-classic gap-2 order-2 order-lg-3">
             <router-link v-slot="{ navigate }" to="/checkout/carts" custom>
@@ -105,7 +105,7 @@ export default {
 
 }
 
-.title-link { text-decoration: none; }
+.title { text-decoration: none; }
 
 .nav-link {
 

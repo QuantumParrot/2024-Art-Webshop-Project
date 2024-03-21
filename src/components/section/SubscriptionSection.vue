@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <p class="text-shadow fs-4 fw-bold mb-3">
+                <p class="text-shadow fs-4 fw-bold mb-5">
                 歡迎訂閱我們的電子報，<br>
                 好康消息、專欄文章不漏接！
                 </p>

@@ -62,13 +62,12 @@
                     </div>
                 </div>
                 <div class="text-center mb-3">
-                    <router-link class="fw-bold text-info" to="/articles">回文章列表</router-link>
+                    <RouterLink class="fw-bold text-info" to="/articles">回文章列表</RouterLink>
                 </div>
             </div>
         </div>
     </div>
-    <faq-section :types="['文章問題', '其他問題']" />
-    <subscription-section />
+    <SubscriptionSection />
 </div>
 
 </template>
@@ -87,8 +86,6 @@ import userArticleStore from '@/stores/userArticle';
 
 //
 
-import FaqSection from '@/components/section/FaqSection.vue';
-
 import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
 
 //
@@ -97,7 +94,7 @@ export default {
 
     mixins: [authorsMixins],
 
-    components: { FaqSection, SubscriptionSection },
+    components: { SubscriptionSection },
 
     computed: {
 

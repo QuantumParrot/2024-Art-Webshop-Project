@@ -5,7 +5,7 @@
         <li>
             <a
             href="#" @click.prevent="switchPage(current - 1)"
-            class="page-link" :class="{ 'disabled': current - 1 < 1 }">
+            class="prev-link" :class="{ 'disabled': current - 1 < 1 }">
             &laquo;</a>
         </li>
         <template v-for="i in total" :key="i">
@@ -19,7 +19,7 @@
         <li>
             <a
             href="#" @click.prevent="switchPage(current + 1)"
-            class="page-link" :class="{ 'disabled': current + 1 > total }">
+            class="next-link" :class="{ 'disabled': current + 1 > total }">
             &raquo;</a>
         </li>
     </ul>
@@ -68,6 +68,26 @@ export default {
 
 }
 
+.prev-link, .next-link {
+
+  display: block;
+  text-decoration: none;
+  width: 32px; height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  padding-bottom: .25rem;
+
+  &.disabled {
+
+    pointer-events: none;
+    color: $gray-500;
+
+  }
+
+}
+
 .page-link {
 
   display: block;
@@ -84,14 +104,6 @@ export default {
     background-color: $primary;
     color: white;
     font-weight: bold;
-
-  }
-
-  &.disabled {
-
-    pointer-events: none;
-    background-color: $gray-400;
-    color: black;
 
   }
 

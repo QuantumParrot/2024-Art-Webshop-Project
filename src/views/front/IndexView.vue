@@ -3,7 +3,7 @@
 <div class="h-100">
     <section class="banner bg-primary text-white py-7">
         <div class="container">
-            <h2 class="h1 lh-lg text-shadow-black letter-space-sm">
+            <h2 class="h1 lh-lg letter-space-sm mb-7">
                 <span
                     class="banner-txt" data-aos="fade-right"
                     data-aos-duration="1200">
@@ -16,6 +16,15 @@
                     這顆星球上的吉光片羽
                 </span>
             </h2>
+            <div
+                data-aos="fade-right" data-aos-duration="1200"
+                data-aos-delay="1500">
+                <RouterLink to="/products" v-slot="{ navigate }" custom>
+                <button
+                    type="button" class="btn btn-lg btn-primary rounded-1 shadow"
+                    @click="navigate">即刻探索</button>
+                </RouterLink>
+            </div>
         </div>
     </section>
     <section class="bg-gray py-7">
@@ -34,25 +43,21 @@
                             class="d-flex justify-content-lg-center align-items-center
                             px-lg-7 px-5 py-6
                             border border-white">
-                            <div class="lh-lg">
+                            <div>
                                 <h3 class="fw-bold mb-6">
                                     <span class="section-title">豐富藏品，形塑風格</span>
                                 </h3>
-                                <p>收藏家是一個小型的<b>藝術品販售平台</b></p>
-                                <p>匯聚了世界各地的<b>歷史痕跡</b>、<b>文明瑰寶</b>與<b>創意結晶</b></p>
+                                <p>收藏家是一個小型的藝術品販售平台</p>
+                                <p>匯聚了世界各地的歷史痕跡、文明瑰寶與創意結晶</p>
                                 <p>歡迎盡情瀏覽、仔細品味它們的故事</p>
                                 <p>找尋與您的靈魂最契合的物品</p>
-                                <p>讓它妝點您的<b>店面</b>，您的<b>住家</b></p>
-                                <p class="mb-6">
-                                以及您的<b>個人鑑賞品味</b>
-                                </p>
+                                <p>讓它妝點您的店面，您的住家</p>
+                                <p class="mb-6">以及您的個人鑑賞品味</p>
                                 <RouterLink
                                     target="_blank" to="/products"
                                     class="btn-slider rounded-1 ps-3">
-                                    <span class="me-2">立即選購</span>
-                                    <span class="text-highlight">
-                                        <i class="bi bi-caret-right-fill"></i>
-                                    </span>
+                                    <span>立即選購</span>
+                                    <i class="bi bi-caret-right-fill ms-2"></i>
                                 </RouterLink>
                             </div>
                         </div>
@@ -66,22 +71,20 @@
                             class="d-flex justify-content-lg-center align-items-center
                             px-lg-7 px-4 py-6
                             border border-white rounded-1">
-                            <div class="lh-lg">
+                            <div>
                                 <h3 class="fw-bold mb-6">
                                     <span class="section-title">共享見聞，拓展視野</span>
                                 </h3>
                                 <p>我們不止步於純粹的電商經營</p>
-                                <p>同時更致力於打造無隔閡的<b>知識交流</b>空間</p>
+                                <p>同時更致力於打造無隔閡的知識交流空間</p>
                                 <p>收藏家將不定期更新專欄文章</p>
                                 <p>深入淺出，包羅萬象</p>
                                 <p class="mb-6">與您分享我們在閱讀與生活中得到的感動</p>
                                 <RouterLink
                                     target="_blank" to="/articles"
                                     class="btn-slider rounded-1 ps-3">
-                                    <span class="me-2">前往閱讀</span>
-                                    <span class="text-highlight">
-                                        <i class="bi bi-caret-right-fill"></i>
-                                    </span>
+                                    <span>前往閱讀</span>
+                                    <i class="bi bi-caret-right-fill ms-2"></i>
                                 </RouterLink>
                             </div>
                         </div>
@@ -107,24 +110,21 @@
                             class="d-flex justify-content-lg-center align-items-center
                             px-lg-7 px-4 py-6
                             border border-white rounded-1">
-                            <div class="lh-lg">
+                            <div>
                                 <h3 class="fw-bold mb-6">
                                     <span class="section-title">回饋社會，實踐永續</span>
                                 </h3>
                                 <p>我們相信，藝術鑑賞與社會參與並不矛盾</p>
                                 <p>收藏家會妥善運用您在這裡的支出</p>
-                                <p>每一筆訂單的<b>部分收益</b></p>
-                                <p>將用來<b>贊助</b>不同類型的<b>非營利公益組織</b></p>
+                                <p>每一筆訂單的部分收益</p>
+                                <p>將用來贊助不同類型的非營利公益組織</p>
                                 <p>歡迎自由選擇想支持的計畫</p>
                                 <p class="mb-6">詳情請參考我們的方案介紹</p>
                                 <RouterLink
-                                    target="_blank"
-                                    :to="{ path: '/about', hash: '#project' }"
+                                    target="_blank" :to="{ path: '/about', hash: '#project' }"
                                     class="btn-slider rounded-1 ps-3">
-                                    <span class="me-2">深入瞭解</span>
-                                    <span class="text-highlight">
-                                        <i class="bi bi-caret-right-fill"></i>
-                                    </span>
+                                    <span>深入瞭解</span>
+                                    <i class="bi bi-caret-right-fill ms-2"></i>
                                 </RouterLink>
                             </div>
                         </div>
@@ -243,7 +243,7 @@
                     <div class="text-end">
                         <RouterLink to="/news">
                             <span class="arrow-animation">
-                                <span class="arrow text-highlight">
+                                <span class="arrow">
                                     <i class="bi bi-caret-right-fill"></i>
                                 </span>
                             </span>

@@ -135,6 +135,12 @@ export default {
 
   margin: 0 -1px -1px 0;
 
+  overflow: hidden;
+
+  &:first-child { border-radius: .25rem 0 0 .25rem; }
+
+  &:last-child { border-radius: 0 .25rem .25rem 0; }
+
 }
 
 .nav-link {
@@ -155,6 +161,18 @@ export default {
     background-color: $primary;
     color: $light;
     font-weight: bold;
+
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  .nav-item {
+
+    &:first-child { border-radius: .25rem .25rem 0 0; }
+
+    &:last-child { border-radius: 0 0 .25rem .25rem; }
 
   }
 

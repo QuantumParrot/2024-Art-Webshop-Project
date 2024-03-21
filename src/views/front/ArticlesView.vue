@@ -32,7 +32,7 @@
                                     type="button" class="btn-slider btn-navigate ps-2 pe-4"
                                     @click="navigate">
                                     <span class="arrow-animation">
-                                        <span class="arrow">
+                                        <span class="arrow text-light">
                                             <i class="bi bi-caret-right-fill"></i>
                                         </span>
                                     </span>

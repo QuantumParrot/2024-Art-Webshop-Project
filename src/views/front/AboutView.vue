@@ -13,7 +13,7 @@
                 justify-content-center align-items-lg-start align-items-center">
                 <div
                     class="profile-txt rounded-2 px-5 py-7 mx-md-5
-                    text-light text-shadow-black lh-lg">
+                    text-light lh-lg">
                     <h2 class="h3 mb-md-7 mb-5"><b>認識我們</b></h2>
                     <div>
                         <p>收藏家的創業構想起源於 2015 年，</p>
@@ -74,19 +74,9 @@
         </div>
         <div class="mb-7">
             <h3 class="text-dark mb-7" id="faq"><b>常見問答</b></h3>
-            <div class="row mb-7">
-                <div class="col-md-4">
-                    <select class="form-select py-3 fw-bold" v-model="filter">
-                        <option value="">全部問題</option>
-                        <option v-for="type in sortOrder" :key="type" :value="type">
-                        <span>{{ type }}</span>
-                        </option>
-                    </select>
-                </div>
-            </div>
         </div>
         <div class="accordion mb-7" id="faq-section">
-            <template v-for="q in displayingQuestions" :key="q.id">
+            <template v-for="q in questions" :key="q.id">
             <div class="accordion-item">
                 <div class="accordion-header">
                     <button
@@ -139,21 +129,9 @@ export default {
 
     mixins: [faqMixins],
 
-    data() { return { filter: '' }; },
-
     computed: {
 
         ...mapState(userArticleStore, ['projects']),
-
-        // 常見問答
-
-        displayingQuestions() {
-
-            if (this.filter) { return this.questions.filter((q) => q.type === this.filter); }
-
-            return this.questions;
-
-        },
 
         // 公益計劃
 
@@ -200,7 +178,7 @@ export default {
 
 }
 
-.profile-txt { background-color: rgba(0, 0, 0, 0.2); }
+.profile-txt { background-color: rgba(0, 0, 0, 0.4); }
 
 .accordion-button {
 

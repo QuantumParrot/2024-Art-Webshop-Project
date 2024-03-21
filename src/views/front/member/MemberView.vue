@@ -34,7 +34,17 @@
 
 @import '@/assets/_variables.scss';
 
-.nav-item { flex-grow: 1; }
+.nav-item {
+
+  flex-grow: 1;
+
+  overflow: hidden;
+
+  &:first-child { border-radius: .25rem .25rem 0 0; }
+
+  &:last-child { border-radius: 0 0 .25rem .25rem; }
+
+}
 
 .nav-link {
 
@@ -52,6 +62,18 @@
     font-weight: bold;
 
     border-color: $primary;
+
+  }
+
+}
+
+@media (max-width: 991px) {
+
+  .nav-item {
+
+    &:first-child { border-radius: .25rem 0 0 .25rem; }
+
+    &:last-child { border-radius: 0 .25rem .25rem 0; }
 
   }
 

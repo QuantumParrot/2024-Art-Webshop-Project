@@ -34,21 +34,11 @@ export default {
 
     methods: {
 
-        ...mapActions(alertStore, ['modalAlert']),
+        ...mapActions(alertStore, ['toastAlert']),
 
         subscribe(data, { resetForm }) {
 
-            const config = {
-
-                title: '感謝您的訂閱！',
-                text: '什麼也沒發生 ･*･:≡(　ε:)',
-                icon: 'success',
-                buttonColor: '#424242',
-                buttonTxt: '好喔',
-
-            };
-
-            this.modalAlert(config);
+            this.toastAlert('感謝訂閱 ･*･:≡(　ε:)', 'success');
             resetForm();
 
         },

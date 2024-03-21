@@ -38,12 +38,9 @@
         <!-- main -->
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <template v-if="$route.path === 'checkout/form'">
-                    <RouterView v-slot="{ Component }">
-                        <keep-alive><component :is="Component" /></keep-alive>
-                    </RouterView>
-                </template>
-                <RouterView v-else />
+                <RouterView v-slot="{ Component }">
+                    <keep-alive><component :is="Component" /></keep-alive>
+                </RouterView>
             </div>
         </div>
     </div>
@@ -107,7 +104,11 @@ export default {
 
             handler(n) {
 
-                if (n === 'front-checkout-form') {
+                if (n === 'front-checkout-carts') {
+
+                    this.step = this.carts.length ? 1 : 0;
+
+                } else if (n === 'front-checkout-form') {
 
                     if (!this.carts.length) {
 

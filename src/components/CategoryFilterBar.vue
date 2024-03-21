@@ -2,15 +2,18 @@
 
 <ul class="nav flex-nowrap">
     <li class="nav-item">
-        <a href="#" class="nav-link" :class="{ 'active': filter === '' }"
-        @click.prevent="switchFilter('')">
-        {{ innerWidth > 508 ? totalTitle : totalTitle.slice(0, 2) }}</a>
+        <router-link
+            :to="$route.path" class="nav-link" :class="{ 'nav-active': filter === '' }">
+            {{ innerWidth > 508 ? totalTitle : totalTitle.slice(0, 2) }}
+        </router-link>
     </li>
     <template v-for="item in filters" :key="item">
     <li class="nav-item">
-        <a href="#" class="nav-link" :class="{ 'active': filter === item }"
-        @click.prevent="switchFilter(item)">
-        {{ innerWidth > 508 ? item : item.slice(0, 2) }}</a>
+        <router-link
+            :to="`${$route.path}?category=${item}`"
+            class="nav-link" :class="{ 'nav-active': filter === item }">
+            {{ innerWidth > 508 ? item : item.slice(0, 2) }}
+        </router-link>
     </li>
     </template>
 </ul>
@@ -40,6 +43,18 @@ export default {
         switchFilter(value) { this.$emit('switch-filter', value); },
 
         resizeWindow(e) { this.innerWidth = e.target.innerWidth; },
+
+    },
+
+    watch: {
+
+        '$route.query.category': {
+
+            handler(n) { this.switchFilter(n || ''); },
+
+            deep: true,
+
+        },
 
     },
 
@@ -82,7 +97,7 @@ export default {
   text-align: center;
   background-color: $gray;
 
-  &.active, &:hover {
+  &.nav-active, &:hover {
 
     background-color: $primary;
     color: $light;

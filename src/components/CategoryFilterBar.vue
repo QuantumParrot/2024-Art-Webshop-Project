@@ -1,14 +1,18 @@
 <template>
 
-<ul class="nav">
+<ul class="nav flex-nowrap">
     <li class="nav-item">
-        <a href="#" class="nav-link" :class="{ 'active': filter === '' }"
-           @click.prevent="switchFilter('')">全部</a>
+        <router-link :to="$route.path"
+            class="nav-link" :class="{ 'nav-active': current === '' }">
+        <span>{{ innerWidth > 508 ? total : total.slice(0, 2) }}</span>
+        </router-link>
     </li>
-    <template v-for="item in filters" :key="item">
+    <template v-for="item in category" :key="item">
     <li class="nav-item">
-        <a href="#" class="nav-link" :class="{ 'active': filter === item }"
-           @click.prevent="switchFilter(item)">{{ item }}</a>
+        <router-link :to="`${$route.path}?category=${item}`"
+            class="nav-link" :class="{ 'nav-active': current === item }">
+        <span>{{ innerWidth > 508 ? item : item.slice(0, 2) }}</span>
+        </router-link>
     </li>
     </template>
 </ul>
@@ -19,15 +23,49 @@
 
 export default {
 
-    props: ['filters', 'filter'],
+    props: {
 
-    emits: ['switch-filter'],
+        category: { required: true },
+
+        current: { required: true },
+
+        total: { type: String, default: '全部' },
+
+    },
+
+    emits: ['switch-category'],
+
+    data() { return { innerWidth: '' }; },
 
     methods: {
 
-        switchFilter(value) { this.$emit('switch-filter', value); },
+        switchCategory(value) { this.$emit('switch-category', value); },
+
+        resizeWindow(e) { this.innerWidth = e.target.innerWidth; },
 
     },
+
+    watch: {
+
+        '$route.query.category': {
+
+            handler(n) { this.switchCategory(n || ''); },
+
+            deep: true,
+
+        },
+
+    },
+
+    mounted() {
+
+        this.innerWidth = window.innerWidth;
+
+        window.addEventListener('resize', this.resizeWindow);
+
+    },
+
+    unmounted() { window.removeEventListener('resize', this.resizeWindow); },
 
 };
 
@@ -52,7 +90,7 @@ export default {
   text-align: center;
   background-color: $gray;
 
-  &.active, &:hover {
+  &.nav-active, &:hover {
 
     background-color: $primary;
     color: $light;

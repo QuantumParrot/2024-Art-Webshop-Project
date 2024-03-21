@@ -3,9 +3,15 @@
 <div class="h-100 bg-gray text-primary">
     <div class="container py-7">
         <h2 class="text-center py-5 mb-7"><b>最新消息</b></h2>
+        <div class="mb-7">
+            <category-filter-bar
+                :category="category" :current="filter" total="全部消息"
+                @switch-category="switchFilter" />
+        </div>
+        <template v-if="displaying.length">
         <ul class="list-unstyled d-flex flex-column gap-5
                    alert bg-white px-md-7 p-5 mb-7">
-            <template v-for="item in news" :key="item.id">
+            <template v-for="item in displaying" :key="item.id">
             <li class="d-flex flex-md-row flex-column
                        align-items-md-center
                        gap-md-7 gap-3">
@@ -25,6 +31,8 @@
                 :current="currentPage.news" :total="totalPages.news"
                 @switch-page="(num) => switchPage(num, 'news')" />
         </div>
+        </template>
+        <div class="alert bg-white text-center mb-0" v-else>這個分類目前沒有消息喔！</div>
     </div>
 </div>
 
@@ -34,9 +42,13 @@
 
 import { mapState, mapActions } from 'pinia';
 
+import adminArticleStore from '@/stores/adminArticle';
+
 import userArticleStore from '@/stores/userArticle';
 
 //
+
+import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
 
 import PaginationComponent from '@/components/PaginationComponent.vue';
 
@@ -44,11 +56,29 @@ import PaginationComponent from '@/components/PaginationComponent.vue';
 
 export default {
 
-    components: { PaginationComponent },
+    components: { CategoryFilterBar, PaginationComponent },
+
+    data() {
+
+        return { filter: '' };
+
+    },
 
     computed: {
 
+        ...mapState(adminArticleStore, ['categories']),
+
         ...mapState(userArticleStore, ['news', 'currentPage', 'totalPages']),
+
+        category() { return this.categories['網站公告'].filter((i) => i !== '網站測試'); },
+
+        displaying() {
+
+            if (this.filter) { return this.news.filter((i) => i.category === this.filter); }
+
+            return this.news;
+
+        },
 
     },
 
@@ -56,9 +86,17 @@ export default {
 
         ...mapActions(userArticleStore, ['getArticles', 'switchPage']),
 
+        switchFilter(value) { this.filter = value; },
+
     },
 
-    mounted() { if (!this.news.length) { this.getArticles(); } },
+    mounted() {
+
+        if (!this.news.length) { this.getArticles(); }
+
+        this.switchFilter(this.$route.query.category || '');
+
+    },
 
 };
 

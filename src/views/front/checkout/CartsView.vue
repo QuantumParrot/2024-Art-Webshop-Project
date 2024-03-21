@@ -81,7 +81,7 @@
 <div class="py-5 border-bottom-dotted">
     <div class="row justify-content-end gx-1 gy-5">
         <div class="col-xl-4 col-lg-5">
-            <div class="input-group">
+            <div class="input-group mb-5">
                 <label for="coupon" class="input-group-text bg-primary text-white fw-bold">
                 <div role="status" class="spinner-border spinner-border-sm me-2"
                      v-show="!!loadingTask">
@@ -98,6 +98,16 @@
                     <i class="bi bi-arrow-repeat" v-else></i>
                 </button>
             </div>
+            <p class="text-end mb-0">
+                <span>沒有優惠券嗎？</span>
+                <span>來</span>
+                <router-link
+                    class="text-info"
+                    target="_blank" :to="{ path: '/news', query: { category: '優惠活動' } }">
+                <span><b>這裡</b></span>
+                </router-link>
+                <span>找找看吧！</span>
+            </p>
         </div>
     </div>
 </div>

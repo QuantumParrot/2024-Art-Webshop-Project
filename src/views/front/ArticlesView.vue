@@ -5,7 +5,8 @@
         <h2 class="text-center py-5 mb-7"><b>專欄文章</b></h2>
         <div class="mb-7">
             <category-filter-bar
-                :filters="categories['專欄文章']" :filter="filter" @switch-filter="switchFilter" />
+                :category="categories['專欄文章']" :current="filter"
+                @switch-category="switchFilter" />
         </div>
         <ul class="row g-5 list-unstyled mb-7" v-if="columnList.length">
             <template v-for="item in columnList" :key="item.id">

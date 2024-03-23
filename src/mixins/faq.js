@@ -77,7 +77,7 @@ export default {
 
             if (this.types.length) {
 
-                return this.sortQuestions(this.questions).filter((q) => this.types.includes(q.type));
+                return this.sortQuestions.filter((q) => this.types.includes(q.type));
 
             }
 

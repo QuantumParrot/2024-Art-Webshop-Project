@@ -143,9 +143,9 @@ export default {
 
         displayingQuestions() {
 
-            if (this.filter) { return this.questions.filter((q) => q.type === this.filter); }
+            if (this.filter) { return this.sortQuestions.filter((q) => q.type === this.filter); }
 
-            return this.questions;
+            return this.sortQuestions;
 
         },
 

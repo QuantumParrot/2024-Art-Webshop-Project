@@ -71,6 +71,8 @@ export default {
 
     computed: {
 
+        sortQuestions() { return this.questions.toSorted((a, b) => this.sortOrder.findIndex((order) => order === a.type) - this.sortOrder.findIndex((order) => order === b.type)); },
+
         featuredQuestions() {
 
             if (this.types.length) {
@@ -82,12 +84,6 @@ export default {
             return this.questions.filter((q) => q.id < 7);
 
         },
-
-    },
-
-    methods: {
-
-        sortQuestions(questions) { return questions.toSorted((a, b) => this.sortOrder.findIndex((order) => order === a.type) - this.sortOrder.findIndex((order) => order === b.type)); },
 
     },
 

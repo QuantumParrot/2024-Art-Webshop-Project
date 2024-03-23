@@ -17,11 +17,11 @@
                         <div class="text-justify" v-html="article.content"></div>
                     </div>
                 </div>
-                <div class="border-top py-6">
-                    <div class="row justify-content-center" v-if="author">
+                <div class="border-top py-6" v-if="author">
+                    <div class="row justify-content-center align-items-center">
                         <div class="col-xl-6 col-md-8">
                             <h4 class="text-center mb-6"><b>作者介紹</b></h4>
-                            <div class="row gy-3">
+                            <div class="row gy-6">
                                 <div class="col-sm-3">
                                     <div class="d-flex justify-content-center">
                                     <div class="author-img"

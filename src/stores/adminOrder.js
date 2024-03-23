@@ -126,26 +126,34 @@ export default defineStore('adminOrder', {
             axios.get(`${apiUrl}${page}`)
                 .then((res) => {
 
-                    const { pagination } = res.data;
+                    const { orders, pagination } = res.data;
 
-                    const reqs = [];
+                    this.orders = orders;
 
-                    for (let i = 1; i <= pagination.total_pages; i += 1) {
+                    if (pagination.total_pages > 1) {
 
-                        reqs.push(axios.get(`${apiUrl}${i}`));
+                        const reqs = [];
+
+                        for (let i = 2; i <= pagination.total_pages; i += 1) {
+
+                            reqs.push(axios.get(`${apiUrl}${i}`));
+
+                        }
+
+                        return Promise.all(reqs);
 
                     }
 
-                    return Promise.all(reqs);
+                    return false;
 
                 })
                 .then((resArr) => {
 
-                    const total = [];
+                    if (Array.isArray(resArr)) {
 
-                    resArr.forEach((res) => total.push(...res.data.orders));
+                        resArr.forEach((res) => this.orders.push(...res.data.orders));
 
-                    this.orders = total;
+                    }
 
                 })
                 .catch((error) => alertStore.errorAlert(error))

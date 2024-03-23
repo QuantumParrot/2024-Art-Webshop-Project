@@ -1,5 +1,3 @@
-// 需要優化的地方：尚未處理文章總數量超過十篇的情況！記得補上！
-
 import axios from 'axios';
 
 //
@@ -58,14 +56,42 @@ export default defineStore('adminArticle', {
 
     actions: {
 
-        getArticles(page = 1) {
+        getArticles() {
 
             loaderStore.createLoader('get-articles');
-            axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/articles?page=${page}`)
+            axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/articles`)
                 .then((res) => {
 
-                    const { articles } = res.data;
-                    this.articles = articles.sort((a, b) => b.create_at - a.create_at);
+                    const { articles, pagination } = res.data;
+
+                    this.articles = articles;
+
+                    if (pagination.total_pages > 1) {
+
+                        const apiUrl = `${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/articles?page=`;
+
+                        const reqs = [];
+
+                        for (let i = 2; i <= pagination.total_pages; i += 1) {
+
+                            reqs.push(axios.get(`${apiUrl}${i}`));
+
+                        }
+
+                        return Promise.all(reqs);
+
+                    }
+
+                    return false;
+
+                })
+                .then((resArr) => {
+
+                    if (Array.isArray(resArr)) {
+
+                        resArr.forEach((res) => this.articles.push(...res.data.articles));
+
+                    }
 
                 })
                 .catch((error) => alertStore.errorAlert(error))

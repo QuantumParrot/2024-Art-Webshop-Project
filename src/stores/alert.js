@@ -124,7 +124,7 @@ export default defineStore('alert', {
 
             }
 
-            if (!typeRegex.test(file.name.split('.')[1])) {
+            if (!typeRegex.test(file.name.split('.')[file.name.split('.').length - 1])) {
 
                 text = '不支援此格式';
                 this.toastAlert(text, 'warning');

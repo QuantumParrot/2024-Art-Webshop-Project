@@ -87,14 +87,12 @@ export default defineStore('userArticle', {
             axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/article/${id}`)
                 .then((res) => {
 
-                    // console.log(res);
-
                     this.article = res.data.article;
 
                     if (this.article.type === '專欄文章') {
 
                         this.router.push(`/article/${this.article.id}`);
-                        this.getRelatedProducts(this.article.tag);
+                        if (this.article.recommend) { this.getRelatedProducts(this.article.tag); }
 
                     } else { this.router.push(`/news/${this.article.id}`); }
 

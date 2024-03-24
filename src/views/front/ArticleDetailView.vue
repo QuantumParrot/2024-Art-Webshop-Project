@@ -21,7 +21,7 @@
                     <div class="row justify-content-center align-items-center">
                         <div class="col-xl-6 col-md-8">
                             <h4 class="text-center mb-6"><b>作者介紹</b></h4>
-                            <div class="row gy-5">
+                            <div class="row gy-6">
                                 <div class="col-sm-3">
                                     <div class="d-flex justify-content-center">
                                         <div
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="border-top py-6">
+                <div class="border-top py-6" v-if="article.recommend && relatedProducts.length">
                     <h4 class="text-center mb-6"><b>為您推薦</b></h4>
                     <div class="row g-5">
                         <div class="col-md-4" v-for="item in relatedProducts" :key="item.id">
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center mb-3">
+                <div class="border-top pt-6 text-center mb-3">
                     <RouterLink class="fw-bold text-info" to="/articles">回文章列表</RouterLink>
                 </div>
             </div>
@@ -122,7 +122,7 @@ export default {
 
     methods: {
 
-        ...mapActions(userArticleStore, ['getArticle', 'getRelatedProducts']),
+        ...mapActions(userArticleStore, ['getArticle']),
 
     },
 

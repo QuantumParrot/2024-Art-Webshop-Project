@@ -104,6 +104,7 @@ export default {
     background-color: $primary;
     color: white;
     font-weight: bold;
+    pointer-events: none;
 
   }
 

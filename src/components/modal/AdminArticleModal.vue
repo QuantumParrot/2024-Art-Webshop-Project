@@ -84,6 +84,13 @@
                                 name="description" as="textarea">
                             </VField>
                         </div>
+                        <div class="form-check" v-if="type === '專欄文章'">
+                            <input
+                                type="checkbox" id="recommend" class="form-check-input"
+                                v-model="article.recommend">
+                            <label for="recommend" class="form-label">是否需要推薦商品</label>
+                            <p class="fs-7 text-muted">建議：新聞專欄不需要推薦商品喔！</p>
+                        </div>
                     </div>
                     <div v-show="tab === 'category'">
                         <div :class="{ 'mb-5': type !== '公益計劃' }">

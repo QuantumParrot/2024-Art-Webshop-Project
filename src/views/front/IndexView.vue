@@ -184,14 +184,14 @@
                     </RouterLink>
                 </div>
                 <div class="col-md-4">
-                    <RouterLink to="/products?category=裝飾雜貨">
+                    <RouterLink to="/products?category=裝飾工藝">
                         <div class="overflow-hidden">
                             <div class="mask">
                                 <img
                                     src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1707154286226.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=DPe%2BbJeO1jl3RKwjXPdfZd62%2Bic%2FArYzAxuY5Hz2yOl9E0aI4cm0IV4Am%2Bp6C74SDRRijgSQjyvqJ7pDCKDBnyH73rAwwUR9fdsZaYvL%2F5AgBVgnHDkORUmH0W0XXYrLT%2BgyjDt%2BBAUbNxalb%2FxlmgW7y2rg%2FRL73%2BGTs1uN%2BwRxp%2FBeM37rYfN78aCs99JhBECvbXDna2pXok4CjBN2xlf92RGLESCWc4ZiWyXW3biq6UOjyCw20DSOfwSx16sEZfyZpaFRaF0d%2BUZhG1YaNIc9cZHB31vBoiP4dRBVUsj4VBj0suZWgzUfJy9r%2BgrLFitGbzI07L8V5ZpjqGH7qg%3D%3D"
-                                    alt="deco and antique" height="300px" class="w-100">
+                                    alt="craft and antique" height="300px" class="w-100">
                                 <div class="mask-txt fs-4 text-shadow-black">
-                                    <p class="mb-0">＃ 裝飾雜貨</p>
+                                    <p class="mb-0">＃ 裝飾工藝</p>
                                 </div>
                             </div>
                         </div>

@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="border-top py-6">
+                <div class="border-top py-6" v-if="article.recommend && relatedProducts.length">
                     <h4 class="text-center mb-6"><b>為您推薦</b></h4>
                     <div class="row g-5">
                         <div class="col-md-4" v-for="item in relatedProducts" :key="item.id">
@@ -56,7 +56,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center mb-3">
+                <div class="border-top pt-6 text-center mb-3">
                     <router-link class="fw-bold text-info" to="/articles">回文章列表</router-link>
                 </div>
             </div>
@@ -120,7 +120,7 @@ export default {
 
     methods: {
 
-        ...mapActions(userArticleStore, ['getArticle', 'getRelatedProducts']),
+        ...mapActions(userArticleStore, ['getArticle']),
 
     },
 

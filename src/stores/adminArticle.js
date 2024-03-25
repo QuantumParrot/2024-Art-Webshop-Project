@@ -93,7 +93,7 @@ export default defineStore('adminArticle', {
 
                     }
 
-                    this.articles = this.articles.sort((a, b) => b.create_at - a.create_at);
+                    this.articles = this.articles.toSorted((a, b) => b.create_at - a.create_at);
 
                 })
                 .catch((error) => alertStore.errorAlert(error))

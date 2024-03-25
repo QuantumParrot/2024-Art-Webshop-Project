@@ -118,7 +118,7 @@ export default defineStore('alert', {
                 text = '須為圖片檔案';
                 this.toastAlert(text, 'warning');
 
-            } else if (!typeRegex.test(file.name.split('.')[1])) {
+            } else if (!typeRegex.test(file.name.split('.')[file.name.split('.').length - 1])) {
 
                 text = '不支援此格式';
                 this.toastAlert(text, 'warning');

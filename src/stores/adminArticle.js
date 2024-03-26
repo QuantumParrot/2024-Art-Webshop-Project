@@ -101,15 +101,15 @@ export default defineStore('adminArticle', {
 
         },
 
-        createArticle(data, hideModal) {
+        createArticle(data) {
 
             loaderStore.createLoader('create-article');
             axios.post(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/article`, { data })
                 .then((res) => {
 
                     alertStore.toastAlert(res.data.message, 'success');
-                    hideModal();
                     this.getArticles();
+                    this.router.replace('/admin/article');
 
                 })
                 .catch((error) => alertStore.errorAlert(error))
@@ -117,15 +117,15 @@ export default defineStore('adminArticle', {
 
         },
 
-        updateArticle(data, hideModal) {
+        updateArticle(data) {
 
             loaderStore.createLoader('update-article');
             axios.put(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/article/${data.id}`, { data })
                 .then((res) => {
 
                     alertStore.toastAlert(res.data.message, 'success');
-                    hideModal();
                     this.getArticles();
+                    this.router.replace('/admin/article');
 
                 })
                 .catch((error) => alertStore.errorAlert(error))

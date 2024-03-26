@@ -27,9 +27,11 @@
 
 <div class="alert bg-gray flex-classic mb-6">
     <div>
-        <button type="button" class="btn btn-highlight" @click="openModal()">
-        新增{{ filter }}
-        </button>
+        <RouterLink :to="`/admin/article/${filter}`" v-slot="{ navigate }" custom>
+            <button type="button" class="btn btn-highlight" @click="navigate">
+            新增{{ filter }}
+            </button>
+        </RouterLink>
     </div>
     <PaginationComponent
         :current="currentPage" :total="totalPages"
@@ -66,14 +68,16 @@
             </td>
             <td class="text-center">
                 <div class="d-flex flex-column gap-2">
+                    <RouterLink
+                        :to="`article/${article.type}?id=${article.id}`"
+                        v-slot="{ navigate }" custom>
+                        <button
+                            type="button" class="w-100 btn btn-outline-secondary"
+                            @click="navigate">
+                        編輯</button>
+                    </RouterLink>
                     <button
-                        type="button"
-                        class="w-100 btn btn-outline-secondary"
-                        @click="openModal(article.id)">
-                    編輯</button>
-                    <button
-                        type="button"
-                        class="w-100 btn btn-outline-danger"
+                        type="button" class="w-100 btn btn-outline-danger"
                         @click="deleteArticle(article.id, article.title)">
                     刪除</button>
                 </div>
@@ -85,8 +89,6 @@
 
 <div class="alert bg-gray" v-else>還沒有任何文章！趕快新增一篇吧！</div>
 
-<AdminArticleModal ref="articleModal" :type="filter" :temp-article="tempArticle" />
-
 </template>
 
 <script>
@@ -97,25 +99,15 @@ import { mapState, mapActions } from 'pinia';
 
 import adminArticleStore from '@/stores/adminArticle';
 
-import loaderStore from '@/stores/loader';
-
-import alertStore from '@/stores/alert';
-
 //
-
-import AdminArticleModal from '@/components/modal/AdminArticleModal.vue';
 
 import PaginationComponent from '@/components/PaginationComponent.vue';
 
 //
 
-const { VITE_APP_SITE, VITE_APP_PATH } = import.meta.env;
-
-//
-
 export default {
 
-    components: { AdminArticleModal, PaginationComponent },
+    components: { PaginationComponent },
 
     data() {
 
@@ -124,15 +116,13 @@ export default {
             filter: '網站公告',
             currentPage: 1,
 
-            tempArticle: {},
-
         };
 
     },
 
     computed: {
 
-        ...mapState(adminArticleStore, ['articles', 'article']),
+        ...mapState(adminArticleStore, ['articles']),
 
         displayingArticles() {
 
@@ -146,37 +136,7 @@ export default {
 
     methods: {
 
-        ...mapActions(adminArticleStore, ['getArticles', 'getArticle', 'deleteArticle', 'switchArticleStatus']),
-
-        ...mapActions(loaderStore, ['createLoader', 'removeLoader']),
-
-        ...mapActions(alertStore, ['errorAlert']),
-
-        openModal(id) {
-
-            if (id) {
-
-                this.getArticle(id);
-
-            } else { this.tempArticle = { isPublic: false, create_at: this.$calc.now() }; }
-
-            this.$refs.articleModal.showModal();
-
-        },
-
-        getArticle(id) {
-
-            this.createLoader('get-single-article');
-            this.$http.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/article/${id}`)
-                .then((res) => {
-
-                    this.tempArticle = res.data.article;
-
-                })
-                .catch((error) => this.errorAlert(error))
-                .finally(() => this.removeLoader('get-single-article'));
-
-        },
+        ...mapActions(adminArticleStore, ['getArticles', 'deleteArticle', 'switchArticleStatus']),
 
     },
 

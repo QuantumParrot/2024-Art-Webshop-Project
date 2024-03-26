@@ -153,6 +153,12 @@ const router = createRouter({
                     component: () => import('../views/admin/AdminArticleView.vue'),
                     meta: { title: '文章管理 - 後台 - 收藏家' },
                 },
+                {
+                    path: 'article/:type',
+                    name: 'admin-article-detail',
+                    component: () => import('../views/admin/AdminArticleDetailView.vue'),
+                    meta: { title: '文章 - 後台 - 收藏家' },
+                },
             ],
         },
         {

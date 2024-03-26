@@ -42,7 +42,7 @@
                 <i class="text-highlight bi bi-brightness-high-fill me-3"></i>
                 <b>海洋保育</b>
             </h4>
-            <div class="row mb-6">
+            <div class="row gy-6 mb-6">
                 <template v-for="item in ocean" :key="item.id">
                 <div class="col-lg-4 col-md-6">
                     <NGOCard :org="item" />
@@ -53,7 +53,7 @@
                 <i class="text-highlight bi bi-brightness-high-fill me-3"></i>
                 <b>野生動物救援</b>
             </h4>
-            <div class="row mb-6">
+            <div class="row gy-6 mb-6">
                 <template v-for="item in wildAnimal" :key="item.id">
                 <div class="col-lg-4 col-md-6">
                     <NGOCard :org="item" />
@@ -64,7 +64,7 @@
                 <i class="text-highlight bi bi-brightness-high-fill me-3"></i>
                 <b>社會關懷</b>
             </h4>
-            <div class="row mb-6">
+            <div class="row gy-6 mb-6">
                 <template v-for="item in socialCare" :key="item.id">
                 <div class="col-lg-4 col-md-6">
                     <NGOCard :org="item" />

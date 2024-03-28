@@ -26,7 +26,8 @@
         <div class="d-flex justify-content-center">
             <PaginationComponent
                 :current="currentPage.news" :total="totalPages.news"
-                @switch-page="(num) => switchPage(num, 'news')" />
+                @switch-page="(num) => switchPage(num, 'news')"
+                v-show="totalPages.news > 1" />
         </div>
         </template>
         <div class="alert bg-white text-center" v-else>這個分類目前沒有消息喔！</div>

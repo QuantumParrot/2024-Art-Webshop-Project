@@ -78,28 +78,22 @@ export default defineStore('userOrder', {
 
             };
 
-            const config = { title: '確認送出訂單？', text: '一旦按下確定，即視為交易成立', type: 'confirm' };
+            loaderStore.createLoader('create-order');
+            axios.post(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/order`, { data: order })
+                .then((res) => {
 
-            alertStore.checkAlert(config, () => {
+                    alertStore.toastAlert(res.data.message, 'success');
+                    return axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/order/${res.data.orderId}`);
 
-                loaderStore.createLoader('create-order');
-                axios.post(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/order`, { data: order })
-                    .then((res) => {
+                })
+                .then((res) => {
 
-                        alertStore.toastAlert(res.data.message, 'success');
-                        return axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/order/${res.data.orderId}`);
+                    this.tempOrder = this.refactorOrder(res.data.order);
+                    this.router.replace('/checkout/order');
 
-                    })
-                    .then((res) => {
-
-                        this.tempOrder = this.refactorOrder(res.data.order);
-                        this.router.replace('/checkout/order');
-
-                    })
-                    .catch((error) => alertStore.errorAlert(error))
-                    .finally(() => loaderStore.removeLoader('create-order'));
-
-            });
+                })
+                .catch((error) => alertStore.errorAlert(error))
+                .finally(() => loaderStore.removeLoader('create-order'));
 
         },
 

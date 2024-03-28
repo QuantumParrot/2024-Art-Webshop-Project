@@ -78,18 +78,24 @@ export default defineStore('userCart', {
 
         },
 
-        deleteSingleCart(id) { // cartId
+        deleteSingleCart(cart) {
 
-            loaderStore.createLoader('delete-single-cart');
-            axios.delete(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/cart/${id}`)
-                .then((res) => {
+            const config = { title: '確定刪除此商品？', text: `您刪除的商品為：${cart.product.title}` };
 
-                    alertStore.toastAlert(res.data.message, 'success');
-                    this.getCarts();
+            alertStore.checkAlert(config, () => {
 
-                })
-                .catch((error) => alertStore.errorAlert(error))
-                .finally(() => loaderStore.removeLoader('delete-single-cart'));
+                loaderStore.createLoader('delete-single-cart');
+                axios.delete(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/cart/${cart.id}`)
+                    .then((res) => {
+
+                        alertStore.toastAlert(res.data.message, 'success');
+                        this.getCarts();
+
+                    })
+                    .catch((error) => alertStore.errorAlert(error))
+                    .finally(() => loaderStore.removeLoader('delete-single-cart'));
+
+            });
 
         },
 

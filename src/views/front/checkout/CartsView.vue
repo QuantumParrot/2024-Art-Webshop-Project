@@ -67,7 +67,7 @@
                 <button
                     type="button"
                     class="btn btn-sm btn-remove btn-primary rounded-1 shadow-sm"
-                    @click="deleteSingleCart(cart.id)">
+                    @click="deleteSingleCart(cart)">
                     <i class="bi bi-x-lg"></i>
                 </button>
             </div>

@@ -67,13 +67,42 @@ export default defineStore('userArticle', {
 
     actions: {
 
-        getArticles() {
+        getArticles(page = 1) {
+
+            const api = `${VITE_APP_SITE}/api/${VITE_APP_PATH}/articles?page=`;
 
             loaderStore.createLoader('get-user-articles');
-            axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/articles`)
+            axios.get(`${api}${page}`)
                 .then((res) => {
 
-                    this.articles = res.data.articles;
+                    const { articles, pagination } = res.data;
+
+                    this.articles = articles;
+
+                    if (pagination.total_pages > 1) {
+
+                        const reqs = [];
+
+                        for (let i = 2; i <= pagination.total_pages; i += 1) {
+
+                            reqs.push(axios.get(`${api}${i}`));
+
+                        }
+
+                        return Promise.all(reqs);
+
+                    }
+
+                    return false;
+
+                })
+                .then((resArr) => {
+
+                    if (Array.isArray(resArr)) {
+
+                        resArr.forEach((res) => this.articles.push(...res.data.articles));
+
+                    }
 
                 })
                 .catch((error) => alertStore.errorAlert(error))

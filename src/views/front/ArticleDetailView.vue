@@ -17,31 +17,6 @@
                         <div class="text-justify" v-html="article.content"></div>
                     </div>
                 </div>
-                <div class="border-top py-6" v-if="author">
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-xl-6 col-md-8">
-                            <h4 class="text-center mb-6"><b>作者介紹</b></h4>
-                            <div class="row gy-6">
-                                <div class="col-sm-3">
-                                    <div class="d-flex justify-content-center">
-                                        <div
-                                            class="author-img"
-                                            :style="{ backgroundImage: `url(${author.image})`}">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-9">
-                                    <div class="h-100 d-flex flex-column justify-content-center">
-                                        <h5 class="fs-6 mb-3">
-                                            <b>{{ article.author }}</b>｜{{ author.name }}
-                                        </h5>
-                                        <p class="fs-7 mb-0">{{ author.description }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="border-top py-6" v-if="article.recommend && relatedProducts.length">
                     <h4 class="text-center mb-6"><b>為您推薦</b></h4>
                     <div class="row g-5">
@@ -74,10 +49,6 @@
 
 <script>
 
-import authorsMixins from '@/mixins/authors';
-
-//
-
 import { mapState, mapActions } from 'pinia';
 
 import loaderStore from '@/stores/loader';
@@ -91,8 +62,6 @@ import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
 //
 
 export default {
-
-    mixins: [authorsMixins],
 
     components: { SubscriptionSection },
 

@@ -13,7 +13,7 @@
                 justify-content-center align-items-lg-start align-items-center">
                 <div
                     class="profile-txt rounded-2 px-5 py-7 mx-md-5
-                    text-light lh-lg">
+                    text-light lh-lg animate__animated animate__fadeIn">
                     <h2 class="h3 mb-md-7 mb-5"><b>認識我們</b></h2>
                     <div>
                         <p>收藏家的創業構想起源於 2015 年，</p>

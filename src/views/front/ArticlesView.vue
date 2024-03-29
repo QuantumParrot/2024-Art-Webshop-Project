@@ -4,12 +4,11 @@
     <div class="container py-7">
         <h2 class="text-center py-5 mb-7"><b>專欄文章</b></h2>
         <div class="mb-7">
-            <CategoryFilterBar
-                :filters="categories['專欄文章']" :filter="filter"
-                @switch-filter="switchFilter" />
+        <CategoryFilterBar
+            :filters="categories['專欄文章']" :filter="filter" @switch-filter="switchFilter" />
         </div>
-        <ul class="row g-5 list-unstyled mb-7" v-if="columnList.length">
-            <template v-for="item in columnList" :key="item.id">
+        <ul class="row g-5 list-unstyled mb-7" v-if="displayingColumns.length">
+            <template v-for="item in displayingColumns" :key="item.id">
             <li class="col-xl-4 col-md-6">
                 <div class="h-100 card">
                     <img class="card-img-top" :src="item.image" :alt="item.title">
@@ -45,12 +44,10 @@
             </li>
             </template>
         </ul>
-        <div class="alert text-center py-7 mb-7" v-else>這個分類目前沒有文章喔！</div>
-        <div class="d-flex justify-content-center">
+        <div class="alert text-center py-7" v-else>這個分類目前沒有文章喔！</div>
+        <div class="d-flex justify-content-center" v-if="totalPages > 1">
             <PaginationComponent
-                :current="currentPage.column" :total="totalPages.column"
-                @switch-page="changePage"
-                v-show="totalPages.column > 1" />
+                :current="currentPage" :total="totalPages" @switch-page="switchPage" />
         </div>
     </div>
     <SubscriptionSection />
@@ -59,6 +56,10 @@
 </template>
 
 <script>
+
+import filterMixins from '@/mixins/filter';
+
+//
 
 import { mapState, mapActions } from 'pinia';
 
@@ -84,25 +85,49 @@ export default {
 
     },
 
+    mixins: [filterMixins],
+
+    data() {
+
+        return { filter: '', currentPage: 1 };
+
+    },
+
     computed: {
 
         ...mapState(adminArticleStore, ['categories']),
 
-        ...mapState(userArticleStore, ['columns', 'columnList', 'filter', 'currentPage', 'totalPages']),
+        ...mapState(userArticleStore, ['columns']),
+
+        displayingColumns() {
+
+            let list = [];
+
+            if (this.filter) {
+
+                list = this.columns.filter((i) => i.category === this.filter);
+
+            } else { list = this.columns; }
+
+            return list.filter((item, idx) => Math.floor(idx / 9) + 1 === this.currentPage);
+
+        },
+
+        totalPages() { return Math.ceil(this.displayingColumns.length / 9); },
 
     },
 
     methods: {
 
-        ...mapActions(userArticleStore, ['getArticles', 'switchFilter', 'switchPage']),
-
-        changePage(num) { this.switchPage(num, 'column'); },
+        ...mapActions(userArticleStore, ['getArticles']),
 
     },
 
     mounted() {
 
         if (!this.columns.length) { this.getArticles(); }
+
+        this.switchFilter(this.$route.query.category || '');
 
     },
 

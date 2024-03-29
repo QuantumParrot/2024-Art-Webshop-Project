@@ -23,45 +23,25 @@ export default defineStore('userArticle', {
     state: () => ({
 
         articles: [],
+
         article: {},
-        filter: '',
-
         relatedProducts: [],
-
-        currentPage: { column: 1, news: 1 },
 
     }),
 
     getters: {
 
-        news: ({ articles }) => articles.filter((i) => i.type === '網站公告').sort((a, b) => b.create_at - a.create_at),
-
-        newsList: ({ news, currentPage }) => {
-
-            news.filter((i, idx) => Math.floor(idx / 5) + 1 === currentPage.news);
-
-        },
-
-        columns: ({ articles }) => articles.filter((i) => i.type === '專欄文章'),
-
-        columnList: ({ columns, filter, currentPage }) => {
-
-            const { column } = currentPage;
-
-            const items = filter ? columns.filter((i) => i.category === filter) : columns;
-
-            return items.filter((item, idx) => Math.floor(idx / 9) + 1 === column);
-
-        },
+        // 所有的公益計劃
 
         projects: ({ articles }) => articles.filter((i) => i.type === '公益計劃'),
 
-        totalPages: ({ columns, news }) => ({
+        // 所有的最新消息
 
-            column: Math.ceil(columns.length / 9),
-            news: Math.ceil(news.length / 5),
+        news: ({ articles }) => articles.filter((i) => i.type === '網站公告').sort((a, b) => b.create_at - a.create_at),
 
-        }),
+        // 所有的專欄文章
+
+        columns: ({ articles }) => articles.filter((i) => i.type === '專欄文章'),
 
     },
 
@@ -130,10 +110,6 @@ export default defineStore('userArticle', {
                 .finally(() => loaderStore.removeLoader('get-single-article'));
 
         },
-
-        switchFilter(value) { this.filter = value; },
-
-        switchPage(num, type) { this.currentPage[type] = num; },
 
         async getRelatedProducts(tag) {
 

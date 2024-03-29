@@ -23,20 +23,22 @@
             </li>
             </template>
         </ul>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center" v-if="totalPages > 1">
             <PaginationComponent
-                :current="currentPage.news" :total="totalPages.news"
-                @switch-page="(num) => switchPage(num, 'news')"
-                v-show="totalPages.news > 1" />
+                :current="currentPage" :total="totalPages" @switch-page="switchPage" />
         </div>
         </template>
-        <div class="alert bg-white text-center" v-else>這個分類目前沒有消息喔！</div>
+        <div class="alert px-md-7 p-5 mb-0 bg-white text-center" v-else>這個分類目前沒有消息喔！</div>
     </div>
 </div>
 
 </template>
 
 <script>
+
+import filterMixins from '@/mixins/filter';
+
+//
 
 import { mapState, mapActions } from 'pinia';
 
@@ -56,9 +58,11 @@ export default {
 
     components: { CategoryFilterBar, PaginationComponent },
 
+    mixins: [filterMixins],
+
     data() {
 
-        return { filter: '' };
+        return { filter: '', currentPage: 1 };
 
     },
 
@@ -66,7 +70,7 @@ export default {
 
         ...mapState(adminArticleStore, ['categories']),
 
-        ...mapState(userArticleStore, ['news', 'currentPage', 'totalPages']),
+        ...mapState(userArticleStore, ['news']),
 
         newsCategories() { return this.categories['網站公告'].filter((i) => i !== '網站測試'); },
 
@@ -78,13 +82,13 @@ export default {
 
         },
 
+        totalPages() { return Math.ceil(this.displayingNews.length / 6); },
+
     },
 
     methods: {
 
         ...mapActions(userArticleStore, ['getArticles', 'switchPage']),
-
-        switchFilter(value) { this.filter = value; },
 
     },
 

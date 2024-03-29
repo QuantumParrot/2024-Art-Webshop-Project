@@ -138,7 +138,7 @@
                 <template v-if="type !== '公益計劃'">
                 <hr>
                 <p class="is-required">詳細內容</p>
-                <ckeditor :editor="editor" :config="editorConfig" v-model="article.content" />
+                <ckeditor :editor="editor" :config="editorConfig" v-model.trim="article.content" />
                 </template>
             </div>
             <div class="modal-footer justify-content-between align-items-center">
@@ -149,8 +149,9 @@
                 是否公開</label>
                 </div>
                 <div>
-                <button type="submit" class="btn btn-primary me-2"
-                        :disabled="!meta.valid">確認更新</button>
+                <button type="submit"
+                        class="btn btn-primary me-2"
+                        :disabled="!meta.valid || !article.content">確認更新</button>
                 <button type="button" class="btn btn-outline-secondary"
                         @click="hideModal">取消</button>
                 </div>

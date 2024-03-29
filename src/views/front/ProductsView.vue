@@ -32,7 +32,7 @@
         <PaginationComponent
             :current="pagination.current_page" :total="pagination.total_pages"
             @switch-page="(num) => getProducts(pagination.category, num)"
-            v-show="totalPages.column > 1" />
+            v-show="pagination.total_pages > 1" />
         </div>
     </div>
     <SubscriptionSection />

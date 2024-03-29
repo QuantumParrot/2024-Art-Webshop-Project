@@ -1,9 +1,9 @@
 <template>
 
 <div class="h-100">
-    <section class="banner bg-primary text-white py-7">
+    <section class="banner bg-primary text-white py-md-8 py-7">
         <div class="container">
-            <h2 class="h1 lh-lg letter-space-sm mb-7">
+            <h2 class="h1 lh-lg ls-sm mb-md-8 mb-7">
                 <span
                     class="banner-txt" data-aos="fade-right"
                     data-aos-duration="1200">
@@ -21,34 +21,37 @@
                 data-aos-delay="1500">
                 <RouterLink to="/products" v-slot="{ navigate }" custom>
                 <button
-                    type="button" class="btn btn-lg btn-primary rounded-1 shadow"
-                    @click="navigate">即刻探索</button>
+                    type="button" class="btn btn-lg btn-primary text-gray
+                    rounded-1 bg-primary-shadow"
+                    @click="navigate"><b>開 始 探 索</b></button>
                 </RouterLink>
             </div>
         </div>
     </section>
-    <section class="bg-gray py-7">
+    <section class="bg-gray py-md-8 py-7">
         <div class="container">
             <div class="row g-3 mb-7">
                 <div class="col-lg-6 col-md-4">
                     <img
+                        data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1200"
                         class="intro-img rounded-1"
                         alt="Image by Bianca Fazacas on Unsplash"
                         src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1710000525437.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=AlR7N4VamKsOqdXkK44fPMjxcB0xA7vu1%2FaglK9lKJJExH5k32lqepXywkm3kripat70dkBMqX2Vihwi90Jf%2B2kRdoUrtTjI9Tcy2qvEPRR%2Fu%2FSiPF5ZkqZtMUpYpk3Zz776tKBIdPN294hAPnJa0BayCzciAWoiLktKye%2FZ5ncIXfGt3fOQOOtKD2Bx9vP%2B32a5Ry0x05%2Bq8w06BF6POm8q0Q5MPV4k5gyI76CaJQNJncaCQiCljgNbSqPkVtf9%2BZlqO3q9X2%2Fqf2K8dAA3smK4utoucOyEgiUdhL44Lgbth75FmZD7Fn7%2BtFcfGUS2gCljXqypPziDCVk%2Fu5tg3g%3D%3D">
                 </div>
                 <div class="col-lg-6 col-md-8">
                     <div
-                        class="intro-sec shadow-sm rounded-1 p-2">
+                        class="intro-sec shadow-sm rounded-1 p-2"
+                        data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000">
                         <div
                             class="d-flex justify-content-lg-center align-items-center
-                            px-lg-7 px-5 py-6
-                            border border-white">
+                            px-lg-7 px-5 py-6 border border-white">
                             <div>
                                 <h3 class="fw-bold mb-6">
-                                    <span class="section-title">豐富藏品，形塑風格</span>
+                                    <span class="section-title">多樣的商品選擇</span>
                                 </h3>
                                 <p>收藏家是一個小型的藝術品販售平台</p>
-                                <p>匯聚了世界各地的歷史痕跡、文明瑰寶與創意結晶</p>
+                                <p>匯聚了世界各地的</p>
+                                <p>歷史痕跡、文明瑰寶與創意結晶</p>
                                 <p>歡迎盡情瀏覽、仔細品味它們的故事</p>
                                 <p>找尋與您的靈魂最契合的物品</p>
                                 <p>讓它妝點您的店面，您的住家</p>
@@ -66,14 +69,16 @@
             </div>
             <div class="row flex-md-row flex-column-reverse g-3 mb-7">
                 <div class="col-lg-6 col-md-8">
-                    <div class="intro-sec shadow-sm rounded-1 p-2">
+                    <div
+                        class="intro-sec shadow-sm rounded-1 p-2"
+                        data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000">
                         <div
                             class="d-flex justify-content-lg-center align-items-center
-                            px-lg-7 px-4 py-6
-                            border border-white rounded-1">
+                            px-lg-7 px-4 py-6 border border-white rounded-1"
+                            data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000">
                             <div>
                                 <h3 class="fw-bold mb-6">
-                                    <span class="section-title">共享見聞，拓展視野</span>
+                                    <span class="section-title">紮實的專欄文章</span>
                                 </h3>
                                 <p>我們不止步於純粹的電商經營</p>
                                 <p>同時更致力於打造無隔閡的知識交流空間</p>
@@ -92,6 +97,7 @@
                 </div>
                 <div class="col-lg-6 col-md-4">
                     <img
+                        data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000"
                         class="intro-img rounded-1"
                         alt="Image by Jaredd Craig on Unsplash"
                         src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709822916310.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=gU2FW5XVwDYvgnjYMfCnLndYBDMmcCWFY%2B1thpbeIyQ8CSiLQlAlAHiBaTEgN6eo25TZKOw2dT1l3JVqDm8nwQVz9m5ucJnXTdseUsg9f3YIaMyIzFNGM06QIHIGZtMc595kdnIwuGpxQJCt8gK9yuEr3AmF4D8Ou%2Bwjy%2FqhxDJcew7WfVcmN31yGsfyTPZ1mOdj7lqLtTzq6RL94vo4UiLNdTOXIe3c7NoweDKQdIULx71yJPeOJZDaWO%2B3xodiY%2BJm4gCMi6LuacGsUNkISpWq2CwcmFY9l6aSDHSQokQsXhlqCA4YRrAIpNxCtXWq04XlY1LawhpwiK%2BHO0%2BZFw%3D%3D">
@@ -100,19 +106,21 @@
             <div class="row g-3">
                 <div class="col-lg-6 col-md-4">
                     <img
+                        data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000"
                         class="intro-img rounded-1"
                         alt="Image by atlascompany on Freepik"
                         src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709826148810.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qTwkWRj0hhwy6orSCoAQx2j6Z%2B1vuc%2BBbkr%2B%2FAJHRQwtg15ubOBryZlqrMHX42AqX5VIhf2R3cCv4XrRDWfljnlcewJptCZpIOttxcNDLybkvlLX7NPIq%2BEmMatX9M9N3Pa1gcDdnH2rIErRUqeP7ur%2BvySTRjOV6F9B6mgbBJPj%2FAUOhGTMxXyJOotbu4MJY4%2BvG3nMZOMkwdEOsVk%2B350d1qjHkw3IfXEiTtxY1fLoL6%2BEJJwQqj3zUf8T%2F%2Fnq2d16E3KrAEv3LNiO5UkHXnIUqt%2B2JkNIIeceUctnFRE1OQR5VPCGBRZVVM4uz8jjTWUR6s%2FkgJ%2FAG2u5LjMVzg%3D%3D">
                 </div>
                 <div class="col-lg-6 col-md-8">
-                    <div class="intro-sec shadow-sm rounded-1 p-2">
+                    <div
+                        class="intro-sec shadow-sm rounded-1 p-2"
+                        data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000">
                         <div
                             class="d-flex justify-content-lg-center align-items-center
-                            px-lg-7 px-4 py-6
-                            border border-white rounded-1">
+                            px-lg-7 px-4 py-6 border border-white rounded-1">
                             <div>
                                 <h3 class="fw-bold mb-6">
-                                    <span class="section-title">回饋社會，實踐永續</span>
+                                    <span class="section-title">將收益化為公益</span>
                                 </h3>
                                 <p>我們相信，藝術鑑賞與社會參與並不矛盾</p>
                                 <p>收藏家會妥善運用您在這裡的支出</p>
@@ -133,11 +141,8 @@
             </div>
         </div>
     </section>
-    <section class="bg-primary text-white py-7">
+    <section class="bg-primary text-white py-8">
         <div class="container">
-            <h3 data-aos="fade-right" data-aos-duration="1200" class="mb-7">
-            來自世界各地的美麗藏品 ...
-            </h3>
             <div class="row g-3 mb-3">
                 <div class="col-md-6">
                     <RouterLink to="products?category=複製油畫">
@@ -214,15 +219,12 @@
             </div>
         </div>
     </section>
-    <section class="py-7">
+    <section class="py-8">
         <div class="container">
             <div class="row gy-5">
                 <div class="col-md-4">
                     <div class="h-100 d-flex align-items-center">
-                        <h3 class="mb-0">
-                            <b><span>最新消息｜</span>
-                            <span class="fs-5 text-primary">NEWS</span></b>
-                        </h3>
+                        <h3 class="mb-0"><b>最新消息</b></h3>
                     </div>
                 </div>
                 <div class="col-md-8">

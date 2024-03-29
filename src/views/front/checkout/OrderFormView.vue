@@ -133,7 +133,7 @@
                 <span><i class="bi bi-caret-left-fill"></i></span>
                 上一步</button>
         </RouterLink>
-        <button type="submit" class="btn btn-primary rounded-1">送出訂單</button>
+        <button type="submit" class="btn btn-primary rounded-1">確認並送出</button>
     </div>
     </VForm>
 </template>

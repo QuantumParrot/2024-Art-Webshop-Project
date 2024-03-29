@@ -19,3 +19,17 @@
   0%, 100% { left: 0.25rem } 25%, 75% { left: 0.5rem } 50% { left: 0.75rem }
 
 }
+
+.bg-primary-shadow {
+
+  animation: bg-primary-pulse 1.5s infinite;
+  box-shadow: 0 0 0 .5rem transparent;
+
+}
+
+
+@keyframes bg-primary-pulse {
+
+  0% { box-shadow: 0 0 0 0 $primary; }
+
+}

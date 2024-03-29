@@ -3,7 +3,7 @@
 <footer class="mt-auto bg-primary text-light">
     <div class="container py-4">
         <div class="flex-classic">
-            <h2 class="h1 letter-space-sm mb-0"><b>收藏家</b></h2>
+            <h2 class="h1 ls-sm mb-0"><b>收藏家</b></h2>
             <div class="d-flex align-items-center gap-2">
                 <a href="#" target="_blank" alt="twitter/x"
                 class="btn btn-light rounded-circle px-2 py-1">

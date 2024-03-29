@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg text-primary py-4 shadow-sm">
     <div class="container">
-        <h1 class="letter-space-sm mb-0 order-1">
+        <h1 class="ls-sm mb-0 order-1">
             <RouterLink class="title" to="/"><b>收藏家</b></RouterLink>
         </h1>
         <div class="flex-classic gap-2 order-2 order-lg-3">

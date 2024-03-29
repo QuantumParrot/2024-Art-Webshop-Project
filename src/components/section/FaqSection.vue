@@ -1,14 +1,11 @@
 <template>
 
-<section class="bg-primary text-white py-7">
+<section class="bg-primary text-white py-md-8 py-7">
     <div class="container">
         <div class="row gy-5">
             <div class="col-md-4">
                 <div class="h-100 d-flex align-items-center">
-                    <h3 class="mb-0">
-                        <b><span>常見問答｜</span>
-                        <span class="fs-5 text-light">Q & A</span></b>
-                    </h3>
+                    <h3 class="mb-0"><b>常見問答</b></h3>
                 </div>
             </div>
             <div class="col-md-8">

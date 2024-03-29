@@ -1,6 +1,6 @@
 <template>
 
-<section class="subscription text-primary py-7">
+<section class="subscription text-primary py-md-8 py-7">
     <div class="container">
         <div class="row">
             <div class="col-md-6 z-2">

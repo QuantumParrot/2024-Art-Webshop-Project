@@ -1,33 +1,22 @@
 <template>
 
 <div class="h-100 bg-gray text-primary">
-    <div class="container py-7">
+    <div class="container py-md-8 py-7">
         <template v-if="step !== 0">
         <!-- progress -->
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div
-                    class="nav w-100 mb-7 align-items-center
-                    justify-content-xl-center justify-content-between gap-lg-6 gap-2">
-                    <div class="nav-item h2 mb-0 shadow-sm" :class="{ 'active': step === 1 }">
+                    class="nav w-100 mb-8 align-items-center justify-content-between">
+                    <div class="nav-item" :class="{ 'active': step === 1 }">
                         <i class="bi bi-1-square-fill" style="line-height: 1;"></i>
                         <span class="h6 mb-0">確認商品</span>
                     </div>
-                    <div class="d-md-block d-none">
-                        <div class="fs-4 px-2">
-                            <span class="text-highlight"><i class="bi bi-arrow-right"></i></span>
-                        </div>
-                    </div>
-                    <div class="nav-item h2 mb-0 shadow-sm" :class="{ 'active': step === 2 }">
+                    <div class="nav-item" :class="{ 'active': step === 2 }">
                         <i class="bi bi-2-square-fill" style="line-height: 1;"></i>
-                        <span class="h6 mb-0">填寫收件資料</span>
+                        <span class="h6 mb-0">填寫資料</span>
                     </div>
-                    <div class="d-md-block d-none">
-                        <div class="fs-4 px-2">
-                            <span class="text-highlight"><i class="bi bi-arrow-right"></i></span>
-                        </div>
-                    </div>
-                    <div class="nav-item h2 mb-0 shadow-sm" :class="{ 'active': step === 3 }">
+                    <div class="nav-item" :class="{ 'active': step === 3 }">
                         <i class="bi bi-3-square-fill" style="line-height: 1;"></i>
                         <span class="h6 mb-0">完成付款</span>
                     </div>
@@ -150,22 +139,46 @@ export default {
 
 @import '@/assets/_variables.scss';
 
+.nav {
+
+  position: relative;
+
+  &::after {
+
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 100%; height: 1px;
+    background-color: $secondary;
+    z-index: 1;
+
+  }
+
+}
+
 .nav-item {
 
+  z-index: 2;
+
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 1rem;
 
-  background-color: $light;
+  font-size: 2rem;
+
+  background-color: $gray;
+  color: $secondary;
+
   border-radius: .25rem;
-  padding: .5rem 1rem .5rem .5rem;
+  padding: .5rem 1.5rem;
+  margin-bottom: 0;
 
-  &.active {
+  &:first-child { padding-left: 0; }
 
-    background-color: $primary;
-    color: $light;
+  &:last-child { padding-right: 0; }
 
-  }
+  &.active { color: $primary }
 
 }
 
@@ -177,14 +190,14 @@ export default {
 
 @media (max-width: 492px) {
 
-  .nav {
+  .nav::after { top: 30%; }
+
+  .nav-item {
 
     flex-direction: column;
-    align-items: start;
+    padding: .5rem;
 
   }
-
-  .nav-item { width: 100%; }
 
 }
 

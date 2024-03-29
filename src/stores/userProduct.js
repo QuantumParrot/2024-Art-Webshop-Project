@@ -20,25 +20,58 @@ export default defineStore('userProduct', {
 
     state: () => ({
 
-        products: [],
-        pagination: {},
-
         product: {},
-        totalProducts: [],
         relatedProducts: [],
+
+        productList: [],
+        currentPage: 1,
+
+        categories: ['複製油畫', '複製雕塑', '玩具模型', '裝飾工藝', '文具禮品'],
+        filter: '',
 
     }),
 
+    getters: {
+
+        products: ({ productList, filter }) => {
+
+            if (filter) {
+
+                return productList.filter((item) => item.category === filter);
+
+            }
+
+            return productList;
+
+        },
+
+        totalPages: ({ products }) => Math.ceil(products.length / 9),
+
+        displaying: ({ products, currentPage }) => products.filter((p, i) => {
+
+            const group = Math.floor(i / 9) + 1;
+
+            return group === currentPage;
+
+        }),
+
+    },
+
     actions: {
 
-        getProducts(category = '', page = 1) {
+        switchFilter(value) { this.filter = this.categories.includes(value) ? value : ''; },
+
+        switchPage(num) { this.currentPage = num; },
+
+        getProducts(recommendFn, productData) {
 
             loaderStore.createLoader('get-user-products');
-            axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/products?category=${category}&page=${page}`)
+            axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/products/all`)
                 .then((res) => {
 
-                    this.products = res.data.products;
-                    this.pagination = res.data.pagination;
+                    this.productList = Object.values(res.data.products).reverse();
+
+                    if (typeof recommendFn === 'function') { recommendFn(productData); }
 
                 })
                 .catch((error) => alertStore.errorAlert(error))
@@ -54,13 +87,13 @@ export default defineStore('userProduct', {
 
                     this.product = res.data.product;
 
-                    if (this.totalProducts.length) {
+                    if (this.productList.length) {
 
-                        this.getRelatedProducts(res.data.product);
+                        this.getRelatedProducts(this.product);
 
                     } else {
 
-                        this.getTotalProducts(res.data.product, this.getRelatedProducts);
+                        this.getProducts(this.getRelatedProducts, this.product);
 
                     }
 
@@ -70,29 +103,13 @@ export default defineStore('userProduct', {
 
         },
 
-        getTotalProducts(data, fn) {
-
-            loaderStore.createLoader('get-total-products');
-
-            axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/products/all`)
-                .then((res) => {
-
-                    this.totalProducts = Object.values(res.data.products);
-                    if (typeof fn === 'function') { fn(data); }
-
-                })
-                .catch((error) => alertStore.errorAlert(error))
-                .finally(() => loaderStore.removeLoader('get-total-products'));
-
-        },
-
         getRelatedProducts(item) {
 
             const { category, tags } = item;
 
             // p => products
 
-            const p = this.totalProducts.filter((i) => i.id !== item.id && Array.isArray(i.tags));
+            const p = this.productList.filter((i) => i.id !== item.id && Array.isArray(i.tags));
 
             const results = p.filter((i) => i.tags.some((tag) => tags.includes(tag)));
 

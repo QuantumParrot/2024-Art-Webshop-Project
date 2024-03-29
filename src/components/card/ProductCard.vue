@@ -23,7 +23,7 @@
                     {{ product.title }}
                     </h4>
                 </div>
-                <div class="fs-6">
+                <div class="fs-6 text-start">
                     <span>NT＄</span>
                     <template v-if="product.price < product.origin_price">
                         <span>

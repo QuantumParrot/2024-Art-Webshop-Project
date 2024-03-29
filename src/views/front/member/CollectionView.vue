@@ -61,11 +61,11 @@ export default {
 
         ...mapState(userCollectionStore, ['collection']),
 
-        ...mapState(userProductStore, ['totalProducts']),
+        ...mapState(userProductStore, ['productList']),
 
         totalPages() { return Math.ceil(this.collection.length / 6); },
 
-        totalItems() { return this.totalProducts.filter((i) => this.collection.includes(i.id)); },
+        totalItems() { return this.productList.filter((i) => this.collection.includes(i.id)); },
 
         displaying() {
 
@@ -79,7 +79,7 @@ export default {
 
         ...mapActions(userCollectionStore, ['getCollection', 'updateCollection', 'clearCollection']),
 
-        ...mapActions(userProductStore, ['getTotalProducts']),
+        ...mapActions(userProductStore, ['getProducts']),
 
         switchPage(num) { this.currentPage = num; },
 
@@ -101,7 +101,7 @@ export default {
 
     },
 
-    mounted() { if (!this.totalProducts.length) { this.getTotalProducts(); } },
+    mounted() { if (!this.productList.length) { this.getProducts(); } },
 
 };
 

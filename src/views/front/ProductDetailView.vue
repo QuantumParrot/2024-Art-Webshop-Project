@@ -302,6 +302,8 @@ export default {
 
         product() {
 
+            this.getRelatedProducts(this.product);
+
             this.mainImage = this.product.imageUrl;
             this.quantity = 1;
             this.frame = '';
@@ -326,7 +328,7 @@ export default {
 
     methods: {
 
-        ...mapActions(userProductStore, ['getProduct']),
+        ...mapActions(userProductStore, ['getProduct', 'getRelatedProducts']),
 
         ...mapActions(userCartStore, ['addToCart']),
 

@@ -131,7 +131,7 @@
         <button
             type="button" class="btn btn-outline-primary rounded-1"
             @click="$router.push('/products')">
-            <span><i class="bi bi-caret-left-fill"></i></span>
+            <span><i class="bi bi-caret-left-fill me-1"></i></span>
             <span>繼續購物</span>
         </button>
         <RouterLink to="/checkout/form" v-slot="{ navigate }" custom>

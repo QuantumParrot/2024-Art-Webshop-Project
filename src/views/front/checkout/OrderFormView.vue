@@ -130,7 +130,7 @@
             <button
                 type="button" class="btn btn-outline-primary rounded-1"
                 @click="navigate">
-                <span><i class="bi bi-caret-left-fill"></i></span>
+                <span><i class="bi bi-caret-left-fill me-1"></i></span>
                 上一步</button>
         </RouterLink>
         <button type="submit" class="btn btn-primary rounded-1">確認並送出</button>

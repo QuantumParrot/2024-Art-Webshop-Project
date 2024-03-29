@@ -7,13 +7,13 @@
                 <span
                     class="banner-txt" data-aos="fade-right"
                     data-aos-duration="1200">
-                    邀您一同探索
+                    為您的生活空間
                 </span>
                 <br>
                 <span
                     class="banner-txt" data-aos="fade-right"
                     data-aos-delay="1000" data-aos-duration="1200">
-                    這顆星球上的吉光片羽
+                    增添藝術的色彩
                 </span>
             </h2>
             <div
@@ -47,9 +47,9 @@
                             px-lg-7 px-5 py-6 border border-white">
                             <div>
                                 <h3 class="fw-bold mb-6">
-                                    <span class="section-title">多樣的商品選擇</span>
+                                    <span class="section-title">豐富多樣的商品</span>
                                 </h3>
-                                <p>收藏家是一個小型的藝術品販售平台</p>
+                                <p>收藏家是一個小型的藝術品販售商店</p>
                                 <p>匯聚了世界各地的</p>
                                 <p>歷史痕跡、文明瑰寶與創意結晶</p>
                                 <p>歡迎盡情瀏覽、仔細品味它們的故事</p>
@@ -78,13 +78,13 @@
                             data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000">
                             <div>
                                 <h3 class="fw-bold mb-6">
-                                    <span class="section-title">紮實的專欄文章</span>
+                                    <span class="section-title">紮實的文章內容</span>
                                 </h3>
                                 <p>我們不止步於純粹的電商經營</p>
-                                <p>同時更致力於打造無隔閡的知識交流空間</p>
+                                <p>同時更致力於打造平易近人的知識分享平台</p>
                                 <p>收藏家將不定期更新專欄文章</p>
                                 <p>深入淺出，包羅萬象</p>
-                                <p class="mb-6">與您分享我們在閱讀與生活中得到的感動</p>
+                                <p class="mb-6">邀您一同探索這顆星球上的吉光片羽</p>
                                 <RouterLink
                                     target="_blank" to="/articles"
                                     class="btn-slider rounded-1 ps-3">
@@ -303,9 +303,9 @@ img { object-fit: cover; }
 .banner {
 
   height: 600px;
-  background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1710004950072.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=dZNhm32F89EIliw2AFxuxqQfDO2E6GcQyYDaGzzNAykb%2FdKix0kc1Ju20%2BucFI6HgU6MCa7DmfrfUjJYPdatckrEo1r3Xgi3h8jyRJSWSCSeMOuP0NwMMZh9Q%2FSxn1NXMC8JvrMIob6AdCjEt9uv8uihe7J3b3Wz9NVn8b0bJtsLmcT%2BaJB%2B5aYZ6OYkS7LuLH27wlqV2LSV%2F92Bq6JWDvM8uMg7MJBhesdFqrlWpY6WTnWtryBMGBcBecjNVf5Vpp%2BP6YE9D5cx9rfcUz4tu6dyUU6GC6JxUqZwSUui8bizHRao1d7FaUbjL2%2B5MEvrdNWqNsC69z6iu%2FSREiZb%2Bw%3D%3D);
+  background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1711731427572.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=mrPsMGLy8zDYYlQYlDrPgW22orYr227vHqF2YK9%2Fmc4YBIZRnql1f66Vxo%2BFLv%2BtNo6%2BM3k73SRUJ0HLq68jqonDzt4xWjVpAeGVcE97vIowKryWHehBN1m3MIfP82ax1oMVHJekIz4jFsk1ecldAq9IHkXvj%2Fz61Fxb6Vx0eSrvD6u34Z87YQxPLuHciJD2rNhcFHas5HqxId5KXpv5FSUghF8UVXT%2BsIG1tC3kG0nVXdLyNt%2F5sOOeKfuPYQum%2BVv50%2Bo6tSPPjipm36hQCOV65LjJ4mXSk2q26kjv1D0TA61Ob2wJon0w0t8FJCO0hSbMAu7XlSKPh2XoqksMlw%3D%3D);
   background-repeat: no-repeat;
-  background-position: 50% center;
+  background-position: 50% 10%;
   background-size: cover;
 
   position: relative;
@@ -325,7 +325,12 @@ img { object-fit: cover; }
 
 }
 
-.banner-txt { background-color: rgba(0, 0, 0, .35); }
+.banner-txt {
+
+    background-color: rgba(0, 0, 0, .5);
+    padding-left: .5rem;
+
+}
 
 .intro-sec {
 

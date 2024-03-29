@@ -49,7 +49,8 @@
         <div class="d-flex justify-content-center">
             <PaginationComponent
                 :current="currentPage.column" :total="totalPages.column"
-                @switch-page="changePage" />
+                @switch-page="changePage"
+                v-show="totalPages.column > 1" />
         </div>
     </div>
     <SubscriptionSection />

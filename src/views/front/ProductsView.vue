@@ -31,7 +31,8 @@
         <div class="d-flex justify-content-center" v-show="products.length">
         <PaginationComponent
             :current="pagination.current_page" :total="pagination.total_pages"
-            @switch-page="(num) => getProducts(pagination.category, num)" />
+            @switch-page="(num) => getProducts(pagination.category, num)"
+            v-show="totalPages.column > 1" />
         </div>
     </div>
     <SubscriptionSection />

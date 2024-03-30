@@ -23,10 +23,11 @@
                         </li>
                     </ol>
                 </nav>
-                <div class="position-relative mb-5">
+                <div class="mb-5">
                     <img
                         class="main-img" :class="frame ? frameSetting[frame] : ''"
-                        :src="mainImage" :alt="product.title" width="600">
+                        :src="mainImage" :alt="product.title"
+                        width="600" @click="openModal">
                 </div>
                 <div class="bg-light rounded-2 p-3 mb-5 d-flex gap-3 overflow-x-scroll">
                     <template v-for="img in displayImages" :key="img">
@@ -41,31 +42,31 @@
                         class="frames d-flex flex-nowrap text-nowrap mb-5"
                         v-if="product.category === '複製油畫'">
                         <button
-                            type="button" class="fs-7 btn btn-outline-primary rounded-0"
+                            type="button" class="fs-7 btn btn-outline-primary"
                             :class="{ 'active': frame === '' }"
                             @click="frame = ''">
                             <b>無畫框</b>
                         </button>
                         <button
-                            type="button" class="fs-7 btn btn-outline-primary rounded-0"
+                            type="button" class="fs-7 btn btn-outline-primary"
                             :class="{ 'active': frame === 'dark' }"
                             @click="frame = 'dark'">
                             <b>極簡黑</b>
                         </button>
                         <button
-                            type="button" class="fs-7 btn btn-outline-primary rounded-0"
+                            type="button" class="fs-7 btn btn-outline-primary"
                             :class="{ 'active': frame === 'wooden' }"
                             @click="frame = 'wooden'">
                             <b>淺木紋</b>
                         </button>
                         <button
-                            type="button" class="fs-7 btn btn-outline-primary rounded-0"
+                            type="button" class="fs-7 btn btn-outline-primary"
                             :class="{ 'active': frame === 'golden' }"
                             @click="frame = 'golden'">
                             <b>典雅金</b>
                         </button>
                         <button
-                            type="button" class="fs-7 btn btn-outline-primary rounded-0"
+                            type="button" class="fs-7 btn btn-outline-primary"
                             :class="{ 'active': frame === 'baroque' }"
                             @click="frame = 'baroque'">
                             <b>巴洛克</b>
@@ -242,6 +243,7 @@
         </div>
     </div>
 </div>
+<ZoomImageModal :image="zoomImage" ref="zoomImageModal" />
 
 </template>
 
@@ -255,7 +257,15 @@ import userCartStore from '@/stores/userCart';
 
 import loaderStore from '@/stores/loader';
 
+//
+
+import ZoomImageModal from '@/components/modal/ZoomImageModal.vue';
+
+//
+
 export default {
+
+    components: { ZoomImageModal },
 
     data() {
 
@@ -275,6 +285,8 @@ export default {
 
             mainImage: '',
             quantity: 1,
+
+            zoomImage: '',
 
         };
 
@@ -338,6 +350,13 @@ export default {
 
         ...mapActions(userCartStore, ['addToCart']),
 
+        openModal() {
+
+            this.zoomImage = this.mainImage;
+            this.$refs.zoomImageModal.showModal();
+
+        },
+
     },
 
     mounted() { this.getProduct(this.$route.params.id); },
@@ -364,11 +383,23 @@ hr { margin: 1.5rem 0; }
 
 .frames {
 
-  .btn { margin: 0 -1px -1px 0; }
+  .btn {
+
+    margin: 0 -1px -1px 0;
+
+    border-radius: 0;
+
+    &:first-child { border-radius: .25rem 0 0 .25rem; }
+
+    &:last-child { border-radius: 0 .25rem .25rem 0; }
+
+  }
 
   .btn.active { pointer-events: none; }
 
 }
+
+.main-img { cursor: zoom-in; }
 
 .display-img {
 

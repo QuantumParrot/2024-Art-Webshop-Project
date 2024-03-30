@@ -8,7 +8,7 @@
             <i class="bi bi-x-circle-fill"></i>
         </button>
     </div>
-    <div class="d-flex justify-content-center overflow-scroll">
+    <div class="d-flex overflow-scroll">
         <img :src="image" alt="zoom-in-image" ref="image">
     </div>
 </dialog>
@@ -35,12 +35,29 @@ export default {
 
         initImage() {
 
-            const { naturalWidth, naturalHeight } = this.$refs.image;
+            this.$nextTick(() => {
 
-            this.$refs.image.style.width = naturalWidth;
-            this.$refs.image.style.height = naturalHeight;
+                const { naturalWidth } = this.$refs.image;
+
+                if (naturalWidth < 800) {
+
+                    this.$refs.image.style.width = '100%';
+
+                } else {
+
+                    this.$refs.image.style.width = naturalWidth;
+
+                }
+
+            });
 
         },
+
+    },
+
+    watch: {
+
+        image() { this.initImage(); },
 
     },
 
@@ -51,6 +68,13 @@ export default {
 </script>
 
 <style scoped>
+
+dialog {
+
+  max-width: 800px;
+  width: calc(100vw - 24px);
+
+}
 
 img { max-width: none; }
 

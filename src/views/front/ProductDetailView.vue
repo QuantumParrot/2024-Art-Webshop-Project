@@ -93,16 +93,18 @@
                                     <span>{{ product.description }}</span>
                                 </div>
                             </div>
-                            <p class="fs-7 mb-5">點選下方標籤，搜尋相關作品：</p>
-                            <div class="d-flex gap-2 flex-nowrap text-nowrap overflow-scroll">
-                                <template v-for="tag in product.tags" :key="tag">
-                                <RouterLink
-                                    :to="`/search?keyword=${tag}`"
-                                    target="_blank"
-                                    class="tag badge fs-6 py-2">
-                                    <span>{{ tag }}</span>
-                                </RouterLink>
-                                </template>
+                            <div>
+                                <p class="fs-7 mb-5">點選下方標籤，搜尋相關作品：</p>
+                                <div class="d-flex gap-2 flex-nowrap text-nowrap overflow-scroll">
+                                    <template v-for="tag in product.tags" :key="tag">
+                                    <RouterLink
+                                        :to="`/search?keyword=${tag}`"
+                                        target="_blank"
+                                        class="tag badge fs-6 py-2">
+                                        <span>{{ tag }}</span>
+                                    </RouterLink>
+                                    </template>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -1,12 +1,6 @@
 /* modal、dialog */
 
-dialog {
-
-  border: none;
-  max-width: 800px;
-  width: calc(100vw - 24px);
-
-}
+dialog { border: none; }
 
 @media (max-width: 991px) {
 

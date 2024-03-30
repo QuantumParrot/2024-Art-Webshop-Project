@@ -92,9 +92,15 @@
                                     <span>{{ product.description }}</span>
                                 </div>
                             </div>
+                            <p class="fs-7 mb-5">點選下方標籤，搜尋相關作品：</p>
                             <div class="d-flex gap-2 flex-nowrap text-nowrap overflow-scroll">
                                 <template v-for="tag in product.tags" :key="tag">
-                                <span class="badge bg-primary fs-6 py-2">{{ tag }}</span>
+                                <RouterLink
+                                    :to="`/search?keyword=${tag}`"
+                                    target="_blank"
+                                    class="tag badge fs-6 py-2">
+                                    <span>{{ tag }}</span>
+                                </RouterLink>
                                 </template>
                             </div>
                         </div>
@@ -342,6 +348,8 @@ export default {
 
 <style lang="scss" scoped>
 
+@import '@/assets/_variables.scss';
+
 // * { outline: 1px solid tomato; }
 
 hr { margin: 1.5rem 0; }
@@ -415,5 +423,14 @@ hr { margin: 1.5rem 0; }
 .section-title::after { left: 1%; }
 
 .card-img-top { height: 250px; object-position: 50% 30%; }
+
+.tag {
+
+    text-decoration: none;
+    background-color: $primary;
+
+    &:hover { background-color: $secondary; }
+
+}
 
 </style>

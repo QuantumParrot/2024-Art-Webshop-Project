@@ -63,19 +63,25 @@ export default defineStore('userProduct', {
 
         switchPage(num) { this.currentPage = num; },
 
-        getProducts(recommendFn, productData) {
+        async getProducts(recommendFn, productData) {
 
-            loaderStore.createLoader('get-user-products');
-            axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/products/all`)
-                .then((res) => {
+            try {
 
-                    this.productList = Object.values(res.data.products).reverse();
+                loaderStore.createLoader('get-user-products');
 
-                    if (typeof recommendFn === 'function') { recommendFn(productData); }
+                const res = await axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/products/all`);
 
-                })
-                .catch((error) => alertStore.errorAlert(error))
-                .finally(() => loaderStore.removeLoader('get-user-products'));
+                this.productList = Object.values(res.data.products).reverse();
+
+                if (typeof recommendFn === 'function') { recommendFn(productData); }
+
+            } catch (error) {
+
+                alertStore.errorAlert(error);
+
+            } finally { loaderStore.removeLoader('get-user-products'); }
+
+            return this.productList;
 
         },
 

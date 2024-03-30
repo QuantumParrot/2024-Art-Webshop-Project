@@ -18,7 +18,7 @@
                         aria-current="page">{{ product.title }}</li>
                 </ol>
             </nav>
-            <div class="position-relative mb-5">
+            <div class="mb-5">
                 <img class="main-img" :class="frame ? frameSetting[frame] : ''"
                      :src="mainImage" :alt="product.title" width="600">
             </div>

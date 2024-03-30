@@ -129,7 +129,7 @@
     <router-link to="/checkout/carts" v-slot="{ navigate }">
     <button type="button" class="btn btn-outline-primary rounded-1"
             @click="navigate">
-    <span><i class="bi bi-caret-left-fill"></i></span>
+    <span><i class="bi bi-caret-left-fill me-1"></i></span>
     上一步</button>
     </router-link>
     <button type="submit" class="btn btn-primary rounded-1">

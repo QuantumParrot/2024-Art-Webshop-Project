@@ -128,9 +128,10 @@
 </div>
 
 <div class="flex-classic">
-    <button type="button" class="btn btn-outline-primary rounded-1"
-            @click="$router.push('/products')">
-    <span><i class="bi bi-caret-left-fill"></i></span>
+    <button
+        type="button" class="btn btn-outline-primary rounded-1"
+        @click="$router.push('/products')">
+        <span><i class="bi bi-caret-left-fill me-1"></i></span>
     繼續購物</button>
     <router-link to="/checkout/form" v-slot="{ navigate }" custom>
         <button type="button" class="btn btn-primary rounded-1"

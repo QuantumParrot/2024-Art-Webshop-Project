@@ -63,7 +63,7 @@ export default defineStore('userProduct', {
 
         switchPage(num) { this.currentPage = num; },
 
-        async getProducts(recommendFn, productData) {
+        async getProducts() {
 
             try {
 
@@ -72,8 +72,6 @@ export default defineStore('userProduct', {
                 const res = await axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/products/all`);
 
                 this.productList = Object.values(res.data.products).reverse();
-
-                if (typeof recommendFn === 'function') { recommendFn(productData); }
 
             } catch (error) {
 
@@ -85,27 +83,24 @@ export default defineStore('userProduct', {
 
         },
 
-        getProduct(id) {
+        async getProduct(id) {
 
-            loaderStore.createLoader('get-single-product');
-            axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/product/${id}`)
-                .then((res) => {
+            try {
 
-                    this.product = res.data.product;
+                loaderStore.createLoader('get-single-product');
+                const res = await axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/product/${id}`);
 
-                    if (this.productList.length) {
+                this.product = res.data.product;
 
-                        this.getRelatedProducts(this.product);
+                if (!this.productList.length) { await this.getProducts(); }
 
-                    } else {
+                this.getRelatedProducts(this.product);
 
-                        this.getProducts(this.getRelatedProducts, this.product);
+            } catch (error) {
 
-                    }
+                alertStore.errorAlert(error);
 
-                })
-                .catch((error) => alertStore.errorAlert(error))
-                .finally(() => loaderStore.removeLoader('get-single-product'));
+            } finally { loaderStore.removeLoader('get-single-product'); }
 
         },
 

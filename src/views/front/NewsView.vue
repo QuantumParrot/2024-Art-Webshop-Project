@@ -28,17 +28,18 @@
         </ul>
         <div class="d-flex justify-content-center">
             <pagination-component
-                :current="currentPage.news" :total="totalPages.news"
-                @switch-page="(num) => switchPage(num, 'news')" />
+                :current="currentPage" :total="totalPages" @switch-page="switchPage" />
         </div>
         </template>
-        <div class="alert bg-white text-center mb-0" v-else>這個分類目前沒有消息喔！</div>
+        <div class="alert bg-white text-center py-5 mb-0" v-else>這個分類目前沒有消息喔！</div>
     </div>
 </div>
 
 </template>
 
 <script>
+
+import filterMixins from '@/mixins/filter';
 
 import { mapState, mapActions } from 'pinia';
 
@@ -58,6 +59,8 @@ export default {
 
     components: { CategoryFilterBar, PaginationComponent },
 
+    mixins: [filterMixins],
+
     data() {
 
         return { filter: '' };
@@ -68,15 +71,24 @@ export default {
 
         ...mapState(adminArticleStore, ['categories']),
 
-        ...mapState(userArticleStore, ['news', 'currentPage', 'totalPages']),
+        ...mapState(userArticleStore, ['news']),
 
         category() { return this.categories['網站公告'].filter((i) => i !== '網站測試'); },
 
-        displaying() {
+        currentCategory() {
 
             if (this.filter) { return this.news.filter((i) => i.category === this.filter); }
 
             return this.news;
+
+        },
+
+        totalPages() { return Math.ceil(this.currentCategory.length / 10); },
+
+        displaying() {
+
+            // eslint-disable-next-line max-len
+            return this.currentCategory.filter((n, i) => Math.floor(i / 10) + 1 === this.currentPage);
 
         },
 

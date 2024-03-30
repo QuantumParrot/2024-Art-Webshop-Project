@@ -28,40 +28,18 @@ export default defineStore('userArticle', {
 
         articles: [],
         article: {},
-        filter: '',
 
         relatedProducts: [],
-
-        currentPage: { column: 1, news: 1 },
 
     }),
 
     getters: {
 
-        news: ({ articles }) => articles.filter((i) => i.type === '網站公告').sort((a, b) => b.create_at - a.create_at),
-
-        newsList: ({ news, currentPage }) => news.filter((i, idx) => Math.floor(idx / 5) + 1 === currentPage.news),
-
-        columns: ({ articles }) => articles.filter((i) => i.type === '專欄文章'),
-
-        columnList: ({ columns, filter, currentPage }) => {
-
-            const { column } = currentPage;
-
-            const items = filter ? columns.filter((i) => i.category === filter) : columns;
-
-            return items.filter((item, idx) => Math.floor(idx / 9) + 1 === column);
-
-        },
-
         projects: ({ articles }) => articles.filter((i) => i.type === '公益計劃'),
 
-        totalPages: ({ columns, news }) => ({
+        news: ({ articles }) => articles.filter((i) => i.type === '網站公告').sort((a, b) => b.create_at - a.create_at),
 
-            column: Math.ceil(columns.length / 9),
-            news: Math.ceil(news.length / 5),
-
-        }),
+        columns: ({ articles }) => articles.filter((i) => i.type === '專欄文章'),
 
     },
 

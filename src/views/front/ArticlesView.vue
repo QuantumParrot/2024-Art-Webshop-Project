@@ -8,8 +8,9 @@
                 :category="categories['專欄文章']" :current="filter"
                 @switch-category="switchFilter" />
         </div>
-        <ul class="row g-5 list-unstyled mb-7" v-if="columnList.length">
-            <template v-for="item in columnList" :key="item.id">
+        <template v-if="displaying.length">
+        <ul class="row g-5 list-unstyled">
+            <template v-for="item in displaying" :key="item.id">
             <li class="col-xl-4 col-md-6">
                 <div class="h-100 card">
                     <img class="card-img-top" :src="item.image" :alt="item.title">
@@ -43,12 +44,12 @@
             </li>
             </template>
         </ul>
-        <div class="alert text-center py-7 mb-7" v-else>這個分類目前沒有文章喔！</div>
-        <div class="d-flex justify-content-center">
-        <pagination-component
-            :current="currentPage.column" :total="totalPages.column"
-            @switch-page="changePage" />
+        <div class="d-flex justify-content-center mt-7">
+            <pagination-component
+                :current="currentPage" :total="totalPages" @switch-page="switchPage" />
         </div>
+        </template>
+        <div class="alert text-center py-7 mb-0" v-else>這個分類目前沒有文章喔！</div>
     </div>
     <subscription-section />
 </div>
@@ -56,6 +57,8 @@
 </template>
 
 <script>
+
+import filterMixins from '@/mixins/filter';
 
 import { mapState, mapActions } from 'pinia';
 
@@ -81,25 +84,48 @@ export default {
 
     },
 
+    mixins: [filterMixins],
+
     computed: {
 
         ...mapState(adminArticleStore, ['categories']),
 
-        ...mapState(userArticleStore, ['columns', 'columnList', 'filter', 'currentPage', 'totalPages']),
+        ...mapState(userArticleStore, ['columns']),
+
+        currentCategory() {
+
+            if (this.filter) {
+
+                return this.columns.filter((i) => i.category === this.filter);
+
+            }
+
+            return this.columns;
+
+        },
+
+        totalPages() { return Math.ceil(this.currentCategory.length / 6); },
+
+        displaying() {
+
+            // eslint-disable-next-line max-len
+            return this.currentCategory.filter((a, i) => Math.floor(i / 6) + 1 === this.currentPage);
+
+        },
 
     },
 
     methods: {
 
-        ...mapActions(userArticleStore, ['getArticles', 'switchFilter', 'switchPage']),
-
-        changePage(num) { this.switchPage(num, 'column'); },
+        ...mapActions(userArticleStore, ['getArticles']),
 
     },
 
     mounted() {
 
         if (!this.columns.length) { this.getArticles(); }
+
+        this.switchFilter(this.$route.query.category || '');
 
     },
 

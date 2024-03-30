@@ -99,21 +99,25 @@ export default {
 
         ...mapState(userArticleStore, ['columns']),
 
-        displayingColumns() {
-
-            let list = [];
+        currentCols() {
 
             if (this.filter) {
 
-                list = this.columns.filter((i) => i.category === this.filter);
+                return this.columns.filter((i) => i.category === this.filter);
 
-            } else { list = this.columns; }
+            }
 
-            return list.filter((item, idx) => Math.floor(idx / 9) + 1 === this.currentPage);
+            return this.columns;
 
         },
 
-        totalPages() { return Math.ceil(this.displayingColumns.length / 9); },
+        totalPages() { return Math.ceil(this.currentCols.length / 6); },
+
+        displayingColumns() {
+
+            return this.currentCols.filter((c, i) => Math.floor(i / 6) + 1 === this.currentPage);
+
+        },
 
     },
 

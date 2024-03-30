@@ -25,7 +25,7 @@ const router = createRouter({
                     path: 'news',
                     name: 'front-news',
                     component: () => import('../views/front/NewsView.vue'),
-                    meta: { title: '最新消息 - 收藏家｜藝術販售與推廣' },
+                    meta: { title: '最新消息 - 收藏家｜藝術販售與推廣', refuseScrollTop: true },
                 },
                 {
                     path: 'news/:id',
@@ -181,6 +181,8 @@ const router = createRouter({
         if (to.hash) { return { el: to.hash, top: 20 }; }
 
         if (savedPosition) { return savedPosition; }
+
+        if (to.meta.refuseScrollTop) return false;
 
         return { top: 0, behavior: 'smooth' };
 

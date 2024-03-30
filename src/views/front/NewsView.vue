@@ -4,6 +4,9 @@
     <div class="container py-7">
         <h2 class="text-center py-5 mb-7"><b>最新消息</b></h2>
         <div class="mb-7">
+            <SwiperComponent :data="carousel" />
+        </div>
+        <div class="mb-7">
             <CategoryFilterBar
                 :filters="newsCategories" :filter="filter" total-title="全部消息"
                 @switch-filter="switchFilter" />
@@ -48,6 +51,8 @@ import userArticleStore from '@/stores/userArticle';
 
 //
 
+import SwiperComponent from '@/components/SwiperComponent.vue';
+
 import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
 
 import PaginationComponent from '@/components/PaginationComponent.vue';
@@ -56,7 +61,7 @@ import PaginationComponent from '@/components/PaginationComponent.vue';
 
 export default {
 
-    components: { CategoryFilterBar, PaginationComponent },
+    components: { SwiperComponent, CategoryFilterBar, PaginationComponent },
 
     mixins: [filterMixins],
 
@@ -74,7 +79,7 @@ export default {
 
         newsCategories() { return this.categories['網站公告'].filter((i) => i !== '網站測試'); },
 
-        displayingNews() {
+        currentNews() {
 
             if (this.filter) { return this.news.filter((i) => i.category === this.filter); }
 
@@ -82,7 +87,15 @@ export default {
 
         },
 
-        totalPages() { return Math.ceil(this.displayingNews.length / 6); },
+        totalPages() { return Math.ceil(this.currentNews.length / 10); },
+
+        displayingNews() {
+
+            return this.currentNews.filter((n, i) => Math.floor(i / 10) + 1 === this.currentPage);
+
+        },
+
+        carousel() { return this.news.filter((n, i) => i < 3); },
 
     },
 

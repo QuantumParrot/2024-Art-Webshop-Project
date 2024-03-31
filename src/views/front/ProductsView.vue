@@ -24,7 +24,7 @@
             </li>
             </template>
         </ul>
-        <ul class="row g-6 list-unstyled mb-7">
+        <ul class="row gy-6 list-unstyled mb-7">
             <template v-for="product in displaying" :key="product.id">
             <li class="col-xl-4 col-md-6">
                 <ProductCard :product="product" />

@@ -2,8 +2,10 @@
 
 <div class="h-100 bg-gray text-primary">
     <div class="container py-7">
-        <div class="py-5 mb-7" v-show="!isLoading">
-            <h2 class="text-center mb-7"><b>商品搜尋</b></h2>
+        <div class="py-5 mb-7" v-show="totalProducts.length">
+            <h2 class="text-center mb-7">
+                <b>商品搜尋</b>
+            </h2>
             <div class="row justify-content-center mb-7">
                 <div class="col-md-6">
                     <div class="input-group">
@@ -101,11 +103,15 @@ export default {
 
         ...mapActions(userProductStore, ['getProducts']),
 
-        startSearch() { this.$router.push(`${this.$route.path}?keyword=${this.keywordTemp}`); },
-
-        search() {
+        startSearch() {
 
             if (!this.keywordTemp) return;
+
+            this.$router.push(`${this.$route.path}?keyword=${this.keywordTemp}`);
+
+        },
+
+        search() {
 
             this.keyword = this.keywordTemp;
 

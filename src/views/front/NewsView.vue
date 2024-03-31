@@ -4,7 +4,7 @@
     <div class="container py-7">
         <h2 class="text-center py-5 mb-7"><b>最新消息</b></h2>
         <div class="mb-7">
-            <SwiperComponent :data="carousel" />
+            <NewsCarousel :data="carousel" />
         </div>
         <div class="mb-7">
             <CategoryFilterBar
@@ -31,7 +31,10 @@
                 :current="currentPage" :total="totalPages" @switch-page="switchPage" />
         </div>
         </template>
-        <div class="alert px-md-7 p-5 mb-0 bg-white text-center" v-else>這個分類目前沒有消息喔！</div>
+        <template v-else>
+            <div class="alert px-md-7 p-5 mb-0 bg-white text-center">這個分類目前沒有消息喔！</div>
+            <LottiePlayer :animationData="sleepCatJSON" :height="250" />
+        </template>
     </div>
 </div>
 
@@ -51,7 +54,7 @@ import userArticleStore from '@/stores/userArticle';
 
 //
 
-import SwiperComponent from '@/components/SwiperComponent.vue';
+import NewsCarousel from '@/components/swiper/NewsCarousel.vue';
 
 import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
 
@@ -59,15 +62,24 @@ import PaginationComponent from '@/components/PaginationComponent.vue';
 
 //
 
+import sleepCatJSON from '@/assets/lottie/sleep-cat.json';
+
 export default {
 
-    components: { SwiperComponent, CategoryFilterBar, PaginationComponent },
+    components: { NewsCarousel, CategoryFilterBar, PaginationComponent },
 
     mixins: [filterMixins],
 
     data() {
 
-        return { filter: '', currentPage: 1 };
+        return {
+
+            sleepCatJSON,
+
+            filter: '',
+            currentPage: 1,
+
+        };
 
     },
 

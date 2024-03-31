@@ -11,7 +11,11 @@
                 class="slide-content" :style="{ backgroundImage: `url(${news.image})` }"
                 :alt="news.title">
             </div>
-            <h3 class="slide-title fs-5 py-3 mb-0"><b>{{ news.title }}</b></h3>
+            <div class="slide-title fs-5 py-3">
+                <RouterLink class="text-decoration-none" :to="`/news/${news.id}`">
+                    <b>{{ news.title }}</b>
+                </RouterLink>
+            </div>
         </swiper-slide>
     </template>
 </swiper-container>

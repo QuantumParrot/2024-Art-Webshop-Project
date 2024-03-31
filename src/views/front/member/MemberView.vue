@@ -2,7 +2,7 @@
 
 <div class="h-100 bg-secondary text-white">
     <div class="container py-7">
-        <div class="row g-7">
+        <div class="row gy-7">
             <div class="col-lg-3">
                 <ul class="sticky-top nav flex-lg-column">
                     <li class="nav-item">

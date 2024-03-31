@@ -3,7 +3,7 @@
 <div class="position-relative">
     <input
         type="text" class="form-control" v-model.trim="keyword"
-        placeholder="輸入您想搜尋的關鍵字"
+        placeholder="輸入關鍵字進行搜尋"
         @keyup.enter="search">
     <button
         type="button" class="btn btn-inline" :class="{ 'disabled': !keyword }"

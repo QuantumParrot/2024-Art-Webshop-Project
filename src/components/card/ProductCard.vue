@@ -1,6 +1,6 @@
 <template>
 
-<div class="h-100 card overflow-hidden">
+<div class="h-100 card border-0 overflow-hidden">
     <div class="overflow-hidden">
         <div class="card-img overflow-hidden">
             <RouterLink :to="`/product/${product.id}`">
@@ -42,7 +42,7 @@
             <button
                 type="button" class="btn btn-outline-primary"
                 @click="toggleCollection(product.id)">
-                <i class="bi" :class="collection.includes(product.id) ?
+                <i class="bi" :class="isCollection(product.id) ?
                 'bi-heart-fill' : 'bi-heart'"></i>
             </button>
             <button
@@ -81,15 +81,13 @@ export default {
 
         ...mapState(loaderStore, ['loadingTask']),
 
-        ...mapState(userCollectionStore, ['collection']),
-
     },
 
     methods: {
 
         ...mapActions(userCartStore, ['addToCart']),
 
-        ...mapActions(userCollectionStore, ['toggleCollection']),
+        ...mapActions(userCollectionStore, ['toggleCollection', 'isCollection']),
 
     },
 

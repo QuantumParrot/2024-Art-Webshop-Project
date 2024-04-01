@@ -48,6 +48,8 @@ import { mapState, mapActions } from 'pinia';
 
 import userProductStore from '@/stores/userProduct';
 
+import userCollectionStore from '@/stores/userCollection';
+
 import loaderStore from '@/stores/loader';
 
 //
@@ -80,6 +82,8 @@ export default {
 
         ...mapState(loaderStore, ['isLoading']),
 
+        ...mapState(userCollectionStore, ['collection']),
+
     },
 
     watch: {
@@ -97,11 +101,21 @@ export default {
 
         },
 
+        collection: {
+
+            handler() { this.updateCollection(); },
+
+            deep: true,
+
+        },
+
     },
 
     methods: {
 
         ...mapActions(userProductStore, ['getProducts']),
+
+        ...mapActions(userCollectionStore, ['getCollection', 'updateCollection']),
 
         startSearch() {
 
@@ -145,6 +159,7 @@ export default {
         } else { this.totalProducts = this.productList; }
 
         this.search();
+        this.getCollection();
 
     },
 

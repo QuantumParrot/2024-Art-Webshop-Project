@@ -229,16 +229,7 @@
             <div class="row g-5">
                 <template v-for="item in relatedProducts" :key="item.id">
                 <div class="col-md-4">
-                    <a href="#" class="text-decoration-none"
-                    @click.prevent="$router.push(`/product/${item.id}`)">
-                        <div class="card">
-                            <img class="card-img-top" :src="item.imageUrl" :alt="item.title">
-                            <div class="card-body py-5 flex-classic">
-                                <h5 class="fs-6 fw-bold mb-0">{{ item.title }}</h5>
-                                <p class="mb-0">NT$ {{ item.price }}</p>
-                            </div>
-                        </div>
-                    </a>
+                    <ProductCard :product="item" />
                 </div>
                 </template>
             </div>
@@ -257,17 +248,21 @@ import userProductStore from '@/stores/userProduct';
 
 import userCartStore from '@/stores/userCart';
 
+import userCollectionStore from '@/stores/userCollection';
+
 import loaderStore from '@/stores/loader';
 
 //
 
 import ZoomImageModal from '@/components/modal/ZoomImageModal.vue';
 
+import ProductCard from '@/components/card/ProductCard.vue';
+
 //
 
 export default {
 
-    components: { ZoomImageModal },
+    components: { ZoomImageModal, ProductCard },
 
     data() {
 
@@ -300,11 +295,30 @@ export default {
 
         ...mapState(loaderStore, ['isLoading', 'loadingTask']),
 
+        ...mapState(userCollectionStore, ['collection']),
+
         displayImages() {
 
             const { imageUrl, imagesUrl } = this.product;
 
             return Array.isArray(imagesUrl) ? [imageUrl, ...imagesUrl] : [imageUrl];
+
+        },
+
+    },
+
+    methods: {
+
+        ...mapActions(userProductStore, ['getProduct', 'getRelatedProducts']),
+
+        ...mapActions(userCartStore, ['addToCart']),
+
+        ...mapActions(userCollectionStore, ['getCollection', 'updateCollection']),
+
+        openModal() {
+
+            this.zoomImage = this.mainImage;
+            this.$refs.zoomImageModal.showModal();
 
         },
 
@@ -344,24 +358,22 @@ export default {
 
         },
 
-    },
+        collection: {
 
-    methods: {
+            handler() { this.updateCollection(); },
 
-        ...mapActions(userProductStore, ['getProduct', 'getRelatedProducts']),
-
-        ...mapActions(userCartStore, ['addToCart']),
-
-        openModal() {
-
-            this.zoomImage = this.mainImage;
-            this.$refs.zoomImageModal.showModal();
+            deep: true,
 
         },
 
     },
 
-    mounted() { this.getProduct(this.$route.params.id); },
+    mounted() {
+
+        this.getProduct(this.$route.params.id);
+        this.getCollection();
+
+    },
 
 };
 

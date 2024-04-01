@@ -94,10 +94,6 @@ export default {
 
         },
 
-        // 每一次重整時都要從 localstorage 取得 collection 的資訊
-
-        products() { this.getCollection(); },
-
         // 每一次透過 toggle 讓 favorite 陣列的值產生變化時，都要觸發 update 更新 localStorage 內的資料
 
         collection: {
@@ -125,6 +121,8 @@ export default {
         this.getProducts();
 
         this.switchFilter(this.$route.query.category || '');
+
+        this.getCollection();
 
     },
 

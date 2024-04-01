@@ -10,7 +10,7 @@
         <ul class="row g-5 list-unstyled mb-7" v-if="displayingColumns.length">
             <template v-for="item in displayingColumns" :key="item.id">
             <li class="col-xl-4 col-md-6">
-                <div class="h-100 card">
+                <div class="h-100 card border-0">
                     <img class="card-img-top" :src="item.image" :alt="item.title">
                     <div class="card-body d-flex flex-column">
                         <div class="text-nowrap overflow-x-scroll">

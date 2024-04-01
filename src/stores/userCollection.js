@@ -16,6 +16,8 @@ export default defineStore('userCollection', {
 
         getCollection() { this.collection = JSON.parse(localStorage.getItem('collection')) || []; },
 
+        isCollection(id) { return this.collection.includes(id); },
+
         toggleCollection(id) {
 
             const index = this.collection.findIndex((i) => i === id);

@@ -1,6 +1,6 @@
 <template>
 
-<div class="h-100 bg-gray text-primary" v-show="!isLoading">
+<div class="h-100 bg-gray text-primary" v-show="article.id">
     <div class="container py-7">
         <div class="bg-white rounded-2 p-md-7 p-5 shadow">
             <div class="p-3 border rounded-2">
@@ -19,20 +19,9 @@
                 </div>
                 <div class="border-top py-6" v-if="article.recommend && relatedProducts.length">
                     <h4 class="text-center mb-6"><b>為您推薦</b></h4>
-                    <div class="row g-5">
+                    <div class="row g-3">
                         <div class="col-md-4" v-for="item in relatedProducts" :key="item.id">
-                            <a class="text-decoration-none"
-                            href="#" @click.prevent="$router.push(`/product/${item.id}`)">
-                                <div class="card">
-                                    <img
-                                        class="card-img-top"
-                                        :src="item.imageUrl" :alt="item.title">
-                                    <div class="card-body py-5 flex-classic">
-                                        <h5 class="fs-6 fw-bold mb-0">{{ item.title }}</h5>
-                                        <p class="mb-0">NT$ {{ item.price }}</p>
-                                    </div>
-                                </div>
-                            </a>
+                            <ProductCard :product="item" />
                         </div>
                     </div>
                 </div>
@@ -55,21 +44,27 @@ import loaderStore from '@/stores/loader';
 
 import userArticleStore from '@/stores/userArticle';
 
+import userCollectionStore from '@/stores/userCollection';
+
 //
 
 import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
+
+import ProductCard from '@/components/card/ProductCard.vue';
 
 //
 
 export default {
 
-    components: { SubscriptionSection },
+    components: { SubscriptionSection, ProductCard },
 
     computed: {
 
         ...mapState(userArticleStore, ['article', 'relatedProducts']),
 
         ...mapState(loaderStore, ['isLoading']),
+
+        ...mapState(userCollectionStore, ['collection']),
 
         author() { return this.authors.find((i) => i.column === this.article.author); },
 
@@ -87,17 +82,28 @@ export default {
 
         },
 
+        collection: {
+
+            handler() { this.updateCollection(); },
+
+            deep: true,
+
+        },
+
     },
 
     methods: {
 
         ...mapActions(userArticleStore, ['getArticle']),
 
+        ...mapActions(userCollectionStore, ['getCollection', 'updateCollection']),
+
     },
 
     mounted() {
 
         this.getArticle(this.$route.params.id);
+        this.getCollection();
 
     },
 

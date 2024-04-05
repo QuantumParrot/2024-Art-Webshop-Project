@@ -257,10 +257,11 @@
                             </div>
                         </div>
                         <div v-show="tab === 'image'">
-                            <div class="d-flex align-items-center gap-3 mb-3">
+                            <div
+                                class="d-flex align-items-center gap-3 mb-3"
+                                v-if="product.imageUrl">
                                 <a target="_blank" :href="product.imageUrl">
                                 <img
-                                    v-if="product.imageUrl"
                                     :src="product.imageUrl" :alt="product.title"
                                     height="150" class="product-img">
                                 </a>
@@ -291,10 +292,11 @@
                                 </div>
                             </div>
                             <button
-                                type="button" class="btn btn-primary mb-3"
+                                type="button"
+                                class="btn btn-primary"
                                 @click="product.imagesUrl.push('')">
                             新增圖片</button>
-                            <div v-if="product.imagesUrl.length">
+                            <div class="mt-3" v-if="product.imagesUrl.length">
                                 <p>副圖網址</p>
                                 <div class="row g-3">
                                     <template v-for="(img, idx) in product.imagesUrl" :key="img">

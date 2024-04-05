@@ -5,12 +5,13 @@
     style="height: 100vh;">
     <p class="h1 mb-7">OOPS ...！沒有這個網址！</p>
     <p class="mb-7">
-    請稍候，即將跳轉回上一頁，或是您也可以點選<a href="#" class="text-info" @click.prevent="go">連結</a>
+    請稍候，{{ count }} 秒後將跳轉回上一頁，您也可以<a href="#" class="text-info" @click.prevent="go">直接跳轉</a>
     </p>
-    <div class="rembrandt">
+    <div class="rembrandt" v-show="!isTransition">
         <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709020880637.jpeg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=RlRKLG%2F06bJtMDwvCxBpB91tS1DE5Gg9%2FLyUu9irrnJGRlK9SlrSgoIs6Oya6JEbIH9sJ0yGJbBL97DODf7ZdQ3VZ5F9iOf%2FGZyq7qvQFQFh6%2F3ut8fF4Cy9w31eMyf5jdZb8oocqwCqjlHDar9NKEUzQ7Jlib%2Bpc2%2Bhvi664V%2BJROJYj0SRdU1hzY0KAaEER8mzg7NHXOygcT2UPFsz0NcRfJvfPWa15gDbrydAUqszV35m0IYGqtqb%2BqFxHYBttT1NbiKvoM946eHhLpsh6X56FTX19P9diAo6G3Up2DUmKzf3O2vy7iy2tKkC2cbAt7JMVWUJMJ1%2FiDnaBDgMzA%3D%3D"
-            alt="Rembrandt's Portrait">
+            alt="Rembrandt's Portrait"
+            @load="onLoad">
         <div class="img-description d-flex justify-content-center fs-7">
             <div>
             這是林布蘭於 1630 年繪製的自畫像，畫中的他雙眼大張，表情逗趣<br>
@@ -27,9 +28,47 @@
 
 export default {
 
+    data() {
+
+        return {
+
+            isTransition: true,
+            count: 10,
+
+            timer: '',
+
+        };
+
+    },
+
     methods: {
 
         go() { this.$router.go(-1); },
+
+        onLoad() { this.isTransition = false; },
+
+        countdown() { this.count -= 1; },
+
+    },
+
+    watch: {
+
+        count(n) {
+
+            if (n === 0) {
+
+                clearInterval(this.timer);
+                this.go();
+
+            }
+
+        },
+
+    },
+
+    mounted() {
+
+        this.timer = setInterval(() => this.countdown(), 1000);
 
     },
 

@@ -101,7 +101,7 @@ export default defineStore('userCart', {
 
         clearCart() {
 
-            const config = { title: '確定清空購物車？', type: 'alert' };
+            const config = { title: '確定清空購物車？' };
 
             alertStore.checkAlert(config, () => {
 

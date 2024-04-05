@@ -10,7 +10,7 @@ export default defineStore('alert', {
 
     state: () => ({
 
-        refuseColor: '#c62828',
+        refuseColor: '#e64a19',
         normalColor: '#aaaaaa',
         okText: '確定',
         noText: '取消',
@@ -71,7 +71,7 @@ export default defineStore('alert', {
 
             const {
 
-                title, text, type, icon = 'warning',
+                title, text, type = 'alert', icon = 'warning',
 
             } = config;
 
@@ -79,6 +79,7 @@ export default defineStore('alert', {
 
                 title,
                 icon,
+                iconColor: icon === 'warning' ? '#ff8a65' : undefined,
                 text: text || '',
                 showCancelButton: true,
                 cancelButtonText: this.noText,

@@ -248,7 +248,7 @@ export default {
 
                 target.qty = Math.floor(qty);
 
-            } else if (qty < 0) {
+            } else if (qty <= 1) {
 
                 target.qty = 1;
 

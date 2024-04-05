@@ -30,16 +30,16 @@
         <div class="navbar-collapse collapse flex-grow-0 order-3 order-lg-2" ref="collapse">
             <ul class="navbar-nav gap-3">
                 <li class="nav-item">
-                    <RouterLink class="nav-link" to="/news">最新消息</RouterLink>
-                </li>
-                <li class="nav-item">
                     <RouterLink class="nav-link" to="/products">線上商城</RouterLink>
                 </li>
                 <li class="nav-item">
-                    <RouterLink class="nav-link" to="/about">關於我們</RouterLink>
+                    <RouterLink class="nav-link" to="/news">最新消息</RouterLink>
                 </li>
                 <li class="nav-item">
                     <RouterLink class="nav-link" to="/articles">專欄文章</RouterLink>
+                </li>
+                <li class="nav-item">
+                    <RouterLink class="nav-link" to="/about">關於我們</RouterLink>
                 </li>
             </ul>
         </div>

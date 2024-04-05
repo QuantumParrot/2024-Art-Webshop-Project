@@ -5,20 +5,20 @@
         <div class="container">
             <h2 class="h1 lh-lg ls-sm mb-md-8 mb-7">
                 <span
-                    class="banner-txt" data-aos="fade-right"
+                    class="banner-txt" data-aos="fade-right" data-aos-once="true"
                     data-aos-duration="1200">
                     為您的生活空間
                 </span>
                 <br>
                 <span
-                    class="banner-txt" data-aos="fade-right"
+                    class="banner-txt" data-aos="fade-right" data-aos-once="true"
                     data-aos-delay="1000" data-aos-duration="1200">
                     增添藝術的色彩
                 </span>
             </h2>
             <div
                 data-aos="fade-right" data-aos-duration="1200"
-                data-aos-delay="1500">
+                data-aos-once="true" data-aos-delay="1500">
                 <RouterLink to="/products" v-slot="{ navigate }" custom>
                 <button
                     type="button" class="btn btn-lg btn-primary text-gray
@@ -34,6 +34,7 @@
                 <div class="col-lg-6 col-md-4">
                     <img
                         data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1200"
+                        data-aos-once="true"
                         class="intro-img rounded-1"
                         alt="Image by Bianca Fazacas on Unsplash"
                         src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1710000525437.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=AlR7N4VamKsOqdXkK44fPMjxcB0xA7vu1%2FaglK9lKJJExH5k32lqepXywkm3kripat70dkBMqX2Vihwi90Jf%2B2kRdoUrtTjI9Tcy2qvEPRR%2Fu%2FSiPF5ZkqZtMUpYpk3Zz776tKBIdPN294hAPnJa0BayCzciAWoiLktKye%2FZ5ncIXfGt3fOQOOtKD2Bx9vP%2B32a5Ry0x05%2Bq8w06BF6POm8q0Q5MPV4k5gyI76CaJQNJncaCQiCljgNbSqPkVtf9%2BZlqO3q9X2%2Fqf2K8dAA3smK4utoucOyEgiUdhL44Lgbth75FmZD7Fn7%2BtFcfGUS2gCljXqypPziDCVk%2Fu5tg3g%3D%3D">
@@ -41,7 +42,8 @@
                 <div class="col-lg-6 col-md-8">
                     <div
                         class="intro-sec shadow-sm rounded-1 p-2"
-                        data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000">
+                        data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000"
+                        data-aos-once="true">
                         <div
                             class="d-flex justify-content-lg-center align-items-center
                             px-lg-7 px-5 py-6 border border-white">
@@ -71,11 +73,13 @@
                 <div class="col-lg-6 col-md-8">
                     <div
                         class="intro-sec shadow-sm rounded-1 p-2"
-                        data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000">
+                        data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000"
+                        data-aos-once="true">
                         <div
                             class="d-flex justify-content-lg-center align-items-center
                             px-lg-7 px-4 py-6 border border-white rounded-1"
-                            data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000">
+                            data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000"
+                            data-aos-once="true">
                             <div>
                                 <h3 class="fw-bold mb-6">
                                     <span class="section-title">紮實的文章內容</span>
@@ -98,6 +102,7 @@
                 <div class="col-lg-6 col-md-4">
                     <img
                         data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000"
+                        data-aos-once="true"
                         class="intro-img rounded-1"
                         alt="Image by Jaredd Craig on Unsplash"
                         src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709822916310.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=gU2FW5XVwDYvgnjYMfCnLndYBDMmcCWFY%2B1thpbeIyQ8CSiLQlAlAHiBaTEgN6eo25TZKOw2dT1l3JVqDm8nwQVz9m5ucJnXTdseUsg9f3YIaMyIzFNGM06QIHIGZtMc595kdnIwuGpxQJCt8gK9yuEr3AmF4D8Ou%2Bwjy%2FqhxDJcew7WfVcmN31yGsfyTPZ1mOdj7lqLtTzq6RL94vo4UiLNdTOXIe3c7NoweDKQdIULx71yJPeOJZDaWO%2B3xodiY%2BJm4gCMi6LuacGsUNkISpWq2CwcmFY9l6aSDHSQokQsXhlqCA4YRrAIpNxCtXWq04XlY1LawhpwiK%2BHO0%2BZFw%3D%3D">
@@ -107,6 +112,7 @@
                 <div class="col-lg-6 col-md-4">
                     <img
                         data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000"
+                        data-aos-once="true"
                         class="intro-img rounded-1"
                         alt="Image by atlascompany on Freepik"
                         src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709826148810.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qTwkWRj0hhwy6orSCoAQx2j6Z%2B1vuc%2BBbkr%2B%2FAJHRQwtg15ubOBryZlqrMHX42AqX5VIhf2R3cCv4XrRDWfljnlcewJptCZpIOttxcNDLybkvlLX7NPIq%2BEmMatX9M9N3Pa1gcDdnH2rIErRUqeP7ur%2BvySTRjOV6F9B6mgbBJPj%2FAUOhGTMxXyJOotbu4MJY4%2BvG3nMZOMkwdEOsVk%2B350d1qjHkw3IfXEiTtxY1fLoL6%2BEJJwQqj3zUf8T%2F%2Fnq2d16E3KrAEv3LNiO5UkHXnIUqt%2B2JkNIIeceUctnFRE1OQR5VPCGBRZVVM4uz8jjTWUR6s%2FkgJ%2FAG2u5LjMVzg%3D%3D">
@@ -114,7 +120,8 @@
                 <div class="col-lg-6 col-md-8">
                     <div
                         class="intro-sec shadow-sm rounded-1 p-2"
-                        data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000">
+                        data-aos="zoom-in" data-aos-offset="300" data-aos-duration="1000"
+                        data-aos-once="true">
                         <div
                             class="d-flex justify-content-lg-center align-items-center
                             px-lg-7 px-4 py-6 border border-white rounded-1">

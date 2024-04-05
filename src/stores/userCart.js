@@ -78,7 +78,7 @@ export default defineStore('userCart', {
 
         },
 
-        deleteSingleCart(cart) {
+        deleteSingleCart(cart, reset) {
 
             const config = { title: '確定刪除此商品？', text: `您刪除的商品為：${cart.product.title}` };
 
@@ -95,13 +95,13 @@ export default defineStore('userCart', {
                     .catch((error) => alertStore.errorAlert(error))
                     .finally(() => loaderStore.removeLoader('delete-single-cart'));
 
-            });
+            }, reset);
 
         },
 
         clearCart() {
 
-            const config = { title: '確定清空購物車？' };
+            const config = { title: '確定清空購物車？', type: 'alert' };
 
             alertStore.checkAlert(config, () => {
 

@@ -43,7 +43,7 @@
                         <div class="input-group">
                             <button
                                 type="button" class="input-group-text btn btn-primary"
-                                :disabled="cart.qty <= 1"
+                                :disabled="cart.qty <= 0"
                                 @click="changeCartQty(cart.id, cart.qty - 1)">
                                 <i class="bi bi-dash"></i>
                             </button>
@@ -248,7 +248,7 @@ export default {
 
                 target.qty = Math.floor(qty);
 
-            } else if (qty < 1) {
+            } else if (qty < 0) {
 
                 target.qty = 1;
 
@@ -258,7 +258,15 @@ export default {
 
             if (this.timer) { clearTimeout(this.timer); }
 
-            this.timer = setTimeout(() => this.updateCart(target, target.qty), 500);
+            if (qty === 0) {
+
+                this.deleteSingleCart(target, () => this.updateCart(target, 1));
+
+            } else {
+
+                this.timer = setTimeout(() => this.updateCart(target, target.qty), 500);
+
+            }
 
         },
 

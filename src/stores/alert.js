@@ -71,8 +71,7 @@ export default defineStore('alert', {
 
             const {
 
-                title, text, icon = 'warning',
-                type = 'delete',
+                title, text, type, icon = 'warning',
 
             } = config;
 
@@ -84,7 +83,7 @@ export default defineStore('alert', {
                 showCancelButton: true,
                 cancelButtonText: this.noText,
                 focusConfirm: false,
-                confirmButtonColor: type === 'delete' ? this.refuseColor : '#424242',
+                confirmButtonColor: type === 'alert' ? this.refuseColor : '#424242',
                 confirmButtonText: this.okText,
 
             }).then((result) => {

@@ -107,7 +107,7 @@ Personal Side Project for Practice, Not For Any Commercial Use.
 
 + [ckeditor5](https://ckeditor.com/) | *^ 41.1.0*
 
-  使用 CKEditor5 提供的模板及插件，成功整合 Vite 開發環境及 BS5 自定義樣式，客製化符合專案需求的文字編輯器
+  使用 CKEditor5 提供的模板及插件，整合 Vite 及 BS5 樣式，客製化符合專案需求的文字編輯器
 
 + [SweetAlert2](https://github.com/sweetalert2/sweetalert2) | *^ 11.10.5*
 
@@ -132,6 +132,14 @@ Personal Side Project for Practice, Not For Any Commercial Use.
 + [clipboard.js](https://github.com/zenorocha/clipboard.js) | *^ 2.0.11*
 
   剪貼板
+
++ [vue-loading-overlay](https://github.com/ankurk91/vue-loading-overlay) | *^ 6.0.4*
+
+  loading 動畫
+
++ [vue3-lottie](https://github.com/megasanjay/vue3-lottie) | *^ 3.3.0*
+
+  lottie 動畫檔案播放器
 
 ***
 

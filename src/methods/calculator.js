@@ -14,15 +14,15 @@ export function now() { return parseInt(new Date().getTime() / 1000, 10); }
 
 export function convertByteUnit(bytes) {
 
-    if (bytes >= 1048576) {
+    if (bytes >= 1000000) {
 
-        return `約 ${+(bytes / 1048576).toFixed(2)} MB`;
+        return `約 ${+(bytes / 1000000).toFixed(2)} MB`;
 
     }
 
-    if (bytes >= 1024) {
+    if (bytes >= 1000) {
 
-        return `約 ${+(bytes / 1024).toFixed(2)} KB`;
+        return `約 ${+(bytes / 1000).toFixed(2)} KB`;
 
     }
 

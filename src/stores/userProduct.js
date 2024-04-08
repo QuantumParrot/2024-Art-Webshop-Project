@@ -59,7 +59,12 @@ export default defineStore('userProduct', {
 
     actions: {
 
-        switchFilter(value) { this.filter = this.categories.includes(value) ? value : ''; },
+        switchFilter(value) {
+
+            this.filter = this.categories.includes(value) ? value : '';
+            this.currentPage = 1;
+
+        },
 
         switchPage(num) { this.currentPage = num; },
 

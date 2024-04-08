@@ -1,25 +1,67 @@
 <template>
 
-<p class="text-end fs-5 mb-7">{{ greeting }}，管理員！</p>
+<p class="text-end fs-5 mb-lg-7 mb-5">{{ greeting }}，管理員！</p>
 
-<section class="card p-3 mb-5">
-    <h3 class="mb-5"><span class="section-title">訂單近況</span></h3>
-    <div class="lh-lg d-flex flex-column flex-sm-row" v-if="!!unhandled">
-        <span>
-        有
-        <span class="fw-bold text-danger">{{ unhandled }}</span>
-        筆已付款的訂單尚未處理喔！
-        </span>
-        <div>
-            <span class="arrow-animation">
-                <span class="arrow">→</span></span>
-            <span>
-                <RouterLink class="text-info" to="admin/order?paid=1&state=0">
-                前往訂單頁面</RouterLink>
-            </span>
+<section class="card px-4 py-5 mb-5 lh-lg">
+    <h3 class="mb-6">
+        <span class="section-title">訂單近況</span>
+    </h3>
+    <div class="row gy-4">
+        <div class="col-md-4">
+            <div class="h-100 card bg-light border-0">
+                <div class="h-100 d-flex flex-column justify-content-center px-4 py-5"
+                :class="{ 'align-items-center': !expired }">
+                    <div v-if="expired">
+                        <h4 class="fs-5 mb-5"><b>未付款訂單</b></h4>
+                        <p>有 <span class="fw-bold text-danger">{{ expired }}</span> 筆訂單逾期未付款</p>
+                        <p class="mb-0">
+                            <span class="arrow-animation"><span class="arrow">→</span></span>
+                            <RouterLink class="text-info" to="admin/order?paid=0">
+                            前往處理
+                            </RouterLink>
+                        </p>
+                    </div>
+                    <p class="text-center mb-0" v-else>目前沒有未付款的訂單</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 card bg-light border-0">
+                <div class="h-100 d-flex flex-column justify-content-center px-4 py-5"
+                :class="{ 'align-items-center': !unhandled }">
+                    <div v-if="unhandled">
+                        <h4 class="fs-5 mb-5"><b>未確認訂單</b></h4>
+                        <p>有 <span class="fw-bold text-danger">{{ unhandled }}</span> 筆訂單已付款</p>
+                        <p class="mb-0">
+                            <span class="arrow-animation"><span class="arrow">→</span></span>
+                            <RouterLink class="text-info" to="admin/order?paid=1&state=0">
+                            前往處理
+                            </RouterLink>
+                        </p>
+                    </div>
+                    <p class="text-center mb-0" v-else>目前沒有未確認訂單</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 card bg-light border-0">
+                <div class="h-100 d-flex flex-column justify-content-center px-4 py-5"
+                :class="{ 'align-items-md-center': !unprepared }">
+                    <div v-if="unprepared">
+                        <h4 class="fs-5 mb-5"><b>未出貨訂單</b></h4>
+                        <p>有 <span class="fw-bold text-danger">{{ unprepared }}</span> 筆訂單尚未出貨</p>
+                        <p class="mb-0">
+                            <span class="arrow-animation"><span class="arrow">→</span></span>
+                            <RouterLink class="text-info" to="admin/order?paid=1&state=1">
+                            前往處理
+                            </RouterLink>
+                        </p>
+                    </div>
+                    <p class="mb-0" v-else>目前沒有未出貨訂單</p>
+                </div>
+            </div>
         </div>
     </div>
-    <p class="mb-0" v-else>目前沒有新消息</p>
 </section>
 
 <section class="alert bg-light">
@@ -28,21 +70,21 @@
     <ul class="list-unstyled d-flex flex-column gap-3 mt-3">
         <li class="d-flex flex-column flex-md-row">
             <p class="mb-md-0">
-                <b><span class="letter-space-md">商</span>品</b>
+                <b><span class="ls-md">商</span>品</b>
                 <i class="bi bi-caret-right-fill text-highlight mx-2"></i>
             </p>
             <p class="mb-0">管理您的商品</p>
         </li>
         <li class="d-flex flex-column flex-md-row">
             <p class="mb-md-0">
-                <b><span class="letter-space-md">訂</span>單</b>
+                <b><span class="ls-md">訂</span>單</b>
                 <i class="bi bi-caret-right-fill text-highlight mx-2"></i>
             </p>
             <p class="mb-0">管理您的訂單</p>
         </li>
         <li class="d-flex flex-column flex-md-row">
             <p class="mb-md-0">
-                <b><span class="letter-space-md">文</span>章</b>
+                <b><span class="ls-md">文</span>章</b>
                 <i class="bi bi-caret-right-fill text-highlight mx-2"></i>
             </p>
             <p class="mb-0">管理您的網站公告、專欄文章、公益企劃</p>
@@ -80,7 +122,27 @@ export default {
 
     computed: {
 
-        ...mapState(adminOrderStore, ['orders', 'unhandled']),
+        ...mapState(adminOrderStore, ['refactorOrders', 'unhandled']),
+
+        unhandled() {
+
+            return this.refactorOrders.filter((o) => o.is_paid && o.state === 0).length;
+
+        },
+
+        expired() {
+
+            const unpaid = this.refactorOrders.filter((o) => !o.is_paid);
+
+            return unpaid.filter((o) => this.$calc.fromNow(o.create_at * 1000).match(/\d+/)[0] > 7).length;
+
+        },
+
+        unprepared() {
+
+            return this.refactorOrders.filter((o) => o.is_paid && o.state === 1).length;
+
+        },
 
     },
 

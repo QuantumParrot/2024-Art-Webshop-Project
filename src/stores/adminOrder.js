@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 import axios from 'axios';
 
 //
@@ -89,9 +87,11 @@ export default defineStore('adminOrder', {
 
         filterOrders: ({ refactorOrders, isPaid, orderState }) => {
 
-            let newOrders = isPaid === 2 ? refactorOrders : refactorOrders.filter((o) => o.is_paid === !!isPaid);
+            let newOrders = isPaid === 2
+                ? refactorOrders : refactorOrders.filter((o) => o.is_paid === !!isPaid);
 
-            newOrders = orderState === 5 ? newOrders : newOrders.filter((o) => o.state === orderState);
+            newOrders = orderState === 5
+                ? newOrders : newOrders.filter((o) => o.state === orderState);
 
             return newOrders;
 
@@ -99,15 +99,14 @@ export default defineStore('adminOrder', {
 
         displaying: ({ filterOrders, currentPage, timeAscending }) => {
 
-            filterOrders.sort((a, b) => (timeAscending ? a.create_at - b.create_at : b.create_at - a.create_at));
+            filterOrders.sort((a, b) => (timeAscending
+                ? a.create_at - b.create_at : b.create_at - a.create_at));
 
             return filterOrders.filter((o, i) => Math.floor(i / 10) + 1 === currentPage);
 
         },
 
         totalPages: ({ filterOrders }) => Math.ceil(filterOrders.length / 10),
-
-        unhandled: ({ refactorOrders }) => refactorOrders.filter((o) => o.is_paid && o.state === 0).length,
 
     },
 

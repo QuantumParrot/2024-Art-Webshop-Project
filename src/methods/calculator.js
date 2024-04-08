@@ -10,6 +10,14 @@ export function today(d = '-') { return moment().format(`YYYY${d}MM${d}DD`); }
 
 export function now() { return parseInt(new Date().getTime() / 1000, 10); }
 
+export function fromNow(time) {
+
+    const date = moment(time).format('YYYYMMDD');
+
+    return moment(date, 'YYYYMMDD').startOf('day').fromNow();
+
+}
+
 // conversion
 
 export function convertByteUnit(bytes) {

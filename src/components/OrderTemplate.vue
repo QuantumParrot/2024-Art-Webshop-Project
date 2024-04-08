@@ -84,6 +84,9 @@
                 <span class="me-2" :class="order.is_paid ? 'text-success' : 'text-danger'">
                 {{ order.is_paid ? '已付款' : '未付款' }}
                 </span>
+                <span v-if="order.paid_date">
+                ( {{ $calc.formatTime(order.paid_date * 1000) }} )
+                </span>
             </p>
             <p class="mb-0">
                 <span><b class="p-title">出貨狀態</b>：</span>

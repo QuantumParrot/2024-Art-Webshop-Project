@@ -1,6 +1,6 @@
 <template>
 
-<div class="lh-lg text-end mb-6">
+<div class="lh-lg text-end mb-lg-6">
     <h3 class="fs-2 mb-3">PRODUCTS｜商品</h3>
     <p class="text-muted">
         <span>目前共有 {{ products.length }} 項商品，</span>

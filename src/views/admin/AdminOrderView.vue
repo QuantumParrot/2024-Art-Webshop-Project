@@ -1,6 +1,6 @@
 <template>
 
-<div class="lh-lg text-end mb-6">
+<div class="lh-lg text-end mb-lg-6">
     <h3 class="fs-2 mb-3">ORDERS｜訂單</h3>
     <p class="text-muted">目前共有 {{ refactorOrders.length }} 筆訂單</p>
 </div>
@@ -74,10 +74,13 @@
                             :class="order.is_paid ? 'bg-success' : 'bg-danger'">
                             {{ order.is_paid ? '已付款' : '未付款' }}
                         </span>
-                        <a href="#" @click.prevent="openModal(order, 'check')">
+                        <a href="#" class="me-2" @click.prevent="openModal(order, 'check')">
                             <span class="me-2">{{ order.user.name }}</span>
                             <i class="bi bi-search"></i>
                         </a>
+                        <span v-show="!order.is_paid">
+                            <i class="text-muted">{{ $calc.fromNow(order.create_at * 1000) }}</i>
+                        </span>
                     </td>
                     <td class="d-none d-md-table-cell text-end">NT$ {{ order.total }}</td>
                     <td class="text-center fw-bold">
@@ -173,12 +176,13 @@ export default {
 
         changeFilterByQuery(query) {
 
-            if (query.paid || query.state) {
+            const isPaid = Number.parseInt(+query.paid, 10);
 
-                this.switchFilter('isPaid', +query.paid || 2);
-                this.switchFilter('orderState', +query.state);
+            const state = Number.parseInt(+query.state, 10);
 
-            }
+            this.switchFilter('isPaid', !Number.isNaN(isPaid) ? isPaid : 2);
+
+            this.switchFilter('orderState', !Number.isNaN(state) ? state : 5);
 
         },
 

@@ -23,17 +23,29 @@ export default defineConfig({
   plugins: [
 
     vue({
+
       template: {
+
         compilerOptions: {
-          isCustomElement: tag => tag.startsWith('swiper-')
+
+          isCustomElement: tag => tag.startsWith('swiper-'),
+
         }
+        
       }
+
     }),
-    ckeditor5({ theme: require.resolve('@ckeditor/ckeditor5-theme-lark') }),
+
     eslintPlugin({
 
-    include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue'],
+      include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue'],
 
+    }),
+
+    ckeditor5({
+      
+      theme: require.resolve('@ckeditor/ckeditor5-theme-lark'),
+    
     }),
 
   ],

@@ -132,7 +132,8 @@ export default {
             // 搜尋邏輯
 
             this.results = this.productList.filter((p) => p.title.match(this.keyword)
-            || p.tags.some((tag) => tag.match(this.keyword)));
+            || (p.tags || []).some((tag) => tag.match(this.keyword))
+            || (p.keywords || []).includes(this.keyword));
 
         },
 

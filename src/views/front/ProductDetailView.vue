@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                             <div>
-                                <p class="fs-7 mb-5">點選下方標籤，搜尋相關作品：</p>
+                                <p class="fs-7 mb-5">點選下方標籤，搜尋相關商品：</p>
                                 <div class="d-flex gap-2 flex-nowrap text-nowrap overflow-scroll">
                                     <template v-for="tag in product.tags" :key="tag">
                                     <RouterLink
@@ -120,7 +120,7 @@
                 <div class="sticky-sidebar">
                     <div class="alert bg-light p-5 mb-5">
                         <h4 class="fs-5 text-dark fw-bold mb-4">購買須知</h4>
-                        <p class="lh-lg pre-wrap text-justify mb-0">{{ product.notes || '無' }}</p>
+                        <p class="lh-xl pre-wrap text-justify mb-0">{{ product.notes || '無' }}</p>
                     </div>
                     <div class="alert bg-light p-5 mb-5">
                         <div class="mb-5">

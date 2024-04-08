@@ -16,8 +16,8 @@
                 <div class="modal-body">
                     <div class="alert bg-gray">
                         <p>
-                            <i class="bi bi-flag-fill text-highlight me-2"></i>
-                            <span>欄位完成度</span>
+                        <i class="bi bi-flag-fill text-highlight me-2"></i>
+                        <span>欄位完成度</span>
                         </p>
                         <div class="row gy-2 flex-md-row flex-column fw-bold">
                             <div class="col">
@@ -217,10 +217,10 @@
                         </div>
                         <div v-show="tab === 'tags'">
                             <div class="mb-3">
-                                <p>商品標籤</p>
+                                <p>標籤</p>
                                 <div class="row g-3 mb-3">
                                     <template v-for="(tag, index) in product.tags" :key="tag">
-                                    <div class="col-lg-3 col-md-4 position-relative">
+                                    <div class="col-4 position-relative">
                                         <input
                                             type="text" class="form-control"
                                             v-model="product.tags[index]">
@@ -235,12 +235,12 @@
                                 <button
                                     type="button" class="btn btn-primary"
                                     @click="product.tags.push('')">
-                                新增標籤</button>
+                                新增商品標籤</button>
                             </div>
                             <p>點擊新增使用過的標籤：</p>
-                            <div class="d-flex flex-column gap-3">
+                            <div class="d-flex flex-column gap-3 mb-3">
                                 <template v-for="(list, length) in tagsList" :key="length">
-                                    <details open>
+                                    <details>
                                         <summary><b>{{ length }} 個字</b></summary>
                                         <div class="d-flex gap-2 flex-wrap mt-3">
                                             <button
@@ -254,6 +254,32 @@
                                         </div>
                                     </details>
                                 </template>
+                            </div>
+                            <hr>
+                            <div>
+                                <p>關鍵字</p>
+                                <p class="fs-7 text-danger">關鍵字不會出現在頁面上，但是可以幫助客戶搜尋！</p>
+                                <div class="row g-3 mb-3">
+                                    <template
+                                        v-for="(keyword, index) in product.keywords"
+                                        :key="keyword">
+                                    <div class="col-lg-3 col-md-4 position-relative">
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            v-model="product.keywords[index]">
+                                        <button
+                                            type="button" class="btn btn-origin btn-inline"
+                                            @click="product.keywords.splice(index, 1)">
+                                            <i class="bi bi-x-lg"></i>
+                                        </button>
+                                    </div>
+                                    </template>
+                                </div>
+                                <button
+                                    type="button" class="btn btn-primary"
+                                    @click="product.keywords.push('')">
+                                新增商品關鍵字</button>
                             </div>
                         </div>
                         <div v-show="tab === 'image'">
@@ -392,9 +418,10 @@ export default {
             this.product = this.tempProduct;
             this.title = this.tempProduct.title;
 
-            const { imagesUrl, tags } = this.tempProduct;
+            const { imagesUrl, tags, keywords } = this.tempProduct;
             this.product.imagesUrl = Array.isArray(imagesUrl) ? [...imagesUrl] : [];
             this.product.tags = Array.isArray(tags) ? [...tags] : [];
+            this.product.keywords = Array.isArray(keywords) ? [...keywords] : [];
 
             this.tab = 'content';
 
@@ -424,6 +451,7 @@ export default {
 
             this.product.imagesUrl = this.product.imagesUrl.filter((i) => i);
             this.product.tags = this.product.tags.filter((i) => i);
+            this.product.keywords = this.product.keywords.filter((i) => i);
 
             if (this.product.id) {
 

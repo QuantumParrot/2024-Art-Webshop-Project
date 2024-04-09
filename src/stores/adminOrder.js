@@ -120,6 +120,8 @@ export default defineStore('adminOrder', {
 
             const apiUrl = `${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/orders?page=`;
 
+            let total = [];
+
             loaderStore.createLoader('get-orders');
 
             axios.get(`${apiUrl}${page}`)
@@ -127,7 +129,7 @@ export default defineStore('adminOrder', {
 
                     const { orders, pagination } = res.data;
 
-                    this.orders = orders;
+                    total = orders;
 
                     if (pagination.total_pages > 1) {
 
@@ -150,9 +152,11 @@ export default defineStore('adminOrder', {
 
                     if (Array.isArray(resArr)) {
 
-                        resArr.forEach((res) => this.orders.push(...res.data.orders));
+                        resArr.forEach((res) => total.push(...res.data.orders));
 
                     }
+
+                    this.orders = total;
 
                 })
                 .catch((error) => alertStore.errorAlert(error))

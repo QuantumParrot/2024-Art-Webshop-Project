@@ -58,13 +58,15 @@ export default defineStore('adminArticle', {
 
         getArticles() {
 
+            let total = [];
+
             loaderStore.createLoader('get-articles');
             axios.get(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/articles`)
                 .then((res) => {
 
                     const { articles, pagination } = res.data;
 
-                    this.articles = articles;
+                    total = articles;
 
                     if (pagination.total_pages > 1) {
 
@@ -89,11 +91,11 @@ export default defineStore('adminArticle', {
 
                     if (Array.isArray(resArr)) {
 
-                        resArr.forEach((res) => this.articles.push(...res.data.articles));
+                        resArr.forEach((res) => total.push(...res.data.articles));
 
                     }
 
-                    this.articles = this.articles.toSorted((a, b) => b.create_at - a.create_at);
+                    this.articles = total.toSorted((a, b) => b.create_at - a.create_at);
 
                 })
                 .catch((error) => alertStore.errorAlert(error))

@@ -134,7 +134,9 @@ export default {
 
             const unpaid = this.refactorOrders.filter((o) => !o.is_paid);
 
-            return unpaid.filter((o) => this.$calc.fromNow(o.create_at * 1000).match(/\d+/)[0] > 7).length;
+            const now = this.$calc.now();
+
+            return unpaid.filter((o) => now - o.create_at * 1000 > 518400).length;
 
         },
 

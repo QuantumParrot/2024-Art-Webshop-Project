@@ -78,7 +78,7 @@
                             <span class="me-2">{{ order.user.name }}</span>
                             <i class="bi bi-search"></i>
                         </a>
-                        <span v-show="!order.is_paid">
+                        <span v-if="!order.is_paid">
                             <i class="text-muted">{{ $calc.fromNow(order.create_at * 1000) }}</i>
                         </span>
                     </td>

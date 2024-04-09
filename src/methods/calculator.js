@@ -14,7 +14,7 @@ export function fromNow(time) {
 
     const date = moment(time).format('YYYYMMDD');
 
-    return moment(date, 'YYYYMMDD').startOf('day').fromNow();
+    return moment(date, 'YYYYMMDD').fromNow();
 
 }
 

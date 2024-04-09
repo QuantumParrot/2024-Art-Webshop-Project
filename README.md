@@ -1,4 +1,4 @@
-## 收藏家 - The Global Collector -
+## [收藏家 - 藝術品販售電商網站](https://quantumparrot.github.io/2024-Art-Webshop-Project/#/)
 
 此為參與 2023 年底六角學院 Vue 直播班的個人專案作品。
 
@@ -78,12 +78,12 @@ Personal Side Project for Practice, Not For Any Commercial Use.
 |  主要功能  |  工具  |  適用版本  |
 |:-|:-|:-|
 |  套件管理  |  **[PNPM](https://github.com/pnpm/pnpm)**  |
-|  開發環境  |  **[Vite](https://github.com/vitejs)**  |  ![Static Badge](https://img.shields.io/badge/%5E5.0.1-5.1.3-blue)  | 
+|  開發環境  |  **[Vite](https://github.com/vitejs)**  |  ![Static Badge](https://img.shields.io/badge/%5E5.0.1-5.1.3-blue)
 |  前端框架  |  **[Vue.js](https://github.com/vuejs/)** -- Options API  |  ![Static Badge](https://img.shields.io/badge/%5E3.4.15-3.4.19-blue)
 |  路由控制  |  **[Vue Router](https://github.com/vuejs/router)**  |  ![Static Badge](https://img.shields.io/badge/%5E4.2.5-4.2.5@vue3.4.19-blue)
 |  資料管理  |  **[Pinia](https://github.com/vuejs/pinia)**  |  ![Static Badge](https://img.shields.io/badge/%5E2.1.7-2.1.7@vue3.4.19-blue)
 |  後端環境  |  六角學院提供給學員的電商 API  |
-|  程式碼品質控制  |  **[ESLint](https://eslint.org/)** -- Airbnb  | ![Static Badge](https://img.shields.io/badge/%5E8.49.0-8.56.0-blue)
+|  程式碼品質控制  |  **[ESLint](https://eslint.org/)** -- Airbnb  |  ![Static Badge](https://img.shields.io/badge/%5E8.49.0-8.56.0-blue)
 
 ***
 

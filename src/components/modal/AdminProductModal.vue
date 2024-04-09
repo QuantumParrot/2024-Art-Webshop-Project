@@ -107,7 +107,7 @@
                     <span class="d-sm-inline d-none">商品</span>圖片</button>
                     </li>
                 </ul>
-                <div class="alert border rounded-2">
+                <div class="alert border rounded-2 mb-0">
                     <div v-show="tab === 'content'">
                         <div class="mb-3">
                         <label class="form-label is-required" for="title">商品名稱</label>
@@ -228,16 +228,15 @@
                         </div>
                     </div>
                     <div v-show="tab === 'image'">
-                        <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="d-flex align-items-center gap-3 mb-3" v-if="product.imageUrl">
                             <a target="_blank" :href="product.imageUrl">
-                            <img v-if="product.imageUrl"
-                                 :src="product.imageUrl" :alt="product.title"
-                                 height="150" class="product-img">
+                            <img :src="product.imageUrl" :alt="product.title" height="150"
+                            class="product-img">
                             </a>
                             <template v-for="img in product.imagesUrl" :key="img">
-                            <a target="_blank" :href="img">
-                            <img v-if="img" :src="img" :alt="product.title"
-                                 height="150" class="product-img">
+                            <a target="_blank" :href="img" v-if="img">
+                            <img :src="img" :alt="product.title" height="150"
+                            class="product-img">
                             </a>
                             </template>
                         </div>
@@ -257,11 +256,11 @@
                             </div>
                         </div>
                         <button type="button"
-                                class="btn btn-primary mb-3"
+                                class="btn btn-primary"
                                 @click="product.imagesUrl.push('')">
                         新增圖片</button>
                         <div v-if="product.imagesUrl.length">
-                            <p>副圖網址</p>
+                            <p class="mt-3">副圖網址</p>
                             <div class="row g-3">
                             <template v-for="(img, idx) in product.imagesUrl" :key="img">
                             <div class="col-md-6 position-relative">

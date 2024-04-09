@@ -180,6 +180,6 @@ export default {
 
 .nav, .nav-link, .nav-link:hover { border-bottom: 0; }
 
-.nav-link, .nav-link.active { margin: -2px 0; }
+.nav-link, .nav-link.active { margin: -1px 0 -1px 0; }
 
 </style>

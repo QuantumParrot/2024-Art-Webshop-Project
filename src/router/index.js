@@ -7,7 +7,7 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            component: () => import('../views/HomeView.vue'),
+            component: () => import('../views/FrontLayoutView.vue'),
             children: [
                 {
                     path: '',
@@ -66,7 +66,7 @@ const router = createRouter({
                 {
                     path: 'checkout',
                     name: 'front-checkout',
-                    component: () => import('../views/front/checkout/CheckoutView.vue'),
+                    component: () => import('../views/front/checkout/CheckoutLayoutView.vue'),
                     children: [
                         {
                             path: '',
@@ -127,7 +127,7 @@ const router = createRouter({
         },
         {
             path: '/admin',
-            component: () => import('../views/AdminView.vue'),
+            component: () => import('../views/AdminLayoutView.vue'),
             children: [
                 {
                     path: '',

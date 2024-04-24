@@ -1,5 +1,7 @@
 ## [收藏家 - 藝術品販售電商網站](https://quantumparrot.github.io/2024-Art-Webshop-Project/#/)
 
+![2024 side project - art webshop index](https://i.imgur.com/RGfNVSj.png)
+
 此為參與 2023 年底六角學院 Vue 直播班的個人專案作品。
 
 純屬開發練習，不做任何商用。

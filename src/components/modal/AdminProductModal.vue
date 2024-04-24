@@ -292,11 +292,10 @@
                                     height="150" class="product-img">
                                 </a>
                                 <template v-for="img in product.imagesUrl" :key="img">
-                                <a target="_blank" :href="img">
+                                <a target="_blank" :href="img" v-if="img">
                                 <img
-                                    v-if="img"
-                                    :src="img" :alt="product.title"
-                                    height="150" class="product-img">
+                                    :src="img" :alt="product.title" height="150"
+                                    class="product-img">
                                 </a>
                                 </template>
                             </div>

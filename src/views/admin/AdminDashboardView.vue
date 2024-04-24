@@ -57,7 +57,7 @@
                             </RouterLink>
                         </p>
                     </div>
-                    <p class="mb-0" v-else>目前沒有未出貨訂單</p>
+                    <p class="text-center mb-0" v-else>目前沒有未出貨訂單</p>
                 </div>
             </div>
         </div>
@@ -136,7 +136,7 @@ export default {
 
             const now = this.$calc.now();
 
-            return unpaid.filter((o) => now - o.create_at * 1000 > 518400).length;
+            return unpaid.filter((o) => now - o.create_at > 518400).length;
 
         },
 

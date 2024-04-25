@@ -8,6 +8,8 @@
 
 Personal Side Project for Practice, Not For Any Commercial Use.
 
+當前進度：根據 [PageSpeed Insights](https://pagespeed.web.dev/) 指南進行效能優化、另開分支改寫為 Composition API
+
 ***
 
 ### 🪶 網站介紹

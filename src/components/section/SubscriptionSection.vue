@@ -54,7 +54,7 @@ export default {
 .subscription {
 
   background-attachment: fixed;
-  background-image: url(https://images.unsplash.com/photo-1587811798408-e7200ed808d0?q=80&w=2953&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1714073582986.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=h8z3fOh6f8IKUEEEr1jZKrT02SWa7HMdUqjY%2FHLGN3CkCs2EexkTCUkiwRzYAa07B0m2rwxns6%2FkP6OVlXc8j6TEikFMjZuCnF%2BpB4Gr%2FERhM0Ii1N8l%2FZyvetWS3AZ2k4kRlX8qGz9S4H8rvN3UVGx38DtSD6gWoqYIhFxJ%2Bors%2FEb5Xud0AKBurarIxtZQqiK%2F0wiCvOOm6d%2Ff%2FsUW7xk56E14rb7Um%2FwFNauCBCN7KpmxC2UWcncfESLvBquVMrAOfjCdhM2EVtNdLAkOj6qLTSN4dguc%2FVxJX%2F826X%2BD3NerJPku8ea5f9MFQCqbUx6bT0RClMXDi9wB40WoQA%3D%3D);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

@@ -37,7 +37,7 @@
                         data-aos-once="true"
                         class="intro-img rounded-1"
                         alt="Image by Bianca Fazacas on Unsplash"
-                        src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1710000525437.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=AlR7N4VamKsOqdXkK44fPMjxcB0xA7vu1%2FaglK9lKJJExH5k32lqepXywkm3kripat70dkBMqX2Vihwi90Jf%2B2kRdoUrtTjI9Tcy2qvEPRR%2Fu%2FSiPF5ZkqZtMUpYpk3Zz776tKBIdPN294hAPnJa0BayCzciAWoiLktKye%2FZ5ncIXfGt3fOQOOtKD2Bx9vP%2B32a5Ry0x05%2Bq8w06BF6POm8q0Q5MPV4k5gyI76CaJQNJncaCQiCljgNbSqPkVtf9%2BZlqO3q9X2%2Fqf2K8dAA3smK4utoucOyEgiUdhL44Lgbth75FmZD7Fn7%2BtFcfGUS2gCljXqypPziDCVk%2Fu5tg3g%3D%3D">
+                        src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1714072186418.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=IOwmHVtK7e%2FBGxIoiRQCI6RmQUH4jzIVwOgspyo8mMr6p%2B8taI29do7JrG4odTbPw2w%2ForkCjOoQR%2Bd6ceubU07rTf9sObgIPwKfA2hK%2Bi%2FmpN68h6J5015GKD%2B2HiGBK9I13X18Y0LA%2FWWVEyyS1Lm%2BZMdfpFHvBp21ZrUMEUnK6B4%2Fi3%2F%2Ba1yVwKl4b2EYgAWsDJ0eWUAlgTZEvBidTo7y0LN0Vwm5kTgvOX2bikZdpq4DM7b0Cm6cenLYA6xuEsjvuW%2FwRILlQEM3e%2BhG8VH29i6PvkbBcEuz8x4zQvOiNGhc7wP2KKK3SaLbDA7JIlt8cF2VjYSDylUi2Ts%2BiQ%3D%3D">
                 </div>
                 <div class="col-lg-6 col-md-8">
                     <div
@@ -105,7 +105,7 @@
                         data-aos-once="true"
                         class="intro-img rounded-1"
                         alt="Image by Jaredd Craig on Unsplash"
-                        src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709822916310.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=gU2FW5XVwDYvgnjYMfCnLndYBDMmcCWFY%2B1thpbeIyQ8CSiLQlAlAHiBaTEgN6eo25TZKOw2dT1l3JVqDm8nwQVz9m5ucJnXTdseUsg9f3YIaMyIzFNGM06QIHIGZtMc595kdnIwuGpxQJCt8gK9yuEr3AmF4D8Ou%2Bwjy%2FqhxDJcew7WfVcmN31yGsfyTPZ1mOdj7lqLtTzq6RL94vo4UiLNdTOXIe3c7NoweDKQdIULx71yJPeOJZDaWO%2B3xodiY%2BJm4gCMi6LuacGsUNkISpWq2CwcmFY9l6aSDHSQokQsXhlqCA4YRrAIpNxCtXWq04XlY1LawhpwiK%2BHO0%2BZFw%3D%3D">
+                        src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1714072531215.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=cuenwrGCDZzdIgbtvwALgLj6lZtfxa6L8mSO18lH%2B9cN3631k4r54WFoo2OqjNeHsgbiVpY%2BHOjwumnl2DmIqi%2BvfZvCrMtb2BHPEjbiIcmerXwdrhFoxJ8WeObVLJT%2B95%2BhqPY5jrYPgY6MZE%2F9VVa3JMSc%2Fa64o91Zukdv43xFbns%2FqkAb5uIDjIc3UD%2FLkBCLXdQARN7OoxF0KeOX49tFCRs2Y1lSZAFZ%2FkuF87rHrPX0WVej7X8ckAcV9o%2BvzZ7wd43SC0ApBPtwpBY7Mc5ddfi8vrVfVN8rzCelqr7EuB8pJyBWPSoBzbKqB0witq%2BsjPdTfDV4PF8h0zaZhw%3D%3D">
                 </div>
             </div>
             <div class="row g-3">
@@ -156,8 +156,8 @@
                         <div class="overflow-hidden">
                             <div class="mask">
                                 <img
-                                    src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1708467331249.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=B3yrKMMG0T3BbgxQKu%2FFOzNraQlVFZR0jACqOBzoYWYOGzcT6PmvXKLMVuzetVScSGBZqxPP2JqESKAExEBJd7t7wwUUrWSlF8bo27De6xCGrzF8v%2BpI1AQjpmIsAoCd1EoogT%2B2uCprxtSl%2BgktidvmRfYPF541n3TAa60pvm%2B6Y4J0xx8Xzo3fyuHX4%2BQHClDwD3MN7mc3EmDSimcQjuEZMF9eklK9uaQ%2BLsaow62S0%2BGStgruV%2Ffv2a%2FqJj8yXAY9GLgpXjiS4lQjqrWdQ35W6wfnSiHjKAHv7XcqoyggtO0v5HaLSk8UbgzPGVL2mlBiQYHcfLd6KOk9ps9H%2BQ%3D%3D"
-                                    alt="painting" height="400px">
+                                    src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1714072994705.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Cp8SMwBlU6qf09UVe%2B0USRWKM30R9MHlagghKaueBjS%2FlW8J3b%2FkJOchxY1Qm6hcR5Zfun6Q3iPphGDnDBvZEDEXML5dw9g8C1iOVTtSM2FbLWuW2IzRScH7qA30P7edKKTofcVg%2Bpkk9aTU6EooKtQwh%2BtF1r4OyQAR8F8SvLJE477IDNTqrttALvay9fJt2VgEY8TSxl%2F6GCVAovG2Nh4Gz12hshDzhIS%2Fk15yIjNMQeY4XNx0QGYed%2FfG2nz9xs4%2BTsdy4Wk0tE5jYzLr88bPfYZXW8WZhDWEkjIhOvbnN6%2FFHYmUZsWrmVbMiKflZ6t39%2FtRtKnZZ2A44EN0Uw%3D%3D"
+                                    alt="painting" height="400">
                                 <div class="mask-txt fs-4 text-shadow-black">
                                     <p class="mb-0">＃ 油畫</p>
                                 </div>
@@ -170,8 +170,8 @@
                         <div class="overflow-hidden">
                             <div class="mask">
                                 <img
-                                    src="https://images.unsplash.com/photo-1515139832362-a06b09ecced0?q=80&w=2930&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                    alt="sculpture" height="400px">
+                                    src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1714073168943.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=glHlQT5j1VUIdVOJfcDpKB2vMEcugcXdul6EVe0dUhYGzNqBw2lDGzQm4ZVaJ3vigFQrCZMR6NCT62TKmb8PxHLeMCrKufnfoB2BK55YI7x66jf2NGsIZUjXOlv95RfkP1eA8rO7sj8uMFCk5YudYxqeXXkfTS%2FJOHPNXfqnqZHSwVpSDSf%2BonG2nhT7r8EjOPKuFAimnSDUezuAYUVDabgfw8uDUN5y6rTQO8cTl1Kz91sqMNdyLonz6cO78I%2FLy2mU5zQQDVVkOn%2FAsU2AlX4VBbKoVzs8i%2BdQDPlJDe2O4bmgQDe8%2F4MwixpY%2Bn3qsUG5IlEwKVS2xE9IQhqrBA%3D%3D"
+                                    alt="sculpture" height="400">
                                 <div class="mask-txt fs-4 text-shadow-black">
                                     <p class="mb-0">＃ 雕塑</p>
                                 </div>
@@ -187,7 +187,7 @@
                             <div class="mask">
                                 <img
                                     src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709489767874.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=n4L5%2FjlupJO3Yl4XNKdNCvk06IguPwxLtt3KGRj6PsmhrK%2BSTjC0JToqlXybIMmRJKaoKjMFe5gNn9Iv6noEjL02zhl6JHLjMbiBEtUJOnta%2B0nq04TLPW%2BLN%2BCAZB3neTSYtaXI5PuW6cwTo3U%2Bz5N%2BBzMT00eimhGi%2FRshRlxmJwqhiShsD%2F5oicV7WYEkho57Wff72yZKtRKxDWs6A9TN1SN%2Bh5DagqQmzPm%2FrZn6YhxZvJq9UecrGfrJeR04rpY3pPeU5HtWMF6jymRCy7S%2BbRdHZJtMeaKujMHaiA7m5Up5c3k5x%2BqgfAzqpVA3hfLD0josoBK6ol38UR634Q%3D%3D"
-                                    alt="toy and model" height="300px" class="w-100">
+                                    alt="toy and model" height="300" class="w-100">
                                 <div class="mask-txt fs-4 text-shadow-black">
                                     <p class="mb-0">＃ 玩具模型</p>
                                 </div>
@@ -201,7 +201,7 @@
                             <div class="mask">
                                 <img
                                     src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1707154286226.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=DPe%2BbJeO1jl3RKwjXPdfZd62%2Bic%2FArYzAxuY5Hz2yOl9E0aI4cm0IV4Am%2Bp6C74SDRRijgSQjyvqJ7pDCKDBnyH73rAwwUR9fdsZaYvL%2F5AgBVgnHDkORUmH0W0XXYrLT%2BgyjDt%2BBAUbNxalb%2FxlmgW7y2rg%2FRL73%2BGTs1uN%2BwRxp%2FBeM37rYfN78aCs99JhBECvbXDna2pXok4CjBN2xlf92RGLESCWc4ZiWyXW3biq6UOjyCw20DSOfwSx16sEZfyZpaFRaF0d%2BUZhG1YaNIc9cZHB31vBoiP4dRBVUsj4VBj0suZWgzUfJy9r%2BgrLFitGbzI07L8V5ZpjqGH7qg%3D%3D"
-                                    alt="craft and antique" height="300px" class="w-100">
+                                    alt="craft and antique" height="300" class="w-100">
                                 <div class="mask-txt fs-4 text-shadow-black">
                                     <p class="mb-0">＃ 裝飾工藝</p>
                                 </div>
@@ -214,8 +214,8 @@
                         <div class="overflow-hidden">
                             <div class="mask">
                                 <img
-                                    src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1709490186395.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=jgjiLKuTWkohFV347QfMCLN1vrgI6sQYWPvaBNiQXz9ir%2Bk0knRKY67JYE170HZhnTRHPuipYMYTcSjOn3DgqYZmW%2BwH2yi8xP6JjvdEKn6JwmVatEQcIu5SOWEEkFayv2LW63BAM5yiJBbuVszkCgzL73dQmHQX%2FTEj%2FNWBNFlSZ3GXOLPL%2F41EknhSAMw6OTKIVhS7B4JorjfVJ4rau4RNu1QaGe0fyzvJccQtx2B36tpT0aPt210OlQJafMhxgCqCMMshtRgKCIvxq6D%2FEzKz4B3K%2F2BqAIkn0%2FcJP79bJ%2BViHtMu4T4PM7GC5ZlV6HXRfgfEyM%2B5HQPyC26%2BxQ%3D%3D"
-                                    alt="stationery" height="300px" class="w-100 object-fit-cover">
+                                    src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1714073485705.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=p4oNrBeTOAdymru%2FMWJ4rKgzmagTdlQ7zbq%2F5mVwckFH9kJpCVXGa7QqSiBoXFi37FmYZySPLjCONoIsnLpsnPYmqEhF3w3XRlrGmmuzJtb9g%2Bk%2F9n9wdY9tsqrs5uEtnSNVbDS1LBb1i9Gh3r3jmriTCEE%2BDYY5PobcqFW8IUvrkgcZFkem8bfvxlSzsx%2F1wFl5YSo%2BGXvCYV%2B1vtOg7A6aTzSlTTRDIkmSB%2FrcktJZ%2Foar3IRgN%2B7j1tVgBzoAE8NwYMJIZxC1RHDLUb4FmVcZMON5inh2kHlWKP8007yqdLmG2k%2FfGCkJ6WehUdu2ER2bo1AnH%2BxqdqIr%2F9P08A%3D%3D"
+                                    alt="stationery" height="300" class="w-100 object-fit-cover">
                                 <div class="mask-txt fs-4 text-shadow-black">
                                     <p class="mb-0">＃ 文具禮品</p>
                                 </div>
@@ -325,7 +325,7 @@ img { object-fit: cover; }
 .banner {
 
   height: 600px;
-  background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1711731427572.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=mrPsMGLy8zDYYlQYlDrPgW22orYr227vHqF2YK9%2Fmc4YBIZRnql1f66Vxo%2BFLv%2BtNo6%2BM3k73SRUJ0HLq68jqonDzt4xWjVpAeGVcE97vIowKryWHehBN1m3MIfP82ax1oMVHJekIz4jFsk1ecldAq9IHkXvj%2Fz61Fxb6Vx0eSrvD6u34Z87YQxPLuHciJD2rNhcFHas5HqxId5KXpv5FSUghF8UVXT%2BsIG1tC3kG0nVXdLyNt%2F5sOOeKfuPYQum%2BVv50%2Bo6tSPPjipm36hQCOV65LjJ4mXSk2q26kjv1D0TA61Ob2wJon0w0t8FJCO0hSbMAu7XlSKPh2XoqksMlw%3D%3D);
+  background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1714069125080.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=NRvtGnMH4odftFw2fsr6F5QRy8wwvqOrI%2FfVZ4%2BXg7BKxIDD6BLl5QdO7nYfnqv3%2B0ksy6qxnCUZuKECpQMa4%2BRiWy03brhWDuXn9qX6S%2BYjX1LiPClD%2BPCuo3Q1te7Y1UX4kf6ZuopE5N4xefX4iRK0GdKcvnJwCb97PYkRxqAInPzmwfratpUBw9PbEML8WMEWnfiahvnWzroHLIAHrbfE6cWKblL444%2BzEnes71SnjX8aOalx3GQk9pWS47BaFASkitQSfU%2F3bnM67w8Z7Oj5hqhmnGkGNuNTz1xh2X5NWcgl%2F1WGLEgyUfvKaImz2frPop%2BmHJ30jzVddHs9Wg%3D%3D);
   background-repeat: no-repeat;
   background-position: 50% 10%;
   background-size: cover;

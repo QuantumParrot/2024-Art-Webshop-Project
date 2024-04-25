@@ -4,9 +4,7 @@
 
 <div class="h-100 d-flex flex-column">
     <FrontNavbar />
-    <main>
-        <RouterView />
-    </main>
+    <main><RouterView /></main>
     <FrontFooter />
 </div>
 

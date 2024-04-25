@@ -33,7 +33,7 @@
         </template>
         <template v-else>
             <div class="alert px-md-7 p-5 mb-0 bg-white text-center">這個分類目前沒有消息喔！</div>
-            <LottiePlayer :animationData="sleepCatJSON" :height="250" />
+            <LottiePlayer :json="sleepCatJSON" />
         </template>
     </div>
 </div>
@@ -60,13 +60,19 @@ import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
 
 import PaginationComponent from '@/components/PaginationComponent.vue';
 
+import LottiePlayer from '@/components/LottiePlayer.vue';
+
 //
 
 import sleepCatJSON from '@/assets/lottie/sleep-cat.json';
 
 export default {
 
-    components: { NewsCarousel, CategoryFilterBar, PaginationComponent },
+    components: {
+
+        NewsCarousel, CategoryFilterBar, PaginationComponent, LottiePlayer,
+
+    },
 
     mixins: [filterMixins],
 

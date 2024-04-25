@@ -31,10 +31,6 @@ import axios from 'axios';
 
 import VueAxios from 'vue-axios';
 
-// vue-lottie
-
-import { Vue3Lottie } from 'vue3-lottie';
-
 //
 
 import * as calculator from '@/methods/calculator';
@@ -80,8 +76,6 @@ app.component('VForm', Form);
 app.component('VField', Field);
 
 app.component('ErrorMessage', ErrorMessage);
-
-app.component('LottiePlayer', Vue3Lottie);
 
 app.component('LoadingOverlay', LoadingOverlay);
 

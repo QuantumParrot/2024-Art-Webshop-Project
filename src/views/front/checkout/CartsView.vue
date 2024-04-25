@@ -148,7 +148,7 @@
         購物車空空如也！
         去<RouterLink class="text-info" to="/products">逛逛</RouterLink>吧！
     </div>
-    <LottiePlayer :animationData="sleepCatJSON" :height="250" />
+    <LottiePlayer :json="sleepCatJSON" />
 </template>
 
 </template>
@@ -163,9 +163,15 @@ import cartStore from '@/stores/userCart';
 
 //
 
+import LottiePlayer from '@/components/LottiePlayer.vue';
+
+//
+
 import sleepCatJSON from '@/assets/lottie/sleep-cat.json';
 
 export default {
+
+    components: { LottiePlayer },
 
     data() {
 

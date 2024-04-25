@@ -24,55 +24,42 @@
 
 </template>
 
-<script>
+<script setup>
 
-export default {
+import { ref, watch, onMounted } from 'vue';
 
-    data() {
+import { useRouter } from 'vue-router';
 
-        return {
+const router = useRouter();
 
-            isTransition: true,
-            count: 10,
+// Loading Image
 
-            timer: '',
+const isTransition = ref(true);
 
-        };
+const onLoad = () => { isTransition.value = false; };
 
-    },
+// Countdown
 
-    methods: {
+const go = () => router.go(-1);
 
-        go() { this.$router.go(-1); },
+const count = ref(10);
 
-        onLoad() { this.isTransition = false; },
+const countdown = () => { count.value -= 1; };
 
-        countdown() { this.count -= 1; },
+let timer = '';
 
-    },
+onMounted(() => { timer = setInterval(() => countdown(), 1000); });
 
-    watch: {
+watch(count, (n) => {
 
-        count(n) {
+    if (n === 0) {
 
-            if (n === 0) {
+        clearInterval(timer);
+        go();
 
-                clearInterval(this.timer);
-                this.go();
+    }
 
-            }
-
-        },
-
-    },
-
-    mounted() {
-
-        this.timer = setInterval(() => this.countdown(), 1000);
-
-    },
-
-};
+});
 
 </script>
 

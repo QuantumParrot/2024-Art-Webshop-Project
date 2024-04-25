@@ -51,13 +51,15 @@ export default defineStore('userArticle', {
 
             const api = `${VITE_APP_SITE}/api/${VITE_APP_PATH}/articles?page=`;
 
+            let total = [];
+
             loaderStore.createLoader('get-user-articles');
             axios.get(`${api}${page}`)
                 .then((res) => {
 
                     const { articles, pagination } = res.data;
 
-                    this.articles = articles;
+                    total = articles;
 
                     if (pagination.total_pages > 1) {
 
@@ -80,9 +82,11 @@ export default defineStore('userArticle', {
 
                     if (Array.isArray(resArr)) {
 
-                        resArr.forEach((res) => this.articles.push(...res.data.articles));
+                        resArr.forEach((res) => total.push(...res.data.articles));
 
                     }
+
+                    this.articles = total;
 
                 })
                 .catch((error) => alertStore.errorAlert(error))

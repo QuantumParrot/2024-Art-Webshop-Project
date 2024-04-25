@@ -113,6 +113,10 @@
 
 <script>
 
+import 'animate.css';
+
+//
+
 import faqMixins from '@/mixins/faq';
 
 import { mapState, mapActions } from 'pinia';

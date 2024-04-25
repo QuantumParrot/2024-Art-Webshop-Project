@@ -2,8 +2,6 @@ import './assets/main.scss';
 
 import 'bootstrap-icons/font/bootstrap-icons.scss';
 
-import 'animate.css';
-
 //
 
 import { createApp, markRaw } from 'vue';

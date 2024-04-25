@@ -275,9 +275,19 @@ import { mapState, mapActions } from 'pinia';
 
 import userArticleStore from '@/stores/userArticle';
 
+//
+
+import aos from 'aos';
+
+import 'aos/dist/aos.css';
+
+//
+
 import FaqSection from '@/components/section/FaqSection.vue';
 
 import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
+
+//
 
 export default {
 
@@ -295,7 +305,12 @@ export default {
 
     },
 
-    mounted() { this.getArticles(); },
+    mounted() {
+
+        aos.init();
+        this.getArticles();
+
+    },
 
 };
 

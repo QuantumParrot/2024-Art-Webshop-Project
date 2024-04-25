@@ -1,18 +1,20 @@
 <template>
 
-<div class="h-100">
+<transition name="fade">
+<div class="h-100" v-if="!isLoading">
     <section class="banner bg-primary text-white py-md-8 py-7">
         <div class="container">
             <h2 class="h1 lh-lg ls-sm mb-md-8 mb-7">
                 <span
                     class="banner-txt" data-aos="fade-right" data-aos-once="true"
-                    data-aos-duration="1200">
+                    data-aos-duration="1200"
+                    data-aos-delay="500">
                     為您的生活空間
                 </span>
                 <br>
                 <span
                     class="banner-txt" data-aos="fade-right" data-aos-once="true"
-                    data-aos-delay="1000" data-aos-duration="1200">
+                    data-aos-delay="1250" data-aos-duration="1200">
                     增添藝術的色彩
                 </span>
             </h2>
@@ -266,12 +268,15 @@
     <FaqSection />
     <SubscriptionSection />
 </div>
+</transition>
 
 </template>
 
 <script>
 
 import { mapState, mapActions } from 'pinia';
+
+import loaderStore from '@/stores/loader';
 
 import userArticleStore from '@/stores/userArticle';
 
@@ -297,6 +302,8 @@ export default {
 
         ...mapState(userArticleStore, ['news']),
 
+        ...mapState(loaderStore, ['isLoading']),
+
     },
 
     methods: {
@@ -319,6 +326,10 @@ export default {
 <style lang="scss" scoped>
 
 @import '@/assets/variables';
+
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+
+.fade-enter-active, .fade-leave-active { transition: opacity .5s ease; }
 
 img { object-fit: cover; }
 

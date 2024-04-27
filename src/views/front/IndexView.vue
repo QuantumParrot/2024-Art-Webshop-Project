@@ -1,7 +1,6 @@
 <template>
 
-<transition name="fade">
-<div class="h-100" v-if="!isLoading">
+<div class="h-100">
     <section class="banner bg-primary text-white py-md-8 py-7">
         <div class="container">
             <h2 class="h1 lh-lg ls-sm mb-md-8 mb-7">
@@ -51,7 +50,7 @@
                             px-lg-7 px-5 py-6 border border-white">
                             <div>
                                 <h3 class="fw-bold mb-6">
-                                    <span class="section-title">豐富多樣的商品</span>
+                                    <span class="section-title base">豐富多樣的商品</span>
                                 </h3>
                                 <p>收藏家是一個小型的藝術品販售商店</p>
                                 <p>匯聚了世界各地的</p>
@@ -84,7 +83,7 @@
                             data-aos-once="true">
                             <div>
                                 <h3 class="fw-bold mb-6">
-                                    <span class="section-title">紮實的文章內容</span>
+                                    <span class="section-title base">紮實的文章內容</span>
                                 </h3>
                                 <p>我們不止步於純粹的電商經營</p>
                                 <p>同時更致力於打造平易近人的知識分享平台</p>
@@ -129,7 +128,7 @@
                             px-lg-7 px-4 py-6 border border-white rounded-1">
                             <div>
                                 <h3 class="fw-bold mb-6">
-                                    <span class="section-title">將收益化為公益</span>
+                                    <span class="section-title base">將收益化為公益</span>
                                 </h3>
                                 <p>我們相信，藝術鑑賞與社會參與並不矛盾</p>
                                 <p>收藏家會妥善運用您在這裡的支出</p>
@@ -268,7 +267,6 @@
     <FaqSection />
     <SubscriptionSection />
 </div>
-</transition>
 
 </template>
 
@@ -326,10 +324,6 @@ export default {
 <style lang="scss" scoped>
 
 @import '@/assets/variables';
-
-.fade-enter-from, .fade-leave-to { opacity: 0; }
-
-.fade-enter-active, .fade-leave-active { transition: opacity .5s ease; }
 
 img { object-fit: cover; }
 

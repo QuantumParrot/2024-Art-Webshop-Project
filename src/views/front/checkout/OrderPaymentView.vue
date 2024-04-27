@@ -1,7 +1,7 @@
 <template>
 
 <div class="text-md-center" style="margin-top: -3rem">
-    <LottiePlayer :animationData="successJSON" :height="250" />
+    <LottiePlayer :json="successJSON" />
     <h3 class="text-center mb-7"><b>訂單已成立</b></h3>
     <p><b>請務必記下您的訂單編號</b>，方便您隨時追蹤訂單進度！</p>
     <p class="mb-0">

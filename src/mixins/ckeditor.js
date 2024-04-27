@@ -6,13 +6,16 @@ import { Link } from '@ckeditor/ckeditor5-link';
 import { Heading } from '@ckeditor/ckeditor5-heading';
 import { Font } from '@ckeditor/ckeditor5-font';
 
-// import {
-//     Image,
-//     ImageCaption,
-//     ImageStyle,
-//     ImageToolbar,
-//     ImageUpload,
-// } from '@ckeditor/ckeditor5-image';
+import {
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageInsert,
+    ImageResizeEditing,
+    ImageResizeHandles,
+    ImageResizeButtons,
+} from '@ckeditor/ckeditor5-image';
 
 import { headingConfig } from '@/methods/plugin';
 
@@ -34,14 +37,23 @@ export default {
                     Link,
                     Heading,
                     Font,
+                    Image,
+                    ImageCaption,
+                    ImageStyle,
+                    ImageToolbar,
+                    ImageInsert,
+                    ImageResizeEditing,
+                    ImageResizeHandles,
+                    ImageResizeButtons,
                 ],
 
                 toolbar: {
 
                     items: [
                         'undo', 'redo',
-                        '|', 'heading', 'bold', 'italic', 'fontSize', 'fontFamily', 'fontColor',
+                        '|', 'heading', 'bold', 'italic', 'fontFamily', 'fontColor',
                         '|', 'link',
+                        '|', 'insertImage',
                     ],
 
                 },
@@ -65,6 +77,24 @@ export default {
                         },
 
                     },
+
+                },
+
+                image: {
+
+                    insert: {
+
+                        integrations: ['assetManger', 'url'],
+
+                    },
+
+                    toolbar: [
+                        'imageTextAlternative',
+                        'toggleImageCaption',
+                        'imageStyle:inline',
+                        'imageStyle:block',
+                        'imageStyle:side',
+                    ],
 
                 },
 

@@ -1,3 +1,5 @@
+// for ckeditor
+
 const classes = ['mb-3'];
 
 export const headingConfig = {

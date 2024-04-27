@@ -6,12 +6,21 @@
             <RouterLink :to="`/product/${product.id}`">
                 <img
                     class="card-img-top"
-                    :src="product.imageUrl" :alt="product.title">
+                    :src="product.imageUrl" :alt="product.title"
+                    loading="lazy"
+                    @load="imageLoading = false">
                 <div class="card-navigate">
                     <button type="button" class="btn fs-4 text-light">
                         <i class="bi bi-search"></i>
                     </button>
                 </div>
+                <template v-if="imageLoading">
+                <div class="card-loading">
+                    <div role="status" class="spinner-border spinner-border">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                </template>
             </RouterLink>
         </div>
     </div>
@@ -76,6 +85,12 @@ import userCollectionStore from '@/stores/userCollection';
 export default {
 
     props: ['product'],
+
+    data() {
+
+        return { imageLoading: true };
+
+    },
 
     computed: {
 
@@ -145,6 +160,17 @@ export default {
   z-index: 2;
 
   &:hover { opacity: 1; }
+
+}
+
+.card-loading {
+
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 

@@ -3,7 +3,7 @@
 <div class="h-100 bg-light rounded-2 shadow-sm d-flex flex-column">
     <div class="w-100 d-flex justify-content-center py-5">
         <div class="card-img rounded-circle shadow-sm overflow-hidden">
-            <img class="h-100 object-fit-cover" :src="org.image" :alt="org.title">
+            <img class="h-100 object-fit-cover" :src="org.image" :alt="org.title" loading="lazy">
         </div>
     </div>
     <h5 class="text-center text-highlight mb-5"><b>{{ org.title }}</b></h5>

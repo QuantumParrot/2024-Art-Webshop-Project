@@ -6,10 +6,12 @@
     :autoplay="true"
     >
     <template v-for="news in data" :key="news.id">
-        <swiper-slide>
-            <div
-                class="slide-content" :style="{ backgroundImage: `url(${news.image})` }"
-                :alt="news.title">
+        <swiper-slide lazy="true">
+            <div class="slide-content">
+                <img
+                    :src="news.image" :alt="news.title"
+                    class="w-100 object-fit-cover"
+                    loading="true">
             </div>
             <div class="slide-title fs-5 py-3">
                 <RouterLink class="text-decoration-none" :to="`/news/${news.id}`">
@@ -26,11 +28,11 @@
 
 import { register } from 'swiper/element/bundle';
 
-register();
-
 export default {
 
     props: ['data'],
+
+    mounted() { register(); },
 
 };
 
@@ -40,16 +42,23 @@ export default {
 
 @import '@/assets/_variables.scss';
 
-::part(container) { padding-bottom: 3rem; }
+::part(container) {
 
-::part(bullet-active) { background-color: $primary; }
+  --swiper-theme-color: #424242;
+  padding-bottom: 3rem;
+
+}
 
 .slide-content {
 
-  background-repeat: no-repeat;
-  background-position: center 60%;
-  background-size: cover;
   height: 400px;
+
+  img {
+
+    height: 100%;
+    object-position: 50% 60%;
+
+  }
 
 }
 

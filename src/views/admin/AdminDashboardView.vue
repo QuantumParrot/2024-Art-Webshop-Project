@@ -4,7 +4,7 @@
 
 <section class="card px-4 py-5 mb-5 lh-lg">
     <h3 class="mb-6">
-        <span class="section-title">訂單近況</span>
+        <span class="section-title base">訂單近況</span>
     </h3>
     <div class="row gy-4">
         <div class="col-md-4">

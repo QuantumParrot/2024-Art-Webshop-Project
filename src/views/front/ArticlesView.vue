@@ -13,9 +13,9 @@
                 <div class="h-100 card border-0">
                     <img class="card-img-top" :src="item.image" :alt="item.title" loading="lazy">
                     <div class="card-body d-flex flex-column">
-                        <div class="text-nowrap overflow-x-scroll">
+                        <div class="text-justify">
                             <h4 class="fs-5 fw-bold mb-4">
-                                <span class="section-title">{{ item.title }}</span>
+                                <span class="section-title stretch lh-lg">{{ item.title }}</span>
                             </h4>
                             <h5 class="fs-6 mb-4">
                                 <span>{{ $calc.formatDate(item.create_at * 1000) }}</span>
@@ -142,13 +142,6 @@ export default {
 <style lang="scss" scoped>
 
 @import '@/assets/_variables.scss';
-
-.section-title::after {
-
-  bottom: 0; left: 2px;
-  height: 30%; width: 99%;
-
-}
 
 .btn-navigate {
 

@@ -156,25 +156,6 @@ export default defineStore('adminArticle', {
 
         },
 
-        switchArticleStatus(data) {
-
-            const current = data.isPublic;
-
-            loaderStore.createLoader('switch-article-status');
-            axios.put(`${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/article/${data.id}`, {
-                data: { ...data, content: data.description, isPublic: !data.isPublic },
-            })
-                .then(() => {
-
-                    alertStore.toastAlert(`文章已${current ? '隱藏' : '公開'}`, 'success');
-                    this.getArticles();
-
-                })
-                .catch((error) => alertStore.errorAlert(error))
-                .finally(() => loaderStore.removeLoader('switch-article-status'));
-
-        },
-
     },
 
 });

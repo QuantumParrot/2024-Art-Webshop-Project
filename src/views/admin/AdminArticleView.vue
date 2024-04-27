@@ -3,26 +3,26 @@
 <ul class="lh-lg nav nav-tabs nav-fill mb-3 border-bottom">
     <li class="nav-item">
         <a href="#" class="nav-link py-3" :class="{ 'active': filter === '網站公告' }"
-        @click.prevent="filter = '網站公告'">
+        @click.prevent="switchFilter('網站公告')">
         <b>網站公告</b>
         </a>
     </li>
     <li class="nav-item">
         <a href="#" class="nav-link py-3" :class="{ 'active': filter === '專欄文章' }"
-        @click.prevent="filter = '專欄文章'">
+        @click.prevent="switchFilter('專欄文章')">
         <b>專欄文章</b>
         </a>
     </li>
     <li class="nav-item">
         <a href="#" class="nav-link py-3" :class="{ 'active': filter === '公益計劃' }"
-        @click.prevent="filter = '公益計劃'">
+        @click.prevent="switchFilter('公益計劃')">
         <b>公益計劃</b>
         </a>
     </li>
 </ul>
 
 <div class="text-end mb-3">
-    <p class="text-muted">目前共有 {{ displayingArticles.length }} 篇{{ filter }}</p>
+    <p class="text-muted">目前共有 {{ filterArticles.length }} 篇{{ filter }}</p>
 </div>
 
 <div class="alert bg-gray flex-classic mb-6">
@@ -35,7 +35,7 @@
     </div>
     <PaginationComponent
         :current="currentPage" :total="totalPages"
-        @switch-page="getArticles" />
+        @switch-page="switchPage" />
 </div>
 
 <div class="table-responsive" v-if="articles.length">
@@ -50,7 +50,7 @@
         </tr>
         </thead>
         <tbody class="align-middle">
-        <tr v-for="article in displayingArticles" :key="article.id">
+        <tr v-for="article in displaying" :key="article.id">
             <td>{{ $calc.formatDate(article.create_at * 1000, '/') }}</td>
             <td>
                 <span class="badge bg-highlight text-dark py-2">{{ article.category }}</span>
@@ -60,11 +60,9 @@
                 <span class="text-muted fs-7">作者｜{{ article.author }}</span>
             </td>
             <td class="text-center">
-                <div class="form-switch">
-                    <input
-                        type="checkbox" role="switch" class="form-check-input"
-                        :checked="article.isPublic" @change="switchArticleStatus(article)">
-                </div>
+                <p :class="article.isPublic ? 'text-success': 'text-muted'">
+                <b>{{ article.isPublic ? '公開' : '草稿' }}</b>
+                </p>
             </td>
             <td class="text-center">
                 <div class="d-flex flex-column gap-2">
@@ -93,7 +91,7 @@
 
 <script>
 
-// 需要優化的地方：執行 getArticle 的流程
+import filterMixins from '@/mixins/filter';
 
 import { mapState, mapActions } from 'pinia';
 
@@ -108,6 +106,8 @@ import PaginationComponent from '@/components/PaginationComponent.vue';
 export default {
 
     components: { PaginationComponent },
+
+    mixins: [filterMixins],
 
     data() {
 
@@ -124,19 +124,25 @@ export default {
 
         ...mapState(adminArticleStore, ['articles']),
 
-        displayingArticles() {
+        filterArticles() {
 
             return this.articles.filter((i) => i.type === this.filter);
 
         },
 
-        totalPages() { return Math.ceil(this.displayingArticles.length / 5); },
+        displaying() {
+
+            return this.filterArticles.filter((a, i) => Math.floor(i / 5) + 1 === this.currentPage);
+
+        },
+
+        totalPages() { return Math.ceil(this.filterArticles.length / 5); },
 
     },
 
     methods: {
 
-        ...mapActions(adminArticleStore, ['getArticles', 'deleteArticle', 'switchArticleStatus']),
+        ...mapActions(adminArticleStore, ['getArticles', 'deleteArticle']),
 
     },
 

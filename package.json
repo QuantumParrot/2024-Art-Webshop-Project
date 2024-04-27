@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-basic-styles": "^41.1.0",
-    "@ckeditor/ckeditor5-ckbox": "^41.1.0",
     "@ckeditor/ckeditor5-editor-classic": "^41.1.0",
     "@ckeditor/ckeditor5-essentials": "^41.1.0",
     "@ckeditor/ckeditor5-font": "^41.1.0",

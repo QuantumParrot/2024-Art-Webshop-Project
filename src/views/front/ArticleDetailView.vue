@@ -6,7 +6,7 @@
             <div class="p-3 border rounded-2">
                 <div class="text-center mb-6">
                     <h3 class="h2 fw-bold lh-lg py-3 border-bottom mb-3">{{ article.title }}</h3>
-                    <p>
+                    <p class="py-3">
                         <span>{{ $calc.formatDate(article.create_at * 1000) }}</span>
                         <span>｜專欄：{{ article.author }}</span>
                     </p>
@@ -14,7 +14,7 @@
                 </div>
                 <div class="row justify-content-center mb-3">
                     <div class="col-xl-6 col-md-8 mb-2">
-                        <div class="text-justify" v-html="article.content"></div>
+                        <div class="article-content text-justify" v-html="article.content"></div>
                     </div>
                 </div>
                 <div class="border-top py-6" v-if="article.recommend && relatedProducts.length">
@@ -120,15 +120,14 @@ export default {
 
 }
 
-.author-img {
+.article-content img {
 
-  width: 100px; height: 100px;
-  border-radius: 50%;
-
-  background-size: cover;
-  background-position: center center;
+  width: 100%;
+  object-fit: cover;
 
 }
+
+.image_resized { height: auto; }
 
 .card-img-top { height: 250px; object-position: 50% 30%; }
 

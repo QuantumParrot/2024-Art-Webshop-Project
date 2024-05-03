@@ -329,7 +329,7 @@ img { object-fit: cover; }
 
 .banner {
 
-  height: 600px;
+  height: 100vh;
   background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1714069125080.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=NRvtGnMH4odftFw2fsr6F5QRy8wwvqOrI%2FfVZ4%2BXg7BKxIDD6BLl5QdO7nYfnqv3%2B0ksy6qxnCUZuKECpQMa4%2BRiWy03brhWDuXn9qX6S%2BYjX1LiPClD%2BPCuo3Q1te7Y1UX4kf6ZuopE5N4xefX4iRK0GdKcvnJwCb97PYkRxqAInPzmwfratpUBw9PbEML8WMEWnfiahvnWzroHLIAHrbfE6cWKblL444%2BzEnes71SnjX8aOalx3GQk9pWS47BaFASkitQSfU%2F3bnM67w8Z7Oj5hqhmnGkGNuNTz1xh2X5NWcgl%2F1WGLEgyUfvKaImz2frPop%2BmHJ30jzVddHs9Wg%3D%3D);
   background-repeat: no-repeat;
   background-position: 50% 10%;

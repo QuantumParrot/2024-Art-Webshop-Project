@@ -9,7 +9,7 @@
                     :src="product.imageUrl" :alt="product.title"
                     loading="lazy"
                     @load="imageLoading = false">
-                <div class="card-navigate">
+                <div class="card-nav" v-show="!imageLoading">
                     <button type="button" class="btn fs-4 text-light">
                         <i class="bi bi-search"></i>
                     </button>
@@ -148,7 +148,7 @@ export default {
 
 }
 
-.card-navigate {
+.card-nav {
 
   position: absolute;
   top: 0; left: 0;

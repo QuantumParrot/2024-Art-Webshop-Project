@@ -147,6 +147,40 @@ Personal Side Project for Practice, Not For Any Commercial Use.
 
 ***
 
+### 🪶 安裝說明
+
+---
+
+Node.js 建議版本：`18.0.0` 以上
+
+--
+
+1\. 取得專案
+
+``` bash
+git clone https://github.com/QuantumParrot/2024-Art-Webshop-Project.git
+```
+
+2\. 開啟專案
+
+``` bash
+cd /.../2024-Art-Webshop-Project # ... 為您下載位置的路徑
+```
+
+3\. 安裝套件（ 使用 npm / pnpm 皆可 ）
+
+``` bash
+pnpm i
+```
+
+4\. 運行專案（ 使用 npm / pnpm 皆可 ）
+
+``` bash
+pnpm run dev
+```
+
+***
+
 ### 🪶 資料出處
 
 ---

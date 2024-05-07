@@ -47,7 +47,7 @@ export default defineStore('adminOrder', {
 
         refactorOrders: ({ orders }) => orders.map((order) => {
 
-            if (order.message.startsWith('{"') && order.message.endsWith('}"')) {
+            if (order.message.startsWith('{"') && order.message.endsWith('}')) {
 
                 const data = JSON.parse(order.message);
 

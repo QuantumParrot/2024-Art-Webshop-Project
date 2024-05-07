@@ -34,7 +34,10 @@
                                     <h4 class="h3 lh-lg text-justify fw-bold mb-5">
                                         <span>{{ article.title }}</span>
                                     </h4>
-                                    <div class="lh-lg text-justify" v-html="article.content"></div>
+                                    <div
+                                        class="news-content lh-lg text-justify"
+                                        v-html="article.content">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -76,3 +79,14 @@ export default {
 };
 
 </script>
+
+<style lang="scss">
+
+.news-content img {
+
+  width: 100%; height: auto;
+  object-fit: cover;
+
+}
+
+</style>

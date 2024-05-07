@@ -122,12 +122,10 @@ export default {
 
 .article-content img {
 
-  width: 100%;
+  width: 100%; height: auto;
   object-fit: cover;
 
 }
-
-.image_resized { height: auto; }
 
 .card-img-top { height: 250px; object-position: 50% 30%; }
 

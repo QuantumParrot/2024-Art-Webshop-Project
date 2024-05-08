@@ -97,7 +97,7 @@ Personal Side Project for Practice, Not For Any Commercial Use.
 
 + [AXIOS](https://github.com/axios/axios) | *^ 1.6.7*
 
-  處理所有的 API 介接，向後端資料庫發送 AJAX 請求
+  處理所有的 API 串接
 
 + [Bootstrap 5](https://github.com/twbs) | *^ 5.3.2 ( @popperjs/core @ 2.11.8 )*
 

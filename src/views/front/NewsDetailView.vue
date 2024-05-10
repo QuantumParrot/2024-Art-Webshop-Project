@@ -35,7 +35,7 @@
                                         <span>{{ article.title }}</span>
                                     </h4>
                                     <div
-                                        class="news-content lh-lg text-justify"
+                                        class="news-content text-justify"
                                         v-html="article.content">
                                     </div>
                                 </div>

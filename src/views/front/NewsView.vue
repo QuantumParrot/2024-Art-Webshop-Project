@@ -1,6 +1,6 @@
 <template>
 
-<div class="h-100 bg-gray text-primary">
+<div class="h-100 bg-gray text-primary" v-if="news.length">
     <div class="container py-7">
         <h2 class="text-center py-5 mb-7"><b>最新消息</b></h2>
         <div class="mb-7">
@@ -42,11 +42,15 @@
 
 <script>
 
-import filterMixins from '@/mixins/filter';
+import { defineAsyncComponent } from 'vue';
+
+import { mapState, mapActions } from 'pinia';
 
 //
 
-import { mapState, mapActions } from 'pinia';
+import filterMixins from '@/mixins/filter';
+
+//
 
 import adminArticleStore from '@/stores/adminArticle';
 
@@ -60,11 +64,11 @@ import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
 
 import PaginationComponent from '@/components/PaginationComponent.vue';
 
-import LottiePlayer from '@/components/LottiePlayer.vue';
-
 //
 
 import sleepCatJSON from '@/assets/lottie/sleep-cat.json';
+
+const LottiePlayer = defineAsyncComponent(() => import('@/components/LottiePlayer.vue'));
 
 export default {
 

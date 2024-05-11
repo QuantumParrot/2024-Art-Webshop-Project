@@ -155,6 +155,8 @@
 
 <script>
 
+import { defineAsyncComponent } from 'vue';
+
 import { mapState, mapActions } from 'pinia';
 
 import loaderStore from '@/stores/loader';
@@ -163,11 +165,11 @@ import cartStore from '@/stores/userCart';
 
 //
 
-import LottiePlayer from '@/components/LottiePlayer.vue';
+import sleepCatJSON from '@/assets/lottie/sleep-cat.json';
 
 //
 
-import sleepCatJSON from '@/assets/lottie/sleep-cat.json';
+const LottiePlayer = defineAsyncComponent(() => import('@/components/LottiePlayer.vue'));
 
 export default {
 

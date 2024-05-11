@@ -2,7 +2,7 @@
 
 <LoadingOverlay :isLoading="isLoading" />
 
-<div class="h-100 d-flex flex-column">
+<div class="h-100 d-flex flex-column" style="min-height: 100vh;">
     <FrontNavbar />
     <main><RouterView /></main>
     <FrontFooter />
@@ -40,6 +40,14 @@ export default {
 
 <style>
 
-main { flex-grow: 1; }
+main {
+
+  height: auto;
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+
+}
 
 </style>

@@ -1,9 +1,9 @@
 <template>
 
-<div class="h-100 bg-secondary text-white">
+<div class="flex-grow-1 h-100 bg-secondary text-white">
     <div class="container py-7">
         <div class="row gy-7">
-            <div class="col-lg-3">
+            <div class="col-lg-3 pe-xl-7 pe-lg-5">
                 <ul class="sticky-top nav flex-lg-column">
                     <li class="nav-item">
                         <RouterLink

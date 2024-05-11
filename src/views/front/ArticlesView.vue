@@ -1,6 +1,6 @@
 <template>
 
-<div class="h-100 bg-gray text-primary">
+<div class="h-100 bg-gray text-primary" v-if="columns.length">
     <div class="container py-7">
         <h2 class="text-center py-5 mb-7"><b>專欄文章</b></h2>
         <div class="mb-7">

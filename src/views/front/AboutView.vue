@@ -1,6 +1,6 @@
 <template>
 
-<div class="h-100 bg-gray text-primary">
+<div class="h-100 bg-gray text-primary" v-if="projects.length">
     <div class="container py-7">
         <div class="profile mb-7 overflow-hidden">
             <img

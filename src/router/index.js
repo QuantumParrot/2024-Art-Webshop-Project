@@ -96,7 +96,7 @@ const router = createRouter({
                 {
                     path: 'member',
                     name: 'front-member',
-                    component: () => import('../views/front/member/MemberView.vue'),
+                    component: () => import('../views/front/member/MemberLayoutView.vue'),
                     children: [
                         {
                             path: '',

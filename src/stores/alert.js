@@ -56,7 +56,7 @@ export default defineStore('alert', {
 
             if (error.code === 'ERR_NETWORK') {
 
-                this.modalAlert({ title: '網路連線異常，請重新確認連線狀態後再嘗試', icon: 'error' });
+                this.modalAlert({ title: '網路連線異常', text: '請重新確認連線狀態後再嘗試', icon: 'error' });
 
             } else if (error.response) {
 

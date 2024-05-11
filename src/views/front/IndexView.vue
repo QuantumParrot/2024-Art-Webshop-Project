@@ -38,7 +38,8 @@
                         data-aos-once="true"
                         class="intro-img rounded-1"
                         alt="Image by Bianca Fazacas on Unsplash"
-                        src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1714072186418.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=IOwmHVtK7e%2FBGxIoiRQCI6RmQUH4jzIVwOgspyo8mMr6p%2B8taI29do7JrG4odTbPw2w%2ForkCjOoQR%2Bd6ceubU07rTf9sObgIPwKfA2hK%2Bi%2FmpN68h6J5015GKD%2B2HiGBK9I13X18Y0LA%2FWWVEyyS1Lm%2BZMdfpFHvBp21ZrUMEUnK6B4%2Fi3%2F%2Ba1yVwKl4b2EYgAWsDJ0eWUAlgTZEvBidTo7y0LN0Vwm5kTgvOX2bikZdpq4DM7b0Cm6cenLYA6xuEsjvuW%2FwRILlQEM3e%2BhG8VH29i6PvkbBcEuz8x4zQvOiNGhc7wP2KKK3SaLbDA7JIlt8cF2VjYSDylUi2Ts%2BiQ%3D%3D">
+                        src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1714072186418.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=IOwmHVtK7e%2FBGxIoiRQCI6RmQUH4jzIVwOgspyo8mMr6p%2B8taI29do7JrG4odTbPw2w%2ForkCjOoQR%2Bd6ceubU07rTf9sObgIPwKfA2hK%2Bi%2FmpN68h6J5015GKD%2B2HiGBK9I13X18Y0LA%2FWWVEyyS1Lm%2BZMdfpFHvBp21ZrUMEUnK6B4%2Fi3%2F%2Ba1yVwKl4b2EYgAWsDJ0eWUAlgTZEvBidTo7y0LN0Vwm5kTgvOX2bikZdpq4DM7b0Cm6cenLYA6xuEsjvuW%2FwRILlQEM3e%2BhG8VH29i6PvkbBcEuz8x4zQvOiNGhc7wP2KKK3SaLbDA7JIlt8cF2VjYSDylUi2Ts%2BiQ%3D%3D"
+                        loading="lazy">
                 </div>
                 <div class="col-lg-6 col-md-8">
                     <div
@@ -106,7 +107,8 @@
                         data-aos-once="true"
                         class="intro-img rounded-1"
                         alt="Image by Jaredd Craig on Unsplash"
-                        src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1714072531215.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=cuenwrGCDZzdIgbtvwALgLj6lZtfxa6L8mSO18lH%2B9cN3631k4r54WFoo2OqjNeHsgbiVpY%2BHOjwumnl2DmIqi%2BvfZvCrMtb2BHPEjbiIcmerXwdrhFoxJ8WeObVLJT%2B95%2BhqPY5jrYPgY6MZE%2F9VVa3JMSc%2Fa64o91Zukdv43xFbns%2FqkAb5uIDjIc3UD%2FLkBCLXdQARN7OoxF0KeOX49tFCRs2Y1lSZAFZ%2FkuF87rHrPX0WVej7X8ckAcV9o%2BvzZ7wd43SC0ApBPtwpBY7Mc5ddfi8vrVfVN8rzCelqr7EuB8pJyBWPSoBzbKqB0witq%2BsjPdTfDV4PF8h0zaZhw%3D%3D">
+                        src="https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1714072531215.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=cuenwrGCDZzdIgbtvwALgLj6lZtfxa6L8mSO18lH%2B9cN3631k4r54WFoo2OqjNeHsgbiVpY%2BHOjwumnl2DmIqi%2BvfZvCrMtb2BHPEjbiIcmerXwdrhFoxJ8WeObVLJT%2B95%2BhqPY5jrYPgY6MZE%2F9VVa3JMSc%2Fa64o91Zukdv43xFbns%2FqkAb5uIDjIc3UD%2FLkBCLXdQARN7OoxF0KeOX49tFCRs2Y1lSZAFZ%2FkuF87rHrPX0WVej7X8ckAcV9o%2BvzZ7wd43SC0ApBPtwpBY7Mc5ddfi8vrVfVN8rzCelqr7EuB8pJyBWPSoBzbKqB0witq%2BsjPdTfDV4PF8h0zaZhw%3D%3D"
+                        loading="lazy">
                 </div>
             </div>
             <div class="row g-3">
@@ -382,6 +384,26 @@ img { object-fit: cover; }
   color: $gray;
 
   &::after { background-color: $secondary; }
+
+}
+
+@media (max-width: 768px) {
+
+  .banner {
+
+    background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1715392547509.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=lodC3%2BnYfvnki6uSI5MbdIYx6FIaf63RcBT8mcVJRHHKyIWK7EU%2FgSBWHly3MRbcNZnD4D%2FVAys5d6A3Xd6G2Q%2BJ8vdJuMDIRsQU8XPnosK6voDXLrL%2BMnmggoKTlAAhmLknzzfUFCIkwA0sPg3gMCn70KIfT4x2BgQq8ayXp4LEpeHzeGCznbKWsGXm1KGlrsG7M%2FcCvseFZ2nR0uUiclYcSTcaLX2LZKV2oX6%2Fx7ZYyMEKmhF2JBc9E9auZXCs6%2BBhbC98a1uulr7wR3Ydn%2Fj9R%2BHlebLN%2BGIGFwXPTzfxsYgAzDL62iOVePGdDo%2BuV0hGoEbH4P3GHbLUuDQA1w%3D%3D);
+
+  }
+
+}
+
+@media (max-width: 375px) {
+
+  .banner {
+
+    background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/ataraxia/1715392399192.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OG4cRDnkbR83S3SoVzgOSeOsYy9MuKWhJdv1IG3sWeyPYM%2FlGsJ2qw%2BYBj9rl160UpBOOgegvvYQrIARV0tpKmLFjby5RHk2gHsJpAfl%2FBO7oA6CPhF8EyXpavm5%2B8irDeRo%2BT%2FBcS8E27REKjpgiqexaZENZ9H%2FseRSabk9dUBT8JQuL%2FKbeLvtN9RfKCRIexw2OlBPzRbE6xJWToaVlgcnCkOPhR%2Fq3CLgdSOyU8r0MBXxgkIUL7Osm22Rvc8KW4vsJt5AG99TwK5YbT6s6LdcRCKq8kofoy5a200WHB4XmoHS5YHSzzYh0XGwJnrHneyss2LEAroWFC5E%2B9MTMw%3D%3D);
+
+  }
 
 }
 

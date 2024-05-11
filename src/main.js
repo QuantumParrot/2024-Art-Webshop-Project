@@ -1,6 +1,5 @@
 import './assets/main.scss';
-
-import 'bootstrap-icons/font/bootstrap-icons.scss';
+import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
 //
 

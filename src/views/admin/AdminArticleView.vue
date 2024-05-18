@@ -52,10 +52,9 @@
             <span class="text-muted fs-7">作者｜{{ article.author }}</span>
             </td>
             <td class="text-center">
-                <div class="form-switch">
-                <input type="checkbox" role="switch" class="form-check-input"
-                       :checked="article.isPublic" @change="switchArticleStatus(article)">
-                </div>
+                <p :class="article.isPublic ? 'text-success' : 'text-muted'">
+                <b>{{ article.isPublic ? '公開' : '草稿' }}</b>
+                </p>
             </td>
             <td class="text-center">
                 <div class="d-flex flex-column gap-2">

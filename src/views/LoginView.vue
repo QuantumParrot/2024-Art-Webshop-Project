@@ -87,7 +87,7 @@ export default {
 
     },
 
-    async created() { await this.checkLogin(this.$route.path); },
+    created() { this.checkLogin(this.$route.path); },
 
     mounted() {
 

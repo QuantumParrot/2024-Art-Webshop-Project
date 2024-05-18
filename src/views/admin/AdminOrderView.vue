@@ -174,15 +174,13 @@ export default {
 
         },
 
-        changeFilterByQuery(query) {
+        changeFilterByQuery({ paid, state }) {
 
-            const isPaid = Number.parseInt(+query.paid, 10);
+            const isPaid = Number.parseInt(paid, 10);
+            const orderState = Number.parseInt(state, 10);
 
-            const state = Number.parseInt(+query.state, 10);
-
-            this.switchFilter('isPaid', !Number.isNaN(isPaid) ? isPaid : 2);
-
-            this.switchFilter('orderState', !Number.isNaN(state) ? state : 5);
+            this.switchFilter('isPaid', Number.isNaN(isPaid) ? 2 : isPaid);
+            this.switchFilter('orderState', Number.isNaN(orderState) ? 5 : orderState);
 
         },
 

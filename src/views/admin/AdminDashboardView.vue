@@ -21,7 +21,7 @@
                             </RouterLink>
                         </p>
                     </div>
-                    <p class="text-center mb-0" v-else>目前沒有未付款的訂單</p>
+                    <p class="text-center mb-0" v-else>目前沒有未付款訂單</p>
                 </div>
             </div>
         </div>
@@ -122,7 +122,7 @@ export default {
 
     computed: {
 
-        ...mapState(adminOrderStore, ['refactorOrders', 'unhandled']),
+        ...mapState(adminOrderStore, ['refactorOrders']),
 
         unhandled() {
 
@@ -174,7 +174,7 @@ export default {
 
     },
 
-    async mounted() { this.getOrders(); },
+    mounted() { this.getOrders(); },
 
 };
 

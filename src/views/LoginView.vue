@@ -49,55 +49,57 @@
 
 </template>
 
-<script>
+<script setup>
 
-import backgroundMixins from '@/mixins/background';
+import { ref, onMounted, toRefs } from 'vue';
 
-import validationMixins from '@/mixins/validation';
+import { useRoute } from 'vue-router';
+
+import useAdminAuthStore from '@/stores/adminAuth';
+
+import useLoaderStore from '@/stores/loader';
+
+import useBackgorund from '@/composables/useBackground';
+
+import useValidation from '@/composables/useValidation';
+
+const adminAuthStore = useAdminAuthStore();
+
+const loaderStore = useLoaderStore();
+
+const { localize } = useValidation();
+
+// Loading
+
+const { isLoading } = toRefs(loaderStore);
+
+// Randomize Background
+
+const backgroundText = ref('');
+
+const background = ref(null);
+
+onMounted(() => {
+
+    const img = useBackgorund();
+    background.value.style.backgroundImage = `url(${img.url})`;
+    backgroundText.value = img.description;
+
+});
+
+// Switch Password Visibility
+
+const isPwdVisible = ref(false);
 
 //
 
-import { mapState, mapActions } from 'pinia';
+const { login, checkLogin } = adminAuthStore;
 
-import adminAuthStore from '@/stores/adminAuth';
+const { isLogin } = toRefs(adminAuthStore);
 
-import loaderStore from '@/stores/loader';
+const route = useRoute();
 
-//
-
-export default {
-
-    mixins: [backgroundMixins, validationMixins],
-
-    data() {
-
-        return { backgroundText: '', isPwdVisible: false };
-
-    },
-
-    methods: {
-
-        ...mapActions(adminAuthStore, ['login', 'checkLogin']),
-
-    },
-
-    computed: {
-
-        ...mapState(adminAuthStore, ['isLogin']), ...mapState(loaderStore, ['isLoading']),
-
-    },
-
-    async created() { await this.checkLogin(this.$route.path); },
-
-    mounted() {
-
-        const img = this.randomSwitchImg();
-        this.$refs.background.style.backgroundImage = `url(${img.url})`;
-        this.backgroundText = img.description;
-
-    },
-
-};
+onMounted(() => checkLogin(route.path));
 
 </script>
 

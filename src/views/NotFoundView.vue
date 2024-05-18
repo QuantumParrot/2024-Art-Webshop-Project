@@ -1,8 +1,6 @@
 <template>
 
-<div
-    class="bg h-100 d-flex flex-column justify-content-center align-items-center"
-    style="height: 100vh;">
+<div class="bg h-100 d-flex flex-column justify-content-center align-items-center">
     <p class="h1 mb-7">OOPS ...！沒有這個網址！</p>
     <p class="mb-7">
     請稍候，{{ count }} 秒後將跳轉回上一頁，您也可以<a href="#" class="text-info" @click.prevent="go">直接跳轉</a>

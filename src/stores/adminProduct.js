@@ -20,7 +20,7 @@ const alertStore = useAlertStore();
 
 export default defineStore('adminProduct', {
 
-    state: () => ({ products: [], filter: '全部', currentPage: 1 }),
+    state: () => ({ products: [] }),
 
     getters: {
 
@@ -63,29 +63,9 @@ export default defineStore('adminProduct', {
 
         },
 
-        productsList: ({ products, filter }) => {
-
-            if (filter === '全部') { return products; }
-
-            return products.filter((item) => item.category === filter);
-
-        },
-
-        totalPages: ({ productsList }) => Math.ceil(productsList.length / 5),
-
-        displaying: ({ productsList, currentPage }) => {
-
-            const items = productsList.toSorted((a, b) => a.price - b.price);
-
-            return items.filter((i, idx) => Math.floor(idx / 5) === currentPage - 1);
-
-        },
-
     },
 
     actions: {
-
-        switchPage(num) { this.currentPage = num; },
 
         getProducts() {
 
@@ -94,10 +74,7 @@ export default defineStore('adminProduct', {
                 .then((res) => {
 
                     const { products } = res.data;
-                    this.products = Object.values(products);
-
-                    if (this.totalPages === 0) { this.switchFilter('全部'); }
-                    if (this.currentPage > this.totalPages) { this.switchPage(1); }
+                    this.products = Object.values(products).reverse();
 
                 })
                 .catch((error) => alertStore.errorAlert(error))
@@ -172,8 +149,6 @@ export default defineStore('adminProduct', {
                 .finally(() => loaderStore.removeLoader('delete-product'));
 
         },
-
-        switchFilter(value) { this.switchPage(1); this.filter = value; },
 
     },
 

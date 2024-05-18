@@ -33,7 +33,7 @@
 <div class="d-flex justify-content-end mb-4">
     <div>
         <select class="form-select" :value="filter" @change="(e) => switchFilter(e.target.value)">
-            <option value="全部">全部</option>
+            <option value="">全部</option>
             <template v-for="category in categories" :key="category">
                 <option :value="category">{{ category }}</option>
             </template>
@@ -117,6 +117,10 @@ import adminProductStore from '@/stores/adminProduct';
 
 //
 
+import filterMixins from '@/mixins/filter';
+
+//
+
 import PaginationComponent from '@/components/PaginationComponent.vue';
 
 import AdminProductModal from '@/components/modal/AdminProductModal.vue';
@@ -138,6 +142,8 @@ export default {
 
     },
 
+    mixins: [filterMixins],
+
     data() {
 
         return {
@@ -150,13 +156,47 @@ export default {
 
     computed: {
 
-        ...mapState(adminProductStore, ['products', 'productsList', 'categories', 'filter', 'displaying', 'currentPage', 'totalPages']),
+        ...mapState(adminProductStore, ['products', 'categories']),
+
+        productsList() {
+
+            if (!this.filter) { return this.products; }
+
+            return this.products.filter((p) => p.category === this.filter);
+
+        },
+
+        totalPages() { return Math.ceil(this.productsList.length / 5); },
+
+        displaying() {
+
+            return this.productsList.filter((p, i) => Math.floor(i / 5) + 1 === this.currentPage);
+
+        },
+
+    },
+
+    watch: {
+
+        products() {
+
+            if (!this.totalPages) { // 代表當前分類已經沒有商品了
+
+                this.switchFilter('');
+
+            } else {
+
+                this.switchPage(1);
+
+            }
+
+        },
 
     },
 
     methods: {
 
-        ...mapActions(adminProductStore, ['switchPage', 'switchFilter', 'getProducts', 'switchProductStatus', 'deleteProduct']),
+        ...mapActions(adminProductStore, ['getProducts', 'switchProductStatus', 'deleteProduct']),
 
         openModal(item, type) {
 

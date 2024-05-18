@@ -49,7 +49,7 @@ export default defineStore('adminOrder', {
 
         refactorOrders: ({ orders }) => orders.map((order) => {
 
-            if (order.message.startsWith('{"')) {
+            if (order.message.startsWith('{"') && order.message.endsWith('}')) {
 
                 const data = JSON.parse(order.message);
 
@@ -107,8 +107,6 @@ export default defineStore('adminOrder', {
 
         totalPages: ({ filterOrders }) => Math.ceil(filterOrders.length / 10),
 
-        unhandled: ({ refactorOrders }) => refactorOrders.filter((o) => o.is_paid && o.state === 0).length,
-
     },
 
     actions: {
@@ -119,16 +117,18 @@ export default defineStore('adminOrder', {
 
         getOrders(page = 1) {
 
+            loaderStore.createLoader('get-orders');
+
             const apiUrl = `${VITE_APP_SITE}/api/${VITE_APP_PATH}/admin/orders?page=`;
 
-            loaderStore.createLoader('get-orders');
+            let temp = [];
 
             axios.get(`${apiUrl}${page}`)
                 .then((res) => {
 
                     const { orders, pagination } = res.data;
 
-                    this.orders = orders;
+                    temp = orders;
 
                     if (pagination.total_pages > 1) {
 
@@ -149,7 +149,9 @@ export default defineStore('adminOrder', {
                 })
                 .then((resArr) => {
 
-                    if (Array.isArray(resArr)) { resArr.forEach((res) => this.orders.push(...res.data.orders)); }
+                    if (Array.isArray(resArr)) { resArr.forEach((res) => temp.push(...res.data.orders)); }
+
+                    this.orders = temp;
 
                 })
                 .catch((error) => alertStore.errorAlert(error))

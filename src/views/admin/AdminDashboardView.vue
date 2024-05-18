@@ -1,20 +1,66 @@
 <template>
 
-<p class="text-end fs-5 mb-7">{{ greeting }}，管理員！</p>
+<p class="text-end fs-5 mb-lg-7 mb-5">{{ greeting }}，管理員！</p>
 
-<section class="card p-3 mb-5">
-    <h3 class="mb-5"><span class="section-title">訂單近況</span></h3>
-    <div class="lh-lg d-flex flex-column flex-sm-row" v-if="!!unhandled">
-        <span>有 <span class="fw-bold text-danger">{{ unhandled }}</span> 筆已付款的訂單尚未處理喔！</span>
-        <div>
-            <span class="arrow-animation">
-            <span class="arrow">→</span></span>
-            <span>
-            <router-link class="text-info" to="admin/order?paid=1&state=0">前往訂單頁面</router-link>
-            </span>
+<section class="card px-4 py-5 mb-5 lh-lg">
+    <h3 class="mb-6"><span class="section-title">訂單近況</span></h3>
+    <div class="row gy-4">
+        <div class="col-md-4">
+            <div class="h-100 card bg-light border-0">
+                <div class="h-100 d-flex flex-column justify-content-center px-4 py-5"
+                :class="{ 'align-items-center': !expired }">
+                    <div v-if="expired">
+                        <h4 class="fs-5 mb-5"><b>未付款訂單</b></h4>
+                        <p>有 <span class="fw-bold text-danger">{{ expired }}</span> 筆訂單逾期未付款</p>
+                        <p class="mb-0">
+                        <span class="arrow-animation"><span class="arrow">→</span></span>
+                        <router-link
+                            class="text-info"
+                            to="admin/order?paid=0">前往處理</router-link>
+                        </p>
+                    </div>
+                    <p class="text-centet mb-0" v-else>目前沒有未付款的訂單</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 card bg-light border-0">
+                <div class="h-100 d-flex flex-column justify-content-center px-4 py-5"
+                :class="{ 'align-items-center': !unhandled }">
+                    <div v-if="unhandled">
+                        <h4 class="fs-5 mb-5"><b>未確認訂單</b></h4>
+                        <p>有 <span class="fw-bold text-danger">{{ unhandled }}</span> 筆訂單已付款</p>
+                        <p class="mb-0">
+                        <span class="arrow-animation"><span class="arrow">→</span></span>
+                        <router-link
+                            class="text-info"
+                            to="admin/order?paid=1&state=0">
+                            前往處理</router-link>
+                        </p>
+                    </div>
+                    <p class="text-centet mb-0" v-else>目前沒有未確認的訂單</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 card bg-light border-0">
+                <div class="h-100 d-flex flex-column justify-content-center px-4 py-5"
+                :class="{ 'align-items-center': !unprepared }">
+                    <div v-if="unprepared">
+                        <h4 class="fs-5 mb-5"><b>未出貨訂單</b></h4>
+                        <p>有 <span class="fw-bold text-danger">{{ unprepared }}</span> 筆訂單尚未出貨</p>
+                        <p class="mb-0">
+                        <span class="arrow-animation"><span class="arrow">→</span></span>
+                        <router-link
+                            class="text-info"
+                            to="admin/order?paid=1&state=1">前往處理</router-link>
+                        </p>
+                    </div>
+                    <p class="text-centet mb-0" v-else>目前沒有未出貨的訂單</p>
+                </div>
+            </div>
         </div>
     </div>
-    <p class="mb-0" v-else>目前沒有新消息</p>
 </section>
 
 <section class="alert bg-light">
@@ -75,7 +121,35 @@ export default {
 
     computed: {
 
-        ...mapState(adminOrderStore, ['orders', 'unhandled']),
+        ...mapState(adminOrderStore, ['refactorOrders']),
+
+        // 已付款，未處理
+
+        unhandled() {
+
+            return this.refactorOrders.filter((o) => o.is_paid && o.state === 0).length;
+
+        },
+
+        // 逾期付款 ( 超過七天 )
+
+        expired() {
+
+            const unpaid = this.refactorOrders.filter((o) => !o.is_paid);
+
+            const now = this.$calc.now();
+
+            return unpaid.filter((o) => (now - o.create_at) > 518400).length;
+
+        },
+
+        // 未出貨
+
+        unprepared() {
+
+            return this.refactorOrders.filter((o) => o.is_paid && o.state === 1).length;
+
+        },
 
     },
 
@@ -105,7 +179,7 @@ export default {
 
     },
 
-    async mounted() { this.getOrders(); },
+    mounted() { this.getOrders(); },
 
 };
 

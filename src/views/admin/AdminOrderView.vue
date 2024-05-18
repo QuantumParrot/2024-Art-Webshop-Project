@@ -165,14 +165,17 @@ export default {
 
         },
 
-        changeFilterByQuery(query) {
+        changeFilterByQuery({ paid, state }) {
 
-            if (query.paid || query.state) {
+            // 將參數轉成數字，如果是 undefined 就是 NaN
 
-                this.switchFilter('isPaid', +query.paid || 2);
-                this.switchFilter('orderState', +query.state);
+            const isPaid = parseInt(paid, 10);
+            const orderState = parseInt(state, 10);
 
-            }
+            // 這是為了區隔出參數為 0 或 undefined 的差異，因為這兩種情況應該要導向不同的結果
+
+            this.switchFilter('isPaid', Number.isNaN(isPaid) ? 2 : isPaid);
+            this.switchFilter('orderState', Number.isNaN(orderState) ? 5 : orderState);
 
         },
 

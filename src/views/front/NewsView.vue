@@ -69,7 +69,7 @@ export default {
 
         category() { return this.categories['網站公告'].filter((i) => i !== '網站測試'); },
 
-        currentCategory() {
+        newsList() {
 
             if (this.filter) { return this.news.filter((i) => i.category === this.filter); }
 
@@ -77,12 +77,12 @@ export default {
 
         },
 
-        totalPages() { return Math.ceil(this.currentCategory.length / 10); },
+        totalPages() { return Math.ceil(this.newsList.length / 10); },
 
         displaying() {
 
             // eslint-disable-next-line max-len
-            return this.currentCategory.filter((n, i) => Math.floor(i / 10) + 1 === this.currentPage);
+            return this.newsList.filter((n, i) => Math.floor(i / 10) + 1 === this.currentPage);
 
         },
 

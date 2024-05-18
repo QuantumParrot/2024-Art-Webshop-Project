@@ -92,7 +92,7 @@ export default {
 
         ...mapState(userArticleStore, ['columns']),
 
-        currentCategory() {
+        columnsList() {
 
             if (this.filter) {
 
@@ -104,12 +104,12 @@ export default {
 
         },
 
-        totalPages() { return Math.ceil(this.currentCategory.length / 6); },
+        totalPages() { return Math.ceil(this.columnsList.length / 6); },
 
         displaying() {
 
             // eslint-disable-next-line max-len
-            return this.currentCategory.filter((a, i) => Math.floor(i / 6) + 1 === this.currentPage);
+            return this.columnsList.filter((a, i) => Math.floor(i / 6) + 1 === this.currentPage);
 
         },
 

@@ -61,12 +61,6 @@ export default {
 
     mixins: [filterMixins],
 
-    data() {
-
-        return { filter: '' };
-
-    },
-
     computed: {
 
         ...mapState(adminArticleStore, ['categories']),
@@ -97,8 +91,6 @@ export default {
     methods: {
 
         ...mapActions(userArticleStore, ['getArticles', 'switchPage']),
-
-        switchFilter(value) { this.filter = value; },
 
     },
 

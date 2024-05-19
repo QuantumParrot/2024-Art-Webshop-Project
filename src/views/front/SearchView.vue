@@ -10,19 +10,19 @@
                 <div class="col-md-6">
                     <div class="input-group">
                         <input
-                            type="text" class="form-control" v-model="keywordTemp"
+                            type="text" class="form-control" v-model="keyword"
                             placeholder="輸入您想搜尋的關鍵字"
                             @keyup.enter="startSearch">
                         <button
                             type="button" class="btn btn-primary"
-                            :disabled="!keywordTemp" @click="startSearch">
+                            :disabled="!keyword" @click="startSearch">
                             <i class="bi bi-search"></i>
                         </button>
                     </div>
                 </div>
             </div>
-            <p class="mb-5" v-show="keyword">
-            您搜尋的關鍵字為：<b>{{ keyword }}</b>，共有 <b>{{ results.length }}</b> 項商品
+            <p class="mb-5" v-show="keywordCache">
+            您搜尋的關鍵字為：<b>{{ keywordCache }}</b>，共有 <b>{{ results.length }}</b> 項商品
             </p>
             <template v-if="results.length">
             <ul class="row list-unstyled g-6">
@@ -68,8 +68,8 @@ export default {
 
             totalProducts: [],
 
-            keywordTemp: '',
             keyword: '',
+            keywordCache: '',
             results: [],
 
         };
@@ -92,8 +92,12 @@ export default {
 
             handler(n) {
 
-                this.keyword = n || '';
-                this.search();
+                if (n) {
+
+                    this.keyword = n;
+                    this.search();
+
+                }
 
             },
 
@@ -119,15 +123,17 @@ export default {
 
         startSearch() {
 
-            if (!this.keywordTemp) return;
+            // 送出關鍵字之後，同步修改當前路由
 
-            this.$router.push(`${this.$route.path}?keyword=${this.keywordTemp}`);
+            if (!this.keyword) return;
+
+            this.$router.push(`/search?keyword=${this.keyword}`);
 
         },
 
         search() {
 
-            this.keyword = this.keywordTemp;
+            this.keywordCache = this.keyword;
 
             // 搜尋邏輯
 
@@ -140,27 +146,30 @@ export default {
         reset() {
 
             this.keyword = '';
-            this.keywordTemp = '';
-            this.results.length = 0;
+            this.keywordCache = '';
+            this.results = [];
 
         },
 
     },
-
-    created() { this.keywordTemp = this.$route.query.keyword || ''; },
 
     async mounted() {
 
         if (!this.productList.length) {
 
             const res = await this.getProducts();
-
             this.totalProducts = res;
 
         } else { this.totalProducts = this.productList; }
 
-        this.search();
-        this.getCollection();
+        this.keyword = this.$route.query.keyword || '';
+
+        if (this.keyword) {
+
+            this.search();
+            this.getCollection();
+
+        }
 
     },
 

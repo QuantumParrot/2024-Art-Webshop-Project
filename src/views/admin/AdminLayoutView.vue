@@ -19,13 +19,13 @@
 
 </template>
 
-<script>
+<script setup>
 
-import { mapState, mapActions } from 'pinia';
+import { onMounted, toRefs } from 'vue';
 
-import adminAuthStore from '@/stores/adminAuth';
+import useAdminAuthStore from '@/stores/adminAuth';
 
-import loaderStore from '@/stores/loader';
+import useLoaderStore from '@/stores/loader';
 
 //
 
@@ -33,24 +33,16 @@ import AdminSidebar from '@/components/AdminSidebar.vue';
 
 //
 
-export default {
+const { isLoading } = toRefs(useLoaderStore());
 
-    components: { AdminSidebar },
+//
 
-    computed: {
+const adminAuthStore = useAdminAuthStore();
 
-        ...mapState(adminAuthStore, ['isLogin']), ...mapState(loaderStore, ['isLoading']),
+const { isLogin } = toRefs(adminAuthStore);
 
-    },
+const { checkLogin } = adminAuthStore;
 
-    methods: {
-
-        ...mapActions(adminAuthStore, ['checkLogin']),
-
-    },
-
-    created() { this.checkLogin(); },
-
-};
+onMounted(() => checkLogin());
 
 </script>

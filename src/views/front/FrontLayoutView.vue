@@ -10,31 +10,22 @@
 
 </template>
 
-<script>
+<script setup>
 
-import { mapState } from 'pinia';
+import { storeToRefs } from 'pinia';
 
-import loaderStore from '@/stores/loader';
+//
+
+import useLoaderStore from '@/stores/loader';
 
 //
 
 import FrontNavbar from '@/components/FrontNavbar.vue';
-
 import FrontFooter from '@/components/FrontFooter.vue';
 
 //
 
-export default {
-
-    components: { FrontNavbar, FrontFooter },
-
-    computed: {
-
-        ...mapState(loaderStore, ['isLoading']),
-
-    },
-
-};
+const { isLoading } = storeToRefs(useLoaderStore());
 
 </script>
 

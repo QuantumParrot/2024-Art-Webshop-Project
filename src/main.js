@@ -58,6 +58,7 @@ setLocale('zhTW');
 const app = createApp(App);
 
 app.config.globalProperties.$calc = { ...calculator };
+app.config.globalProperties.$scrollTop = () => window.scrollTo(0, 0, 'smooth');
 
 const pinia = createPinia();
 

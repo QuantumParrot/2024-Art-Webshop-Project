@@ -6,6 +6,7 @@
     <FrontNavbar />
     <main><RouterView /></main>
     <FrontFooter />
+    <ScrollTopButton />
 </div>
 
 </template>
@@ -22,11 +23,13 @@ import FrontNavbar from '@/components/FrontNavbar.vue';
 
 import FrontFooter from '@/components/FrontFooter.vue';
 
+import ScrollTopButton from '@/components/ScrollTopButton.vue';
+
 //
 
 export default {
 
-    components: { FrontNavbar, FrontFooter },
+    components: { FrontNavbar, FrontFooter, ScrollTopButton },
 
     computed: {
 

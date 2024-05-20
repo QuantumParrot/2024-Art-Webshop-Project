@@ -4,7 +4,23 @@
     <div class="container py-7">
         <h2 class="text-center py-5 mb-7"><b>最新消息</b></h2>
         <div class="mb-7">
-            <NewsCarousel :data="carousel" />
+            <CarouselComponent>
+                <template v-for="item in carousel" :key="item.id">
+                    <swiper-slide lazy="true">
+                        <div class="slide-content">
+                            <img
+                                :src="item.image" :alt="item.title"
+                                class="w-100 object-fit-cover"
+                                loading="true">
+                        </div>
+                        <div class="slide-title fs-5 py-3">
+                            <RouterLink class="text-decoration-none" :to="`/news/${item.id}`">
+                                <b>{{ item.title }}</b>
+                            </RouterLink>
+                        </div>
+                    </swiper-slide>
+                </template>
+            </CarouselComponent>
         </div>
         <div class="mb-7">
             <CategoryFilterBar
@@ -42,6 +58,10 @@
 
 <script>
 
+import { register } from 'swiper/element/bundle';
+
+//
+
 import { defineAsyncComponent } from 'vue';
 
 import { mapState, mapActions } from 'pinia';
@@ -58,7 +78,7 @@ import userArticleStore from '@/stores/userArticle';
 
 //
 
-import NewsCarousel from '@/components/swiper/NewsCarousel.vue';
+import CarouselComponent from '@/components/CarouselComponent.vue';
 
 import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
 
@@ -74,7 +94,7 @@ export default {
 
     components: {
 
-        NewsCarousel, CategoryFilterBar, PaginationComponent, LottiePlayer,
+        CarouselComponent, CategoryFilterBar, PaginationComponent, LottiePlayer,
 
     },
 
@@ -123,7 +143,7 @@ export default {
 
     methods: {
 
-        ...mapActions(userArticleStore, ['getArticles', 'switchPage']),
+        ...mapActions(userArticleStore, ['getArticles']),
 
     },
 
@@ -132,6 +152,8 @@ export default {
         if (!this.news.length) { this.getArticles(); }
 
         this.switchFilter(this.$route.query.category || '');
+
+        register();
 
     },
 
@@ -146,6 +168,27 @@ export default {
 .nav-link {
 
   &:hover { color: $secondary }
+
+}
+
+.slide-content {
+
+  height: 400px;
+
+  img {
+
+    height: 100%;
+    object-position: 50% 60%;
+
+  }
+
+}
+
+.slide-title {
+
+  background-color: $primary;
+  text-align: center;
+  color: $light;
 
 }
 

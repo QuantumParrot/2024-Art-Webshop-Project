@@ -45,38 +45,39 @@
                 </div>
             </div>
         </div>
+        <div class="pt-6 text-center">
+            <RouterLink class="fw-bold" to="/news">回消息列表</RouterLink>
+        </div>
     </div>
 </div>
 
 </template>
 
-<script>
+<script setup>
 
-import { mapState, mapActions } from 'pinia';
+import { onMounted, toRefs } from 'vue';
 
-import userArticleStore from '@/stores/userArticle';
+import { useRoute } from 'vue-router';
 
-import loaderStore from '@/stores/loader';
+import useUserArticleStore from '@/stores/userArticle';
 
-export default {
+import useLoaderStore from '@/stores/loader';
 
-    computed: {
+//
 
-        ...mapState(userArticleStore, ['article']),
+const { isLoading } = toRefs(useLoaderStore());
 
-        ...mapState(loaderStore, ['isLoading']),
+//
 
-    },
+const route = useRoute();
 
-    methods: {
+const userArticleStore = useUserArticleStore();
 
-        ...mapActions(userArticleStore, ['getArticle']),
+const { getArticle } = userArticleStore;
 
-    },
+const { article } = toRefs(userArticleStore);
 
-    mounted() { this.getArticle(this.$route.params.id); },
-
-};
+onMounted(() => getArticle(route.params.id));
 
 </script>
 

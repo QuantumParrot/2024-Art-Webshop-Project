@@ -272,13 +272,11 @@
 
 </template>
 
-<script>
+<script setup>
 
-import { mapState, mapActions } from 'pinia';
+import { onMounted, toRefs } from 'vue';
 
-import loaderStore from '@/stores/loader';
-
-import userArticleStore from '@/stores/userArticle';
+import useUserArticleStore from '@/stores/userArticle';
 
 //
 
@@ -294,32 +292,18 @@ import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
 
 //
 
-export default {
+const userArticleStore = useUserArticleStore();
 
-    components: { FaqSection, SubscriptionSection },
+const { news } = toRefs(userArticleStore);
 
-    computed: {
+const { getArticles } = userArticleStore;
 
-        ...mapState(userArticleStore, ['news']),
+onMounted(() => {
 
-        ...mapState(loaderStore, ['isLoading']),
+    aos.init();
+    getArticles();
 
-    },
-
-    methods: {
-
-        ...mapActions(userArticleStore, ['getArticles']),
-
-    },
-
-    mounted() {
-
-        aos.init();
-        this.getArticles();
-
-    },
-
-};
+});
 
 </script>
 

@@ -8,7 +8,7 @@
         <div class="flex-classic gap-2 order-2 order-lg-3">
             <RouterLink v-slot="{ navigate }" to="/checkout/carts" custom>
                 <button
-                    type="button" class="btn btn-primary position-relative"
+                    type="button" class="btn btn-primary position-relative" aria-label="購物車"
                     @click="navigate">
                     <i class="bi bi-cart-fill"></i>
                     <span
@@ -19,11 +19,16 @@
                 </button>
             </RouterLink>
             <RouterLink v-slot="{ navigate }" to="/member/order" custom>
-                <button type="button" class="btn btn-outline-primary" @click="navigate">
+                <button
+                    type="button" class="btn btn-outline-primary" aria-label="個人收藏／訂單查詢"
+                    @click="navigate">
                     <i class="bi bi-person-fill"></i>
                 </button>
             </RouterLink>
-            <button type="button" class="btn btn-primary d-lg-none" @click="toggle">
+            <button
+                type="button" class="btn btn-primary d-lg-none"
+                aria-label="線上商城／最新消息／專欄文章／關於我們"
+                @click="toggle">
                 <i class="bi bi-list"></i>
             </button>
         </div>

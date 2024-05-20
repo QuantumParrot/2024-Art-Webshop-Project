@@ -5,15 +5,15 @@
         <div class="flex-classic">
             <h2 class="h1 ls-sm mb-0"><b>收藏家</b></h2>
             <div class="d-flex align-items-center gap-2">
-                <a href="#" target="_blank" alt="twitter/x"
+                <a href="#" target="_blank" alt="Twitter/X" aria-label="Twitter/X"
                 class="btn btn-light rounded-circle px-2 py-1">
                     <i class="bi bi-twitter-x"></i>
                 </a>
-                <a href="#" target="_blank" alt="instagram"
+                <a href="#" target="_blank" alt="Instagram" aria-label="Instagram"
                 class="btn btn-light rounded-circle px-2 py-1">
                     <i class="bi bi-instagram"></i>
                 </a>
-                <a href="#" target="_blank" alt="line"
+                <a href="#" target="_blank" alt="Line" aria-label="Line"
                 class="btn btn-light rounded-circle px-2 py-1">
                     <i class="bi bi-line"></i>
                 </a>

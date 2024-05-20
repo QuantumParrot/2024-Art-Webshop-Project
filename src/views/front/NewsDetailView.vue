@@ -45,6 +45,9 @@
                 </div>
             </div>
         </div>
+        <div class="pt-6 text-center">
+            <RouterLink class="fw-bold" to="/news">回消息列表</RouterLink>
+        </div>
     </div>
 </div>
 

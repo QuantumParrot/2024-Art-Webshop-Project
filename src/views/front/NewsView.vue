@@ -4,7 +4,23 @@
     <div class="container py-7">
         <h2 class="text-center py-5 mb-7"><b>最新消息</b></h2>
         <div class="mb-7">
-            <NewsCarousel :data="carousel" />
+            <CarouselComponent>
+                <template v-for="item in carousel" :key="item.id">
+                    <swiper-slide lazy="true">
+                        <div class="slide-content">
+                            <img
+                                :src="item.image" :alt="item.title"
+                                class="w-100 object-fit-cover"
+                                loading="true">
+                        </div>
+                        <div class="slide-title fs-5 py-3">
+                            <RouterLink class="text-decoration-none" :to="`/news/${item.id}`">
+                                <b>{{ item.title }}</b>
+                            </RouterLink>
+                        </div>
+                    </swiper-slide>
+                </template>
+            </CarouselComponent>
         </div>
         <div class="mb-7">
             <CategoryFilterBar
@@ -33,32 +49,39 @@
         </template>
         <template v-else>
             <div class="alert px-md-7 p-5 mb-0 bg-white text-center">這個分類目前沒有消息喔！</div>
-            <LottiePlayer :json="sleepCatJSON" />
+            <LottiePlayer :json="sleepCatLottie" />
         </template>
     </div>
 </div>
 
 </template>
 
-<script>
+<script setup>
 
-import { defineAsyncComponent } from 'vue';
+import { register } from 'swiper/element/bundle';
 
-import { mapState, mapActions } from 'pinia';
+import {
 
-//
+    defineAsyncComponent,
+    toRefs, computed, onMounted,
 
-import filterMixins from '@/mixins/filter';
+} from 'vue';
 
-//
-
-import adminArticleStore from '@/stores/adminArticle';
-
-import userArticleStore from '@/stores/userArticle';
+import { useRoute } from 'vue-router';
 
 //
 
-import NewsCarousel from '@/components/swiper/NewsCarousel.vue';
+import useAdminArticleStore from '@/stores/adminArticle';
+
+import useUserArticleStore from '@/stores/userArticle';
+
+//
+
+import useFilter from '@/composables/useFilter';
+
+//
+
+import CarouselComponent from '@/components/CarouselComponent.vue';
 
 import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
 
@@ -68,74 +91,64 @@ import PaginationComponent from '@/components/PaginationComponent.vue';
 
 import sleepCatJSON from '@/assets/lottie/sleep-cat.json';
 
+// Lottie Animation Data
+
 const LottiePlayer = defineAsyncComponent(() => import('@/components/LottiePlayer.vue'));
 
-export default {
+const sleepCatLottie = sleepCatJSON;
 
-    components: {
+//
 
-        NewsCarousel, CategoryFilterBar, PaginationComponent, LottiePlayer,
+const {
 
-    },
+    filter, currentPage, switchFilter, switchPage,
 
-    mixins: [filterMixins],
+} = useFilter();
 
-    data() {
+// News Categories
 
-        return {
+const { categories } = useAdminArticleStore();
 
-            sleepCatJSON,
+const newsCategories = computed(() => categories['網站公告'].filter((i) => i !== '網站測試'));
 
-            filter: '',
-            currentPage: 1,
+//
 
-        };
+const userArticleStore = useUserArticleStore();
 
-    },
+const { news } = toRefs(userArticleStore);
 
-    computed: {
+const currentNews = computed(() => {
 
-        ...mapState(adminArticleStore, ['categories']),
+    if (!filter.value) { return news.value; }
 
-        ...mapState(userArticleStore, ['news']),
+    return news.value.filter((n) => n.category === filter.value);
 
-        newsCategories() { return this.categories['網站公告'].filter((i) => i !== '網站測試'); },
+});
 
-        currentNews() {
+const totalPages = computed(() => Math.ceil(currentNews.value.length / 10));
 
-            if (this.filter) { return this.news.filter((i) => i.category === this.filter); }
+const displayingNews = computed(() => currentNews.value
+    .filter((n, idx) => Math.floor(idx / 10) + 1 === currentPage.value));
 
-            return this.news;
+// News Carousel
 
-        },
+const carousel = computed(() => news.value.filter((n, i) => i < 3));
 
-        totalPages() { return Math.ceil(this.currentNews.length / 10); },
+//
 
-        displayingNews() {
+const { getArticles } = userArticleStore;
 
-            return this.currentNews.filter((n, i) => Math.floor(i / 10) + 1 === this.currentPage);
+const route = useRoute();
 
-        },
+onMounted(() => {
 
-        carousel() { return this.news.filter((n, i) => i < 3); },
+    if (!news.value.length) { getArticles(); }
 
-    },
+    switchFilter(route.query.category || '');
 
-    methods: {
+    register();
 
-        ...mapActions(userArticleStore, ['getArticles', 'switchPage']),
-
-    },
-
-    mounted() {
-
-        if (!this.news.length) { this.getArticles(); }
-
-        this.switchFilter(this.$route.query.category || '');
-
-    },
-
-};
+});
 
 </script>
 
@@ -146,6 +159,27 @@ export default {
 .nav-link {
 
   &:hover { color: $secondary }
+
+}
+
+.slide-content {
+
+  height: 400px;
+
+  img {
+
+    height: 100%;
+    object-position: 50% 60%;
+
+  }
+
+}
+
+.slide-title {
+
+  background-color: $primary;
+  text-align: center;
+  color: $light;
 
 }
 

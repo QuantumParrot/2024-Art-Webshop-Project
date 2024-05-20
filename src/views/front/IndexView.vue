@@ -276,8 +276,6 @@
 
 import { mapState, mapActions } from 'pinia';
 
-import loaderStore from '@/stores/loader';
-
 import userArticleStore from '@/stores/userArticle';
 
 //
@@ -301,8 +299,6 @@ export default {
     computed: {
 
         ...mapState(userArticleStore, ['news']),
-
-        ...mapState(loaderStore, ['isLoading']),
 
     },
 

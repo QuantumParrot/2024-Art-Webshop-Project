@@ -1,15 +1,3 @@
-<template>
-
-<LoadingOverlay :isLoading="isLoading" />
-
-<div class="h-100 d-flex flex-column" style="min-height: 100vh;">
-    <FrontNavbar />
-    <main><RouterView /></main>
-    <FrontFooter />
-</div>
-
-</template>
-
 <script setup>
 
 import { storeToRefs } from 'pinia';
@@ -28,6 +16,18 @@ import FrontFooter from '@/components/FrontFooter.vue';
 const { isLoading } = storeToRefs(useLoaderStore());
 
 </script>
+
+<template>
+
+<LoadingOverlay :isLoading="isLoading" />
+
+<div class="h-100 d-flex flex-column" style="min-height: 100vh;">
+    <FrontNavbar />
+    <main><RouterView /></main>
+    <FrontFooter />
+</div>
+
+</template>
 
 <style>
 

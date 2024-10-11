@@ -1,3 +1,99 @@
+<script setup>
+
+import { register } from 'swiper/element/bundle';
+
+import {
+
+    defineAsyncComponent,
+    toRefs, computed, onMounted,
+
+} from 'vue';
+
+import { useRoute } from 'vue-router';
+
+//
+
+import useAdminArticleStore from '@/stores/adminArticle';
+
+import useUserArticleStore from '@/stores/userArticle';
+
+//
+
+import useFilter from '@/composables/useFilter';
+
+//
+
+import CarouselComponent from '@/components/CarouselComponent.vue';
+
+import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
+
+import PaginationComponent from '@/components/PaginationComponent.vue';
+
+//
+
+import sleepCatJSON from '@/assets/lottie/sleep-cat.json';
+
+// Lottie Animation Data
+
+const LottiePlayer = defineAsyncComponent(() => import('@/components/LottiePlayer.vue'));
+
+const sleepCatLottie = sleepCatJSON;
+
+//
+
+const {
+
+    filter, currentPage, switchFilter, switchPage,
+
+} = useFilter();
+
+// News Categories
+
+const { categories } = useAdminArticleStore();
+
+const newsCategories = categories['網站公告'].filter((i) => i !== '網站測試');
+
+//
+
+const userArticleStore = useUserArticleStore();
+
+const { news } = toRefs(userArticleStore);
+
+const currentNews = computed(() => {
+
+    if (!filter.value) { return news.value; }
+
+    return news.value.filter((n) => n.category === filter.value);
+
+});
+
+const totalPages = computed(() => Math.ceil(currentNews.value.length / 10));
+
+const displayingNews = computed(() => currentNews.value
+    .filter((n, idx) => Math.floor(idx / 10) + 1 === currentPage.value));
+
+// News Carousel
+
+const carousel = computed(() => news.value.filter((n, i) => i < 3));
+
+//
+
+const { getArticles } = userArticleStore;
+
+const route = useRoute();
+
+onMounted(() => {
+
+    if (!news.value.length) { getArticles(); }
+
+    switchFilter(route.query.category || '');
+
+    register();
+
+});
+
+</script>
+
 <template>
 
 <div class="h-100 bg-gray text-primary" v-if="news.length">
@@ -55,102 +151,6 @@
 </div>
 
 </template>
-
-<script setup>
-
-import { register } from 'swiper/element/bundle';
-
-import {
-
-    defineAsyncComponent,
-    toRefs, computed, onMounted,
-
-} from 'vue';
-
-import { useRoute } from 'vue-router';
-
-//
-
-import useAdminArticleStore from '@/stores/adminArticle';
-
-import useUserArticleStore from '@/stores/userArticle';
-
-//
-
-import useFilter from '@/composables/useFilter';
-
-//
-
-import CarouselComponent from '@/components/CarouselComponent.vue';
-
-import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
-
-import PaginationComponent from '@/components/PaginationComponent.vue';
-
-//
-
-import sleepCatJSON from '@/assets/lottie/sleep-cat.json';
-
-// Lottie Animation Data
-
-const LottiePlayer = defineAsyncComponent(() => import('@/components/LottiePlayer.vue'));
-
-const sleepCatLottie = sleepCatJSON;
-
-//
-
-const {
-
-    filter, currentPage, switchFilter, switchPage,
-
-} = useFilter();
-
-// News Categories
-
-const { categories } = useAdminArticleStore();
-
-const newsCategories = computed(() => categories['網站公告'].filter((i) => i !== '網站測試'));
-
-//
-
-const userArticleStore = useUserArticleStore();
-
-const { news } = toRefs(userArticleStore);
-
-const currentNews = computed(() => {
-
-    if (!filter.value) { return news.value; }
-
-    return news.value.filter((n) => n.category === filter.value);
-
-});
-
-const totalPages = computed(() => Math.ceil(currentNews.value.length / 10));
-
-const displayingNews = computed(() => currentNews.value
-    .filter((n, idx) => Math.floor(idx / 10) + 1 === currentPage.value));
-
-// News Carousel
-
-const carousel = computed(() => news.value.filter((n, i) => i < 3));
-
-//
-
-const { getArticles } = userArticleStore;
-
-const route = useRoute();
-
-onMounted(() => {
-
-    if (!news.value.length) { getArticles(); }
-
-    switchFilter(route.query.category || '');
-
-    register();
-
-});
-
-</script>
 
 <style lang="scss" scoped>
 

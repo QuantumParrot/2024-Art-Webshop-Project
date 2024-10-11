@@ -1,3 +1,31 @@
+<script setup>
+
+import { onMounted, toRefs } from 'vue';
+
+import { useRoute } from 'vue-router';
+
+import useUserArticleStore from '@/stores/userArticle';
+
+import useLoaderStore from '@/stores/loader';
+
+//
+
+const { isLoading } = toRefs(useLoaderStore());
+
+//
+
+const route = useRoute();
+
+const userArticleStore = useUserArticleStore();
+
+const { getArticle } = userArticleStore;
+
+const { article } = toRefs(userArticleStore);
+
+onMounted(() => getArticle(route.params.id));
+
+</script>
+
 <template>
 
 <div class="h-100 bg-gray text-primary">
@@ -52,34 +80,6 @@
 </div>
 
 </template>
-
-<script setup>
-
-import { onMounted, toRefs } from 'vue';
-
-import { useRoute } from 'vue-router';
-
-import useUserArticleStore from '@/stores/userArticle';
-
-import useLoaderStore from '@/stores/loader';
-
-//
-
-const { isLoading } = toRefs(useLoaderStore());
-
-//
-
-const route = useRoute();
-
-const userArticleStore = useUserArticleStore();
-
-const { getArticle } = userArticleStore;
-
-const { article } = toRefs(userArticleStore);
-
-onMounted(() => getArticle(route.params.id));
-
-</script>
 
 <style lang="scss">
 

@@ -1,3 +1,53 @@
+<script setup>
+
+import { ref, onMounted, toRefs } from 'vue';
+import { useRoute } from 'vue-router';
+
+import useAdminAuthStore from '@/stores/adminAuth';
+import useLoaderStore from '@/stores/loader';
+
+import useBackgorund from '@/composables/useBackground';
+import useValidation from '@/composables/useValidation';
+
+const adminAuthStore = useAdminAuthStore();
+const loaderStore = useLoaderStore();
+
+const { localize } = useValidation();
+
+// Loading
+
+const { isLoading } = toRefs(loaderStore);
+
+// Randomize Background
+
+const backgroundText = ref('');
+
+const background = ref(null);
+
+onMounted(() => {
+
+    const img = useBackgorund();
+    background.value.style.backgroundImage = `url(${img.url})`;
+    backgroundText.value = img.description;
+
+});
+
+// Switch Password Visibility
+
+const isPwdVisible = ref(false);
+
+//
+
+const { login, checkLogin } = adminAuthStore;
+
+const { isLogin } = toRefs(adminAuthStore);
+
+const route = useRoute();
+
+onMounted(() => checkLogin(route.path));
+
+</script>
+
 <template>
 
 <LoadingOverlay :isLoading="isLoading" />
@@ -48,60 +98,6 @@
 </div>
 
 </template>
-
-<script setup>
-
-import { ref, onMounted, toRefs } from 'vue';
-
-import { useRoute } from 'vue-router';
-
-import useAdminAuthStore from '@/stores/adminAuth';
-
-import useLoaderStore from '@/stores/loader';
-
-import useBackgorund from '@/composables/useBackground';
-
-import useValidation from '@/composables/useValidation';
-
-const adminAuthStore = useAdminAuthStore();
-
-const loaderStore = useLoaderStore();
-
-const { localize } = useValidation();
-
-// Loading
-
-const { isLoading } = toRefs(loaderStore);
-
-// Randomize Background
-
-const backgroundText = ref('');
-
-const background = ref(null);
-
-onMounted(() => {
-
-    const img = useBackgorund();
-    background.value.style.backgroundImage = `url(${img.url})`;
-    backgroundText.value = img.description;
-
-});
-
-// Switch Password Visibility
-
-const isPwdVisible = ref(false);
-
-//
-
-const { login, checkLogin } = adminAuthStore;
-
-const { isLogin } = toRefs(adminAuthStore);
-
-const route = useRoute();
-
-onMounted(() => checkLogin(route.path));
-
-</script>
 
 <style lang="scss" scoped>
 

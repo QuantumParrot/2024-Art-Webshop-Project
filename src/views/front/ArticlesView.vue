@@ -1,3 +1,79 @@
+<script setup>
+
+import { computed, onMounted } from 'vue';
+
+import { storeToRefs } from 'pinia';
+
+import { useRoute } from 'vue-router';
+
+//
+
+import useAdminArticleStore from '@/stores/adminArticle';
+
+import useUserArticleStore from '@/stores/userArticle';
+
+//
+
+import useFilter from '@/composables/useFilter';
+
+//
+
+import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
+
+import PaginationComponent from '@/components/PaginationComponent.vue';
+
+import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
+
+//
+
+const route = useRoute();
+
+const {
+
+    filter, currentPage,
+    switchFilter, switchPage,
+
+} = useFilter();
+
+const userArticleStore = useUserArticleStore();
+
+//
+
+const { categories } = useAdminArticleStore();
+
+const { columns } = storeToRefs(userArticleStore);
+
+const currentCols = computed(() => {
+
+    if (filter.value) {
+
+        return columns.value.filter((i) => i.category === filter.value);
+
+    }
+
+    return columns.value;
+
+});
+
+const totalPages = computed(() => Math.ceil(currentCols.value.length / 6));
+
+const displayingColumns = computed(() => currentCols.value
+    .filter((c, i) => Math.floor(i / 6) + 1 === currentPage.value));
+
+//
+
+const { getArticles } = userArticleStore;
+
+onMounted(() => {
+
+    if (!columns.value.length) { getArticles(); }
+
+    switchFilter(route.query.category || '');
+
+});
+
+</script>
+
 <template>
 
 <div class="h-100 bg-gray text-primary" v-if="columns.length">
@@ -54,90 +130,6 @@
 </div>
 
 </template>
-
-<script>
-
-import filterMixins from '@/mixins/filter';
-
-//
-
-import { mapState, mapActions } from 'pinia';
-
-import adminArticleStore from '@/stores/adminArticle';
-
-import userArticleStore from '@/stores/userArticle';
-
-//
-
-import CategoryFilterBar from '@/components/CategoryFilterBar.vue';
-
-import PaginationComponent from '@/components/PaginationComponent.vue';
-
-import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
-
-//
-
-export default {
-
-    components: {
-
-        CategoryFilterBar, PaginationComponent, SubscriptionSection,
-
-    },
-
-    mixins: [filterMixins],
-
-    data() {
-
-        return { filter: '', currentPage: 1 };
-
-    },
-
-    computed: {
-
-        ...mapState(adminArticleStore, ['categories']),
-
-        ...mapState(userArticleStore, ['columns']),
-
-        currentCols() {
-
-            if (this.filter) {
-
-                return this.columns.filter((i) => i.category === this.filter);
-
-            }
-
-            return this.columns;
-
-        },
-
-        totalPages() { return Math.ceil(this.currentCols.length / 6); },
-
-        displayingColumns() {
-
-            return this.currentCols.filter((c, i) => Math.floor(i / 6) + 1 === this.currentPage);
-
-        },
-
-    },
-
-    methods: {
-
-        ...mapActions(userArticleStore, ['getArticles']),
-
-    },
-
-    mounted() {
-
-        if (!this.columns.length) { this.getArticles(); }
-
-        this.switchFilter(this.$route.query.category || '');
-
-    },
-
-};
-
-</script>
 
 <style lang="scss" scoped>
 

@@ -1,3 +1,55 @@
+<script setup>
+
+import { watch, toRefs, onMounted } from 'vue';
+
+import { useRoute } from 'vue-router';
+
+//
+
+import useUserArticleStore from '@/stores/userArticle';
+
+import useUserCollectionStore from '@/stores/userCollection';
+
+//
+
+import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
+
+import ProductCard from '@/components/card/ProductCard.vue';
+
+//
+
+const route = useRoute();
+
+const userArticleStore = useUserArticleStore();
+
+const userCollectionStore = useUserCollectionStore();
+
+//
+
+const { getArticle } = userArticleStore;
+
+onMounted(() => getArticle(route.params.id));
+
+//
+
+const { article, relatedProducts } = toRefs(userArticleStore);
+
+//
+
+const { getCollection, updateCollection } = userCollectionStore;
+
+const { collection } = toRefs(userCollectionStore);
+
+onMounted(() => getCollection());
+
+// 為了讓用戶手動輸入網址時也能觸發切換文章的效果
+
+watch(() => route.params.id, (n) => getArticle(n));
+
+watch(collection, () => updateCollection(), { deep: true });
+
+</script>
+
 <template>
 
 <div class="h-100 bg-gray text-primary" v-show="article.id">
@@ -36,81 +88,6 @@
 
 </template>
 
-<script>
-
-import { mapState, mapActions } from 'pinia';
-
-import loaderStore from '@/stores/loader';
-
-import userArticleStore from '@/stores/userArticle';
-
-import userCollectionStore from '@/stores/userCollection';
-
-//
-
-import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
-
-import ProductCard from '@/components/card/ProductCard.vue';
-
-//
-
-export default {
-
-    components: { SubscriptionSection, ProductCard },
-
-    computed: {
-
-        ...mapState(userArticleStore, ['article', 'relatedProducts']),
-
-        ...mapState(loaderStore, ['isLoading']),
-
-        ...mapState(userCollectionStore, ['collection']),
-
-        author() { return this.authors.find((i) => i.column === this.article.author); },
-
-    },
-
-    watch: {
-
-        '$route.params.id': {
-
-            // 為了讓用戶手動輸入網址時也能觸發切換文章的效果
-
-            handler(n) { this.getArticle(n); },
-
-            deep: true,
-
-        },
-
-        collection: {
-
-            handler() { this.updateCollection(); },
-
-            deep: true,
-
-        },
-
-    },
-
-    methods: {
-
-        ...mapActions(userArticleStore, ['getArticle']),
-
-        ...mapActions(userCollectionStore, ['getCollection', 'updateCollection']),
-
-    },
-
-    mounted() {
-
-        this.getArticle(this.$route.params.id);
-        this.getCollection();
-
-    },
-
-};
-
-</script>
-
 <style lang="scss">
 
 .article-img {
@@ -128,11 +105,5 @@ export default {
 }
 
 .card-img-top { height: 250px; object-position: 50% 30%; }
-
-@media (max-width: 991px) {
-
-  .author-img { width: 80px; height: 80px; }
-
-}
 
 </style>

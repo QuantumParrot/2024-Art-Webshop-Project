@@ -1,3 +1,49 @@
+<script setup>
+
+import 'animate.css';
+
+//
+
+import { onMounted, toRefs, computed } from 'vue';
+
+//
+
+import useFaq from '@/composables/useFaq';
+
+import useUserArticleStore from '@/stores/userArticle';
+
+//
+
+import NGOCard from '@/components/card/NGOCard.vue';
+
+//
+
+const { sortQuestions } = useFaq();
+
+const userArticleStore = useUserArticleStore();
+
+//
+
+const { projects } = toRefs(userArticleStore);
+
+const ocean = computed(() => projects.value.filter((i) => i.category === '海洋保育'));
+
+const wildAnimal = computed(() => projects.value.filter((i) => i.category === '野生動物救援'));
+
+const socialCare = computed(() => projects.value.filter((i) => i.category === '社會關懷'));
+
+//
+
+const { getArticles } = userArticleStore;
+
+onMounted(() => {
+
+    if (!projects.value.length) { getArticles(); }
+
+});
+
+</script>
+
 <template>
 
 <div class="h-100 bg-gray text-primary" v-if="projects.length">
@@ -35,7 +81,7 @@
             <p>我們會將每一筆訂單 <b class="text-danger">10 ～ 20％</b> 的收益，</p>
             <p>全數回饋給這些在不同社會議題努力的非營利組織，謝謝他們為這片土地的付出！</p>
             <p class="mb-7">
-            <span class="text-muted">雖然網站是假的，</span>
+            <span class="text-muted">雖然本站是假的（ 小聲 ），</span>
             <span>但是這些團體是真實的存在，歡迎點選以下的連結認識他們喔！</span>
             </p>
             <h4 class="mb-6">
@@ -110,54 +156,6 @@
 </div>
 
 </template>
-
-<script>
-
-import 'animate.css';
-
-//
-
-import faqMixins from '@/mixins/faq';
-
-import { mapState, mapActions } from 'pinia';
-
-import userArticleStore from '@/stores/userArticle';
-
-//
-
-import NGOCard from '@/components/card/NGOCard.vue';
-
-export default {
-
-    components: { NGOCard },
-
-    mixins: [faqMixins],
-
-    computed: {
-
-        ...mapState(userArticleStore, ['projects']),
-
-        // 公益計劃
-
-        ocean() { return this.projects.filter((i) => i.category === '海洋保育'); },
-
-        wildAnimal() { return this.projects.filter((i) => i.category === '野生動物救援'); },
-
-        socialCare() { return this.projects.filter((i) => i.category === '社會關懷'); },
-
-    },
-
-    methods: {
-
-        ...mapActions(userArticleStore, ['getArticles']),
-
-    },
-
-    mounted() { if (!this.projects.length) { this.getArticles(); } },
-
-};
-
-</script>
 
 <style lang="scss" scoped>
 

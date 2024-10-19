@@ -1,3 +1,15 @@
+<script setup>
+
+import { defineProps } from 'vue';
+
+import useFaq from '@/composables/useFaq';
+
+const props = defineProps(['types']);
+
+const { featuredQuestions } = useFaq(props.types);
+
+</script>
+
 <template>
 
 <section class="bg-primary text-white py-md-8 py-7">
@@ -48,21 +60,3 @@
 </section>
 
 </template>
-
-<script>
-
-import faqMixins from '@/mixins/faq';
-
-export default {
-
-    props: {
-
-        types: { default: [] },
-
-    },
-
-    mixins: [faqMixins],
-
-};
-
-</script>

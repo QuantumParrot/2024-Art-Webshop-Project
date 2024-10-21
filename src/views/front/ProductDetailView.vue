@@ -1,3 +1,139 @@
+<script setup>
+
+import {
+
+    ref, computed, watch,
+    toRefs, onMounted,
+
+} from 'vue';
+
+import { useRoute } from 'vue-router';
+
+//
+
+import useUserProductStore from '@/stores/userProduct';
+
+import useUserCartStore from '@/stores/userCart';
+
+import useUserCollectionStore from '@/stores/userCollection';
+
+import useLoaderStore from '@/stores/loader';
+
+//
+
+import ZoomImageModal from '@/components/modal/ZoomImageModal.vue';
+
+import ProductCard from '@/components/card/ProductCard.vue';
+
+//
+
+const loaderStore = useLoaderStore();
+
+const userProductStore = useUserProductStore();
+
+const userCollectionStore = useUserCollectionStore();
+
+const userCartStore = useUserCartStore();
+
+const { loadingTask } = toRefs(loaderStore);
+
+const { product, relatedProducts } = toRefs(userProductStore);
+
+const { getProduct, getRelatedProducts } = userProductStore;
+
+const { collection } = toRefs(userCollectionStore);
+
+const { getCollection, updateCollection } = userCollectionStore;
+
+const { addToCart } = userCartStore;
+
+//
+
+const route = useRoute();
+
+watch(() => route.params.id, (id) => {
+
+    getProduct(id);
+
+});
+
+//
+
+const transition = ref(true);
+
+const mainImage = ref('');
+
+const quantity = ref(1);
+
+const frame = ref('');
+
+onMounted(() => { getProduct(route.params.id); });
+
+watch(product, () => {
+
+    getRelatedProducts(product.value);
+
+    mainImage.value = product.value.imageUrl;
+
+    quantity.value = 1;
+
+    frame.value = '';
+
+    transition.value = false;
+
+    window.scrollTo(0, 0, 'smooth');
+
+});
+
+const frameSetting = {
+
+    wooden: 'frame-wooden',
+    golden: 'frame-golden',
+    dark: 'frame-dark',
+    baroque: 'frame-baroque',
+
+};
+
+const displayImages = computed(() => {
+
+    const { imageUrl, imagesUrl } = product.value;
+
+    return Array.isArray(imagesUrl) ? [imageUrl, ...imagesUrl] : [imageUrl];
+
+});
+
+//
+
+const zoomImageModal = ref(null);
+
+const zoomImage = ref('');
+
+const openModal = () => {
+
+    zoomImage.value = mainImage.value;
+
+    zoomImageModal.value.showModal();
+
+};
+
+watch(quantity, (current) => {
+
+    if (!Number.isInteger(current)) {
+
+        quantity.value = Math.floor(quantity.value);
+
+    }
+
+    if (current < 1) { quantity.value = 1; }
+
+});
+
+onMounted(() => { getCollection(); });
+
+watch(collection, () => { updateCollection(); }, { deep: true });
+
+</script>
+
 <template>
 
 <div class="h-100 bg-gray text-primary" v-show="!transition">
@@ -151,7 +287,7 @@
                                     <div class="input-group">
                                         <button
                                             type="button" class="btn btn-secondary input-group-text"
-                                            @click="this.quantity -= 1" :disabled="quantity <= 1">
+                                            @click="quantity -= 1" :disabled="quantity <= 1">
                                             <i class="bi bi-dash"></i>
                                         </button>
                                         <input
@@ -160,7 +296,7 @@
                                             v-model.number="quantity">
                                         <button
                                             type="button" class="btn btn-secondary input-group-text"
-                                            @click="this.quantity += 1">
+                                            @click="quantity += 1">
                                             <i class="bi bi-plus"></i>
                                         </button>
                                     </div>
@@ -239,145 +375,6 @@
 <ZoomImageModal :image="zoomImage" ref="zoomImageModal" />
 
 </template>
-
-<script>
-
-import { mapState, mapActions } from 'pinia';
-
-import userProductStore from '@/stores/userProduct';
-
-import userCartStore from '@/stores/userCart';
-
-import userCollectionStore from '@/stores/userCollection';
-
-import loaderStore from '@/stores/loader';
-
-//
-
-import ZoomImageModal from '@/components/modal/ZoomImageModal.vue';
-
-import ProductCard from '@/components/card/ProductCard.vue';
-
-//
-
-export default {
-
-    components: { ZoomImageModal, ProductCard },
-
-    data() {
-
-        return {
-
-            transition: true,
-
-            frame: '',
-            frameSetting: {
-
-                wooden: 'frame-wooden',
-                golden: 'frame-golden',
-                dark: 'frame-dark',
-                baroque: 'frame-baroque',
-
-            },
-
-            mainImage: '',
-            quantity: 1,
-
-            zoomImage: '',
-
-        };
-
-    },
-
-    computed: {
-
-        ...mapState(userProductStore, ['product', 'relatedProducts']),
-
-        ...mapState(loaderStore, ['isLoading', 'loadingTask']),
-
-        ...mapState(userCollectionStore, ['collection']),
-
-        displayImages() {
-
-            const { imageUrl, imagesUrl } = this.product;
-
-            return Array.isArray(imagesUrl) ? [imageUrl, ...imagesUrl] : [imageUrl];
-
-        },
-
-    },
-
-    methods: {
-
-        ...mapActions(userProductStore, ['getProduct', 'getRelatedProducts']),
-
-        ...mapActions(userCartStore, ['addToCart']),
-
-        ...mapActions(userCollectionStore, ['getCollection', 'updateCollection']),
-
-        openModal() {
-
-            this.zoomImage = this.mainImage;
-            this.$refs.zoomImageModal.showModal();
-
-        },
-
-    },
-
-    watch: {
-
-        '$route.params': {
-
-            handler() { this.getProduct(this.$route.params.id); },
-
-            deep: true,
-
-        },
-
-        product() {
-
-            this.getRelatedProducts(this.product);
-
-            this.mainImage = this.product.imageUrl;
-            this.quantity = 1;
-            this.frame = '';
-
-            this.transition = false;
-
-            window.scrollTo(0, 0, 'smooth');
-
-        },
-
-        quantity(value) { // current value
-
-            if (!Number.isInteger(value)) {
-
-                this.quantity = Math.floor(this.quantity);
-
-            } else if (value < 1) { this.quantity = 1; }
-
-        },
-
-        collection: {
-
-            handler() { this.updateCollection(); },
-
-            deep: true,
-
-        },
-
-    },
-
-    mounted() {
-
-        this.getProduct(this.$route.params.id);
-        this.getCollection();
-
-    },
-
-};
-
-</script>
 
 <style lang="scss" scoped>
 

@@ -1,3 +1,70 @@
+<script setup>
+
+import { toRefs, watch, onMounted } from 'vue';
+
+import { useRoute } from 'vue-router';
+
+//
+
+import useUserProductStore from '@/stores/userProduct';
+
+import useUserCollectionStore from '@/stores/userCollection';
+
+//
+
+import PaginationComponent from '@/components/PaginationComponent.vue';
+
+import ProductCard from '@/components/card/ProductCard.vue';
+
+import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
+
+import SearchBar from '@/components/SearchBar.vue';
+
+//
+
+const route = useRoute();
+
+const userProductStore = useUserProductStore();
+
+const userCollectionStore = useUserCollectionStore();
+
+const {
+
+    displaying, currentPage, totalPages,
+    categories, filter,
+
+} = toRefs(userProductStore);
+
+const { getProducts, switchFilter, switchPage } = userProductStore;
+
+const { collection } = toRefs(userCollectionStore);
+
+const { getCollection, updateCollection } = userCollectionStore;
+
+//
+
+onMounted(() => { getProducts(); });
+
+//
+
+onMounted(() => { switchFilter(route.query.category || ''); });
+
+watch(() => route.query.category, (current) => {
+
+    switchFilter(current || '');
+
+});
+
+//
+
+onMounted(() => { getCollection(); });
+
+// 每一次透過 toggle 讓 favorite 陣列的值產生變化時，都要觸發 update 更新 localStorage 內的資料
+
+watch(collection, () => { updateCollection(); }, { deep: true });
+
+</script>
+
 <template>
 
 <div class="h-100 bg-gray text-primary" v-if="displaying.length">
@@ -41,94 +108,6 @@
 </div>
 
 </template>
-
-<script>
-
-import { mapState, mapActions } from 'pinia';
-
-import userProductStore from '@/stores/userProduct';
-
-import userCartStore from '@/stores/userCart';
-
-import loaderStore from '@/stores/loader';
-
-import userCollectionStore from '@/stores/userCollection';
-
-//
-
-import PaginationComponent from '@/components/PaginationComponent.vue';
-
-import ProductCard from '@/components/card/ProductCard.vue';
-
-import SubscriptionSection from '@/components/section/SubscriptionSection.vue';
-
-import SearchBar from '@/components/SearchBar.vue';
-
-//
-
-export default {
-
-    components: {
-
-        ProductCard, PaginationComponent, SubscriptionSection, SearchBar,
-
-    },
-
-    computed: {
-
-        ...mapState(userProductStore, ['displaying', 'currentPage', 'totalPages', 'categories', 'filter']),
-
-        ...mapState(userCollectionStore, ['collection']),
-
-        ...mapState(loaderStore, ['loadingTask']),
-
-    },
-
-    watch: {
-
-        '$route.query': {
-
-            handler(current) { this.switchFilter(current.category || ''); },
-
-            deep: true,
-
-        },
-
-        // 每一次透過 toggle 讓 favorite 陣列的值產生變化時，都要觸發 update 更新 localStorage 內的資料
-
-        collection: {
-
-            handler() { this.updateCollection(); },
-
-            deep: true,
-
-        },
-
-    },
-
-    methods: {
-
-        ...mapActions(userCollectionStore, ['getCollection', 'updateCollection']),
-
-        ...mapActions(userProductStore, ['getProducts', 'switchFilter', 'switchPage']),
-
-        ...mapActions(userCartStore, ['addToCart']),
-
-    },
-
-    mounted() {
-
-        this.getProducts();
-
-        this.switchFilter(this.$route.query.category || '');
-
-        this.getCollection();
-
-    },
-
-};
-
-</script>
 
 <style lang="scss" scoped>
 

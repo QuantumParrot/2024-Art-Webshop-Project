@@ -4,7 +4,11 @@ import { defineProps } from 'vue';
 
 import useFaq from '@/composables/useFaq';
 
-const props = defineProps(['types']);
+const props = defineProps({
+
+    types: { default: [] },
+
+});
 
 const { featuredQuestions } = useFaq(props.types);
 
